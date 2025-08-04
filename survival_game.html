@@ -131,6 +131,46 @@
             box-shadow: 0 4px 15px rgba(233, 69, 96, 0.4);
         }
 
+        .backtrack-btn {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            font-size: 1.1em;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            text-align: left;
+            font-family: inherit;
+            padding: 18px 25px;
+        }
+
+        .backtrack-btn:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .backtrack-btn:hover:before {
+            left: 100%;
+        }
+
+        .backtrack-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+        }
+
+        .backtrack-btn:active {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+        }
+
         .rules-panel {
             background: rgba(0, 0, 0, 0.9);
             padding: 25px;
@@ -219,6 +259,150 @@
             box-shadow: 0 8px 20px rgba(233, 69, 96, 0.5);
         }
 
+        .life-counter {
+            background: rgba(233, 69, 96, 0.1);
+            padding: 15px;
+            border-radius: 10px;
+            border: 1px solid #e94560;
+            margin-bottom: 20px;
+            text-align: center;
+            font-size: 1.2em;
+        }
+
+        .map-icon {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(45deg, #e94560, #f27121);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(233, 69, 96, 0.4);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .map-icon:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(233, 69, 96, 0.6);
+        }
+
+        .map-icon::before {
+            content: "🗺️";
+            font-size: 24px;
+        }
+
+        .map-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: none;
+            z-index: 2000;
+            backdrop-filter: blur(5px);
+        }
+
+        .map-popup {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0, 0, 0, 0.95);
+            border: 2px solid #e94560;
+            border-radius: 15px;
+            padding: 30px;
+            max-width: 900px;
+            max-height: 90vh;
+            overflow-y: auto;
+            backdrop-filter: blur(10px);
+        }
+
+        .map-title {
+            color: #e94560;
+            text-align: center;
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px rgba(233, 69, 96, 0.5);
+        }
+
+        .map-close {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            background: none;
+            border: none;
+            color: #e94560;
+            font-size: 24px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .map-close:hover {
+            transform: scale(1.2);
+        }
+
+        .map-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .map-node {
+            width: 200px;
+            height: 80px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 0.9em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid;
+            text-align: center;
+            padding: 10px;
+            word-wrap: break-word;
+            line-height: 1.2;
+        }
+
+        .map-node.unlocked {
+            background: linear-gradient(45deg, #4facfe, #00f2fe);
+            border-color: #4facfe;
+            color: white;
+            box-shadow: 0 0 15px rgba(79, 172, 254, 0.5);
+        }
+
+        .map-node.unlocked:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 20px rgba(79, 172, 254, 0.8);
+        }
+
+        .map-node.locked {
+            background: #666;
+            border-color: #444;
+            color: #999;
+            cursor: not-allowed;
+        }
+
+        .map-node.ending {
+            background: linear-gradient(45deg, #e94560, #f27121);
+            border-color: #e94560;
+            color: white;
+            box-shadow: 0 0 15px rgba(233, 69, 96, 0.5);
+        }
+
+        .map-node.ending:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 20px rgba(233, 69, 96, 0.8);
+        }
+
         @media (max-width: 768px) {
             .title {
                 font-size: 2.2em;
@@ -227,6 +411,18 @@
     </style>
 </head>
 <body>
+    <div class="map-icon" onclick="openMap()"></div>
+    
+    <div class="map-overlay" id="map-overlay">
+        <div class="map-popup">
+            <button class="map-close" onclick="closeMap()">&times;</button>
+            <h3 class="map-title">故事地图</h3>
+            <div class="map-grid" id="map-grid">
+                <!-- Map nodes will be generated here -->
+            </div>
+        </div>
+    </div>
+
     <div class="container">
         <div class="header">
             <h1 class="title">君有疾否</h1>
@@ -238,12 +434,19 @@
 
         <div class="game-area">
             <div class="main-content">
+                <div id="life-counter" class="life-counter" style="display: none;">
+                    <span style="color: #e94560; font-weight: bold;">生命值: </span>
+                    <span id="life-points" style="color: #fff; font-weight: bold;">5</span>
+                </div>
                 <div id="scenario" class="scenario"></div>
                 <div id="choices" class="choices"></div>
                 <div id="game-over" class="game-over" style="display: none;">
                     <h2>结局</h2>
                     <p id="game-over-message"></p>
-                    <button class="restart-btn" onclick="restartGame()">重新开始</button>
+                    <div id="ending-choices" style="margin-top: 20px;">
+                        <button class="choice-btn" id="backtrack-btn" onclick="backtrackToPrevious()" style="display: none;">回到上一题 (损耗1生命值)</button>
+                        <button class="restart-btn" onclick="restartGame()">重新开始</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -274,6 +477,9 @@
                 this.gameOver = false;
                 this.playerChoices = []; // Track player's choice history
                 this.storyNodes = {}; // Will be loaded from JSON file
+                this.lifePoints = 5; // 生命值 counter
+                this.previousNode = null; // Track previous node for backtracking
+                this.visitedNodes = new Set(); // Track visited nodes for map
                 
                 this.loadStoryNodes();
             }
@@ -295,6 +501,7 @@
             init() {
                 // Only show the current node if story nodes have been loaded
                 if (Object.keys(this.storyNodes).length > 0) {
+                    this.showLifeCounter();
                     this.showCurrentNode();
                 }
             }
@@ -310,10 +517,16 @@
                     return;
                 }
 
+                // Add current node to visited nodes
+                this.addVisitedNode(this.currentChapter);
+
                 document.getElementById('scenario').innerHTML = `<h3>${node.title}</h3><p>${node.text}</p>`;
 
                 const choicesDiv = document.getElementById('choices');
                 choicesDiv.innerHTML = '';
+                
+                // Check if this node has only one choice with "继续"
+                const hasOnlyContinue = node.choices && node.choices.length === 1 && node.choices[0].text === "继续";
                 
                 if (node.isEnding) {
                     this.showEnding(node);
@@ -327,9 +540,30 @@
                     button.onclick = () => this.makeChoice(choice);
                     choicesDiv.appendChild(button);
                 });
+                
+                // Add backtrack button for all nodes (except the first node)
+                if (this.previousNode && this.currentChapter !== 1) {
+                    const backtrackButton = document.createElement('button');
+                    backtrackButton.className = 'backtrack-btn';
+                    
+                    if (hasOnlyContinue) {
+                        // Free backtrack for nodes with only "继续" option
+                        backtrackButton.innerHTML = '回到上一题 (免费)';
+                        backtrackButton.onclick = () => this.backtrackToPrevious(true); // true = free
+                    } else {
+                        // Cost 1 life point for other nodes
+                        backtrackButton.innerHTML = '回到上一题 (损耗1生命值)';
+                        backtrackButton.onclick = () => this.backtrackToPrevious(false); // false = costs life point
+                    }
+                    
+                    choicesDiv.appendChild(backtrackButton);
+                }
             }
 
             makeChoice(choice) {
+                // Store previous node for backtracking
+                this.previousNode = this.currentChapter;
+                
                 // Record choice in history
                 this.playerChoices.push({
                     chapter: this.currentChapter,
@@ -356,18 +590,153 @@
                 document.getElementById('game-over').style.display = 'block';
                 document.getElementById('scenario').style.display = 'none';
                 document.getElementById('choices').style.display = 'none';
+                
+                // Show backtrack button if there's a previous node (regardless of life points)
+                const backtrackBtn = document.getElementById('backtrack-btn');
+                if (this.previousNode) {
+                    backtrackBtn.style.display = 'inline-block';
+                    backtrackBtn.textContent = '回到上一题 (损耗1生命值)';
+                } else {
+                    backtrackBtn.style.display = 'none';
+                }
+                
+                // If life points = 0, show a special message
+                if (this.lifePoints === 0) {
+                    const restartBtn = document.querySelector('.restart-btn');
+                    restartBtn.textContent = '重新开始 (生命值耗尽)';
+                } else {
+                    const restartBtn = document.querySelector('.restart-btn');
+                    restartBtn.textContent = '重新开始';
+                }
+            }
+
+            showLifeCounter() {
+                document.getElementById('life-counter').style.display = 'block';
+                document.getElementById('life-points').textContent = this.lifePoints;
+            }
+
+            updateLifeCounter() {
+                const lifePointsElement = document.getElementById('life-points');
+                lifePointsElement.textContent = this.lifePoints;
+                
+                // Change color when life points are 0
+                if (this.lifePoints === 0) {
+                    lifePointsElement.style.color = '#ff4757';
+                } else {
+                    lifePointsElement.style.color = '#fff';
+                }
+            }
+
+            backtrackToPrevious(isFree = false) {
+                if (this.previousNode) {
+                    // Only check life points if not free backtracking
+                    if (!isFree && this.lifePoints <= 0) {
+                        return; // Can't backtrack without life points
+                    }
+                    
+                    // Only deduct life point if not free
+                    if (!isFree) {
+                        this.lifePoints -= 1;
+                        this.updateLifeCounter();
+                    }
+                    
+                    // Remove the last choice from history
+                    this.playerChoices.pop();
+                    
+                    // Go back to previous node
+                    this.currentChapter = this.previousNode;
+                    this.gameOver = false;
+                    
+                    // Hide game over screen and show game content
+                    document.getElementById('game-over').style.display = 'none';
+                    document.getElementById('scenario').style.display = 'block';
+                    document.getElementById('choices').style.display = 'block';
+                    
+                    this.showCurrentNode();
+                }
             }
 
             restart() {
                 this.currentChapter = 1;
                 this.gameOver = false;
                 this.playerChoices = [];
+                this.lifePoints = 5; // Reset life points
+                this.previousNode = null;
+                this.visitedNodes.clear(); // Reset visited nodes
                 
                 document.getElementById('game-over').style.display = 'none';
                 document.getElementById('scenario').style.display = 'block';
                 document.getElementById('choices').style.display = 'block';
                 
+                this.showLifeCounter();
                 this.showCurrentNode();
+            }
+
+            addVisitedNode(nodeId) {
+                this.visitedNodes.add(nodeId.toString());
+            }
+
+            generateMap() {
+                const mapGrid = document.getElementById('map-grid');
+                mapGrid.innerHTML = '';
+                
+                // Get all node IDs and sort them, excluding endings and nodes with only "继续" option
+                const nodeIds = Object.keys(this.storyNodes)
+                    .filter(nodeId => {
+                        // Exclude ending nodes
+                        if (nodeId.startsWith('ending')) {
+                            return false;
+                        }
+                        
+                        // Exclude nodes that have only one choice with text "继续"
+                        const node = this.storyNodes[nodeId];
+                        if (node && node.choices && node.choices.length === 1 && node.choices[0].text === "继续") {
+                            return false;
+                        }
+                        
+                        return true;
+                    })
+                    .sort((a, b) => {
+                        // Sort numeric nodes
+                        const aNum = parseInt(a);
+                        const bNum = parseInt(b);
+                        if (!isNaN(aNum) && !isNaN(bNum)) {
+                            return aNum - bNum;
+                        }
+                        if (!isNaN(aNum)) return -1;
+                        if (!isNaN(bNum)) return 1;
+                        return a.localeCompare(b);
+                    });
+                
+                nodeIds.forEach(nodeId => {
+                    const nodeElement = document.createElement('div');
+                    nodeElement.className = 'map-node';
+                    
+                    // Get the node title from storyNodes
+                    const node = this.storyNodes[nodeId];
+                    if (node && node.title) {
+                        nodeElement.textContent = node.title;
+                    } else {
+                        nodeElement.textContent = nodeId; // Fallback to node ID if no title
+                    }
+                    
+                    if (this.visitedNodes.has(nodeId)) {
+                        nodeElement.classList.add('unlocked');
+                    } else {
+                        nodeElement.classList.add('locked');
+                    }
+                    
+                    mapGrid.appendChild(nodeElement);
+                });
+            }
+
+            openMap() {
+                this.generateMap();
+                document.getElementById('map-overlay').style.display = 'block';
+            }
+
+            closeMap() {
+                document.getElementById('map-overlay').style.display = 'none';
             }
         }
 
@@ -379,6 +748,18 @@
 
         function restartGame() {
             game.restart();
+        }
+
+        function backtrackToPrevious() {
+            game.backtrackToPrevious(false); // false = costs life point
+        }
+
+        function openMap() {
+            game.openMap();
+        }
+
+        function closeMap() {
+            game.closeMap();
         }
     </script>
 </body>
