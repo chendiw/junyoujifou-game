@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>君有疾否 - 世界游戏守则</title>
+    <style>
+        /* Basic styling for the game environment */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'SimSun', 'Microsoft YaHei', serif;
+            background: linear-gradient(135deg, #0f0f23, #1a1a2e, #16213e);
+            color: #e94560;
+            min-height: 100vh;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 25px;
+            background: rgba(233, 69, 96, 0.1);
+            border-radius: 15px;
+            border: 2px solid #e94560;
+            backdrop-filter: blur(10px);
+        }
+
+        .title {
+            font-size: 2.8em;
+            margin-bottom: 10px;
+            text-shadow: 0 0 20px #e94560;
+            background: linear-gradient(45deg, #e94560, #f27121);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subtitle {
+            font-size: 1.3em;
+            opacity: 0.9;
+            color: #fff;
+        }
+
+        .game-area {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .main-content {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 30px;
+            border-radius: 15px;
+            border: 1px solid #e94560;
+            min-height: 600px;
+            backdrop-filter: blur(5px);
+        }
+
+        .scenario {
+            font-size: 1.2em;
+            line-height: 1.8;
+            margin-bottom: 30px;
+            padding: 25px;
+            background: rgba(233, 69, 96, 0.08);
+            border-radius: 12px;
+            border-left: 4px solid #e94560;
+            color: #fff;
+        }
+
+        .scenario h3 {
+            color: #e94560;
+            margin-bottom: 15px;
+            font-size: 1.4em;
+            text-shadow: 0 0 10px rgba(233, 69, 96, 0.5);
+        }
+
+        .choices {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .choice-btn {
+            padding: 18px 25px;
+            background: linear-gradient(45deg, #e94560, #f27121);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            font-size: 1.1em;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            text-align: left;
+            font-family: inherit;
+        }
+
+        .choice-btn:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .choice-btn:hover:before {
+            left: 100%;
+        }
+
+        .choice-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(233, 69, 96, 0.4);
+        }
+
+        .choice-btn:active {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 15px rgba(233, 69, 96, 0.4);
+        }
+
+        .rules-panel {
+            background: rgba(0, 0, 0, 0.9);
+            padding: 25px;
+            border-radius: 15px;
+            border: 1px solid #e94560;
+            margin-top: 20px;
+            backdrop-filter: blur(5px);
+        }
+
+        .rules-title {
+            color: #e94560;
+            margin-bottom: 20px;
+            text-align: center;
+            font-size: 1.3em;
+            text-shadow: 0 0 10px rgba(233, 69, 96, 0.5);
+        }
+
+        .core-rules {
+            margin-bottom: 20px;
+        }
+
+        .rule-item {
+            margin-bottom: 12px;
+            padding: 12px;
+            background: rgba(233, 69, 96, 0.08);
+            border-radius: 8px;
+            font-size: 1em;
+            border-left: 3px solid #e94560;
+            color: #fff;
+            transition: all 0.3s ease;
+        }
+
+        .rule-item:hover {
+            background: rgba(233, 69, 96, 0.15);
+            transform: translateX(5px);
+        }
+
+        .forbidden-rule {
+            border-left-color: #ff4757;
+            background: rgba(255, 71, 87, 0.1);
+        }
+        
+        .character-name {
+            color: #f27121;
+            font-weight: bold;
+        }
+
+        .game-over {
+            text-align: center;
+            padding: 40px;
+            background: rgba(233, 69, 96, 0.2);
+            border-radius: 15px;
+            border: 2px solid #e94560;
+            backdrop-filter: blur(10px);
+        }
+
+        .game-over h2 {
+            color: #e94560;
+            margin-bottom: 20px;
+            font-size: 2em;
+            text-shadow: 0 0 15px rgba(233, 69, 96, 0.7);
+        }
+
+        .game-over p {
+            color: #fff;
+            font-size: 1.2em;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+
+        .restart-btn {
+            padding: 15px 35px;
+            background: linear-gradient(45deg, #e94560, #f27121);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            font-size: 1.2em;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+            font-family: inherit;
+        }
+
+        .restart-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(233, 69, 96, 0.5);
+        }
+
+        @media (max-width: 768px) {
+            .title {
+                font-size: 2.2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1 class="title">君有疾否</h1>
+            <p class="subtitle">世界游戏守则</p>
+            <div style="margin-top: 20px; padding: 20px; background: rgba(233, 69, 96, 0.05); border-radius: 10px; border: 1px solid rgba(233, 69, 96, 0.3); color: #fff; font-size: 1em; line-height: 1.6;">
+                亲爱的读者游客，欢迎你们进入《君有疾否》小说的世界。我们打造的世界时间线与君有疾否原文中时间线吻合，剧情发展一致，并保证所有角色保留原文的设定，希望您可以体验愉快！在体验时，请各位游客务必遵循书中设定，以确保你们的安全，<span style="color: #ff4757; font-weight: bold;">若导致世界线崩坏，后果自负</span>。
+            </div>
+        </div>
+
+        <div class="game-area">
+            <div class="main-content">
+                <div id="scenario" class="scenario"></div>
+                <div id="choices" class="choices"></div>
+                <div id="game-over" class="game-over" style="display: none;">
+                    <h2>结局</h2>
+                    <p id="game-over-message"></p>
+                    <button class="restart-btn" onclick="restartGame()">重新开始</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="rules-panel">
+            <h3 class="rules-title">世界游戏守则</h3>
+            <div class="core-rules">
+                <h4 style="color: #f27121; margin-bottom: 15px;">核心守则：</h4>
+                <div class="rule-item forbidden-rule">1. 禁止主动攻击别人</div>
+                <div class="rule-item forbidden-rule">2. 禁止改变原故事的情节发展</div>
+                <div class="rule-item forbidden-rule">3. 禁止试图接近<span class="character-name">楚明允</span>与<span class="character-name">苏世誉</span>，或破坏两人的关系</div>
+                <div class="rule-item forbidden-rule">4. 禁止泄露天机</div>
+                <div class="rule-item forbidden-rule">5. 禁止泄露天机</div>
+                <div class="rule-item forbidden-rule">6. 禁止泄露天机</div>
+            </div>
+            <div style="margin-top: 15px; padding: 15px; background: rgba(255, 71, 87, 0.1); border-radius: 8px; border: 1px solid #ff4757;">
+                <p style="color: #ff4757; font-weight: bold; text-align: center;">
+                    ⚠️ 警告：违反守则将导致世界线崩坏，后果自负！
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        class StoryGame {
+            constructor() {
+                this.currentChapter = 1;
+                this.gameOver = false;
+                this.playerChoices = []; // Track player's choice history
+                this.storyNodes = {}; // Will be loaded from JSON file
+                
+                this.loadStoryNodes();
+            }
+
+            async loadStoryNodes() {
+                try {
+                    const response = await fetch('story_nodes.json');
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    this.storyNodes = await response.json();
+                    this.init();
+                } catch (error) {
+                    console.error('Error loading story nodes:', error);
+                    document.getElementById('scenario').innerHTML = '<h3>错误</h3><p>无法加载故事数据，请检查 story_nodes.json 文件是否存在。</p>';
+                }
+            }
+
+            init() {
+                // Only show the current node if story nodes have been loaded
+                if (Object.keys(this.storyNodes).length > 0) {
+                    this.showCurrentNode();
+                }
+            }
+
+            showCurrentNode() {
+                if (this.gameOver) return;
+
+                const node = this.storyNodes[this.currentChapter];
+                if (!node) {
+                    console.error('Story node not found:', this.currentChapter);
+                    document.getElementById('scenario').innerHTML = `<h3>错误</h3><p>找不到章节 ${this.currentChapter}，请重新开始游戏。</p>`;
+                    document.getElementById('choices').innerHTML = `<button class="choice-btn" onclick="restartGame()">重新开始</button>`;
+                    return;
+                }
+
+                document.getElementById('scenario').innerHTML = `<h3>${node.title}</h3><p>${node.text}</p>`;
+
+                const choicesDiv = document.getElementById('choices');
+                choicesDiv.innerHTML = '';
+                
+                if (node.isEnding) {
+                    this.showEnding(node);
+                    return;
+                }
+
+                node.choices.forEach((choice) => {
+                    const button = document.createElement('button');
+                    button.className = 'choice-btn';
+                    button.innerHTML = choice.text;
+                    button.onclick = () => this.makeChoice(choice);
+                    choicesDiv.appendChild(button);
+                });
+            }
+
+            makeChoice(choice) {
+                // Record choice in history
+                this.playerChoices.push({
+                    chapter: this.currentChapter,
+                    action: choice.action,
+                    text: choice.text
+                });
+
+                // Move to the next node directly
+                this.currentChapter = choice.nextNode;
+
+                // Debug logging
+                console.log('Moving to chapter:', this.currentChapter);
+
+                // Add a small delay for a smoother transition
+                setTimeout(() => {
+                    this.showCurrentNode();
+                }, 300);
+            }
+
+            showEnding(node) {
+                this.gameOver = true;
+                
+                document.getElementById('game-over-message').innerHTML = node.text;
+                document.getElementById('game-over').style.display = 'block';
+                document.getElementById('scenario').style.display = 'none';
+                document.getElementById('choices').style.display = 'none';
+            }
+
+            restart() {
+                this.currentChapter = 1;
+                this.gameOver = false;
+                this.playerChoices = [];
+                
+                document.getElementById('game-over').style.display = 'none';
+                document.getElementById('scenario').style.display = 'block';
+                document.getElementById('choices').style.display = 'block';
+                
+                this.showCurrentNode();
+            }
+        }
+
+        let game;
+
+        window.onload = function() {
+            game = new StoryGame();
+        };
+
+        function restartGame() {
+            game.restart();
+        }
+    </script>
+</body>
+</html>
