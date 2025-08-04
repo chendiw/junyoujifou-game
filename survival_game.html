@@ -264,6 +264,16 @@
             padding: 15px;
             border-radius: 10px;
             border: 1px solid #e94560;
+            margin-bottom: 10px;
+            text-align: center;
+            font-size: 1.2em;
+        }
+
+        .backtrack-counter {
+            background: rgba(79, 172, 254, 0.1);
+            padding: 15px;
+            border-radius: 10px;
+            border: 1px solid #4facfe;
             margin-bottom: 20px;
             text-align: center;
             font-size: 1.2em;
@@ -321,6 +331,83 @@
             max-height: 90vh;
             overflow-y: auto;
             backdrop-filter: blur(10px);
+        }
+
+        .confirmation-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: none;
+            z-index: 3000;
+            backdrop-filter: blur(5px);
+        }
+
+        .confirmation-popup {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0, 0, 0, 0.95);
+            border: 2px solid #4facfe;
+            border-radius: 15px;
+            padding: 30px;
+            max-width: 500px;
+            backdrop-filter: blur(10px);
+            text-align: center;
+        }
+
+        .confirmation-title {
+            color: #4facfe;
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px rgba(79, 172, 254, 0.5);
+        }
+
+        .confirmation-message {
+            color: #fff;
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        .confirmation-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .confirmation-btn {
+            padding: 12px 25px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            font-family: inherit;
+        }
+
+        .confirmation-btn.confirm {
+            background: linear-gradient(45deg, #4facfe, #00f2fe);
+            color: white;
+        }
+
+        .confirmation-btn.confirm:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(79, 172, 254, 0.4);
+        }
+
+        .confirmation-btn.cancel {
+            background: linear-gradient(45deg, #666, #999);
+            color: white;
+        }
+
+        .confirmation-btn.cancel:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 102, 102, 0.4);
         }
 
         .map-title {
@@ -487,6 +574,19 @@
         </div>
     </div>
 
+    <div class="confirmation-overlay" id="confirmation-overlay">
+        <div class="confirmation-popup">
+            <h3 class="confirmation-title">确认跳转</h3>
+            <div class="confirmation-message" id="confirmation-message">
+                <!-- Confirmation message will be set here -->
+            </div>
+            <div class="confirmation-buttons">
+                <button class="confirmation-btn confirm" id="confirm-btn">确认</button>
+                <button class="confirmation-btn cancel" onclick="closeConfirmation()">取消</button>
+            </div>
+        </div>
+    </div>
+
     <div class="container">
         <div class="header">
             <h1 class="title">君有疾否</h1>
@@ -501,6 +601,10 @@
                 <div id="life-counter" class="life-counter" style="display: none;">
                     <span style="color: #e94560; font-weight: bold;">生命值: </span>
                     <span id="life-points" style="color: #fff; font-weight: bold;">5</span>
+                </div>
+                <div id="backtrack-counter" class="backtrack-counter" style="display: none;">
+                    <span style="color: #4facfe; font-weight: bold;">回溯卡: </span>
+                    <span id="backtrack-points" style="color: #fff; font-weight: bold;">3</span>
                 </div>
                 <div id="scenario" class="scenario"></div>
                 <div id="choices" class="choices"></div>
@@ -542,10 +646,12 @@
                 this.playerChoices = []; // Track player's choice history
                 this.storyNodes = {}; // Will be loaded from JSON file
                 this.lifePoints = 5; // 生命值 counter
+                this.backtrackPoints = 3; // 回溯卡 counter
                 this.previousNode = null; // Track previous node for backtracking
                 this.visitedNodes = new Set(); // Track visited nodes for map
                 
                 this.loadStoryNodes();
+                this.loadProgress(); // Load saved progress
             }
 
             async loadStoryNodes() {
@@ -566,6 +672,7 @@
                 // Only show the current node if story nodes have been loaded
                 if (Object.keys(this.storyNodes).length > 0) {
                     this.showLifeCounter();
+                    this.showBacktrackCounter();
                     this.showCurrentNode();
                 }
             }
@@ -679,6 +786,11 @@
                 document.getElementById('life-points').textContent = this.lifePoints;
             }
 
+            showBacktrackCounter() {
+                document.getElementById('backtrack-counter').style.display = 'block';
+                document.getElementById('backtrack-points').textContent = this.backtrackPoints;
+            }
+
             updateLifeCounter() {
                 const lifePointsElement = document.getElementById('life-points');
                 lifePointsElement.textContent = this.lifePoints;
@@ -688,6 +800,18 @@
                     lifePointsElement.style.color = '#ff4757';
                 } else {
                     lifePointsElement.style.color = '#fff';
+                }
+            }
+
+            updateBacktrackCounter() {
+                const backtrackPointsElement = document.getElementById('backtrack-points');
+                backtrackPointsElement.textContent = this.backtrackPoints;
+                
+                // Change color when backtrack points are 0
+                if (this.backtrackPoints === 0) {
+                    backtrackPointsElement.style.color = '#ff4757';
+                } else {
+                    backtrackPointsElement.style.color = '#fff';
                 }
             }
 
@@ -737,6 +861,7 @@
                 this.gameOver = false;
                 this.playerChoices = [];
                 this.lifePoints = 5; // Reset life points
+                this.backtrackPoints = 3; // Reset backtrack points
                 this.previousNode = null;
                 // Keep visited nodes - don't clear unlocked status
                 // this.visitedNodes.clear(); // Reset visited nodes
@@ -746,11 +871,71 @@
                 document.getElementById('choices').style.display = 'block';
                 
                 this.showLifeCounter();
+                this.showBacktrackCounter();
                 this.showCurrentNode();
             }
 
             addVisitedNode(nodeId) {
                 this.visitedNodes.add(nodeId.toString());
+            }
+
+            selectNodeFromMap(nodeId) {
+                // Check if player has backtrack points
+                if (this.backtrackPoints <= 0) {
+                    alert('回溯卡已用完，无法跳转到其他节点！');
+                    return;
+                }
+                
+                // Check if the node is different from current node
+                if (nodeId === this.currentChapter) {
+                    alert('您已经在当前节点！');
+                    return;
+                }
+                
+                // Show custom confirmation popup
+                this.showConfirmation(nodeId);
+            }
+
+            showConfirmation(nodeId) {
+                const message = document.getElementById('confirmation-message');
+                const confirmBtn = document.getElementById('confirm-btn');
+                
+                // Set the confirmation message
+                message.textContent = `确定要使用1张回溯卡跳转到"${this.storyNodes[nodeId].title}"吗？`;
+                
+                // Set up the confirm button action
+                confirmBtn.onclick = () => {
+                    this.executeNodeJump(nodeId);
+                };
+                
+                // Show the confirmation popup
+                document.getElementById('confirmation-overlay').style.display = 'block';
+            }
+
+            executeNodeJump(nodeId) {
+                // Decrement backtrack points
+                this.backtrackPoints -= 1;
+                this.updateBacktrackCounter();
+                
+                // Update current chapter
+                this.currentChapter = nodeId;
+                this.gameOver = false;
+                
+                // Hide game over screen if it's showing
+                document.getElementById('game-over').style.display = 'none';
+                document.getElementById('scenario').style.display = 'block';
+                document.getElementById('choices').style.display = 'block';
+                
+                // Show the selected node
+                this.showCurrentNode();
+                
+                // Close the map and confirmation
+                this.closeMap();
+                this.closeConfirmation();
+            }
+
+            closeConfirmation() {
+                document.getElementById('confirmation-overlay').style.display = 'none';
             }
 
             generateMap() {
@@ -823,6 +1008,14 @@
                 card.appendChild(status);
                 card.appendChild(title);
                 
+                // Add click functionality for unlocked cards
+                if (this.visitedNodes.has(nodeId)) {
+                    card.style.cursor = 'pointer';
+                    card.addEventListener('click', () => {
+                        this.selectNodeFromMap(nodeId);
+                    });
+                }
+                
                 return card;
             }
 
@@ -860,6 +1053,10 @@
 
         function closeMap() {
             game.closeMap();
+        }
+
+        function closeConfirmation() {
+            game.closeConfirmation();
         }
 
 
