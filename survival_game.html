@@ -589,8 +589,16 @@
 
     <div class="container">
         <div class="header">
-            <h1 class="title">君有疾否</h1>
-            <p class="subtitle">世界游戏守则</p>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                <div>
+                    <h1 class="title">君有疾否</h1>
+                    <p class="subtitle">世界游戏守则</p>
+                </div>
+                <div style="display: flex; align-items: center; gap: 10px;">
+                    <span style="color: #fff; font-size: 0.9em;">欢迎，<span id="user-account-name" style="color: #74b9ff; font-weight: bold;"></span></span>
+                    <button onclick="logout()" style="background: rgba(255, 71, 87, 0.8); color: white; border: none; padding: 8px 15px; border-radius: 5px; cursor: pointer; font-size: 0.8em; transition: all 0.3s ease;">退出登录</button>
+                </div>
+            </div>
             <div style="margin-top: 20px; padding: 20px; background: rgba(233, 69, 96, 0.05); border-radius: 10px; border: 1px solid rgba(233, 69, 96, 0.3); color: #fff; font-size: 1em; line-height: 1.6;">
                 亲爱的读者游客，欢迎你们进入《君有疾否》小说的世界。我们打造的世界时间线与君有疾否原文中时间线吻合，剧情发展一致，并保证所有角色保留原文的设定，希望您可以体验愉快！在体验时，请各位游客务必遵循书中设定，以确保你们的安全，<span style="color: #ff4757; font-weight: bold;">若导致世界线崩坏，后果自负</span>。
             </div>
@@ -1088,6 +1096,19 @@
         let game;
 
         window.onload = function() {
+            // Check if user is logged in
+            const userId = localStorage.getItem('junyoujifou_userId');
+            const accountName = localStorage.getItem('junyoujifou_accountName');
+            
+            if (!userId || !accountName) {
+                // Redirect to login if not authenticated
+                window.location.href = 'login.html';
+                return;
+            }
+            
+            // Display account name
+            document.getElementById('user-account-name').textContent = accountName;
+            
             game = new StoryGame();
             
             // Initialize save/load system
@@ -1111,6 +1132,15 @@
                 console.error('Map icon element not found');
             }
         };
+
+        function logout() {
+            // Clear localStorage
+            localStorage.removeItem('junyoujifou_userId');
+            localStorage.removeItem('junyoujifou_accountName');
+            
+            // Redirect to login page
+            window.location.href = 'login.html';
+        }
 
         function restartGame() {
             game.restart();

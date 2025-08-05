@@ -63,6 +63,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
         # Prepare game state
         game_state = {
             'userId': req_body['userId'],
+            'accountName': req_body.get('accountName', ''),
             'currentChapter': req_body.get('currentChapter', 1),
             'lifePoints': req_body.get('lifePoints', 5),
             'backtrackPoints': req_body.get('backtrackPoints', 3),

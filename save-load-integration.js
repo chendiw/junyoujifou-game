@@ -5,17 +5,24 @@ class GameSaveManager {
     constructor() {
         // Azure Functions URL
         this.baseUrl = 'https://junyoujifou-game-functions.azurewebsites.net';
-        this.userId = this.getOrCreateUserId();
+        this.userId = this.getUserId();
+        this.accountName = this.getAccountName();
     }
 
-    // Generate or retrieve user ID from localStorage
-    getOrCreateUserId() {
-        let userId = localStorage.getItem('junyoujifou_userId');
+    // Get user ID from localStorage (should be set by login)
+    getUserId() {
+        const userId = localStorage.getItem('junyoujifou_userId');
         if (!userId) {
-            userId = 'user_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
-            localStorage.setItem('junyoujifou_userId', userId);
+            // Redirect to login if no user ID
+            window.location.href = 'login.html';
+            return null;
         }
         return userId;
+    }
+
+    // Get account name from localStorage
+    getAccountName() {
+        return localStorage.getItem('junyoujifou_accountName') || '';
     }
 
     // Save game state to Azure Functions
@@ -23,6 +30,7 @@ class GameSaveManager {
         try {
             const gameState = {
                 userId: this.userId,
+                accountName: this.accountName,
                 currentChapter: gameInstance.currentChapter,
                 lifePoints: gameInstance.lifePoints,
                 backtrackPoints: gameInstance.backtrackPoints,
