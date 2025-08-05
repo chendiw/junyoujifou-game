@@ -759,9 +759,9 @@
                 document.getElementById('scenario').style.display = 'none';
                 document.getElementById('choices').style.display = 'none';
                 
-                // Show backtrack button if there's a previous node (regardless of life points)
+                // Show backtrack button if there's a previous node AND user has life points
                 const backtrackBtn = document.getElementById('backtrack-btn');
-                if (this.previousNode) {
+                if (this.previousNode && this.lifePoints > 0) {
                     backtrackBtn.style.display = 'inline-block';
                     backtrackBtn.textContent = '回到上一题 (损耗1生命值)';
                 } else {
