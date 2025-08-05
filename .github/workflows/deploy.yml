@@ -27,20 +27,23 @@ jobs:
         
     - name: Deploy to Azure Storage
       run: |
-        # Upload files to storage account
+        # Upload HTML files with overwrite
         az storage blob upload-batch \
           --source . \
           --destination '$web' \
           --account-name $STORAGE_ACCOUNT_NAME \
           --pattern "*.html" \
-          --content-type "text/html"
+          --content-type "text/html" \
+          --overwrite
           
+        # Upload JSON file with overwrite
         az storage blob upload \
           --file story_nodes.json \
           --container-name '$web' \
           --name story_nodes.json \
           --account-name $STORAGE_ACCOUNT_NAME \
-          --content-type "application/json"
+          --content-type "application/json" \
+          --overwrite
           
     - name: Purge CDN cache
       run: |
