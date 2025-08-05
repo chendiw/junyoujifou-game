@@ -1,0 +1,58 @@
+name: Deploy to Azure Storage
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+env:
+  STORAGE_ACCOUNT_NAME: junyoujifou20250804
+  RESOURCE_GROUP: junyoujifou-game-rg
+  CDN_PROFILE: junyoujifou-cdn
+  CDN_ENDPOINT: junyoujifou-game
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Set up Azure CLI
+      uses: azure/login@v1
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
+        
+    - name: Deploy to Azure Storage
+      run: |
+        # Upload files to storage account
+        az storage blob upload-batch \
+          --source . \
+          --destination '$web' \
+          --account-name $STORAGE_ACCOUNT_NAME \
+          --pattern "*.html" \
+          --content-type "text/html"
+          
+        az storage blob upload \
+          --file story_nodes.json \
+          --container-name '$web' \
+          --name story_nodes.json \
+          --account-name $STORAGE_ACCOUNT_NAME \
+          --content-type "application/json"
+          
+    - name: Purge CDN cache
+      run: |
+        # Purge CDN cache to ensure latest content is served
+        az cdn endpoint purge \
+          --profile-name $CDN_PROFILE \
+          --name $CDN_ENDPOINT \
+          --resource-group $RESOURCE_GROUP \
+          --content-paths "/*"
+          
+    - name: Verify deployment
+      run: |
+        echo "Deployment completed successfully!"
+        echo "CDN URL: https://junyoujifou-game.azureedge.net/"
+        echo "Custom Domain: https://www.junyoujifou-game.live/ (when SSL is ready)" 
