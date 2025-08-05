@@ -887,6 +887,7 @@
             }
 
             async autoSaveGame() {
+                console.log('Auto-save triggered, gameSaveManager:', !!window.gameSaveManager);
                 if (window.gameSaveManager) {
                     try {
                         await window.gameSaveManager.autoSave(this);
@@ -895,6 +896,8 @@
                         console.error('Auto-save failed:', error);
                         this.showSaveStatus('保存失败，请检查网络连接', 'error');
                     }
+                } else {
+                    console.error('gameSaveManager not available for auto-save');
                 }
             }
 
@@ -1111,12 +1114,17 @@
             
             game = new StoryGame();
             
-            // Initialize save/load system
-            if (window.GameSaveManager) {
-                window.gameSaveManager = new GameSaveManager();
-                // Load saved game state on startup
-                window.gameSaveManager.loadAndApply(game);
-            }
+            // Initialize save/load system - wait for GameSaveManager to be available
+            setTimeout(() => {
+                if (window.GameSaveManager) {
+                    window.gameSaveManager = new GameSaveManager();
+                    // Load saved game state on startup
+                    window.gameSaveManager.loadAndApply(game);
+                    console.log('Save/load system initialized');
+                } else {
+                    console.error('GameSaveManager not available');
+                }
+            }, 100);
             
             // Add event listener to map icon after game is initialized
             const mapIcon = document.getElementById('map-icon');

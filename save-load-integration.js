@@ -92,13 +92,17 @@ class GameSaveManager {
             gameInstance.currentChapter = gameState.currentChapter;
             gameInstance.lifePoints = gameState.lifePoints;
             gameInstance.backtrackPoints = gameState.backtrackPoints;
-            gameInstance.visitedNodes = gameState.visitedNodes || [];
+            gameInstance.visitedNodes = new Set(gameState.visitedNodes || []);
             gameInstance.playerChoices = gameState.playerChoices || [];
             gameInstance.previousNode = gameState.previousNode;
             gameInstance.gameOver = gameState.gameOver || false;
 
             // Update UI to reflect loaded state
-            gameInstance.updateUI();
+            gameInstance.showLifeCounter();
+            gameInstance.showBacktrackCounter();
+            gameInstance.updateLifeCounter();
+            gameInstance.updateBacktrackCounter();
+            gameInstance.showCurrentNode();
             console.log('Game state applied successfully');
         }
     }
