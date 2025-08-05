@@ -560,7 +560,7 @@
     </style>
 </head>
 <body>
-    <div class="map-icon" onclick="openMap()"></div>
+            <div class="map-icon" id="map-icon"></div>
     
     <div class="map-overlay" id="map-overlay">
         <div class="map-popup">
@@ -651,7 +651,7 @@
                 this.visitedNodes = new Set(); // Track visited nodes for map
                 
                 this.loadStoryNodes();
-                this.loadProgress(); // Load saved progress
+                // this.loadProgress(); // Load saved progress
             }
 
             async loadStoryNodes() {
@@ -744,9 +744,6 @@
 
                 // Move to the next node directly
                 this.currentChapter = choice.nextNode;
-
-                // Debug logging
-                console.log('Moving to chapter:', this.currentChapter);
 
                 // Add a small delay for a smoother transition
                 setTimeout(() => {
@@ -1025,11 +1022,19 @@
 
             openMap() {
                 this.generateMap();
-                document.getElementById('map-overlay').style.display = 'block';
+                const mapOverlay = document.getElementById('map-overlay');
+                if (mapOverlay) {
+                    mapOverlay.style.display = 'block';
+                } else {
+                    console.error('Map overlay element not found');
+                }
             }
 
             closeMap() {
-                document.getElementById('map-overlay').style.display = 'none';
+                const mapOverlay = document.getElementById('map-overlay');
+                if (mapOverlay) {
+                    mapOverlay.style.display = 'none';
+                }
             }
         }
 
@@ -1037,6 +1042,20 @@
 
         window.onload = function() {
             game = new StoryGame();
+            
+            // Add event listener to map icon after game is initialized
+            const mapIcon = document.getElementById('map-icon');
+            if (mapIcon) {
+                mapIcon.addEventListener('click', function() {
+                    if (game) {
+                        game.openMap();
+                    } else {
+                        console.error('Game not initialized yet');
+                    }
+                });
+            } else {
+                console.error('Map icon element not found');
+            }
         };
 
         function restartGame() {
@@ -1048,15 +1067,23 @@
         }
 
         function openMap() {
-            game.openMap();
+            if (game) {
+                game.openMap();
+            } else {
+                console.error('Game not initialized yet');
+            }
         }
 
         function closeMap() {
-            game.closeMap();
+            if (game) {
+                game.closeMap();
+            }
         }
 
         function closeConfirmation() {
-            game.closeConfirmation();
+            if (game) {
+                game.closeConfirmation();
+            }
         }
 
 
