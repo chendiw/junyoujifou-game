@@ -815,49 +815,6 @@
                 }
             }
 
-            // Auto-save game state
-            async autoSaveGame() {
-                if (window.gameSaveManager) {
-                    try {
-                        await window.gameSaveManager.autoSave(this);
-                        console.log('Game auto-saved successfully');
-                    } catch (error) {
-                        console.error('Auto-save failed:', error);
-                        this.showSaveStatus('保存失败，请检查网络连接', 'error');
-                    }
-                }
-            }
-
-            // Show save error message
-            showSaveStatus(message, type = 'error') {
-                // Create error message element dynamically
-                const errorDiv = document.createElement('div');
-                errorDiv.style.cssText = `
-                    position: fixed;
-                    top: 20px;
-                    right: 20px;
-                    background: rgba(255, 71, 87, 0.9);
-                    color: white;
-                    padding: 10px 15px;
-                    border-radius: 5px;
-                    font-size: 0.9em;
-                    z-index: 10000;
-                    max-width: 300px;
-                    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-                `;
-                errorDiv.textContent = message;
-                
-                // Add to page
-                document.body.appendChild(errorDiv);
-                
-                // Remove after 5 seconds
-                setTimeout(() => {
-                    if (errorDiv.parentNode) {
-                        errorDiv.parentNode.removeChild(errorDiv);
-                    }
-                }, 5000);
-            }
-
             backtrackToPrevious(isFree = false) {
                 if (this.previousNode) {
                     // Only check life points if not free backtracking
@@ -895,10 +852,10 @@
                     document.getElementById('scenario').style.display = 'block';
                     document.getElementById('choices').style.display = 'block';
                     
+                    this.showCurrentNode();
+                    
                     // Auto-save game state after backtracking
                     this.autoSaveGame();
-                    
-                    this.showCurrentNode();
                 }
             }
 
@@ -919,6 +876,47 @@
                 this.showLifeCounter();
                 this.showBacktrackCounter();
                 this.showCurrentNode();
+            }
+
+            async autoSaveGame() {
+                if (window.gameSaveManager) {
+                    try {
+                        await window.gameSaveManager.autoSave(this);
+                        console.log('Game auto-saved successfully');
+                    } catch (error) {
+                        console.error('Auto-save failed:', error);
+                        this.showSaveStatus('保存失败，请检查网络连接', 'error');
+                    }
+                }
+            }
+
+            showSaveStatus(message, type = 'error') {
+                // Create error message element dynamically
+                const errorDiv = document.createElement('div');
+                errorDiv.style.cssText = `
+                    position: fixed;
+                    top: 20px;
+                    right: 20px;
+                    background: rgba(255, 71, 87, 0.9);
+                    color: white;
+                    padding: 10px 15px;
+                    border-radius: 5px;
+                    font-size: 0.9em;
+                    z-index: 10000;
+                    max-width: 300px;
+                    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+                `;
+                errorDiv.textContent = message;
+                
+                // Add to page
+                document.body.appendChild(errorDiv);
+                
+                // Remove after 5 seconds
+                setTimeout(() => {
+                    if (errorDiv.parentNode) {
+                        errorDiv.parentNode.removeChild(errorDiv);
+                    }
+                }, 5000);
             }
 
             addVisitedNode(nodeId) {
@@ -1092,6 +1090,13 @@
         window.onload = function() {
             game = new StoryGame();
             
+            // Initialize save/load system
+            if (window.GameSaveManager) {
+                window.gameSaveManager = new GameSaveManager();
+                // Load saved game state on startup
+                window.gameSaveManager.loadAndApply(game);
+            }
+            
             // Add event listener to map icon after game is initialized
             const mapIcon = document.getElementById('map-icon');
             if (mapIcon) {
@@ -1104,13 +1109,6 @@
                 });
             } else {
                 console.error('Map icon element not found');
-            }
-
-            // Initialize save/load system
-            if (window.GameSaveManager) {
-                window.gameSaveManager = new GameSaveManager();
-                // Load saved game state on startup
-                window.gameSaveManager.loadAndApply(game);
             }
         };
 

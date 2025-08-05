@@ -21,4 +21,22 @@ Thumbs.db
 *.temp
 
 # Azure credentials (if any)
-.azure/ 
+.azure/
+
+# Azure Functions
+azure-functions/local.settings.json
+azure-functions/.python_packages/
+azure-functions/__pycache__/
+azure-functions/*/__pycache__/
+azure-functions/.pytest_cache/
+azure-functions/.coverage
+azure-functions/.env
+azure-functions/.venv/
+azure-functions/venv/
+azure-functions/node_modules/
+azure-functions/.funcignore
+azure-functions/.python_packages/
+azure-functions/.python_packages/lib/
+azure-functions/.python_packages/lib/site-packages/
+azure-functions/.python_packages/lib/python*/
+azure-functions/.python_packages/lib/python*/site-packages/ 
