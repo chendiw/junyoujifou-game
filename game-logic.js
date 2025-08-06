@@ -255,7 +255,8 @@ async function loadCurrentStory() {
     return;
   }
   
-  storyTitle.textContent = node.title;
+  // Display chapter number (第x章) along with the title
+  storyTitle.textContent = `第${gameState.currentChapter}章 ${node.title}`;
   storyText.innerHTML = node.text;
   
   // Clear previous choices
