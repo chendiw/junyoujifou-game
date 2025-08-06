@@ -169,7 +169,7 @@ class StorageService {
   async syncUserToAzure(user, gameState) {
     try {
       // Create user in Azure
-      const userResponse = await fetch(`${this.azureBaseUrl}/create_account`, {
+      const userResponse = await fetch(`${this.azureBaseUrl}/create-account`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -190,12 +190,22 @@ class StorageService {
       }
 
       // Update game state in Azure
-      const gameStateResponse = await fetch(`${this.azureBaseUrl}/game-state/${user.id}`, {
+      const gameStateResponse = await fetch(`${this.azureBaseUrl}/save-game`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(gameState)
+        body: JSON.stringify({
+          userId: user.id,
+          accountName: user.accountName,
+          currentChapter: gameState.currentChapter,
+          lifePoints: gameState.lifePoints,
+          backtrackPoints: gameState.transportCards,
+          visitedNodes: gameState.visitedNodes,
+          playerChoices: gameState.playerChoices,
+          previousNode: gameState.previousNode,
+          gameOver: gameState.gameOver
+        })
       });
 
       if (!gameStateResponse.ok) {
@@ -220,12 +230,22 @@ class StorageService {
     if (!gameState) return;
     
     try {
-      const response = await fetch(`${this.azureBaseUrl}/game-state/${this.currentUser.id}`, {
+      const response = await fetch(`${this.azureBaseUrl}/save-game`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(gameState)
+        body: JSON.stringify({
+          userId: this.currentUser.id,
+          accountName: this.currentUser.accountName,
+          currentChapter: gameState.currentChapter,
+          lifePoints: gameState.lifePoints,
+          backtrackPoints: gameState.transportCards,
+          visitedNodes: gameState.visitedNodes,
+          playerChoices: gameState.playerChoices,
+          previousNode: gameState.previousNode,
+          gameOver: gameState.gameOver
+        })
       });
 
       if (response.ok) {
@@ -242,7 +262,7 @@ class StorageService {
 
   async loadGameStateFromAzure(userId) {
     try {
-      const response = await fetch(`${this.azureBaseUrl}/game-state/${userId}`);
+      const response = await fetch(`${this.azureBaseUrl}/load-game`);
       
       if (response.ok) {
         const gameState = await response.json();
