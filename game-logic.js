@@ -191,14 +191,11 @@ async function handleCreateAccount() {
 }
 
 function handleLogout() {
-  // Force sync before logout
-  storageService.forceSync().then(() => {
-    gameState.user = null;
-    storageService.saveToLocal(CONFIG.STORAGE_KEYS.CURRENT_GAME, null);
-    accountNameInput.value = '';
-    showLogin();
-    showToast('退出成功', '已成功退出登录');
-  });
+  // Just clear the user and show login screen
+  gameState.user = null;
+  accountNameInput.value = '';
+  showLogin();
+  showToast('退出成功', '已成功退出登录');
 }
 
 function saveGame() {
@@ -353,10 +350,19 @@ async function handleBacktrack() {
     gameState.lifePoints -= 1;
   }
   
+  // Find the previous node in the choice history
+  const lastChoice = gameState.playerChoices[gameState.playerChoices.length - 1];
+  if (!lastChoice) {
+    showToast('无法回溯', '没有可回溯的节点', 'error');
+    return;
+  }
+  
   // Go back to previous node
-  const temp = gameState.currentChapter;
-  gameState.currentChapter = gameState.previousNode;
-  gameState.previousNode = null;
+  gameState.currentChapter = lastChoice.chapter;
+  
+  // Find the previous previous node
+  const previousChoice = gameState.playerChoices[gameState.playerChoices.length - 2];
+  gameState.previousNode = previousChoice ? previousChoice.chapter : null;
   
   // Remove last choice from history
   gameState.playerChoices.pop();
