@@ -1,0 +1,123 @@
+// Story Nodes Data - Loaded dynamically from JSON file
+let storyNodes = {};
+
+// Fallback story nodes (in case JSON loading fails)
+const fallbackStoryNodes = {
+  "1": {
+    "title": "宁静小镇的夜晚",
+    "text": "您在一个宁静小镇的客栈落脚，半夜听到隔壁据说是退休朝廷要员的府邸失火了。您选择：",
+    "choices": [
+      { "text": "a. 去救人", "action": "rescue", "nextNode": "11" },
+      { "text": "b. 在客栈观望", "action": "observe", "nextNode": "2" },
+      { "text": "c. 给御史大夫苏世誉写信，称见到了太尉楚明允的人", "action": "letter_to_su", "nextNode": "3" },
+      { "text": "d. 给太尉楚明允写信，称见到了御史大夫苏世誉的人", "action": "letter_to_chu", "nextNode": "ending_chu_capture" }
+    ]
+  },
+  "2": {
+    "title": "入京寻真相",
+    "text": "您察觉到这位朝廷要员死因蹊跷，决定去长安城看看。入城后听闻当今太尉<span class=\"character-name\">楚明允</span>钟情于御史大夫<span class=\"character-name\">苏世誉</span>，您对这二人产生了好奇。适逢新晋状元郎向您发出了宴饮邀请，您寻思着是否应邀赴宴，一窥此二人真容。您选择：",
+    "choices": [
+      { "text": "a. 赴宴吃瓜", "action": "attend_banquet", "nextNode": "4" },
+      { "text": "b. 不赴宴，远离风暴中心", "action": "avoid_banquet", "nextNode": "5" }
+    ]
+  }
+};
+
+// Load story nodes from JSON file
+async function loadStoryNodes() {
+  try {
+    console.log('Loading story nodes...');
+    const response = await fetch('story_nodes.json');
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    storyNodes = await response.json();
+    console.log('Story nodes loaded successfully:', Object.keys(storyNodes).length, 'nodes');
+    console.log('First few nodes:', Object.keys(storyNodes).slice(0, 5));
+  } catch (error) {
+    console.error('Error loading story nodes:', error);
+    storyNodes = {};
+    throw error; // Re-throw to handle in calling code
+  }
+}
+
+// Initialize story nodes when the script loads
+loadStoryNodes();
+
+// Make loadStoryNodes available globally
+window.loadStoryNodes = loadStoryNodes;
+
+// World Rules Text
+const worldRulesText = `《君有疾否》小说书中世界游客守则
+
+亲爱的读者游客，欢迎你们进入《君有疾否》小说的世界。我们打造的世界时间线与君有疾否原文中时间线吻合，剧情发展一致，并保证所有角色保留原文的设定，希望您可以体验愉快！在体验时，请各位读者游客务必悉遵以下规则，以确保你们的安全，否则后果自负。
+
+1.本书自带的安全系统没有问题，书中角色不会做出原文中没有的行为，所以不用太过于担心您的生命安全。
+2.禁止主动攻击别人，禁止改变原故事的情节发展。
+3.本书开篇时陈玄文就死了。如果您听到他向您求救，请无视。
+4.发现落单的黑羽鸟时，不要靠近，不要抓捕，它能靠气味辨人。
+5.秦昭的脸在小时候因为风雪天气冻僵了，不会有任何细微的表情变化，更不会微笑。
+6.太尉府中养着很多舞姬伶人，不要试图混入其中。
+7.如果您不小心成了舞姬伶人，请不要在楚明允和秦昭于书房商议时闯入。若违反本条，您的安全问题本书概不负责，且无法为您提供求生方案。
+8.楚明允的桌子上时常放有水果和糕点，但不会出现没有糖衣的山楂，楚明允不喜食酸，请确保酸味的食品不会出现在他桌上。
+9.苏世誉是京中未出阁小姐心中的第一夫婿，但请您不要向他说亲。
+10.坊间盛传，楚大人钟情于苏大人。不要反驳。
+11.新晋状元郎会向您发出宴饮邀请，允许您自行决定参加与否。若不参加，请您在宴会前后几天的夜晚都闭门不出；若参加，在宴会结束后立即回家，不要在外面逗留。
+12.长安天气不好时，容易引起山崩，但不知道每一次是天灾还是人祸，注意避险。
+13.不要到西市。那儿的仓库里存放着大量火药。
+14.工部尚书谭敬官船私贩，运营火药，不要加入这场交易。
+15.如果谭敬的夫人阿绣给您什么东西吃，直接拒绝她。
+16.不要在红袖招中寻找一名叫静姝的女子。
+17.本书中只有一座地下赌坊，如果您进入了其他底下赌坊，请尽快离开。
+18.州郡中纯臣横死，您不要参与此案查询。
+19.祭天大典时严禁嬉皮笑脸。
+20.未央宫宴会时禁止中途离席。
+21.除夕夜时请与家人守岁，若听到太尉府传来爆竹声，不要被吸引过去。
+22.楼兰王女来京中，不要在她能听到的范围内讲任何人的坏话。
+23.一般情况下，荒郊野岭不会有琴声。
+24.囚犯当然会被凌虐，此时请收起您的怜悯之心。
+25.在酒楼听到玉石击鸣的声音时，请控制住自己，不要离开自己的座位。
+26.匈奴九皇子要求割让五座城池，众臣辩论时请您保持己方观点。
+27.杞山春猎，不要去南边。
+28.不要阻止户部尚书魏松自杀。
+29.皇帝擅雕刻绘画，您千万不能成为他的模特。
+30.一定要参加淮南洛辛叛变副本。
+31.若发现苏世誉的人在抓捕黑羽鸟，不要提醒他们第4条的内容。
+32.洛辛被喂罂粟是必然，您不可更改他死去的结局。
+33.回京后不要觉得楚苏关系缓和了。
+34.千秋节时您不要带走那白衣舞姬。
+35.发现姜昭仪要毒死皇帝时，不要劝解她。如果她让您喊皇帝过来，请听从指令。
+36.白衣舞姬犹豫杀不杀苏世誉时，您不必将"她妹妹已死"的消息告诉她。
+37.建章宫坍塌，与您无关，注意明哲保身。
+38.大雪天时，不要到偏僻的酒楼喝酒。
+39.上元夜放灯时，严禁拦任何人的灯。
+40.不要停留在城外买灯摊位边的任何一棵树的阴影下。
+41.苏世誉不见时，八成是被困在太尉府，请您假装不知道此事。
+42.楚明允逼宫时，请您不要害怕，他不会滥杀无辜之人。
+43.如果苏世誉不吃不喝地待在祠堂，请您不要往祠堂中送吃的。
+44.西陵王与匈奴勾结攻打长安，您绝对不能投靠外敌。
+45.天下安稳后，不要试图与楚明允搭话，他不会理您。
+46.苏世誉也一样。
+47.如果因您的行为，情节无法步入正轨，从而导致您无法回到现实世界，本书的安全系统即刻作废。
+
+只要悉遵以上规则，您就会拥有一个愉快的书中世界体验！您将收获数不尽的快乐！悉遵规则，祝您开心、安全！`;
+
+// Chapter names for story map - Generated dynamically from story nodes
+function generateChapterNames() {
+  const names = {};
+  Object.keys(storyNodes).forEach(nodeId => {
+    if (storyNodes[nodeId] && storyNodes[nodeId].title) {
+      // Skip ending nodes for the map
+      if (!nodeId.startsWith('ending_')) {
+        names[nodeId] = `第${nodeId}章 ${storyNodes[nodeId].title}`;
+      }
+    }
+  });
+  return names;
+}
+
+// Get chapter names dynamically
+function getChapterNames() {
+  return generateChapterNames();
+}
+

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>《君有疾否》生存游戏</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Login Screen -->
+    <div id="loginScreen" class="screen active">
+        <div class="login-container">
+            <div class="login-card">
+                <div class="login-header">
+                    <h1 class="game-title-line1">《君有疾否》</h1>
+                    <h2 class="game-title-line2">生存游戏</h2>
+                </div>
+                
+                <!-- Welcome Message -->
+                <div class="welcome-message">
+                    <p>亲爱的读者游客，欢迎你们进入《君有疾否》小说的世界。我们打造的世界时间线与君有疾否原文中时间线吻合，剧情发展一致，并保证所有角色保留原文的设定，希望您可以体验愉快！在体验时，请各位读者游客务必悉遵<a href="#" id="worldRulesLink">世界守则</a>，以确保你们的安全，否则后果自负。</p>
+                </div>
+                
+                <div class="login-form">
+                    <div class="input-group">
+                        <label for="accountName">账户名</label>
+                        <input type="text" id="accountName" placeholder="输入您的账户名">
+                    </div>
+                    <div class="button-group">
+                        <button id="loginBtn" class="btn btn-primary">登录</button>
+                        <button id="createAccountBtn" class="btn btn-secondary">创建账户</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Game Screen -->
+    <div id="gameScreen" class="screen">
+        <!-- Header -->
+        <header class="game-header">
+            <div class="header-content">
+                <h1 class="header-title">《君有疾否》生存游戏</h1>
+                <div class="header-stats">
+                    <div class="stat-item">
+                        <span class="stat-icon">♥</span>
+                        <span>生命值: <span id="lifePoints">5</span></span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-icon">↻</span>
+                        <span>传送卡: <span id="transportCards">3</span></span>
+                    </div>
+                </div>
+                <div class="header-actions">
+                    <button id="worldRulesBtn" class="btn btn-outline">
+                        <span class="btn-icon">📖</span>
+                        世界守则
+                    </button>
+                    <button id="storyMapBtn" class="btn btn-outline">
+                        <span class="btn-icon">🗺️</span>
+                        故事地图
+                    </button>
+                    <button id="logoutBtn" class="btn btn-outline">退出登录</button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Game Content -->
+        <main class="game-main">
+            <div class="story-container">
+                <div class="story-content">
+                    <h2 id="storyTitle" class="story-title"></h2>
+                    <div id="storyText" class="story-text"></div>
+                    <div id="choicesContainer" class="choices-container"></div>
+                    <div class="story-actions">
+                        <button id="backtrackBtn" class="btn btn-backtrack">返回上一题</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Game Rules Footer -->
+        <footer class="game-footer">
+            <div class="footer-content">
+                <h3>游戏规则</h3>
+                <div class="rules-grid">
+                    <div class="rule-item">
+                        <span class="rule-icon">♥</span>
+                        <div>
+                            <strong>生命值系统：</strong>
+                            初始5点生命值，使用回溯功能时消耗1点
+                        </div>
+                    </div>
+                    <div class="rule-item">
+                        <span class="rule-icon">↻</span>
+                        <div>
+                            <strong>传送卡：</strong>
+                            初始3张，用于跳转到已解锁的故事节点
+                        </div>
+                    </div>
+                    <div class="rule-item">
+                        <span class="rule-icon">💾</span>
+                        <div>
+                            <strong>自动保存：</strong>
+                            每次选择后自动保存游戏进度到云端
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- World Rules Modal -->
+    <div id="worldRulesModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>世界守则</h2>
+                <button class="modal-close" onclick="closeModal('worldRulesModal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div id="worldRulesContent" class="world-rules-content"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Story Map Modal -->
+    <div id="storyMapModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>故事地图</h2>
+                <button class="modal-close" onclick="closeModal('storyMapModal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div id="storyMapContent" class="story-map-content">
+                    <div class="map-nodes" id="mapNodes"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Transport Modal -->
+    <div id="transportModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>使用传送卡</h2>
+                <button class="modal-close" onclick="closeModal('transportModal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p>确定要使用传送卡跳转到 <span id="transportTarget"></span> 吗？</p>
+                <p class="warning">这将消耗1张传送卡</p>
+                <div class="modal-actions">
+                    <button id="confirmTransportBtn" class="btn btn-primary">确认使用</button>
+                    <button onclick="closeModal('transportModal')" class="btn btn-secondary">取消</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notifications -->
+    <div id="toastContainer" class="toast-container"></div>
+
+    <!-- Loading Indicator -->
+    <div id="loadingIndicator" class="loading">
+        <div class="loading-spinner"></div>
+        <div class="loading-text">加载中...</div>
+    </div>
+
+    <script src="config.js"></script>
+    <script src="storage-service.js"></script>
+    <script src="game-data.js"></script>
+    <script src="game-logic.js"></script>
+</body>
+</html>

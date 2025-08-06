@@ -27,16 +27,58 @@ jobs:
         
     - name: Deploy to Azure Storage
       run: |
-        # Upload HTML files with overwrite
-        az storage blob upload-batch \
-          --source . \
-          --destination '$web' \
+        # Upload main HTML file
+        az storage blob upload \
+          --file index.html \
+          --container-name '$web' \
+          --name index.html \
           --account-name $STORAGE_ACCOUNT_NAME \
-          --pattern "*.html" \
           --content-type "text/html" \
           --overwrite
           
-        # Upload JSON file with overwrite
+        # Upload CSS file
+        az storage blob upload \
+          --file styles.css \
+          --container-name '$web' \
+          --name styles.css \
+          --account-name $STORAGE_ACCOUNT_NAME \
+          --content-type "text/css" \
+          --overwrite
+          
+        # Upload essential JavaScript files
+        az storage blob upload \
+          --file game-logic.js \
+          --container-name '$web' \
+          --name game-logic.js \
+          --account-name $STORAGE_ACCOUNT_NAME \
+          --content-type "application/javascript" \
+          --overwrite
+          
+        az storage blob upload \
+          --file storage-service.js \
+          --container-name '$web' \
+          --name storage-service.js \
+          --account-name $STORAGE_ACCOUNT_NAME \
+          --content-type "application/javascript" \
+          --overwrite
+          
+        az storage blob upload \
+          --file game-data.js \
+          --container-name '$web' \
+          --name game-data.js \
+          --account-name $STORAGE_ACCOUNT_NAME \
+          --content-type "application/javascript" \
+          --overwrite
+          
+        az storage blob upload \
+          --file config.js \
+          --container-name '$web' \
+          --name config.js \
+          --account-name $STORAGE_ACCOUNT_NAME \
+          --content-type "application/javascript" \
+          --overwrite
+          
+        # Upload JSON file
         az storage blob upload \
           --file story_nodes.json \
           --container-name '$web' \
