@@ -133,6 +133,11 @@ function showToast(title, description, type = 'success') {
   }, 3000);
 }
 
+// Expose toast utility for other modules (e.g., storage-service)
+if (typeof window !== 'undefined') {
+  window.showToast = showToast;
+}
+
 async function handleLogin() {
   const accountName = accountNameInput.value.trim();
   if (!accountName) {

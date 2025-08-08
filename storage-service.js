@@ -7,7 +7,11 @@ class StorageService {
     this.pendingChanges = false;
     this.currentUser = null;
     
-    // Start sync timer
+    // New: protect against overlapping syncs and track retries
+    this.isSyncInProgress = false;
+    this.maxRetryAttempts = 3;
+    
+    // Start sync timer (fallback)
     this.startSyncTimer();
   }
 
@@ -19,8 +23,10 @@ class StorageService {
   // Start periodic sync timer
   startSyncTimer() {
     setInterval(() => {
-      if (this.pendingChanges && this.currentUser) {
-        this.syncToAzure();
+      // Only attempt when there are pending changes and we are not already syncing
+      if (this.pendingChanges && this.currentUser && !this.isSyncInProgress) {
+        // Use the same retry-capable path as immediate sync
+        this.syncToAzureWithRetry();
       }
     }, this.syncInterval);
   }
@@ -91,7 +97,7 @@ class StorageService {
         version: "1.0"
       };
       
-      // Try to sync to Azure (this will also check for duplicates on the server)
+      // Try to sync to Azure (this will also create the account on the server)
       try {
         const syncResult = await this.syncUserToAzure(user, gameState);
         if (syncResult === false) {
@@ -105,8 +111,48 @@ class StorageService {
         // For other Azure errors, continue with local creation
         console.warn('Azure sync failed, but creating user locally:', azureError.message);
       }
+
+      // NEW: Fetch canonical userId from backend (login) to ensure we always use server-assigned ID
+      try {
+        const canonical = await this.fetchCanonicalUserFromAzure(accountName);
+        if (canonical && canonical.userId) {
+          const oldId = user.id;
+          user.id = canonical.userId;
+          // Optionally adopt server-side game state fields if present
+          if (canonical.gameState) {
+            const s = canonical.gameState;
+            gameState.currentChapter = String(s.currentChapter ?? gameState.currentChapter);
+            gameState.lifePoints = s.lifePoints ?? gameState.lifePoints;
+            // Server uses backtrackPoints, client uses transportCards
+            if (typeof s.backtrackPoints !== 'undefined') {
+              gameState.transportCards = s.backtrackPoints;
+            }
+            gameState.visitedNodes = Array.isArray(s.visitedNodes) ? s.visitedNodes.map(String) : gameState.visitedNodes;
+            gameState.playerChoices = Array.isArray(s.playerChoices) ? s.playerChoices : gameState.playerChoices;
+            gameState.previousNode = (typeof s.previousNode === 'undefined' || s.previousNode === null) ? null : String(s.previousNode);
+            gameState.gameOver = !!s.gameOver;
+          }
+
+          // Migrate any locally stored game state from oldId to new canonical id
+          if (oldId && oldId !== user.id) {
+            try {
+              const oldKey = `${CONFIG.STORAGE_KEYS.GAME_STATE_PREFIX}${oldId}`;
+              const oldState = this.loadFromLocal(oldKey);
+              if (oldState) {
+                // Save under the new key and remove the old one
+                this.saveToLocal(`${CONFIG.STORAGE_KEYS.GAME_STATE_PREFIX}${user.id}`, oldState);
+                localStorage.removeItem(oldKey);
+              }
+            } catch (migrateErr) {
+              console.warn('Failed to migrate local game state to canonical id:', migrateErr);
+            }
+          }
+        }
+      } catch (e) {
+        console.warn('Failed to fetch canonical user id from backend, continuing with current id:', e?.message || e);
+      }
       
-      // Save to localStorage for immediate access
+      // Persist locally using the canonical (server) user id
       users[accountName] = user;
       this.saveToLocal(CONFIG.STORAGE_KEYS.USERS, users);
       this.saveToLocal(`${CONFIG.STORAGE_KEYS.GAME_STATE_PREFIX}${user.id}`, gameState);
@@ -156,9 +202,16 @@ class StorageService {
     // Save to localStorage immediately
     this.saveToLocal(`${CONFIG.STORAGE_KEYS.GAME_STATE_PREFIX}${userId}`, gameState);
     
-    // Mark for Azure sync
+    // Mark for Azure sync and capture user context for payload
     this.pendingChanges = true;
-    this.currentUser = { id: userId };
+    this.currentUser = { 
+      id: userId, 
+      accountName: (gameState && gameState.user && gameState.user.accountName) ? gameState.user.accountName : (this.currentUser ? this.currentUser.accountName : undefined)
+    };
+
+    // Trigger an immediate, non-blocking sync attempt with retry
+    // Do not await here to keep UI responsive
+    this.syncToAzureWithRetry();
   }
 
   loadGameState(userId) {
@@ -229,12 +282,13 @@ class StorageService {
     }
   }
 
-  async syncToAzure() {
-    if (!this.currentUser) return;
-    
+  // New: single attempt sync used by retry wrapper
+  async syncToAzureOnce() {
+    if (!this.currentUser) return false;
+
     const gameState = this.loadGameState(this.currentUser.id);
-    if (!gameState) return;
-    
+    if (!gameState) return false;
+
     try {
       const response = await fetch(`${this.azureBaseUrl}/save-game`, {
         method: 'POST',
@@ -258,11 +312,66 @@ class StorageService {
         this.lastSyncTime = Date.now();
         this.pendingChanges = false;
         console.log('Successfully synced game state to Azure');
+        return true;
       } else {
         console.warn('Failed to sync to Azure:', response.status);
+        return false;
       }
     } catch (error) {
       console.error('Error syncing to Azure:', error);
+      return false;
+    }
+  }
+
+  // New: retrying, non-blocking sync entry point
+  async syncToAzureWithRetry() {
+    // Avoid overlapping sync attempts
+    if (this.isSyncInProgress) return;
+
+    this.isSyncInProgress = true;
+
+    let attempt = 0;
+    let success = false;
+
+    while (attempt < this.maxRetryAttempts && !success && this.pendingChanges) {
+      attempt += 1;
+      success = await this.syncToAzureOnce();
+
+      if (!success) {
+        // Notify user we are retrying
+        this._notifyRetry();
+
+        // Exponential backoff: 1s, 2s, 4s
+        const backoffMs = Math.pow(2, attempt - 1) * 1000;
+        await this._sleep(backoffMs);
+      }
+    }
+
+    if (!success) {
+      // Keep pendingChanges = true so the periodic timer can try again later
+      console.warn('All retry attempts to sync game state have failed. Will retry later.');
+    }
+
+    this.isSyncInProgress = false;
+  }
+
+  // New: simple sleep helper for backoff
+  _sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+  }
+
+  // New: show a toast if available, otherwise log
+  _notifyRetry() {
+    const title = '保存失败';
+    const description = '进度保存失败，重试中';
+    if (typeof window !== 'undefined' && typeof window.showToast === 'function') {
+      try {
+        window.showToast(title, description, 'error');
+      } catch (e) {
+        console.warn('Failed to show toast notification:', e);
+      }
+    } else {
+      console.warn(`${title}: ${description}`);
     }
   }
 
@@ -281,6 +390,30 @@ class StorageService {
       console.error('Error loading from Azure:', error);
       return null;
     }
+  }
+
+  // NEW: helper to fetch canonical user id (and server game state) via backend login
+  async fetchCanonicalUserFromAzure(accountName) {
+    const response = await fetch(`${this.azureBaseUrl}/login`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ accountName })
+    });
+
+    if (!response.ok) {
+      const text = await response.text().catch(() => '');
+      console.warn('Login fetch for canonical user failed:', response.status, text);
+      return null;
+    }
+
+    const data = await response.json();
+    return {
+      userId: data.userId,
+      gameState: data.gameState,
+      accountName: data.accountName
+    };
   }
 
   // Utility methods
