@@ -255,11 +255,14 @@ async function loadCurrentStory() {
     return;
   }
   
-  // Display chapter number (第x章) along with the title, but not for ending nodes
+  // Display title without chapter number for regular nodes, add incremental number for endings
   if (node.isEnding) {
-    storyTitle.textContent = `结局：${node.title}`;
+    // Get ending number based on the order of ending nodes
+    const endingNumber = getEndingNumber(gameState.currentChapter);
+    storyTitle.textContent = `结局 ${endingNumber}`;
   } else {
-    storyTitle.textContent = `第${gameState.currentChapter}章 ${node.title}`;
+    // Remove "第x章" prefix and just show the title
+    storyTitle.textContent = node.title;
   }
   storyText.innerHTML = node.text;
   
@@ -419,8 +422,10 @@ function updateStoryMap() {
       mapNode.classList.add('locked');
     }
     
+    // Remove "第x章" prefix from map display
+    const displayName = node.title || `第${nodeId}章`;
     mapNode.innerHTML = `
-      <div class="map-node-title">${chapterNames[nodeId] || `第${nodeId}章`}</div>
+      <div class="map-node-title">${displayName}</div>
     `;
     
     // Add click handler for transport (only for visited nodes with multiple choices that aren't current)
@@ -453,10 +458,9 @@ function updateStoryMap() {
 
 function openTransportModal(nodeId) {
   const node = storyNodes[nodeId];
-  const chapterNames = getChapterNames();
-  const chapterName = chapterNames[nodeId] || `第${nodeId}章`;
+  const nodeName = node ? node.title : `第${nodeId}章`;
   
-  document.getElementById('transportTarget').textContent = chapterName;
+  document.getElementById('transportTarget').textContent = nodeName;
   
   const confirmBtn = document.getElementById('confirmTransportBtn');
   confirmBtn.onclick = () => {
@@ -484,23 +488,24 @@ async function confirmTransport(nodeId) {
   closeModal('storyMapModal'); // Close the map after successful transport
   await loadCurrentStory();
   
-  const chapterNames = getChapterNames();
-  const chapterName = chapterNames[nodeId] || `第${nodeId}章`;
-  showToast('传送成功', `已传送到${chapterName}，剩余传送卡：${gameState.transportCards}`);
+  // Use node title instead of chapter name for transport notification
+  const node = storyNodes[nodeId];
+  const nodeName = node ? node.title : `第${nodeId}章`;
+  showToast('传送成功', `已传送到${nodeName}，剩余传送卡：${gameState.transportCards}`);
 }
 
 async function handleRestart() {
-  // Reset game state but keep visited nodes
+  // Always force a fresh start when user selects restart
   gameState.currentChapter = "1";
   gameState.playerChoices = [];
   gameState.previousNode = null;
   gameState.lifePoints = CONFIG.INITIAL_LIFE_POINTS;
   gameState.transportCards = CONFIG.INITIAL_TRANSPORT_CARDS;
-  // Keep visitedNodes to preserve map progress
-  
+  gameState.visitedNodes = ["1"]; // Clear unlocked nodes
+
   saveGame();
   await loadCurrentStory();
-  showToast('游戏重启', '游戏已重新开始，生命值和传送卡已恢复');
+  showToast('游戏重启', '游戏已重新开始，所有节点已重置，生命值和传送卡已恢复');
 }
 
 // Close modals when clicking outside
@@ -519,3 +524,17 @@ document.addEventListener('keydown', function(e) {
     });
   }
 });
+
+// Helper function to get ending number
+function getEndingNumber(endingNodeId) {
+  // Get all ending nodes and sort them to maintain consistent numbering
+  const endingNodes = Object.keys(storyNodes).filter(nodeId => 
+    nodeId.startsWith('ending_') && storyNodes[nodeId]?.isEnding
+  ).sort();
+  
+  // Find the index of the current ending node
+  const endingIndex = endingNodes.indexOf(endingNodeId);
+  
+  // Return 1-based index (or 1 if not found)
+  return endingIndex >= 0 ? endingIndex + 1 : 1;
+}

@@ -4,7 +4,7 @@ const CONFIG = {
   AZURE_BASE_URL: 'https://junyoujifou-game-functions.azurewebsites.net/api',
   
   // Sync interval in milliseconds (5 minutes)
-  SYNC_INTERVAL: 5 * 60 * 1000,
+  SYNC_INTERVAL: 2 * 60 * 1000,
   
   // Game settings
   INITIAL_LIFE_POINTS: 5,

@@ -109,7 +109,8 @@ function generateChapterNames() {
     if (storyNodes[nodeId] && storyNodes[nodeId].title) {
       // Skip ending nodes for the map
       if (!nodeId.startsWith('ending_')) {
-        names[nodeId] = `第${nodeId}章 ${storyNodes[nodeId].title}`;
+        // Remove "第x章" prefix and just use the title
+        names[nodeId] = storyNodes[nodeId].title;
       }
     }
   });
