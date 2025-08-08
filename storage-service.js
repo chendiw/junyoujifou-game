@@ -189,7 +189,13 @@ class StorageService {
         return false;
       }
 
-      // Update game state in Azure
+      // Adopt server-assigned userId so we don't create a second, mismatched blob
+      const serverData = await userResponse.json();
+      if (serverData && serverData.userId) {
+        user.id = serverData.userId;
+      }
+
+      // Update game state in Azure (will overwrite the same blob, not create a new one)
       const gameStateResponse = await fetch(`${this.azureBaseUrl}/save-game`, {
         method: 'POST',
         headers: {
