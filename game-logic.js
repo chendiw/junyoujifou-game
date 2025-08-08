@@ -25,6 +25,7 @@ const lifePointsSpan = document.getElementById('lifePoints');
 const transportCardsSpan = document.getElementById('transportCards');
 const worldRulesBtn = document.getElementById('worldRulesBtn');
 const storyMapBtn = document.getElementById('storyMapBtn');
+const endingsBtn = document.getElementById('endingsBtn');
 const loadingIndicator = document.getElementById('loadingIndicator');
 const toastContainer = document.getElementById('toastContainer');
 
@@ -62,6 +63,9 @@ function setupEventListeners() {
   backtrackBtn.addEventListener('click', handleBacktrack);
   worldRulesBtn.addEventListener('click', () => openModal('worldRulesModal'));
   storyMapBtn.addEventListener('click', () => openModal('storyMapModal'));
+  if (endingsBtn) {
+    endingsBtn.addEventListener('click', () => openModal('endingsModal'));
+  }
   
   // Welcome message world rules link
   const worldRulesLink = document.getElementById('worldRulesLink');
@@ -260,6 +264,15 @@ async function loadCurrentStory() {
     // Get ending number based on the order of ending nodes
     const endingNumber = getEndingNumber(gameState.currentChapter);
     storyTitle.textContent = `结局 ${endingNumber}`;
+    // Track unlocked endings
+    if (!Array.isArray(gameState.unlockedEndings)) {
+      gameState.unlockedEndings = [];
+    }
+    const endingId = gameState.currentChapter;
+    if (!gameState.unlockedEndings.includes(endingId)) {
+      gameState.unlockedEndings.push(endingId);
+      saveGame();
+    }
   } else {
     // Remove "第x章" prefix and just show the title
     storyTitle.textContent = node.title;
@@ -305,6 +318,7 @@ async function loadCurrentStory() {
   
   updateGameDisplay();
   updateStoryMap();
+  updateEndingsGrid();
 }
 
 async function handleChoice(choice) {
@@ -388,6 +402,8 @@ function openModal(modalId) {
   
   if (modalId === 'storyMapModal') {
     updateStoryMap();
+  } else if (modalId === 'endingsModal') {
+    updateEndingsGrid();
   }
 }
 
@@ -502,6 +518,7 @@ async function handleRestart() {
   gameState.lifePoints = CONFIG.INITIAL_LIFE_POINTS;
   gameState.transportCards = CONFIG.INITIAL_TRANSPORT_CARDS;
   gameState.visitedNodes = ["1"]; // Clear unlocked nodes
+  gameState.unlockedEndings = []; // Clear unlocked endings
 
   saveGame();
   await loadCurrentStory();
@@ -537,4 +554,33 @@ function getEndingNumber(endingNodeId) {
   
   // Return 1-based index (or 1 if not found)
   return endingIndex >= 0 ? endingIndex + 1 : 1;
+}
+
+// Render endings grid similar to the map
+function updateEndingsGrid() {
+  const container = document.getElementById('endingNodes');
+  if (!container) return;
+  container.innerHTML = '';
+
+  // Prepare ordered endings list
+  const endingIds = Object.keys(storyNodes)
+    .filter(id => id.startsWith('ending_') && storyNodes[id]?.isEnding)
+    .sort();
+
+  const unlocked = new Set(Array.isArray(gameState.unlockedEndings) ? gameState.unlockedEndings : []);
+
+  endingIds.forEach(id => {
+    const node = storyNodes[id];
+    const n = getEndingNumber(id);
+    const card = document.createElement('div');
+    card.className = 'map-node';
+    if (unlocked.has(id)) {
+      card.classList.add('visited');
+    } else {
+      card.classList.add('locked');
+    }
+    const title = unlocked.has(id) ? `结局 ${n}：${node.title}` : `结局 ${n}`;
+    card.innerHTML = `<div class="map-node-title">${title}</div>`;
+    container.appendChild(card);
+  });
 }
