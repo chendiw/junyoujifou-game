@@ -584,7 +584,8 @@ function updateEndingsGrid() {
     } else {
       card.classList.add('locked');
     }
-    const title = unlocked.has(id) ? `结局 ${n}：${node.title}` : `结局 ${n}`;
+    // Always show title per request
+    const title = node?.title ? `结局 ${n}：${node.title}` : `结局 ${n}`;
     card.innerHTML = `<div class="map-node-title">${title}</div>`;
     container.appendChild(card);
   });
