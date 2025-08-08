@@ -348,6 +348,7 @@ class StorageService {
           backtrackPoints: gameState.transportCards,
           visitedNodes: gameState.visitedNodes,
           playerChoices: gameState.playerChoices,
+          unlockedEndings: Array.isArray(gameState.unlockedEndings) ? gameState.unlockedEndings : [],
           previousNode: gameState.previousNode,
           gameOver: gameState.gameOver
         })
@@ -389,6 +390,7 @@ class StorageService {
           backtrackPoints: gameState.transportCards,
           visitedNodes: gameState.visitedNodes,
           playerChoices: gameState.playerChoices,
+          unlockedEndings: Array.isArray(gameState.unlockedEndings) ? gameState.unlockedEndings : [],
           previousNode: gameState.previousNode,
           gameOver: gameState.gameOver
         })
@@ -490,6 +492,7 @@ class StorageService {
       transportCards: Number.isFinite(serverState.backtrackPoints) ? serverState.backtrackPoints : CONFIG.INITIAL_TRANSPORT_CARDS,
       visitedNodes: Array.isArray(serverState.visitedNodes) ? serverState.visitedNodes.map(String) : [CONFIG.STARTING_CHAPTER],
       playerChoices: Array.isArray(serverState.playerChoices) ? serverState.playerChoices : [],
+      unlockedEndings: Array.isArray(serverState.unlockedEndings) ? serverState.unlockedEndings : [],
       previousNode: (typeof serverState.previousNode === 'undefined' || serverState.previousNode === null) ? null : String(serverState.previousNode),
       gameOver: !!serverState.gameOver,
       version: serverState.version || '1.0'

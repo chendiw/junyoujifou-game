@@ -69,6 +69,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
             'backtrackPoints': req_body.get('backtrackPoints', 3),
             'visitedNodes': req_body.get('visitedNodes', []),
             'playerChoices': req_body.get('playerChoices', []),
+            'unlockedEndings': req_body.get('unlockedEndings', []),
             'previousNode': req_body.get('previousNode'),
             'gameOver': req_body.get('gameOver', False),
             'lastSaved': datetime.utcnow().isoformat(),

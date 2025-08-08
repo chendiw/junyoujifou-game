@@ -40,3 +40,6 @@ azure-functions/.python_packages/lib/
 azure-functions/.python_packages/lib/site-packages/
 azure-functions/.python_packages/lib/python*/
 azure-functions/.python_packages/lib/python*/site-packages/ 
+
+# testing
+create_resp.json

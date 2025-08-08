@@ -129,6 +129,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
                 'backtrackPoints': 3,
                 'visitedNodes': [],
                 'playerChoices': [],
+                'unlockedEndings': [],
                 'previousNode': None,
                 'gameOver': False,
                 'lastSaved': datetime.utcnow().isoformat(),
