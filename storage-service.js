@@ -78,8 +78,33 @@ class StorageService {
           throw new Error('Account name already exists, please choose a different name');
         }
       }
+
+      // Server-side availability check BEFORE creating local account
+      try {
+        const checkResp = await fetch(`${this.azureBaseUrl}/check-account`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ accountName })
+        });
+
+        if (!checkResp.ok) {
+          const text = await checkResp.text().catch(() => '');
+          if (checkResp.status === 409) {
+            throw new Error('Account name already exists, please choose a different name');
+          }
+          throw new Error(text || 'Failed to verify account name availability');
+        }
+
+        const checkData = await checkResp.json().catch(() => ({}));
+        if (checkData && checkData.available === false) {
+          throw new Error('Account name already exists, please choose a different name');
+        }
+      } catch (checkErr) {
+        console.warn('Availability check failed or name taken:', checkErr?.message || checkErr);
+        throw checkErr instanceof Error ? checkErr : new Error('Failed to verify account name availability');
+      }
       
-      console.log('No duplicates found, proceeding with account creation');
+      console.log('No duplicates found remotely, proceeding with account creation');
       
       // Create user object with temporary ID for immediate local use
       const tempUserId = Date.now().toString();
