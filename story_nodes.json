@@ -63,7 +63,7 @@
     "choices": [
       { "text": "a. \"我身子不适，先请辞了。\"", "action": "excuse_illness", "nextNode": "5" },
       { "text": "b. \"尚未。您是太尉府的人？怎么方才没见到楚大人？\"", "action": "ask_about_chu", "nextNode": "9" },
-      { "text": "c. \"快结束了，不过楚大人与苏大人在一起，怕是一时半会儿出不来了。\"", "action": "reveal_secret", "nextNode": "10" }
+      { "text": "c. \"快结束了，不过楚大人与苏大人在一起，怕是一时半会儿出不来了。\"有一瞬间，您觉得冰块脸的表情似乎崩坏了。", "action": "reveal_secret", "nextNode": "10" }
     ]
   },
   "9": {
@@ -651,22 +651,32 @@
     ]
   },
   "60": {
-    "title": "朝堂之路",
-    "text": "委您以任，予以官袍。心中壮志如潮，誓要于风云变幻的朝堂之上做出一番功绩。",
+    "title": "冬至宴的异状",
+    "text": "委您以任，予以官袍。心中壮志如潮，誓要于风云变幻的朝堂之上做出一番功绩。几月后的冬至，参加完祭天大典，皇帝于未央宫大宴群臣。朝廷两巨头分坐左右首，您见苏大人连连被人缠上敬酒，楚大人却被宫娥悄声叫走。您觉得：",
     "choices": [
-      { "text": "继续", "action": "continue_story", "nextNode": "ending_court_career" }
+      { "text": "a. 真不凑巧", "action": "unlucky_timing", "nextNode": "61" },
+      { "text": "b. 真是稀奇", "action": "curious_exit", "nextNode": "90" },
+      { "text": "c. 真没眼色", "action": "call_chu_back", "nextNode": "ending_palace_interrupt_death" }
     ]
   },
-  "62": {
-    "title": "商海之路",
-    "text": "逐利之途无穷，惟热爱能久行。您从心所向出发，所好为何？",
+  "61": {
+    "title": "席间抉择",
+    "text": "您重新在座位上坐下，酒又过了几巡，楚大人回到殿中，往苏大人的方向走去。您选择：",
     "choices": [
-      { "text": "a. 寻万里山河", "action": "explore_mountains", "nextNode": "63" },
-      { "text": "b. 迎八方来客", "action": "welcome_guests", "nextNode": "ending_hospitality" },
-      { "text": "c. 守一门技艺", "action": "master_skill", "nextNode": "ending_craftsmanship" },
-      { "text": "d. 赏人世笙歌", "action": "enjoy_music", "nextNode": "ending_music_life" }
+      { "text": "a. 惦记着刚刚没敬上的酒，寻思正好向苏大人也敬上一杯", "action": "toast_su", "nextNode": "91" },
+      { "text": "b. 楚大人看上去想跟苏大人单独待着，自己还是别过去了", "action": "give_space", "nextNode": "92" }
     ]
   },
+    "62": {
+      "title": "商海之路",
+      "text": "逐利之途无穷，惟热爱能久行。您从心所向出发，所好为何？",
+      "choices": [
+        { "text": "a. 寻万里山河", "action": "explore_mountains", "nextNode": "63" },
+        { "text": "b. 迎八方来客", "action": "welcome_guests", "nextNode": "82" },
+        { "text": "c. 守一门技艺", "action": "master_skill", "nextNode": "148" },
+        { "text": "d. 赏人世笙歌", "action": "enjoy_music", "nextNode": "ending_music_life" }
+      ]
+    },
   "63": {
     "title": "襄阳的琴师",
     "text": "您成为了一位行商，将药材经水路运往全国各地。襄阳是一处重要的集运枢纽，您在当地人脉甚广。那日您依例经停襄阳，在乐坊稍歇，凭栏望去，见到您熟识的琴师澜依姑娘正站在柳荫下。您打算去和她叙叙旧，却听她突然冲你身后叫道：\"苏哥哥！\"她提裙跑来，却似一步未踩稳，身形一歪。您：",
@@ -710,9 +720,9 @@
     "title": "苏大人的警告",
     "text": "苏大人虽客客气气地笑着，您却心底生寒。没谈几句，苏大人提出送崴了脚的澜依回去。您正要自告奋勇代劳，却被苏大人淡淡地瞥了一眼，您不自觉地止住了话头。楚大人也已头也不回地离开。没过几日，各县开始追查官商勾结，您不得不缴纳巨额罚款，因此倾家荡产。为谋生计，您成了：",
     "choices": [
-      { "text": "a. 地方官员府里杂役", "action": "government_servant", "nextNode": "ending_government_servant" },
-      { "text": "b. 酒楼小厮", "action": "restaurant_waiter", "nextNode": "ending_restaurant_waiter" },
-      { "text": "c. 辗转各地的杂贩", "action": "wandering_vendor", "nextNode": "ending_wandering_vendor" }
+      { "text": "a. 地方官员府里杂役", "action": "government_servant", "nextNode": "71" },
+      { "text": "b. 酒楼小厮", "action": "restaurant_waiter", "nextNode": "82" },
+      { "text": "c. 辗转各地的杂贩", "action": "wandering_vendor", "nextNode": "147" }
     ]
   },
   "69": {
@@ -727,7 +737,7 @@
     "text": "那艘画舫的窗半掩着，船舱内一人按住另一人的肩，贴得极近状若亲吻。您正寻思着看小情侣约会是否会遭雷劈，又见那人径直将未动之人按倒了下去。船舷阻隔了您的视线，须臾间一只素白的手从窗缝里一闪而过，自下而上，一探一落，似是勾住了上方那人的脖颈，或是轻抚他的面颊。您甚至幻觉从潺潺江水声中，听到了某种暧昧的水声。随后您看到一人陡然站起，怀里赫然抱着另一人。您选择：",
     "choices": [
       { "text": "a. 实在好奇", "action": "very_curious", "nextNode": "ending_curious_water_death" },
-      { "text": "b. 非礼勿视", "action": "proper_behavior", "nextNode": "ending_proper_behavior" }
+      { "text": "b. 非礼勿视", "action": "proper_behavior", "nextNode": "79" }
     ]
   },
   "ending_building_collapse": {
@@ -868,6 +878,466 @@
   "ending_proper_behavior": {
     "title": "非礼勿视",
     "text": "你选择了非礼勿视，保持了应有的礼仪。",
+    "isEnding": true
+  },
+  "ending_palace_interrupt_death": {
+    "title": "宫宴的打断",
+    "text": "您觉得这宫娥好没眼色，于是叫住了起身要走的楚大人。宴上所有人的目光顿时齐刷刷看向你，又齐刷刷看向楚大人。楚大人偏头问宫娥还要自己出去吗，宫娥惶恐地摇摇头便退下了。宴会随即恢复了热闹模样，你给楚大人敬了酒，对方并不拒绝。宴会直到结束也不再生出事端。出殿门时，有个宫娥秘密叫住了你，说是陛下有事相商，你示意她带路。第二日，传出了你意外死亡的消息。",
+    "isEnding": true
+  },
+  "71": {
+    "title": "韩府的征募",
+    "text": "您在寿春韩仲文府中当差，一日韩大人重金征募会武的人，您：",
+    "choices": [
+      { "text": "a. 急需资金还债，应召", "action": "answer_recruit", "nextNode": "53" },
+      { "text": "b. 自觉武艺平平，继续当普通杂役/侍女", "action": "stay_servant", "nextNode": "72" },
+      { "text": "c. 重金招会武之人，怕是有大事发生，溜了溜了", "action": "escape_now", "nextNode": "ending_throw_from_wall_death" }
+    ]
+  },
+  "72": {
+    "title": "梁府的邀请",
+    "text": "没过几日，韩大人的同僚梁进大人似要宴请重要人物，在韩府上见您姿色俱佳，人也伶俐，便问您是否愿意去他宴会上侍奉。您选择：",
+    "choices": [
+      { "text": "a. 婉拒，韩大人在边上看着呢，必须表忠心", "action": "decline_serve", "nextNode": "73" },
+      { "text": "b. 应允，韩大人没制止，便是默许了", "action": "accept_serve", "nextNode": "74" }
+    ]
+  },
+  "73": {
+    "title": "太尉的试探",
+    "text": "韩大人深深地看了您一眼，笑着说：'那也好，今夜苏大人若是回府歇息，便由你来伺候吧。'谁知当晚，您先等来了本该还在军中的楚太尉。他望着您，语气淡淡：'杵在这里做什么？''韩大人吩咐我，伺候苏大人。'您低声回答。他挑眉道：",
+    "choices": [
+      { "text": "a. 还杵在这里，是想让我请你滚吗？", "action": "taunt_leave", "nextNode": "75" },
+      { "text": "b. 苏大人有我伺候就够了。", "action": "claim_care", "nextNode": "75" },
+      { "text": "c. 你觉得自己……有我漂亮？", "action": "jealousy_joke", "nextNode": "75" }
+    ]
+  },
+  "74": {
+    "title": "梁府的任务",
+    "text": "梁大人交给您的任务竟是去诱惑御史大夫苏世誉。他说若您助他成事，御史大夫乃世家表率，定不会辜负了您。您亦对苏大人心动不已，宴会当天便与其他姐妹一起，将他团团围住，甚至抬手去搂他的脖颈。苏大人面上霞色晕染开来，可终究靠着一线清明，冲出了梁府。",
+    "choices": [
+      { "text": "继续", "action": "continue_to_banquet", "nextNode": "78" }
+    ]
+  },
+  "75": {
+    "title": "守候还是离开",
+    "text": "您不敢多言，离开了苏大人卧房，去：",
+    "choices": [
+      { "text": "a. 自己卧房歇下了", "action": "rest_room", "nextNode": "76" },
+      { "text": "b. 守在苏大人卧房后窗下", "action": "wait_window", "nextNode": "77" }
+    ]
+  },
+  "76": {
+    "title": "次日的房内",
+    "text": "次日清晨，楚大人低声差人送了热水进房。而苏大人的房门，直到日上三竿，才从内打开。屋内帷幔半卷，绣被一角垂在地上。您红着脸进去收拾，只见苏大人倚着榻边披衣而坐，衣衫虽整，却显然是别人为他披上的。您低头退下，不敢细想昨夜光景。",
+    "choices": [
+      { "text": "继续", "action": "continue_after_rest", "nextNode": "78" }
+    ]
+  },
+  "77": {
+    "title": "窗下的醋味",
+    "text": "苏大人似乎回来了，您听到了楚太尉咬牙切齿的声音：'那些姑娘，有我漂亮？'您小心蜷在窗下，在一声声渐重的喘息、呻吟中熬到了天明。",
+    "choices": [
+      { "text": "继续", "action": "continue_to_morning", "nextNode": "76" }
+    ]
+  },
+  "78": {
+    "title": "韩府宴席抉择",
+    "text": "再见到楚苏两位大人，是在韩大人的宴席上。您知此酒不纯，知此局不善，也知自己不过笼中雀。首位的韩大人仍说着场面话，您决定：",
+    "choices": [
+      { "text": "a. 服下毒酒，毒发即向他二人示警", "action": "drink_poison", "nextNode": "ending_poison_warning_death" },
+      { "text": "b. 留在厅内观望，或许仍有生机", "action": "stay_watch", "nextNode": "ending_hall_fire_death" },
+      { "text": "c. 穿过树林出城，如今叛党主力都在此，巡逻定有漏洞", "action": "escape_woods", "nextNode": "ending_woods_stab_death" }
+    ]
+  },
+  "79": {
+    "title": "江上流民",
+    "text": "您没再打扰画舫上的小情侣，加速前进，不日抵达淮南边境。遇见一群流民。为首的年轻女人向您走来，您心中一紧：",
+    "choices": [
+      { "text": "a. 抱紧行囊，头也不回地往寿春城方向去了", "action": "head_to_city", "nextNode": "ending_gate_intercept_death" },
+      { "text": "b. 但看见流民中几个瘦猴似的孩子，于心不忍，打开行囊主动提出分他们些口粮", "action": "share_food", "nextNode": "80" }
+    ]
+  },
+  "80": {
+    "title": "流民的善意",
+    "text": "这群流民虽然落魄，却礼貌守序，纷纷向您道谢。为首的年轻女人看您行色匆匆，便问您来淮南做什么，您回答：",
+    "choices": [
+      { "text": "a. 在下药商，闻韩大人急需药材，特来求见，愿共谋其事", "action": "claim_business", "nextNode": "ending_refugee_slain_death" },
+      { "text": "b. 行船时于江上遇见惊人之事，故上岸避一避风头", "action": "avoid_trouble", "nextNode": "81" }
+    ]
+  },
+  "81": {
+    "title": "改道的提醒",
+    "text": "话音刚落，您便觉不妙——若被追问，似乎怎么答都不合适？您急忙收拾行囊，与众人匆匆辞别，正欲朝寿春城方向行去，那女子却忽然抬手拦住了您：'寿春多风雨，天地辽阔，大人不如改道他处，暂避风头。'您听出她话里有话，意识到寿春城或许不太平，想：",
+    "choices": [
+      { "text": "a. 还是离开此地，留着命慢慢挣钱吧", "action": "leave_now", "nextNode": "89" },
+      { "text": "b. 难怪韩大人急求药材。富贵险中求，干这行就要闯", "action": "risk_it", "nextNode": "ending_gate_intercept_death" }
+    ]
+  },
+  "82": {
+    "title": "迎八方来客",
+    "text": "民以食为天，您深知经营酒楼饭馆不仅是谋生之道，更是结交四方宾客、广结善缘的良机。您打算加入一家：",
+    "choices": [
+      { "text": "a. 面馆", "action": "join_noodle_shop", "nextNode": "140" },
+      { "text": "b. 点心铺", "action": "join_pastry_shop", "nextNode": "83" },
+      { "text": "c. 酒楼", "action": "join_restaurant", "nextNode": "84" }
+    ]
+  },
+  "83": {
+    "title": "点心铺的名气",
+    "text": "您用独门秘方烘焙的红豆酥、桂花糕早已闻名长安，时常还推陈出新，广受好评。一个面无表情的青年是您店里的常客……您因此倍感振奋，坚信直销天家的梦想已近在咫尺。",
+    "choices": [
+      { "text": "继续", "action": "pastry_ending", "nextNode": "ending_hospitality" }
+    ]
+  },
+  "84": {
+    "title": "酒楼的选址",
+    "text": "这酒楼的选址可大有讲究。您选择：",
+    "choices": [
+      { "text": "a. 开在长安闹市区，客源充足", "action": "choose_downtown", "nextNode": "85" },
+      { "text": "b. 开在偏僻小巷，抵制同行内卷，酒香不怕巷子深", "action": "choose_alley", "nextNode": "135" }
+    ]
+  },
+  "85": {
+    "title": "上元节的巧思",
+    "text": "您最喜上元节。金吾不禁，繁灯如昼，街巷间尽是笑语与喜色。今夜来了两位气度不凡的公子，您决定：",
+    "choices": [
+      { "text": "a. 将两枚元宵放入同一个碗，称此乃今日特供，寓意双珠并蒂", "action": "double_tangyuan", "nextNode": "86" },
+      { "text": "b. 送一壶上元春酒，笑言：'小店有个规矩，结伴来的客人若同饮一杯，必能好事成双。'", "action": "offer_wine", "nextNode": "87" }
+    ]
+  },
+  "86": {
+    "title": "并蒂元宵",
+    "text": "见那'双珠并蒂'的元宵并排躺在碗底，楚明允舀起一只送到苏世誉唇边……那颗雪白的元宵在默许中滑入口中。",
+    "choices": [
+      { "text": "继续", "action": "festival_continue", "nextNode": "88" }
+    ]
+  },
+  "87": {
+    "title": "同杯之饮",
+    "text": "苏世誉淡然一笑先取一杯，楚明允俯身隔着他指间就着那杯嘬了一口，苏世誉垂眸笑了笑，举杯饮尽。",
+    "choices": [
+      { "text": "继续", "action": "festival_continue2", "nextNode": "88" }
+    ]
+  },
+  "88": {
+    "title": "天灯与期许",
+    "text": "上元佳节正当时，酒楼外，盏盏天灯飘向夜空，如星河坠落人间。您似有所感，往 ____ 看去：",
+    "choices": [
+      { "text": "a. 上", "action": "look_up", "nextNode": "ending_festival_wish" },
+      { "text": "b. 下", "action": "look_down", "nextNode": "ending_festival_lake" }
+    ]
+  },
+  "89": {
+    "title": "回到长安",
+    "text": "数月后，您又辗转回到长安。您推门进了那座最爱的酒楼，一品入口，恍如从未离开。",
+    "choices": [
+      { "text": "继续", "action": "back_to_city", "nextNode": "88" }
+    ]
+  },
+  "90": {
+    "title": "离席之外",
+    "text": "您也不惊动任何人地出了殿，但一出去就看不到楚大人的身影了，守在门口的侍卫对您说：'大人，宴会中途切勿离席，还请您回去。'您左右瞧了瞧，说：",
+    "choices": [
+      { "text": "a. ‘多谢小兄弟提醒，我这就回去。'", "action": "return_hall", "nextNode": "61" },
+      { "text": "b. ‘未曾听闻参宴不可提前离席一说啊。'", "action": "argue_rule", "nextNode": "ending_guard_accident_death" }
+    ]
+  },
+  "91": {
+    "title": "敬酒的惊惧",
+    "text": "您还没靠近苏大人的席位，就感觉头顶一凉。楚大人向您投来一个不带温度的眼神，您吓了一跳，脚步一转，跟苏大人邻座的大人敬了酒，就回到了自己的座位上。",
+    "choices": [
+      { "text": "继续", "action": "after_toast", "nextNode": "92" }
+    ]
+  },
+  "92": {
+    "title": "天禄阁失窃",
+    "text": "没过一会儿，有侍卫进来跪下说天禄阁失窃。姜昭仪暗示是楚大人干的，好在苏大人出面作证，还了清白。不多时，宴席结束，群臣告退。",
+    "choices": [
+      { "text": "继续", "action": "after_banquet", "nextNode": "98" }
+    ]
+  },
+  "93": {
+    "title": "枷锁之人",
+    "text": "年后开春，您前往御史台交接事务，无意中看到一个身负枷锁、头罩黑布的男人被秘密带走。您选择：",
+    "choices": [
+      { "text": "a. 拦下他们", "action": "block_them", "nextNode": "101" },
+      { "text": "b. 暗中跟上去一探究竟", "action": "follow_secret", "nextNode": "94" },
+      { "text": "c. 今日天气真好", "action": "ignore_weather", "nextNode": "95" }
+    ]
+  },
+  "94": {
+    "title": "私宅惨叫",
+    "text": "您一路跟随他们进入了一座偏僻的私宅……屋内立时响起惨绝人寰的惨叫声。苏大人竟允了手下凌虐囚犯。您想：",
+    "choices": [
+      { "text": "a. 这可不是我能听见的东西了", "action": "back_off", "nextNode": "95" },
+      { "text": "b. 居然让我抓到御史大夫的把柄了", "action": "use_leverage", "nextNode": "ending_captive_keeper" },
+      { "text": "c. 实在是太可怜了", "action": "pity", "nextNode": "ending_ptsd_death" }
+    ]
+  },
+  "95": {
+    "title": "装糊涂",
+    "text": "这哪是您能管的事，还是装糊涂的好。",
+    "choices": [
+      { "text": "继续", "action": "proceed", "nextNode": "96" }
+    ]
+  },
+  "96": {
+    "title": "送别巡狩",
+    "text": "三月初，御史大夫代天子巡狩诸侯国土。皇帝携满朝文武相送苏大人至长安城外……您心想：",
+    "choices": [
+      { "text": "a. 真背着我们偷偷谈了？", "action": "believe_love", "nextNode": "103" },
+      { "text": "b. 做戏来的吧？", "action": "suspect_show", "nextNode": "103" }
+    ]
+  },
+  "97": {
+    "title": "建章宫风波",
+    "text": "苏大人回来时正好赶上一年一度的春猎……您心想：",
+    "choices": [
+      { "text": "a. 不会出什么事了吧", "action": "worry_trouble", "nextNode": "ending_tree_accident_death" },
+      { "text": "b. 这是怎么了", "action": "confused", "nextNode": "105" },
+      { "text": "c. 刚刚是楚大人和苏大人吗", "action": "trust_them", "nextNode": "109" }
+    ]
+  },
+  "98": {
+    "title": "除夕街头",
+    "text": "回来后您才后知后觉地嗅到京中朝堂那说不出的氛围……您心想：",
+    "choices": [
+      { "text": "a. 我都困出幻觉了，居然以为苏大人和楚大人一起守岁", "action": "go_home", "nextNode": "99" },
+      { "text": "b. 这就是苏大人的声音吧，他们关系这么好吗", "action": "accept_rumor", "nextNode": "100" }
+    ]
+  },
+  "ending_festival_wish": {
+    "title": "三愿长安",
+    "text": "一盏素色天灯摇摇晃晃，升得缓极又稳极，字迹清隽：'三愿我所爱无忧无恙，岁岁长安。'",
+    "isEnding": true
+  },
+  "ending_festival_lake": {
+    "title": "湖畔缱绻",
+    "text": "湖畔微风里，一抹白衣一闪而逝，将一袭墨蓝牵入枝叶深处。无数天灯自水面升起，流光映落，将一袭素白染上了绯色。",
+    "isEnding": true
+  },
+  "ending_guard_accident_death": {
+    "title": "刀锋之误",
+    "text": "侍卫见你坚持不回殿，问你去处紧随不离。回身时，你的脖子不小心撞到了侍卫的刀刃上。",
+    "isEnding": true
+  },
+  "ending_captive_keeper": {
+    "title": "被困之宅",
+    "text": "你早有心站队楚太尉，欲将此事为投名状。可武功不济被苏大人识破，只得叩首求活，从此一生看守这座荒宅。",
+    "isEnding": true
+  },
+  "ending_ptsd_death": {
+    "title": "梦魇不醒",
+    "text": "你听不得惨叫，刚转身就被侍卫拦住。苏大人虽放你离开，但此后你夜夜惊醒，终有一日睡下便再未醒来。",
+    "isEnding": true
+  },
+  "ending_tree_accident_death": {
+    "title": "树下意外",
+    "text": "你担忧而入林，却误撞上逃窜的宇文隼随从，被一把猛推，头颅重撞尖刺，当场身亡。",
+    "isEnding": true
+  },
+  "ending_throw_from_wall_death": {
+    "title": "叛逃者的坠落",
+    "text": "\"抓住一个叛逃的。\"你被蒙着眼睛，破布似地丢到城墙上。'韩大人下令，连一只鸟都不许放出城。你觉得你逃得出去？不过，你倒是可以试试，飞不飞得出去。'你被猛地拎起，风声呼啸而至，直坠而下。",
+    "isEnding": true
+  },
+  "ending_poison_warning_death": {
+    "title": "毒发示警",
+    "text": "你渐感呼吸困难，脸上泛起青紫。你喷出第一口鲜血，接着便如决堤之水。你看见楚太尉已挡在苏大人身前，苏大人的目光却落在了你身上，那一瞬，他似是认出了你……你的声音轻得像风中飘絮，还未落地，便被杀伐声吞没了。",
+    "isEnding": true
+  },
+  "ending_hall_fire_death": {
+    "title": "厅堂火海",
+    "text": "双方动手，你见苏大人招式狠绝，心中一喜，觉着尚有转圜。可一支毒箭猝不及防地钉入他手臂，鲜血瞬息浸透衣衫。楚太尉一箭射落檐灯，烈焰卷起，厅内已是一片汪洋火海。",
+    "isEnding": true
+  },
+  "ending_woods_stab_death": {
+    "title": "林中被刺",
+    "text": "你在林中撞见楚太尉将苏大人抱在怀里。梁进现身偷袭，又被楚太尉剐成血肉。你看得出了神，直到一柄冰冷的长剑自背后穿胸而过，将你钉在原地。",
+    "isEnding": true
+  },
+  "ending_gate_intercept_death": {
+    "title": "城门的截留",
+    "text": "寿春城门紧闭，城楼守卫俯望：'寿春战事方歇，不便接客。'你自称药商，城门缓开，两名守卫迎出。后颈一痛，耳边低语：'韩大人早已奏报一切安好……是谁在放出淮南求药的风声？留他口气，把话问清。'",
+    "isEnding": true
+  },
+  "ending_refugee_slain_death": {
+    "title": "错投匪穴",
+    "text": "那女子脸色大变，将手里的干粮往地上一掷，喝道：'你与那狗官狼狈为奸！'你还没反应过来，喉中热血已喷出三尺外。",
+    "isEnding": true
+  },
+  "99": {
+    "title": "回府歇息",
+    "text": "看来得回府了，脑子已经开始不清醒了。您一边如此想着一边结束了行程。",
+    "choices": [
+      { "text": "继续", "action": "continue_rest", "nextNode": "93" }
+    ]
+  },
+  "100": {
+    "title": "传言成真？",
+    "text": "莫非京中传言是真的，楚大人果真心悦苏大人，而苏大人对楚大人也不是没意思。寒风吹过，您的脑袋隐隐作痛，怀疑刚刚听闻是否为幻觉。您摇摇头，认为自己是多想了。又走了一会儿，便也回去了。",
+    "choices": [
+      { "text": "继续", "action": "continue_return", "nextNode": "93" }
+    ]
+  },
+  "101": {
+    "title": "山麓梦醒",
+    "text": "对方似乎也没料到会有这么一个变数，将您打晕带走。等您醒来时，您发现自己竟在水里，头发里是泥土枯枝和荼蘼花瓣……爬着爬着，遇见了一位同样在爬山的人。您选择：",
+    "choices": [
+      { "text": "a. 相逢即是缘，和他打招呼", "action": "greet", "nextNode": "ending_neck_twist_death" },
+      { "text": "b. 龟龟缩缩起来，怕他是坏人", "action": "hide", "nextNode": "102" }
+    ]
+  },
+  "102": {
+    "title": "杞山猎宫",
+    "text": "对方似乎在认真爬山，没有注意到您……你环顾周围，意识到这里是杞山猎宫。您选择：",
+    "choices": [
+      { "text": "a. 速速找到大部队", "action": "find_group", "nextNode": "ending_rock_pillar_death" },
+      { "text": "b. 先去找那个形迹可疑的人", "action": "find_suspect", "nextNode": "ending_fake_su_kill" },
+      { "text": "c. 走一步看一步吧", "action": "wander_yard", "nextNode": "ending_branch_throat_death" }
+    ]
+  },
+  "103": {
+    "title": "宇文隼议和",
+    "text": "苏大人走的这一个月来楚党无动作。匈奴九皇子宇文隼入朝求割地，朝中主战主和之争四起。",
+    "choices": [
+      { "text": "继续", "action": "await_su", "nextNode": "104" }
+    ]
+  },
+  "104": {
+    "title": "待苏定夺",
+    "text": "朝中商议不下，皇帝拿不准，说等苏大人回来再做定夺。",
+    "choices": [
+      { "text": "继续", "action": "to_hunt", "nextNode": "97" }
+    ]
+  },
+  "105": {
+    "title": "林下揣测",
+    "text": "您不敢贸然行动，遂驻足观察，不多时，苏大人与楚大人一前一后从林中出来……您与同伴窃窃私语：",
+    "choices": [
+      { "text": "a. 楚大人这是要把苏大人杀了？", "action": "suspect_kill", "nextNode": "106" },
+      { "text": "b. 光天化日他们在林里干嘛了？", "action": "gossip", "nextNode": "107" }
+    ]
+  },
+  "106": {
+    "title": "权衡震慑",
+    "text": "两人共掌朝局，彼此出事则平衡失衡。楚大人此举多半是震慑群臣，叫大家好好思量割地之议。您决定不再揣测，准备明日春猎。",
+    "choices": [
+      { "text": "继续", "action": "go_hunt", "nextNode": "108" }
+    ]
+  },
+  "107": {
+    "title": "各自准备",
+    "text": "苏大人已给出说辞，再妄加揣测只会引祸。不如不管，各自回府准备春猎用物为好。",
+    "choices": [
+      { "text": "继续", "action": "go_hunt2", "nextNode": "108" }
+    ]
+  },
+  "108": {
+    "title": "杞山春猎",
+    "text": "抵达杞山猎宫，您频频见两位大人同行。露天宴会，匈奴皇子请与苏大人比射。苏大人请楚大人教弓。您心想：",
+    "choices": [
+      { "text": "a. 苏大人不会武，等会儿的比试要如何是好", "action": "worry_skill", "nextNode": "110" },
+      { "text": "b. 楚大人这么用心教导，应该不会有什么问题", "action": "trust_teach", "nextNode": "111" },
+      { "text": "c. 他们又凑在一起密谋什么", "action": "wonder_plot", "nextNode": "112" }
+    ]
+  },
+  "109": {
+    "title": "自信离开",
+    "text": "既然是他们两个，那就不需要自己操心了，他们肯定会处理好一切的。您信任地离开回府了。",
+    "choices": [
+      { "text": "继续", "action": "leave_confident", "nextNode": "108" }
+    ]
+  },
+  "110": {
+    "title": "场前担忧",
+    "text": "苏大人的手被楚大人拉着上下动，似乎怎么也寻不到正确的位置……匈奴已中靶，皇帝忧色。苏大人稍抬手，走向场中。",
+    "choices": [
+      { "text": "继续", "action": "to_113", "nextNode": "113" }
+    ]
+  },
+  "111": {
+    "title": "把手教弓",
+    "text": "楚大人牵着苏大人的手握正长弓，然后松开退到一旁。苏大人自信入场，您便知道，这把稳了。",
+    "choices": [
+      { "text": "继续", "action": "to_113b", "nextNode": "113" }
+    ]
+  },
+  "112": {
+    "title": "密谋之语",
+    "text": "两位大人咬耳朵说话，分开后楚大人还对苏大人点自己的嘴唇。宇文隼已中一局，您静观其变。",
+    "choices": [
+      { "text": "继续", "action": "to_113c", "nextNode": "113" }
+    ]
+  },
+  "113": {
+    "title": "破箭入心",
+    "text": "苏大人引弓搭箭，利箭呼啸而出，擦过宇文隼箭矢稳扎靶心。裂响乍起，匈奴的那支箭断了。苏大人云淡风轻地笑说比自己预料容易许多。",
+    "choices": [
+      { "text": "继续", "action": "after_show", "nextNode": "114" }
+    ]
+  },
+  "114": {
+    "title": "桃林花粉",
+    "text": "宴会结束后，您到处走走以平复激动的心情。桃花渐多，簇拥包围。您选择：",
+    "choices": [
+      { "text": "a. 好景当需赏", "action": "admire", "nextNode": "116" },
+      { "text": "b. 这里不好玩", "action": "boring", "nextNode": "115" },
+      { "text": "c. 前面那是谁", "action": "approach_youth", "nextNode": "ending_pollen_suffocation_death" }
+    ]
+  },
+  "115": {
+    "title": "魏松之案",
+    "text": "夜里传来消息户部尚书魏松出事，陛下召所有人至猎宫大殿。众臣分列两侧，魏松跪于殿中。您认为：",
+    "choices": [
+      { "text": "a. 单凭一封书信无法做出判断", "action": "doubt_letter", "nextNode": "117" },
+      { "text": "b. 魏大人的死是板上钉钉", "action": "convict", "nextNode": "118" }
+    ]
+  },
+  "116": {
+    "title": "雨前归处",
+    "text": "满林桃花虽美，但天际堆满重云。有雨将至，您匆匆回了住所。",
+    "choices": [
+      { "text": "继续", "action": "back_to_115", "nextNode": "115" }
+    ]
+  },
+  "117": {
+    "title": "证据不足",
+    "text": "单凭一封书信，无法定罪；但殿上气氛逼人，您只得退后观望。",
+    "choices": [
+      { "text": "继续", "action": "proceed_to_115", "nextNode": "115" }
+    ]
+  },
+  "118": {
+    "title": "无谓之争",
+    "text": "您敏锐觉察一切并不简单，陛下不管信与不信，背后都有人不想让魏大人活下去。再多争辩无益。",
+    "choices": [
+      { "text": "继续", "action": "eyes_open_sleep", "nextNode": "115" }
+    ]
+  },
+  "ending_neck_twist_death": {
+    "title": "山路断颈",
+    "text": "他面露疑惑与你打招呼，忽而下手，轻轻一拧，你的颈骨碎裂，尸体骨碌滚回河里。",
+    "isEnding": true
+  },
+  "ending_rock_pillar_death": {
+    "title": "巨石迎面",
+    "text": "你东找西找，好不容易找到大部队入口，猛地撞上'柱子'，血流满面。再睁眼仍在山麓水里，所谓自救不过临死前的幻觉。",
+    "isEnding": true
+  },
+  "ending_fake_su_kill": {
+    "title": "假苏索命",
+    "text": "直觉带你找到那人，衣身背影酷似苏大人。你还未缓过神，他已转身，目光冰冷。'小心，他要假冒苏大人。'这是你死前最后的念头。",
+    "isEnding": true
+  },
+  "ending_branch_throat_death": {
+    "title": "树枝穿喉",
+    "text": "你在院落外蹑行，一片荼蘼花瓣落在脚边。'跟了我一路了，还要继续跟？'白衣人的声音在背后响起。枝梢穿喉，你再说不出秘密。",
+    "isEnding": true
+  },
+  "ending_pollen_suffocation_death": {
+    "title": "花粉窒息",
+    "text": "几树后隐约是位青年，他面前是位固定姿势的红衣女子。你正欲上前，胸口发闷，花粉涌入口鼻，呼吸停滞，靠树倒下。",
     "isEnding": true
   }
 } 

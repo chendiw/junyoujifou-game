@@ -32,6 +32,8 @@ async function loadStoryNodes() {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
     storyNodes = await response.json();
+    // Auto-create endings for any missing nextNode targets
+    autoCreateEndingsForMissingTargets();
     console.log('Story nodes loaded successfully:', Object.keys(storyNodes).length, 'nodes');
     console.log('First few nodes:', Object.keys(storyNodes).slice(0, 5));
   } catch (error) {
@@ -115,6 +117,48 @@ function generateChapterNames() {
     }
   });
   return names;
+}
+
+// Auto-create placeholder endings for missing nextNode targets
+function autoCreateEndingsForMissingTargets() {
+  let createdCount = 0;
+  const createdIds = new Set();
+
+  Object.keys(storyNodes).forEach(sourceId => {
+    const node = storyNodes[sourceId];
+    if (!node || !Array.isArray(node.choices)) return;
+
+    node.choices.forEach(choice => {
+      const target = choice && typeof choice.nextNode === 'string' ? choice.nextNode : null;
+      if (!target) return;
+
+      // If target exists, nothing to do
+      if (storyNodes[target]) return;
+
+      // Decide an ending id to use/create
+      const endingId = target.startsWith('ending_') ? target : `ending_auto_${target}`;
+
+      // Create ending node if it doesn't exist yet
+      if (!storyNodes[endingId]) {
+        storyNodes[endingId] = {
+          title: '未完待续',
+          text: '更多的故事即将发生，请不日尝试解锁。',
+          isEnding: true
+        };
+        createdCount += 1;
+        createdIds.add(endingId);
+      }
+
+      // Rewire choice to the created ending if the id differs
+      if (endingId !== target) {
+        choice.nextNode = endingId;
+      }
+    });
+  });
+
+  if (createdCount > 0) {
+    console.warn(`Auto-created ${createdCount} placeholder ending node(s):`, Array.from(createdIds).join(', '));
+  }
 }
 
 // Get chapter names dynamically
