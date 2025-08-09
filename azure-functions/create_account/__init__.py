@@ -85,6 +85,24 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
                 mimetype='application/json'
             )
 
+        # New: require userId from client and use it verbatim
+        user_id = (req_body.get('userId') or '').strip()
+        if not user_id:
+            return func.HttpResponse(
+                json.dumps({'error': 'userId is required'}),
+                status_code=400,
+                headers=headers,
+                mimetype='application/json'
+            )
+        # Basic validation for blob-safe characters
+        if not re.match(r'^[A-Za-z0-9_-]{6,128}$', user_id):
+            return func.HttpResponse(
+                json.dumps({'error': 'Invalid userId format'}),
+                status_code=400,
+                headers=headers,
+                mimetype='application/json'
+            )
+
         # Create blob service client
         blob_service_client = BlobServiceClient.from_connection_string(connection_string)
         container_client = blob_service_client.get_container_client(container_name)
@@ -120,11 +138,17 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
                     mimetype='application/json'
                 )
         
-        # Generate unique user ID
-        import uuid
-        user_id = str(uuid.uuid4())
+        # Optional: ensure userId is not already used (should not happen under normal flow)
+        for existing_account in existing_accounts:
+            if str(existing_account.get('id', '')) == user_id:
+                return func.HttpResponse(
+                    json.dumps({'error': 'userId already exists'}),
+                    status_code=409,
+                    headers=headers,
+                    mimetype='application/json'
+                )
         
-        # Create new account entry
+        # Create new account entry using client-provided userId
         new_account = {
             'id': user_id,
             'name': account_name,
