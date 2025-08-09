@@ -18,6 +18,28 @@ class StorageService {
     this.startSyncTimer();
   }
 
+  // New: generate cryptographically strong random user ID
+  static generateRandomId() {
+    const array = new Uint8Array(16);
+    if (typeof crypto !== 'undefined' && crypto.getRandomValues) {
+      crypto.getRandomValues(array);
+    } else if (typeof window !== 'undefined' && window.crypto && window.crypto.getRandomValues) {
+      window.crypto.getRandomValues(array);
+    } else {
+      // Fallback: not cryptographically strong
+      for (let i = 0; i < array.length; i++) {
+        array[i] = Math.floor(Math.random() * 256);
+      }
+    }
+    // URL-safe base64 without padding
+    const base64 = btoa(String.fromCharCode.apply(null, Array.from(array)))
+      .replace(/\+/g, '-')
+      .replace(/\//g, '_')
+      .replace(/=+$/, '');
+    // Ensure it matches server regex [A-Za-z0-9_-]{6,128}
+    return base64;
+  }
+
   // Initialize with Azure function URL
   setAzureBaseUrl(url) {
     this.azureBaseUrl = url;
@@ -106,8 +128,9 @@ class StorageService {
       
       console.log('No duplicates found remotely, proceeding with account creation');
       
-      // Create user object with temporary ID for immediate local use
-      const tempUserId = Date.now().toString();
+      // Create user object with secure random ID generated on client
+      const tempUserId = StorageService.generateRandomId();
+      console.log('Generated client userId:', tempUserId);
       const user = {
         id: tempUserId,
         accountName: accountName,
@@ -133,7 +156,7 @@ class StorageService {
       this.currentUser = user;
       this.pendingChanges = false;
 
-      // Fire-and-forget: complete server creation and adopt canonical ID in background
+      // Fire-and-forget: complete server creation in background using client-generated userId (no server-generated ID)
       this._completeAccountCreationInBackground({ user, gameState, accountName }).catch(err => {
         console.warn('Background account creation failed:', err?.message || err);
       });
@@ -146,107 +169,45 @@ class StorageService {
     }
   }
 
-  // Complete creation with Azure in background, then adopt canonical ID
+  // Complete creation with Azure in background using client-generated userId
   async _completeAccountCreationInBackground({ user, gameState, accountName }) {
     try {
-      // Create user in Azure
+      const payload = { accountName, userId: user.id };
+      console.log('Calling create-account with payload:', payload);
       const userResponse = await fetch(`${this.azureBaseUrl}/create-account`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ accountName })
+        body: JSON.stringify(payload)
       });
 
       if (!userResponse.ok) {
-        // If duplicate on server, surface as warning; do not break local flow
         const msg = await userResponse.text().catch(() => '');
         console.warn('Failed to create user in Azure:', userResponse.status, msg);
         return;
       }
 
-      const serverData = await userResponse.json();
-      const serverUserId = serverData?.userId;
+      const serverData = await userResponse.json().catch(() => ({}));
+      console.log('create-account response:', serverData);
       const serverGameState = serverData?.gameState;
 
-      if (!serverUserId) {
-        console.warn('Server did not return userId; cannot adopt canonical ID.');
-        return;
+      // Persist any returned server game state under the same client-generated userId
+      if (serverGameState && typeof serverGameState === 'object') {
+        const normalizedServer = this._normalizeServerGameState(serverGameState);
+        if (normalizedServer) {
+          this.saveToLocal(`${CONFIG.STORAGE_KEYS.GAME_STATE_PREFIX}${user.id}`, { ...normalizedServer, ...gameState });
+        }
       }
 
-      // Adopt canonical ID, migrate local state, map temp->canonical
-      await this._adoptCanonicalUserId({
-        accountName,
-        oldUserId: user.id,
-        newUserId: serverUserId,
-        serverGameState
-      });
-
-      // After adopting canonical ID, sync any local progress accumulated under the temp ID
-      // saveGameState will mark pendingChanges and trigger retrying sync
-      const latestLocal = this.loadFromLocal(`${CONFIG.STORAGE_KEYS.GAME_STATE_PREFIX}${serverUserId}`)
-        || this.loadFromLocal(`${CONFIG.STORAGE_KEYS.GAME_STATE_PREFIX}${user.id}`)
-        || gameState;
-
-      // Ensure we use the canonical ID for further saves
-      this.saveGameState(serverUserId, latestLocal);
+      // Ensure we use the same ID going forward
+      this.saveGameState(user.id, this.loadFromLocal(`${CONFIG.STORAGE_KEYS.GAME_STATE_PREFIX}${user.id}`) || gameState);
     } catch (e) {
       console.warn('Error during background account creation:', e?.message || e);
     }
   }
 
-  // Migrate local storage and internal state to use canonical server userId
-  async _adoptCanonicalUserId({ accountName, oldUserId, newUserId, serverGameState }) {
-    if (!oldUserId || !newUserId || oldUserId === newUserId) return;
-
-    // Record mapping for rewriting future saves
-    this.userIdMapping[oldUserId] = newUserId;
-
-    try {
-      // Migrate game state key
-      const oldKey = `${CONFIG.STORAGE_KEYS.GAME_STATE_PREFIX}${oldUserId}`;
-      const newKey = `${CONFIG.STORAGE_KEYS.GAME_STATE_PREFIX}${newUserId}`;
-      const existingLocalState = this.loadFromLocal(oldKey);
-
-      let finalState = existingLocalState || {};
-      if (serverGameState && typeof serverGameState === 'object') {
-        // Use normalization to align shapes and prefer freshest local values
-        const normalizedServer = this._normalizeServerGameState(serverGameState) || {};
-        finalState = { ...normalizedServer, ...finalState };
-      }
-
-      // Save under new key
-      this.saveToLocal(newKey, finalState);
-      // Remove old key
-      try { localStorage.removeItem(oldKey); } catch (_) {}
-
-      // Update USERS mapping
-      const users = this.loadFromLocal(CONFIG.STORAGE_KEYS.USERS) || {};
-      if (users[accountName]) {
-        users[accountName].id = newUserId;
-        this.saveToLocal(CONFIG.STORAGE_KEYS.USERS, users);
-      }
-
-      // Update CURRENT_GAME object if present
-      const current = this.loadFromLocal(CONFIG.STORAGE_KEYS.CURRENT_GAME);
-      if (current && current.user && current.user.id === oldUserId) {
-        current.user.id = newUserId;
-        this.saveToLocal(CONFIG.STORAGE_KEYS.CURRENT_GAME, current);
-      }
-
-      // Update in-memory current user
-      if (this.currentUser && this.currentUser.id === oldUserId) {
-        this.currentUser = { id: newUserId, accountName };
-      }
-
-      // Inform listeners (optional)
-      if (typeof window !== 'undefined' && typeof window.dispatchEvent === 'function') {
-        try {
-          const evt = new CustomEvent('userIdUpdated', { detail: { accountName, oldUserId, newUserId } });
-          window.dispatchEvent(evt);
-        } catch (_) {}
-      }
-    } catch (migrateErr) {
-      console.warn('Failed to adopt canonical user id:', migrateErr);
-    }
+  // No-op since userId is client-assigned and canonical from creation time
+  async _adoptCanonicalUserId() {
+    return;
   }
 
   async loginUser(accountName) {
