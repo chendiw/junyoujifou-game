@@ -68,13 +68,13 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
             )
         
         # Check for invalid characters (only allow letters, numbers, spaces, and Chinese characters)
-        if not re.match(r'^[\u4e00-\u9fff\w\s]+$', account_name):
-            return func.HttpResponse(
-                json.dumps({'error': 'Account name can only contain letters, numbers, spaces, and Chinese characters'}),
-                status_code=400,
-                headers=headers,
-                mimetype='application/json'
-            )
+        # if not re.match(r'^[\u4e00-\u9fff\w\s]+$', account_name):
+        #     return func.HttpResponse(
+        #         json.dumps({'error': 'Account name can only contain letters, numbers, spaces, and Chinese characters'}),
+        #         status_code=400,
+        #         headers=headers,
+        #         mimetype='application/json'
+        #     )
         
         # Length validation
         if len(account_name) < 2 or len(account_name) > 20:
