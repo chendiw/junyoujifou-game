@@ -1432,14 +1432,14 @@
     "text": "雍和九年仲夏，上用御史大夫谋，行推恩令，西陵王力挺而得淮南。然淮南余孽聚众叛乱。朝遣<span class=\"character-name\">洛辛</span>前往平定，援至淮南而失，众臣疑<span class=\"character-name\">洛辛</span>叛变矣。您选择：",
     "choices": [
       { "text": "a. 仅朝中空谈而未实地勘察，焉能得事之真貌", "action": "need_investigation", "nextNode": "130" },
-      { "text": "b. 洛辛是苏大人带回来的人，难道说……？", "action": "suspect_luo", "nextNode": "ending_suspect_luo" }
+      { "text": "b. 洛辛是苏大人带回来的人，难道说……？", "action": "suspect_luo", "nextNode": "132" }
     ]
   },
   "130": {
     "title": "两位大人的请愿",
     "text": "苏大人走到殿中跪下，自请亲往淮南查明事由。楚明允同样出列，挨着苏大人跪下，请愿同往淮南整顿南境兵事。您选择：",
     "choices": [
-      { "text": "a. 有两位大人躬亲查案，想必很快就能解决", "action": "trust_them", "nextNode": "ending_trust_them" },
+      { "text": "a. 有两位大人躬亲查案，想必很快就能解决", "action": "trust_them", "nextNode": "160" },
       { "text": "b. 机会难得，朝会结局后向两位大人申请随行同去", "action": "request_join", "nextNode": "131" }
     ]
   },
@@ -1450,17 +1450,17 @@
   },
   "131": {
     "title": "随行淮南",
-    "text": "两位大人知晓您的品行，同意将您的名字加进随行官员的名册。几日后，您随车队上路。您选择：",
+    "text": "两位大人知晓您的品行，同意将您的名字加进随行官员的名册。几日后，您随车队上路。车队休息时，您走到楚大人和苏大人的马车处，与苏大人的侍从苏白说明自己的用意，苏白歉然道：\"公子与楚大人正在休息，不便打扰。\"您：",
     "choices": [
-      { "text": "a. 去前面的马车拜谢两位大人", "action": "thank_lords", "nextNode": "132" },
-      { "text": "b. 独坐马车，研读淮南案件相关卷宗", "action": "read_documents", "nextNode": "133" }
+      { "text": "a. 过了一会儿觉得他俩不管午睡在做什么都该醒了，又去问候却遭拒", "action": "insist_visit", "nextNode": "133" },
+      { "text": "b. 劳烦苏白小兄弟代自己表达谢意，回到自己的马车", "action": "polite_return", "nextNode": "133" }
     ]
   },
   "132": {
-    "title": "车队休息",
-    "text": "车队休息时，您走到楚大人和苏大人的马车处，与苏大人的侍从苏白说明自己的用意，苏白歉然道：\"公子与楚大人正在休息，不便打扰。\"您劳烦苏白小兄弟代自己传达谢意，而后恭敬地退后几步，回了马车。",
+    "title": "投诚楚党",
+    "text": "您对苏大人的信任产生动摇，反观楚大人作为领导者更有前途，您有心投诚，成为了楚党的一员。后楚大人与苏大人前往淮南查案，您被安排留在京中，被推举补任户部尚书。",
     "choices": [
-      { "text": "继续", "action": "continue_journey", "nextNode": "133" }
+      { "text": "继续", "action": "continue_story", "nextNode": "" }
     ]
   },
   "133": {
@@ -1468,7 +1468,14 @@
     "text": "马车行了些时日总算抵达淮南，一行人被安排在韩府暂住，接连几天都查不到叛党相关线索，后来韩仲文设宴相邀，众人陆续而至。宴会开始前，衡山郡守沈大人向您敬酒，您选择：",
     "choices": [
       { "text": "a. 喝，不破坏宴会融洽氛围", "action": "drink_wine", "nextNode": "ending_poison_banquet_death" },
-      { "text": "b. 不喝，万一他下毒了咋办", "action": "refuse_wine", "nextNode": "ending_survive_banquet" }
+      { "text": "b. 不喝，万一他下毒了咋办", "action": "refuse_wine", "nextNode": "134" }
+    ]
+  },
+  "134": {
+    "title": "幸存宴会",
+    "text": "宴会刚开始，就立马变成了修罗场。好在您处变不惊又反应迅速，好悬活了下来。楚大人与苏大人揭穿淮南叛乱一案的阴谋，同时拘捕涉案大小官员，带领人马回了长安。",
+    "choices": [
+      { "text": "继续", "action": "continue_story", "nextNode": "160" }
     ]
   },
   "140": {
