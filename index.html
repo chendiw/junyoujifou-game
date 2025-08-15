@@ -30,6 +30,63 @@
                         <button id="loginBtn" class="btn btn-primary">登录</button>
                         <button id="createAccountBtn" class="btn btn-secondary">创建账户</button>
                     </div>
+                    
+                    <!-- Test Buttons (for development) -->
+                    <div class="button-group" style="margin-top: 20px;">
+                        <button id="testSpinnerBtn" class="btn btn-outline">测试转盘</button>
+                        <button id="forceSpinnerBtn" class="btn btn-outline">强制显示转盘</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slot Machine Screen -->
+    <div id="slotScreen" class="screen">
+        <div class="slot-machine-container">
+            <div class="slot-machine-wrapper">
+                <!-- 装饰灯 -->
+                <div class="slot-decoration"></div>
+                <div class="slot-decoration"></div>
+                <div class="slot-decoration"></div>
+                <div class="slot-decoration"></div>
+                
+                <!-- 标题 -->
+                <h1 class="slot-machine-title">选择您的身份</h1>
+                
+                <!-- 滚轴容器 -->
+                <div class="reels-container">
+                    <!-- 身份滚轴 -->
+                    <div class="reel single-reel" id="identityReel">
+                        <div class="reel-label">命运之轮</div>
+                        <div class="reel-content" id="identityContent"></div>
+                        <div class="reel-window"></div>
+                    </div>
+                </div>
+                
+                <!-- 控制按钮 -->
+                <div class="slot-controls">
+                    <button id="spinButton" class="spin-button">
+                        <span class="btn-text">长按选择身份</span>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- 结果显示 -->
+            <div id="slotResult" class="slot-result">
+                <div class="result-content">
+                    <h2 class="result-title">您的命运</h2>
+                    <div class="result-combination">
+                        <div class="result-identity">
+                            <span class="result-label">您的身份：</span>
+                            <span id="resultIdentity"></span>
+                        </div>
+                        <div class="result-location">
+                            <span class="result-label">起始地点：</span>
+                            <span id="resultLocation"></span>
+                        </div>
+                    </div>
+                    <button id="startGameBtn" class="btn btn-primary">开始游戏</button>
                 </div>
             </div>
         </div>
