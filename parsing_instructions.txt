@@ -1,0 +1,12 @@
+Here are parsing instructions for the Agent to help create story_nodes.json based on updated content in draft_story.txt.
+
+1. Each question in draft_story.txt starts with: "x. (接y)" where x is the question number and y is one or multiple question numbers with single letters. 
+When translating to story nodes, x is the current node number, and number and letter pairs in y are options from previous questions / nodes whose nextNode points to x.
+e.g. 10. (接8a/9b) means the current question should become node 10. Node 8 option a's next node should be Node 10. Node 9 option b's next node should also be Node 10.
+When you construct node 10, make sure to check if Node 8 and 9's respective options correctly has nextNode set to 10. If any of those options' nextNode is not set, set it to be 10.
+2. Make sure you copy the exact content of the question and options. 
+3. Process 5 questions in a batch, continue until you exhaust all questions. If a question's option goes to a node that has not been created, create a dummy node in story_nodes.json with empty content.
+You will get to fill the node when you get there in future batches. If a question's option goes to an un-numbered node, leave its nextNode empty.
+You will get to set the nextNode field of that option in a future question from reading its prefix (as instruction 1 suggests).
+4. If an option of a question goes to an ending, create an ending node.
+5. The draft story doesn't assign titles to story nodes and ending nodes, create titles for them when you create the node.

@@ -1293,7 +1293,7 @@
     "title": "魏松之案",
     "text": "您回屋院休憩，夜晚时传来消息说户部尚书魏松出事了，陛下召所有人过去。猎宫大殿上，诸臣分列两侧，魏松独自跪在殿中。您认真听完事件原委，原来是魏大人通敌叛国，与匈奴九皇子通信结盟，愿助其得到大夏五座城池。工部尚书岳宇轩跳出来说怪不得当时魏大人执意割地结盟，竟然只是为匈奴献礼。您认为：",
     "choices": [
-      { "text": "a. 单凭一封书信无法做出判断", "action": "doubt_letter", "nextNode": "115" },
+      { "text": "a. 单凭一封书信无法做出判断", "action": "doubt_letter", "nextNode": "117" },
       { "text": "b. 魏大人的死是板上钉钉", "action": "convict", "nextNode": "118" }
     ]
   },
@@ -1304,11 +1304,34 @@
       { "text": "继续", "action": "back_to_115", "nextNode": "115" }
     ]
   },
+  "117": {
+    "title": "魏松的辩解",
+    "text": "您继续往下听，情况发生了变化，魏大人说这信件是苏大人让他送过去的，具体内容他并不知情。您心想：",
+    "choices": [
+      { "text": "a. 竟然将脏水泼到苏大人身上了", "action": "blame_su", "nextNode": "118" },
+      { "text": "b. 凡是要求证据", "action": "demand_evidence", "nextNode": "119" }
+    ]
+  },
   "118": {
     "title": "无谓之争",
     "text": "您敏锐地察觉到一切并不那么简单，陛下不管信与不信，背后都有人不想让魏大人活下去，既然如此，再多争辩又有什么意义。您暗自哂笑一声，开始睁着眼睡觉。",
     "choices": [
-      { "text": "继续", "action": "eyes_open_sleep", "nextNode": "115" }
+      { "text": "继续", "action": "eyes_open_sleep", "nextNode": "121" }
+    ]
+  },
+  "119": {
+    "title": "陆尚书的证词",
+    "text": "苏大人还没开口，刑部尚书陆仕就向魏大人问是什么时候与苏大人见面的。魏大人报了个时间，陆大人顿时脸色难看，说那时的苏大人正在房中，自己正送去了奏结，在场很多人都可以作证。您认为：",
+    "choices": [
+      { "text": "a. 不会还有反转吧", "action": "expect_twist", "nextNode": "120" },
+      { "text": "b. 魏大人此举甚不明智", "action": "unwise_move", "nextNode": "118" }
+    ]
+  },
+  "120": {
+    "title": "魏松的绝望",
+    "text": "魏大人不可置信，嘴里念叨着苏大人，仿佛在祈求苏大人能救他。皇帝忍无可忍，直言相信苏大人。魏大人便听懂了皇帝的言外之意。他凄声陈情为国之志，猛然俯身叩头。",
+    "choices": [
+      { "text": "继续", "action": "desperate_plea", "nextNode": "121" }
     ]
   },
   "ending_neck_twist_death": {
@@ -1316,9 +1339,49 @@
     "text": "他面露疑惑，但还是和你打了招呼，你正要感叹一句，脖子突然一疼，原来是他把你的脖子扭断了。你的尸体骨碌骨碌滚下去，又滚到了河水里。",
     "isEnding": true
   },
+  "121": {
+    "title": "魏松之死",
+    "text": "\"还望陛下明鉴！\"魏大人的头沉重地磕撞在玉阶上。殷红血液漫延于白发之下，魏大人以死明己志。您心想：",
+    "choices": [
+      { "text": "a. 到底是可惜了一位好官", "action": "pity_good_official", "nextNode": "122" },
+      { "text": "b. 我本来可以阻止他自杀的", "action": "could_prevent", "nextNode": "ending_self_sacrifice" },
+      { "text": "c. 楚大人和苏大人是不是发现了什么", "action": "suspect_discovery", "nextNode": "123" }
+    ]
+  },
+  "ending_self_sacrifice": {
+    "title": "自证清白",
+    "text": "你能听出来魏大人是被人算计了，遂出列行礼，请陛下允许好生料理魏大人的后事。岳宇轩冷哼一声，说你行事莫名，很有可能就是魏松的同党，看着道貌岸然，心里却是往匈奴倒戈。你被岳宇轩怼得无力辩驳，最终竟不得不用自杀来自证清白。",
+    "isEnding": true
+  },
   "ending_rock_pillar_death": {
     "title": "巨石迎面",
     "text": "你东找西找，可算是找到了，正想进去，头猛地撞上了身前突然出现的柱子，你撞得太用力，血都撞出来了。眼睛闭上后再睁开，自己哪里是在杞山，分明还在山麓的水里，方才撞的也不是柱子，而是一块棱角分明的巨石。所谓自救不过是临死前的幻觉。",
+    "isEnding": true
+  },
+  "122": {
+    "title": "春猎结束",
+    "text": "浩大春猎仓促结束，原本对各地盟约还各执一词的朝臣纷纷转了同一风向，再无人敢认同盟约。御史大人淡淡一句以地事匈奴犹如抱薪救火决定了大夏的态度。匈奴使臣悻悻然离去。您选择：",
+    "choices": [
+      { "text": "a. 相送一程", "action": "see_off", "nextNode": "ending_hun_retaliation" },
+      { "text": "b. 远远嘲笑", "action": "mock_from_afar", "nextNode": "124" }
+    ]
+  },
+  "123": {
+    "title": "两位大人的沉默",
+    "text": "可楚大人和苏大人都未说些什么。您选择：",
+    "choices": [
+      { "text": "a. 还是不当出头鸟了", "action": "stay_quiet", "nextNode": "122" },
+      { "text": "b. 我不入地狱谁入地狱", "action": "speak_up", "nextNode": "ending_speak_up" }
+    ]
+  },
+  "ending_hun_retaliation": {
+    "title": "匈奴报复",
+    "text": "你跟过去想近距离嘲笑他们一番，可匈奴毕竟不是软柿子，忍不了被这样侮辱。他们偷偷派人跟你回城，在路上制造了一些意外，你荒诞而合理地死去了。",
+    "isEnding": true
+  },
+  "ending_speak_up": {
+    "title": "多嘴之祸",
+    "text": "\"两位大人没什么要说的吗？\"你话刚说出口就意识到事情不对劲了，这样疑问似乎方才刚发生过，正是魏大人向苏大人说的话。你辩解无效，被押入大牢待审。这期间发生了太多事，你再出来时外面已经换了天。你无法适应，辞官回乡，过完了平淡的一生。",
     "isEnding": true
   },
   "ending_fake_su_kill": {
@@ -1326,9 +1389,90 @@
     "text": "根据直觉，你真的找到了那个人，与他距离越近，你越觉得他很眼熟，虽然只有背影，可这衣服与身形，是苏大人！你还没从震惊中缓过神来，对方就发现了你。你在死前看到了他的眼睛……小心，他要假冒苏大人。",
     "isEnding": true
   },
+  "124": {
+    "title": "魏松的后事",
+    "text": "匈奴使团离去后，朝廷下令为魏松定谥号书诔文，您心道魏尚书果然是遭人构陷而死，不禁感到悲戚。但您无力更改什么，便不再投心于此，想着还是关心一下自己吧。每月述职的日子到了，对于去向陛下回禀事务的时间，您选择：",
+    "choices": [
+      { "text": "a. 一日之计在于晨", "action": "early_morning", "nextNode": "125" },
+      { "text": "b. 夏日困倦人之常情", "action": "summer_drowsiness", "nextNode": "ending_summer_drowsiness" }
+    ]
+  },
+  "125": {
+    "title": "宫中相遇",
+    "text": "您早早就进了宫，没想到还有人比自己更早。您望着那芝兰玉树的身影被一声张扬至极的\"苏大人——\"叫停了脚步，回身看去，楚大人笑着走到他身边与他并肩同行。您选择：",
+    "choices": [
+      { "text": "a. 上前与他们问好", "action": "greet_them", "nextNode": "126" },
+      { "text": "b. 比他们更快到御书房回禀事务", "action": "report_first", "nextNode": "127" },
+      { "text": "c. 保持原速", "action": "maintain_pace", "nextNode": "128" }
+    ]
+  },
+  "126": {
+    "title": "如芒在背",
+    "text": "\"楚大人、苏大人早。\"您有理地与他们寒暄，他们同样客气地与你打招呼，只是你总有种如芒在背的感觉，好像被什么东西盯上了似的。您对上楚大人的眼神，知道了这股寒凉感从何而来。您很识趣儿地先行离开，前往御书房回禀。",
+    "choices": [
+      { "text": "继续", "action": "report_to_emperor", "nextNode": "127" }
+    ]
+  },
+  "127": {
+    "title": "御书房回禀",
+    "text": "您向皇帝中规中矩地回禀了本月事务，皇帝看上去并不上心，只专注于那等人高的木雕女子。您总觉得那木雕有点熟悉，但又无法究其缘由。您将文书放到了桌上，得了皇帝准许后便退下了。",
+    "choices": [
+      { "text": "继续", "action": "leave_palace", "nextNode": "129" }
+    ]
+  },
+  "128": {
+    "title": "西陵王的问候",
+    "text": "楚大人与苏大人有说有笑，一同向迎面走来的西陵王李承化行礼寒暄。西陵王走后，您听见楚大人问苏大人何时把自己收到府里，心中升起诡异的感觉，走得原来更慢了些，生怕听到什么不该听的。",
+    "choices": [
+      { "text": "继续", "action": "avoid_eavesdropping", "nextNode": "127" }
+    ]
+  },
+  "129": {
+    "title": "淮南叛乱",
+    "text": "雍和九年仲夏，上用御史大夫谋，行推恩令，西陵王力挺而得淮南。然淮南余孽聚众叛乱。朝遣洛辛前往平定，援至淮南而失，众臣疑洛辛叛变矣。您选择：",
+    "choices": [
+      { "text": "a. 仅朝中空谈而未实地勘察，焉能得事之真貌", "action": "need_investigation", "nextNode": "130" },
+      { "text": "b. 洛辛是苏大人带回来的人，难道说……？", "action": "suspect_luo", "nextNode": "ending_suspect_luo" }
+    ]
+  },
+  "130": {
+    "title": "两位大人的请愿",
+    "text": "苏大人走到殿中跪下，自请亲往淮南查明事由。楚明允同样出列，挨着苏大人跪下，请愿同往淮南整顿南境兵事。您选择：",
+    "choices": [
+      { "text": "a. 有两位大人躬亲查案，想必很快就能解决", "action": "trust_them", "nextNode": "ending_trust_them" },
+      { "text": "b. 机会难得，朝会结局后向两位大人申请随行同去", "action": "request_join", "nextNode": "131" }
+    ]
+  },
   "ending_branch_throat_death": {
     "title": "树枝穿喉",
     "text": "你误打误撞来到了一处院落，正要进去，就看到苏大人从里面出来了。他没有发现您，径直离开，你发现他走过的地方掉了什么东西，你过去捡起，是一片荼蘼花瓣。你低头一看，自己的鞋底果然也粘有荼蘼花。你瞬间想通了其中关窍——有人要冒充苏大人。\"跟了我一路了，还要继续跟？\"那白衣人在你背后说道。一根树枝穿进你的脖颈，你再说不出这个秘密了。",
+    "isEnding": true
+  },
+  "131": {
+    "title": "随行淮南",
+    "text": "您向两位大人申请随行同去淮南，他们同意了您的请求。",
+    "choices": [
+      { "text": "继续", "action": "join_expedition", "nextNode": "ending_join_expedition" }
+    ]
+  },
+  "ending_summer_drowsiness": {
+    "title": "夏日困倦",
+    "text": "夏日困倦人之常情，您选择在午后进宫述职。",
+    "isEnding": true
+  },
+  "ending_suspect_luo": {
+    "title": "怀疑洛辛",
+    "text": "您怀疑洛辛是苏大人带回来的人，可能有其他隐情。",
+    "isEnding": true
+  },
+  "ending_trust_them": {
+    "title": "信任两位大人",
+    "text": "您相信有两位大人躬亲查案，想必很快就能解决淮南的问题。",
+    "isEnding": true
+  },
+  "ending_join_expedition": {
+    "title": "随行淮南",
+    "text": "您成功申请随两位大人同往淮南，开始了新的征程。",
     "isEnding": true
   },
   "ending_pollen_suffocation_death": {
