@@ -10,6 +10,43 @@ let gameState = {
   gameOver: false
 };
 
+// Identity Selection Variables
+const identitySelectionScreen = document.getElementById('identitySelectionScreen');
+const identitySpinner = document.getElementById('identitySpinner');
+const spinButton = document.getElementById('spinButton');
+const resultDisplay = document.getElementById('resultDisplay');
+const selectedIdentity = document.getElementById('selectedIdentity');
+const selectedNode = document.getElementById('selectedNode');
+const startGameBtn = document.getElementById('startGameBtn');
+
+// Identity combinations with their corresponding starting nodes
+const identityCombinations = [
+  { identity: "游客", node: "1" },
+  { identity: "伶人/琴师", node: "12" },
+  { identity: "昭仪", node: "13" },
+  { identity: "舞姬", node: "14" },
+  { identity: "中央官员", node: "60" },
+  { identity: "地方官", node: "23" },
+  { identity: "羽林军", node: "33" },
+  { identity: "禁军", node: "34" },
+  { identity: "直属戍卒", node: "38" },
+  { identity: "淮南王麾下军士", node: "45" },
+  { identity: "南境军营军士", node: "54" },
+  { identity: "寿春城防军", node: "55" },
+  { identity: "行商", node: "63" },
+  { identity: "酒楼老板", node: "84" },
+  { identity: "点心铺老板", node: "83" },
+  { identity: "面馆老板", node: "140" },
+  { identity: "天灯手艺人", node: "142" }
+];
+
+let isSpinning = false;
+let spinInterval = null;
+let spinSpeed = 0;
+let currentPosition = 0;
+let targetPosition = 0;
+let selectedCombination = null;
+
 // DOM Elements
 const loginScreen = document.getElementById('loginScreen');
 const gameScreen = document.getElementById('gameScreen');
@@ -59,6 +96,14 @@ function setupEventListeners() {
     }
   });
   
+  // Identity selection functionality
+  spinButton.addEventListener('mousedown', startSpinning);
+  spinButton.addEventListener('mouseup', stopSpinning);
+  spinButton.addEventListener('mouseleave', stopSpinning);
+  spinButton.addEventListener('touchstart', startSpinning);
+  spinButton.addEventListener('touchend', stopSpinning);
+  startGameBtn.addEventListener('click', startGameWithSelectedIdentity);
+  
   // Game controls
   backtrackBtn.addEventListener('click', handleBacktrack);
   worldRulesBtn.addEventListener('click', () => openModal('worldRulesModal'));
@@ -86,7 +131,7 @@ async function checkSavedGame() {
     const savedGame = storageService.loadFromLocal(CONFIG.STORAGE_KEYS.CURRENT_GAME);
     if (savedGame && savedGame.user) {
       gameState = savedGame;
-      showGame();
+      showIdentitySelection();
       return;
     }
   } catch (e) {
@@ -98,11 +143,20 @@ async function checkSavedGame() {
 function showLogin() {
   loginScreen.classList.add('active');
   gameScreen.classList.remove('active');
+  identitySelectionScreen.classList.remove('active');
+}
+
+function showIdentitySelection() {
+  loginScreen.classList.remove('active');
+  gameScreen.classList.remove('active');
+  identitySelectionScreen.classList.add('active');
+  initializeSpinner();
 }
 
 async function showGame() {
   loginScreen.classList.remove('active');
   gameScreen.classList.add('active');
+  identitySelectionScreen.classList.remove('active');
   updateGameDisplay();
   await loadCurrentStory();
 }
@@ -159,7 +213,7 @@ async function handleLogin() {
     storageService.saveToLocal(CONFIG.STORAGE_KEYS.CURRENT_GAME, gameState);
     
     showToast('登录成功', `欢迎回来，${accountName}！`);
-    await showGame();
+    showIdentitySelection();
   } catch (error) {
     console.error('Login error:', error);
     showToast('登录失败', error.message, 'error');
@@ -186,7 +240,7 @@ async function handleCreateAccount() {
     storageService.saveToLocal(CONFIG.STORAGE_KEYS.CURRENT_GAME, gameState);
     
     showToast('账户创建成功', `欢迎，${accountName}！`);
-    showGame();
+    showIdentitySelection();
   } catch (error) {
     // Check if it's a duplicate account error
     if (error.message && error.message.includes('already exists')) {
@@ -589,4 +643,124 @@ function updateEndingsGrid() {
     card.innerHTML = `<div class="map-node-title">${title}</div>`;
     container.appendChild(card);
   });
+}
+
+// Identity Selection Functions
+function initializeSpinner() {
+  identitySpinner.innerHTML = '';
+  
+  // Create multiple copies of identities for smooth infinite scrolling
+  for (let i = 0; i < 3; i++) {
+    identityCombinations.forEach(combination => {
+      const item = document.createElement('div');
+      item.className = 'spinner-item';
+      item.textContent = combination.identity;
+      identitySpinner.appendChild(item);
+    });
+  }
+  
+  // Reset state
+  isSpinning = false;
+  spinSpeed = 0;
+  currentPosition = 0;
+  resultDisplay.style.display = 'none';
+  spinButton.classList.remove('spinning');
+}
+
+function startSpinning(e) {
+  e.preventDefault();
+  if (isSpinning) return;
+  
+  isSpinning = true;
+  spinSpeed = 40; // Start with high speed
+  spinButton.classList.add('spinning');
+  resultDisplay.style.display = 'none';
+  
+  // Create butterfly effects
+  createButterflies();
+  
+  spinInterval = setInterval(() => {
+    currentPosition += spinSpeed;
+    identitySpinner.style.transform = `translateX(-${currentPosition}px)`;
+  }, 16); // ~60fps
+}
+
+function stopSpinning(e) {
+  e.preventDefault();
+  if (!isSpinning) return;
+  
+  isSpinning = false;
+  spinButton.classList.remove('spinning');
+  
+  // Select random combination
+  selectedCombination = identityCombinations[Math.floor(Math.random() * identityCombinations.length)];
+  
+  // Calculate target position to center the selected identity
+  const itemWidth = 300;
+  const totalItems = identityCombinations.length * 3;
+  const selectedIndex = identityCombinations.indexOf(selectedCombination);
+  const targetIndex = selectedIndex + identityCombinations.length; // Middle set
+  targetPosition = targetIndex * itemWidth;
+  
+  // Smooth deceleration
+  const deceleration = () => {
+    if (spinSpeed > 0) {
+      spinSpeed *= 0.95; // Gradual deceleration
+      currentPosition += spinSpeed;
+      identitySpinner.style.transform = `translateX(-${currentPosition}px)`;
+      
+      if (spinSpeed > 0.5) {
+        requestAnimationFrame(deceleration);
+      } else {
+        // Snap to target position
+        currentPosition = targetPosition;
+        identitySpinner.style.transform = `translateX(-${currentPosition}px)`;
+        showResult();
+      }
+    }
+  };
+  
+  deceleration();
+}
+
+function createButterflies() {
+  const container = document.querySelector('.spinner-container');
+  
+  for (let i = 0; i < 5; i++) {
+    setTimeout(() => {
+      const butterfly = document.createElement('div');
+      butterfly.className = 'butterfly';
+      butterfly.style.left = Math.random() * 300 + 'px';
+      butterfly.style.top = Math.random() * 80 + 'px';
+      container.appendChild(butterfly);
+      
+      setTimeout(() => {
+        if (butterfly.parentNode) {
+          butterfly.parentNode.removeChild(butterfly);
+        }
+      }, 3000);
+    }, i * 200);
+  }
+}
+
+function showResult() {
+  selectedIdentity.textContent = selectedCombination.identity;
+  selectedNode.textContent = `问题 ${selectedCombination.node}`;
+  resultDisplay.style.display = 'block';
+}
+
+function startGameWithSelectedIdentity() {
+  if (!selectedCombination) return;
+  
+  // Set the starting node
+  gameState.currentChapter = selectedCombination.node;
+  gameState.visitedNodes = [selectedCombination.node];
+  gameState.playerChoices = [];
+  gameState.previousNode = null;
+  
+  // Save game state
+  storageService.saveToLocal(CONFIG.STORAGE_KEYS.CURRENT_GAME, gameState);
+  
+  // Show game with fade effect
+  showGame();
 }

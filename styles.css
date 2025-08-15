@@ -668,3 +668,198 @@ body {
 .mt-4 {
   margin-top: 1rem;
 }
+
+/* Identity Selection Screen */
+.identity-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    padding: 20px;
+}
+
+.identity-header {
+    text-align: center;
+    margin-bottom: 40px;
+    color: white;
+}
+
+.identity-header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+}
+
+.identity-header p {
+    font-size: 1.2rem;
+    opacity: 0.8;
+}
+
+.spinner-container {
+    position: relative;
+    width: 300px;
+    height: 80px;
+    background: #2a2a2a;
+    border-radius: 10px;
+    border: 3px solid #ffd700;
+    box-shadow: 0 0 30px rgba(255, 215, 0, 0.3);
+    overflow: hidden;
+    margin-bottom: 40px;
+}
+
+.spinner-wheel {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    transition: transform 0.1s ease-out;
+}
+
+.spinner-item {
+    flex-shrink: 0;
+    width: 300px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    box-sizing: border-box;
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.spinner-item:nth-child(odd) {
+    background: linear-gradient(90deg, #4a4a4a, #3a3a3a);
+}
+
+.spinner-item:nth-child(even) {
+    background: linear-gradient(90deg, #3a3a3a, #4a4a4a);
+}
+
+.spinner-pointer {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(to bottom, transparent, #ffd700, transparent);
+    z-index: 10;
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.8);
+}
+
+.spinner-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 20;
+}
+
+.spin-button {
+    background: linear-gradient(45deg, #ffd700, #ffed4e);
+    border: none;
+    border-radius: 50px;
+    padding: 15px 30px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #1a1a2e;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(255, 215, 0, 0.4);
+    transition: all 0.2s ease;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+.spin-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 215, 0, 0.6);
+}
+
+.spin-button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 10px rgba(255, 215, 0, 0.4);
+}
+
+.spin-button.spinning {
+    background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
+    animation: pulse 0.5s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+.result-display {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 30px;
+    text-align: center;
+    color: white;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.result-content h3 {
+    margin: 0 0 10px 0;
+    color: #ffd700;
+    font-size: 1.3rem;
+}
+
+.identity-result, .node-result {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 15px;
+    margin: 10px 0 20px 0;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border: 1px solid rgba(255, 215, 0, 0.3);
+}
+
+#startGameBtn {
+    margin-top: 20px;
+    padding: 15px 40px;
+    font-size: 1.2rem;
+    background: linear-gradient(45deg, #4CAF50, #45a049);
+    border: none;
+    border-radius: 50px;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#startGameBtn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(76, 175, 80, 0.4);
+}
+
+/* Butterfly effects */
+.butterfly {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23ffd700"><path d="M12 2L13.09 8.26L20 9L13.09 9.74L12 16L10.91 9.74L4 9L10.91 8.26L12 2Z"/></svg>') no-repeat center;
+    background-size: contain;
+    pointer-events: none;
+    animation: butterflyFloat 3s ease-in-out infinite;
+    z-index: 5;
+}
+
+@keyframes butterflyFloat {
+    0%, 100% { transform: translateY(0) rotate(0deg); opacity: 0.7; }
+    50% { transform: translateY(-20px) rotate(180deg); opacity: 1; }
+}
