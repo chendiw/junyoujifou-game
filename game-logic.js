@@ -676,12 +676,12 @@ function startSpinning(e) {
   spinButton.classList.add('spinning');
   resultDisplay.style.display = 'none';
   
-  // Create butterfly effects
-  createButterflies();
+  // Create coin effects
+  createCoins();
   
   spinInterval = setInterval(() => {
     currentPosition += spinSpeed;
-    identitySpinner.style.transform = `translateX(-${currentPosition}px)`;
+    identitySpinner.style.transform = `translateY(-${currentPosition}px)`;
   }, 16); // ~60fps
 }
 
@@ -696,25 +696,25 @@ function stopSpinning(e) {
   selectedCombination = identityCombinations[Math.floor(Math.random() * identityCombinations.length)];
   
   // Calculate target position to center the selected identity
-  const itemWidth = 300;
+  const itemHeight = 60;
   const totalItems = identityCombinations.length * 3;
   const selectedIndex = identityCombinations.indexOf(selectedCombination);
   const targetIndex = selectedIndex + identityCombinations.length; // Middle set
-  targetPosition = targetIndex * itemWidth;
+  targetPosition = targetIndex * itemHeight;
   
   // Smooth deceleration
   const deceleration = () => {
     if (spinSpeed > 0) {
       spinSpeed *= 0.95; // Gradual deceleration
       currentPosition += spinSpeed;
-      identitySpinner.style.transform = `translateX(-${currentPosition}px)`;
+      identitySpinner.style.transform = `translateY(-${currentPosition}px)`;
       
       if (spinSpeed > 0.5) {
         requestAnimationFrame(deceleration);
       } else {
         // Snap to target position
         currentPosition = targetPosition;
-        identitySpinner.style.transform = `translateX(-${currentPosition}px)`;
+        identitySpinner.style.transform = `translateY(-${currentPosition}px)`;
         showResult();
       }
     }
@@ -723,23 +723,22 @@ function stopSpinning(e) {
   deceleration();
 }
 
-function createButterflies() {
+function createCoins() {
   const container = document.querySelector('.spinner-container');
   
-  for (let i = 0; i < 5; i++) {
+  for (let i = 0; i < 8; i++) {
     setTimeout(() => {
-      const butterfly = document.createElement('div');
-      butterfly.className = 'butterfly';
-      butterfly.style.left = Math.random() * 300 + 'px';
-      butterfly.style.top = Math.random() * 80 + 'px';
-      container.appendChild(butterfly);
+      const coin = document.createElement('div');
+      coin.className = 'coin';
+      coin.style.left = Math.random() * 120 + 'px';
+      container.appendChild(coin);
       
       setTimeout(() => {
-        if (butterfly.parentNode) {
-          butterfly.parentNode.removeChild(butterfly);
+        if (coin.parentNode) {
+          coin.parentNode.removeChild(coin);
         }
-      }, 3000);
-    }, i * 200);
+      }, 2000);
+    }, i * 150);
   }
 }
 
