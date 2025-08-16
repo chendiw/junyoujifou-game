@@ -10,6 +10,9 @@ let gameState = {
   gameOver: false
 };
 
+// Flag to track if this is a new account creation
+let isNewAccountCreation = false;
+
 // Identity Selection Variables
 let identitySelectionScreen;
 let identitySpinner;
@@ -145,7 +148,8 @@ async function checkSavedGame() {
     const savedGame = storageService.loadFromLocal(CONFIG.STORAGE_KEYS.CURRENT_GAME);
     if (savedGame && savedGame.user) {
       gameState = savedGame;
-      showIdentitySelection();
+      // If user has a saved game, go directly to game without identity selection
+      showGame();
       return;
     }
   } catch (e) {
@@ -229,7 +233,8 @@ async function handleLogin() {
     storageService.saveToLocal(CONFIG.STORAGE_KEYS.CURRENT_GAME, gameState);
     
     showToast('登录成功', `欢迎回来，${accountName}！`);
-    showIdentitySelection();
+    // Go directly to game for existing users
+    showGame();
   } catch (error) {
     console.error('Login error:', error);
     showToast('登录失败', error.message, 'error');
@@ -256,6 +261,8 @@ async function handleCreateAccount() {
     storageService.saveToLocal(CONFIG.STORAGE_KEYS.CURRENT_GAME, gameState);
     
     showToast('账户创建成功', `欢迎，${accountName}！`);
+    // Set flag for new account creation
+    isNewAccountCreation = true;
     showIdentitySelection();
   } catch (error) {
     // Check if it's a duplicate account error
@@ -598,7 +605,7 @@ async function handleRestart() {
   // Save the reset game state
   saveGame();
   
-  // Go back to identity selection instead of first question
+  // Go back to identity selection for restart
   showIdentitySelection();
   showToast('游戏重启', '请重新选择您的身份开始游戏');
 }
@@ -762,7 +769,11 @@ function stopSpinning(e) {
         // Snap to target position
         currentPosition = targetPosition;
         identitySpinner.style.transform = `translateY(-${currentPosition}px)`;
-        showResult();
+        
+        // Wait 1 second before showing the result
+        setTimeout(() => {
+          showResult();
+        }, 1000);
       }
     }
   };
@@ -792,6 +803,9 @@ function startGameWithSelectedIdentity() {
   gameState.visitedNodes = [selectedCombination.node];
   gameState.playerChoices = [];
   gameState.previousNode = null;
+  
+  // Reset the new account creation flag
+  isNewAccountCreation = false;
   
   // Save game state
   storageService.saveToLocal(CONFIG.STORAGE_KEYS.CURRENT_GAME, gameState);
