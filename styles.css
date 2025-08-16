@@ -676,22 +676,23 @@ body {
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-    background: linear-gradient(135deg, #e8f4f8 0%, #d4e6f1 50%, #a9cce3 100%);
+    background: linear-gradient(135deg, var(--bg-dark) 0%, var(--bg-darker) 100%);
     padding: 20px;
 }
 
 .spinner-container {
     position: relative;
-    width: 200px;
-    height: 400px;
-    background: linear-gradient(145deg, #f8f9fa, #e9ecef);
-    border-radius: 20px;
-    border: 3px solid #dc3545;
+    width: 300px;
+    height: 500px;
+    background: linear-gradient(135deg, var(--bg-dark) 0%, var(--bg-darker) 100%);
+    border: 3px solid var(--border-glow);
+    border-radius: 15px;
     box-shadow: 
-        0 10px 30px rgba(220, 53, 69, 0.2),
-        inset 0 0 20px rgba(255, 255, 255, 0.8);
+        0 0 30px rgba(255, 40, 80, 0.3),
+        inset 0 0 20px rgba(0, 0, 0, 0.5);
     overflow: hidden;
-    margin-bottom: 30px;
+    margin-bottom: 40px;
+    animation: fadeIn 0.8s ease-out;
 }
 
 .spinner-wheel {
@@ -707,24 +708,41 @@ body {
 
 .spinner-item {
     flex-shrink: 0;
-    width: 200px;
-    height: 80px;
+    width: 300px;
+    height: 100px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: #495057;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--text-light);
     text-align: center;
-    padding: 10px;
+    padding: 15px;
     box-sizing: border-box;
-    border-bottom: 1px solid rgba(220, 53, 69, 0.1);
-    background: linear-gradient(180deg, #ffffff, #f8f9fa);
+    border-bottom: 2px solid rgba(255, 40, 80, 0.2);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
     position: relative;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
 }
 
 .spinner-item:nth-child(even) {
-    background: linear-gradient(180deg, #f8f9fa, #e9ecef);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(0, 0, 0, 0.1));
+}
+
+.spinner-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, transparent, rgba(255, 40, 80, 0.1), transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.spinner-item:hover::before {
+    opacity: 1;
 }
 
 .spinner-pointer {
@@ -733,47 +751,97 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
     width: 100%;
-    height: 6px;
-    background: linear-gradient(to right, transparent, #dc3545, transparent);
+    height: 8px;
+    background: linear-gradient(to right, transparent, var(--primary-red), transparent);
     z-index: 10;
-    box-shadow: 0 0 20px rgba(220, 53, 69, 0.6);
+    box-shadow: 0 0 25px var(--primary-red);
+}
+
+.spinner-pointer::before,
+.spinner-pointer::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
+    border: 10px solid transparent;
+}
+
+.spinner-pointer::before {
+    left: -10px;
+    border-right-color: var(--primary-red);
+}
+
+.spinner-pointer::after {
+    right: -10px;
+    border-left-color: var(--primary-red);
 }
 
 .spin-button {
-    background: linear-gradient(45deg, #dc3545, #e74c3c);
-    border: none;
+    background: linear-gradient(45deg, var(--primary-red), var(--primary-orange));
+    border: 2px solid var(--border-glow);
     border-radius: 50px;
-    padding: 18px 40px;
-    font-size: 1.2rem;
+    padding: 20px 50px;
+    font-size: 1.3rem;
     font-weight: bold;
-    color: white;
+    color: var(--text-light);
     cursor: pointer;
-    box-shadow: 0 6px 20px rgba(220, 53, 69, 0.3);
+    box-shadow: 0 0 20px rgba(255, 40, 80, 0.4);
     transition: all 0.3s ease;
     user-select: none;
     -webkit-user-select: none;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    position: relative;
+    overflow: hidden;
+}
+
+.spin-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.spin-button:hover::before {
+    left: 100%;
 }
 
 .spin-button:hover {
     transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(220, 53, 69, 0.4);
-    background: linear-gradient(45deg, #e74c3c, #c0392b);
+    box-shadow: 0 0 30px rgba(255, 40, 80, 0.6);
+    background: linear-gradient(45deg, var(--primary-orange), var(--primary-red));
 }
 
 .spin-button:active {
     transform: translateY(-1px);
-    box-shadow: 0 4px 15px rgba(220, 53, 69, 0.3);
+    box-shadow: 0 0 15px rgba(255, 40, 80, 0.4);
 }
 
 .spin-button.spinning {
-    background: linear-gradient(45deg, #007bff, #0056b3);
-    animation: pulse 0.5s infinite;
+    background: linear-gradient(45deg, var(--primary-blue), var(--primary-red));
+    animation: neonPulse 0.5s infinite;
 }
 
-@keyframes pulse {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.05); }
+/* Cyberpunk Slot Machine Effects */
+.slot-light {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--primary-red), transparent);
+    animation: slotLight 2s ease-in-out infinite;
+    z-index: 15;
+}
+
+@keyframes slotLight {
+    0%, 100% { opacity: 0.3; box-shadow: 0 0 10px var(--primary-red); }
+    50% { opacity: 1; box-shadow: 0 0 20px var(--primary-red), 0 0 30px var(--primary-red); }
 }
 
 /* Result Modal */
@@ -783,7 +851,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.7);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -791,6 +859,7 @@ body {
     opacity: 0;
     visibility: hidden;
     transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
 }
 
 .result-modal.show {
@@ -799,15 +868,17 @@ body {
 }
 
 .result-modal-content {
-    background: linear-gradient(135deg, #ffffff, #f8f9fa);
-    border-radius: 20px;
+    background: linear-gradient(135deg, var(--bg-dark) 0%, var(--bg-darker) 100%);
+    border: 2px solid var(--border-glow);
+    border-radius: 15px;
     padding: 40px;
     text-align: center;
     max-width: 500px;
     width: 90%;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 30px rgba(255, 40, 80, 0.3);
     transform: scale(0.8);
     transition: transform 0.3s ease;
+    animation: fadeIn 0.6s ease-out;
 }
 
 .result-modal.show .result-modal-content {
@@ -815,34 +886,37 @@ body {
 }
 
 .result-modal h2 {
-    color: #dc3545;
+    color: var(--primary-red);
     font-size: 1.8rem;
     margin-bottom: 20px;
     font-weight: bold;
+    text-shadow: 0 0 10px var(--primary-red);
 }
 
 .result-modal p {
-    color: #495057;
+    color: var(--text-light);
     font-size: 1.1rem;
     line-height: 1.6;
     margin-bottom: 30px;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
 }
 
 #startGameBtn {
-    background: linear-gradient(45deg, #007bff, #0056b3);
-    border: none;
+    background: linear-gradient(45deg, var(--primary-blue), var(--primary-red));
+    border: 2px solid var(--border-glow);
     border-radius: 50px;
     padding: 15px 40px;
     font-size: 1.2rem;
     font-weight: bold;
-    color: white;
+    color: var(--text-light);
     cursor: pointer;
     transition: all 0.3s ease;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    box-shadow: 0 0 20px rgba(255, 40, 80, 0.3);
 }
 
 #startGameBtn:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(0, 123, 255, 0.4);
-    background: linear-gradient(45deg, #0056b3, #004085);
+    box-shadow: 0 0 30px rgba(255, 40, 80, 0.5);
+    background: linear-gradient(45deg, var(--primary-red), var(--primary-blue));
 }

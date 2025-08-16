@@ -11,12 +11,12 @@ let gameState = {
 };
 
 // Identity Selection Variables
-const identitySelectionScreen = document.getElementById('identitySelectionScreen');
-const identitySpinner = document.getElementById('identitySpinner');
-const spinButton = document.getElementById('spinButton');
-const resultModal = document.getElementById('resultModal');
-const resultMessage = document.getElementById('resultMessage');
-const startGameBtn = document.getElementById('startGameBtn');
+let identitySelectionScreen;
+let identitySpinner;
+let spinButton;
+let resultModal;
+let resultMessage;
+let startGameBtn;
 
 // Identity combinations with their corresponding starting nodes
 const identityCombinations = [
@@ -67,6 +67,7 @@ const toastContainer = document.getElementById('toastContainer');
 
 // Initialize game
 document.addEventListener('DOMContentLoaded', async function() {
+  initializeDOMElements();
   setupEventListeners();
   
   // Set Azure function URL from config
@@ -82,6 +83,16 @@ document.addEventListener('DOMContentLoaded', async function() {
   }
 });
 
+function initializeDOMElements() {
+  // Initialize identity selection elements
+  identitySelectionScreen = document.getElementById('identitySelectionScreen');
+  identitySpinner = document.getElementById('identitySpinner');
+  spinButton = document.getElementById('spinButton');
+  resultModal = document.getElementById('resultModal');
+  resultMessage = document.getElementById('resultMessage');
+  startGameBtn = document.getElementById('startGameBtn');
+}
+
 function setupEventListeners() {
   // Login functionality
   loginBtn.addEventListener('click', handleLogin);
@@ -96,12 +107,16 @@ function setupEventListeners() {
   });
   
   // Identity selection functionality
-  spinButton.addEventListener('mousedown', startSpinning);
-  spinButton.addEventListener('mouseup', stopSpinning);
-  spinButton.addEventListener('mouseleave', stopSpinning);
-  spinButton.addEventListener('touchstart', startSpinning);
-  spinButton.addEventListener('touchend', stopSpinning);
-  startGameBtn.addEventListener('click', startGameWithSelectedIdentity);
+  if (spinButton) {
+    spinButton.addEventListener('mousedown', startSpinning);
+    spinButton.addEventListener('mouseup', stopSpinning);
+    spinButton.addEventListener('mouseleave', stopSpinning);
+    spinButton.addEventListener('touchstart', startSpinning);
+    spinButton.addEventListener('touchend', stopSpinning);
+  }
+  if (startGameBtn) {
+    startGameBtn.addEventListener('click', startGameWithSelectedIdentity);
+  }
   
   // Game controls
   backtrackBtn.addEventListener('click', handleBacktrack);
@@ -146,6 +161,8 @@ function showLogin() {
 }
 
 function showIdentitySelection() {
+  if (!identitySelectionScreen) return;
+  
   loginScreen.classList.remove('active');
   gameScreen.classList.remove('active');
   identitySelectionScreen.classList.add('active');
@@ -646,6 +663,8 @@ function updateEndingsGrid() {
 
 // Identity Selection Functions
 function initializeSpinner() {
+  if (!identitySpinner) return;
+  
   identitySpinner.innerHTML = '';
   
   // Create multiple copies of identities for smooth infinite scrolling
@@ -662,13 +681,13 @@ function initializeSpinner() {
   isSpinning = false;
   spinSpeed = 0;
   currentPosition = 0;
-  resultModal.classList.remove('show');
-  spinButton.classList.remove('spinning');
+  if (resultModal) resultModal.classList.remove('show');
+  if (spinButton) spinButton.classList.remove('spinning');
 }
 
 function startSpinning(e) {
   e.preventDefault();
-  if (isSpinning) return;
+  if (isSpinning || !identitySpinner || !spinButton || !resultModal) return;
   
   isSpinning = true;
   spinSpeed = 40; // Start with high speed
@@ -683,7 +702,7 @@ function startSpinning(e) {
 
 function stopSpinning(e) {
   e.preventDefault();
-  if (!isSpinning) return;
+  if (!isSpinning || !identitySpinner || !spinButton) return;
   
   isSpinning = false;
   spinButton.classList.remove('spinning');
@@ -692,7 +711,7 @@ function stopSpinning(e) {
   selectedCombination = identityCombinations[Math.floor(Math.random() * identityCombinations.length)];
   
   // Calculate target position to center the selected identity
-  const itemHeight = 80;
+  const itemHeight = 100;
   const totalItems = identityCombinations.length * 3;
   const selectedIndex = identityCombinations.indexOf(selectedCombination);
   const targetIndex = selectedIndex + identityCombinations.length; // Middle set
@@ -722,6 +741,8 @@ function stopSpinning(e) {
 
 
 function showResult() {
+  if (!resultMessage || !resultModal || !selectedCombination) return;
+  
   resultMessage.textContent = `您将以${selectedCombination.identity}的身份进入《君有疾否》书中世界，祝您体验愉快！`;
   resultModal.classList.add('show');
 }
