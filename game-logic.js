@@ -586,7 +586,7 @@ async function confirmTransport(nodeId) {
 }
 
 async function handleRestart() {
-  // Always force a fresh start when user selects restart
+  // Reset game state completely
   gameState.currentChapter = "1";
   gameState.playerChoices = [];
   gameState.previousNode = null;
@@ -595,9 +595,12 @@ async function handleRestart() {
   gameState.visitedNodes = ["1"]; // Clear unlocked nodes
   gameState.unlockedEndings = []; // Clear unlocked endings
 
+  // Save the reset game state
   saveGame();
-  await loadCurrentStory();
-  showToast('游戏重启', '游戏已重新开始，所有节点已重置，生命值和传送卡已恢复');
+  
+  // Go back to identity selection instead of first question
+  showIdentitySelection();
+  showToast('游戏重启', '请重新选择您的身份开始游戏');
 }
 
 // Close modals when clicking outside
