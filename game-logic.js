@@ -667,8 +667,9 @@ function initializeSpinner() {
   
   identitySpinner.innerHTML = '';
   
-  // Create multiple copies of identities for smooth infinite scrolling
-  for (let i = 0; i < 3; i++) {
+  // Create many copies of identities for truly infinite scrolling
+  // We need enough copies so that even with maximum speed, we never reach the end
+  for (let i = 0; i < 10; i++) {
     identityCombinations.forEach(combination => {
       const item = document.createElement('div');
       item.className = 'spinner-item';
@@ -696,6 +697,17 @@ function startSpinning(e) {
   
   spinInterval = setInterval(() => {
     currentPosition += spinSpeed;
+    
+    // Reset position when we've scrolled through one complete set
+    // This ensures infinite scrolling
+    const itemHeight = 100;
+    const totalItems = identityCombinations.length;
+    const maxScroll = totalItems * itemHeight;
+    
+    if (currentPosition >= maxScroll) {
+      currentPosition = 0;
+    }
+    
     identitySpinner.style.transform = `translateY(-${currentPosition}px)`;
   }, 16); // ~60fps
 }
@@ -712,16 +724,33 @@ function stopSpinning(e) {
   
   // Calculate target position to center the selected identity
   const itemHeight = 100;
-  const totalItems = identityCombinations.length * 3;
   const selectedIndex = identityCombinations.indexOf(selectedCombination);
-  const targetIndex = selectedIndex + identityCombinations.length; // Middle set
-  targetPosition = targetIndex * itemHeight;
+  
+  // Calculate the current position within the visible range
+  const visibleHeight = 500; // Height of the spinner container
+  const centerPosition = visibleHeight / 2;
+  const itemCenter = itemHeight / 2;
+  
+  // Calculate target position to center the selected item
+  targetPosition = selectedIndex * itemHeight + itemCenter - centerPosition;
+  
+  // Ensure target position is positive
+  if (targetPosition < 0) {
+    targetPosition += identityCombinations.length * itemHeight;
+  }
   
   // Smooth deceleration
   const deceleration = () => {
     if (spinSpeed > 0) {
       spinSpeed *= 0.95; // Gradual deceleration
       currentPosition += spinSpeed;
+      
+      // Handle infinite scrolling during deceleration
+      const maxScroll = identityCombinations.length * itemHeight;
+      if (currentPosition >= maxScroll) {
+        currentPosition = 0;
+      }
+      
       identitySpinner.style.transform = `translateY(-${currentPosition}px)`;
       
       if (spinSpeed > 0.5) {
@@ -749,6 +778,11 @@ function showResult() {
 
 function startGameWithSelectedIdentity() {
   if (!selectedCombination) return;
+  
+  // Hide the modal first
+  if (resultModal) {
+    resultModal.classList.remove('show');
+  }
   
   // Set the starting node
   gameState.currentChapter = selectedCombination.node;
