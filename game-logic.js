@@ -14,9 +14,8 @@ let gameState = {
 const identitySelectionScreen = document.getElementById('identitySelectionScreen');
 const identitySpinner = document.getElementById('identitySpinner');
 const spinButton = document.getElementById('spinButton');
-const resultDisplay = document.getElementById('resultDisplay');
-const selectedIdentity = document.getElementById('selectedIdentity');
-const selectedNode = document.getElementById('selectedNode');
+const resultModal = document.getElementById('resultModal');
+const resultMessage = document.getElementById('resultMessage');
 const startGameBtn = document.getElementById('startGameBtn');
 
 // Identity combinations with their corresponding starting nodes
@@ -663,7 +662,7 @@ function initializeSpinner() {
   isSpinning = false;
   spinSpeed = 0;
   currentPosition = 0;
-  resultDisplay.style.display = 'none';
+  resultModal.classList.remove('show');
   spinButton.classList.remove('spinning');
 }
 
@@ -674,10 +673,7 @@ function startSpinning(e) {
   isSpinning = true;
   spinSpeed = 40; // Start with high speed
   spinButton.classList.add('spinning');
-  resultDisplay.style.display = 'none';
-  
-  // Create coin effects
-  createCoins();
+  resultModal.classList.remove('show');
   
   spinInterval = setInterval(() => {
     currentPosition += spinSpeed;
@@ -696,7 +692,7 @@ function stopSpinning(e) {
   selectedCombination = identityCombinations[Math.floor(Math.random() * identityCombinations.length)];
   
   // Calculate target position to center the selected identity
-  const itemHeight = 60;
+  const itemHeight = 80;
   const totalItems = identityCombinations.length * 3;
   const selectedIndex = identityCombinations.indexOf(selectedCombination);
   const targetIndex = selectedIndex + identityCombinations.length; // Middle set
@@ -723,29 +719,11 @@ function stopSpinning(e) {
   deceleration();
 }
 
-function createCoins() {
-  const container = document.querySelector('.spinner-container');
-  
-  for (let i = 0; i < 8; i++) {
-    setTimeout(() => {
-      const coin = document.createElement('div');
-      coin.className = 'coin';
-      coin.style.left = Math.random() * 120 + 'px';
-      container.appendChild(coin);
-      
-      setTimeout(() => {
-        if (coin.parentNode) {
-          coin.parentNode.removeChild(coin);
-        }
-      }, 2000);
-    }, i * 150);
-  }
-}
+
 
 function showResult() {
-  selectedIdentity.textContent = selectedCombination.identity;
-  selectedNode.textContent = `问题 ${selectedCombination.node}`;
-  resultDisplay.style.display = 'block';
+  resultMessage.textContent = `您将以${selectedCombination.identity}的身份进入《君有疾否》书中世界，祝您体验愉快！`;
+  resultModal.classList.add('show');
 }
 
 function startGameWithSelectedIdentity() {

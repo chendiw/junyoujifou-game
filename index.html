@@ -38,33 +38,25 @@
     <!-- Identity Selection Screen -->
     <div id="identitySelectionScreen" class="screen">
         <div class="identity-container">
-            <div class="identity-header">
-                <h1>选择您的身份</h1>
-                <p>长按按钮开始选择，松开确定身份</p>
-            </div>
-            
             <div class="spinner-container">
-                <div class="slot-light"></div>
                 <div class="spinner-wheel" id="identitySpinner">
                     <!-- Identity options will be populated by JavaScript -->
                 </div>
                 <div class="spinner-pointer"></div>
-                <div class="spinner-center">
-                    <button id="spinButton" class="spin-button">
-                        <span class="spin-text">长按进入世界</span>
-                    </button>
-                </div>
             </div>
             
-            <div class="result-display" id="resultDisplay" style="display: none;">
-                <div class="result-content">
-                    <h3>您的身份</h3>
-                    <div class="identity-result" id="selectedIdentity"></div>
-                    <h3>起始节点</h3>
-                    <div class="node-result" id="selectedNode"></div>
-                    <button id="startGameBtn" class="btn btn-primary">开始游戏</button>
-                </div>
-            </div>
+            <button id="spinButton" class="spin-button">
+                <span class="spin-text">长按选择身份</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Result Modal -->
+    <div id="resultModal" class="result-modal">
+        <div class="result-modal-content">
+            <h2>身份选择完成</h2>
+            <p id="resultMessage"></p>
+            <button id="startGameBtn" class="btn btn-primary">开始游戏</button>
         </div>
     </div>
 
