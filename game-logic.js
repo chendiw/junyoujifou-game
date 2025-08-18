@@ -168,6 +168,51 @@ function addTool(tool) {
   }
 }
 
+// Function to extract tool names from bonus message
+function extractToolNamesFromBonus(bonusMessage) {
+  const toolNames = [];
+  // Look for patterns like "道具\"楚明允的欣赏\"" or "道具\"苏世誉的欣赏\""
+  const toolPattern = /道具["""]([^"""]+)["""]/g;
+  let match;
+  
+  while ((match = toolPattern.exec(bonusMessage)) !== null) {
+    toolNames.push(match[1]);
+  }
+  
+  return toolNames;
+}
+
+// Function to automatically use tools to avoid life point deduction
+function useToolsToAvoidLifeDeduction(bonusMessage) {
+  const toolNames = extractToolNamesFromBonus(bonusMessage);
+  console.log('Extracted tool names from bonus:', toolNames);
+  
+  let usedTool = null;
+  
+  // Check if any of the mentioned tools are available
+  for (const toolName of toolNames) {
+    const tool = gameState.tools.find(t => t.title === toolName && t.count > 0);
+    if (tool) {
+      // Use the first available tool
+      tool.count -= 1;
+      usedTool = tool;
+      console.log(`Using tool: ${tool.title}, remaining count: ${tool.count}`);
+      break;
+    }
+  }
+  
+  if (usedTool) {
+    saveGame();
+    updateToolsGrid();
+    updateToolsButton();
+    showToast('道具使用', `自动使用 ${usedTool.title} 避免生命值损失！`);
+    return true; // Tool was used successfully
+  }
+  
+  console.log('No available tools found to use');
+  return false; // No tool was used
+}
+
 function showToolUnlockAnimation(tool) {
   // Create a temporary card element for the unlock animation
   const tempCard = document.createElement('div');
@@ -177,7 +222,7 @@ function showToolUnlockAnimation(tool) {
     <div class="tarot-card-inner">
       <div class="tarot-card-front">
         <div class="tarot-card-title">🔮</div>
-        <div class="tarot-card-content">神秘道具</div>
+        <div class="tarot-card-content">${tool.title}</div>
         <div class="tool-count" data-count="${toolCount}">${toolCount}</div>
       </div>
       <div class="tarot-card-back">
@@ -224,40 +269,44 @@ function updateToolsGrid() {
           toolsGrid.innerHTML = '';
       
       gameState.tools.forEach(tool => {
-        const toolCard = document.createElement('div');
-        toolCard.className = 'tarot-card';
         const toolCount = tool.count || 1;
-        toolCard.innerHTML = `
-          <div class="tarot-card-inner">
-            <div class="tarot-card-front">
-              <div class="tarot-card-title">🔮</div>
-              <div class="tarot-card-content">神秘道具</div>
-              <div class="tool-count" data-count="${toolCount}">${toolCount}</div>
-            </div>
-            <div class="tarot-card-back">
-              <div class="tarot-card-title">${tool.title}</div>
-              <div class="tarot-card-content">${tool.content}</div>
-              <div class="tool-count" data-count="${toolCount}">${toolCount}</div>
-            </div>
-          </div>
-        `;
         
-        // Add click handler to show tool details
-        toolCard.addEventListener('click', () => {
-          // Add flip animation
-          toolCard.classList.add('flipped');
+        // Only show tools with count > 0
+        if (toolCount > 0) {
+          const toolCard = document.createElement('div');
+          toolCard.className = 'tarot-card';
+          toolCard.innerHTML = `
+            <div class="tarot-card-inner">
+              <div class="tarot-card-front">
+                <div class="tarot-card-title">🔮</div>
+                <div class="tarot-card-content">${tool.title}</div>
+                <div class="tool-count" data-count="${toolCount}">${toolCount}</div>
+              </div>
+              <div class="tarot-card-back">
+                <div class="tarot-card-title">${tool.title}</div>
+                <div class="tarot-card-content">${tool.content}</div>
+                <div class="tool-count" data-count="${toolCount}">${toolCount}</div>
+              </div>
+            </div>
+          `;
           
-          // Show tool details after a short delay
-          setTimeout(() => {
-            showToolDetail(tool);
-            // Reset flip state after showing details
+          // Add click handler to show tool details
+          toolCard.addEventListener('click', () => {
+            // Add flip animation
+            toolCard.classList.add('flipped');
+            
+            // Show tool details after a short delay
             setTimeout(() => {
-              toolCard.classList.remove('flipped');
-            }, 500);
-          }, 400);
-        });
-        
-        toolsGrid.appendChild(toolCard);
+              showToolDetail(tool);
+              // Reset flip state after showing details
+              setTimeout(() => {
+                toolCard.classList.remove('flipped');
+              }, 500);
+            }, 400);
+          });
+          
+          toolsGrid.appendChild(toolCard);
+        }
       });
   }
 }
@@ -267,7 +316,8 @@ function showToolDetail(tool) {
   const toolDetailContent = document.getElementById('toolDetailContent');
   
   if (toolDetailTitle && toolDetailContent) {
-    toolDetailTitle.textContent = `${tool.title} (x${tool.count || 1})`;
+    const toolCount = tool.count || 1;
+    toolDetailTitle.textContent = `${tool.title} (x${toolCount})`;
     toolDetailContent.textContent = tool.content;
     openModal('toolDetailModal');
   }
@@ -341,6 +391,13 @@ function showToast(title, description, type = 'success') {
 // Expose toast utility for other modules (e.g., storage-service)
 if (typeof window !== 'undefined') {
   window.showToast = showToast;
+  // Expose test functions for debugging
+  window.testToolExtraction = function(bonusMessage) {
+    console.log('Testing tool extraction with:', bonusMessage);
+    const toolNames = extractToolNamesFromBonus(bonusMessage);
+    console.log('Extracted tool names:', toolNames);
+    return toolNames;
+  };
 }
 
 async function handleLogin() {
@@ -624,7 +681,12 @@ async function proceedWithChoice(choice) {
     if (choice.bonus.includes('加1点生命值')) {
       gameState.lifePoints += 1;
     } else if (choice.bonus.includes('减1点生命值')) {
-      gameState.lifePoints -= 1;
+      // Check if tools can be used to avoid life point deduction
+      const toolUsed = useToolsToAvoidLifeDeduction(choice.bonus);
+      if (!toolUsed) {
+        // No tool was used, so deduct life point
+        gameState.lifePoints -= 1;
+      }
     }
   }
   
@@ -896,9 +958,15 @@ function updateEndingsGrid() {
 function updateToolsButton() {
   const toolsBtn = document.getElementById('toolsBtn');
   if (toolsBtn) {
-    const totalTools = gameState.tools.reduce((sum, tool) => sum + (tool.count || 1), 0);
-    const uniqueTools = gameState.tools.length;
-    const btnText = uniqueTools > 0 ? `道具收藏 (${uniqueTools}种/${totalTools}个)` : '道具收藏';
+    const availableTools = gameState.tools.filter(tool => (tool.count || 1) > 0);
+    const totalAvailableTools = availableTools.reduce((sum, tool) => sum + (tool.count || 1), 0);
+    const uniqueAvailableTools = availableTools.length;
+    
+    let btnText = '道具收藏';
+    if (uniqueAvailableTools > 0) {
+      btnText = `道具收藏 (${uniqueAvailableTools}种/${totalAvailableTools}个)`;
+    }
+    
     toolsBtn.innerHTML = `<span class="btn-icon">🔮</span>${btnText}`;
   }
 }

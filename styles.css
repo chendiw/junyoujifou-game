@@ -1067,10 +1067,10 @@ body {
 }
 
 .tarot-card-front {
-  background: linear-gradient(135deg, #2c1810 0%, #4a2c1a 50%, #2c1810 100%);
-  border: 3px solid #8b4513;
+  background: linear-gradient(135deg, #2d1b3d 0%, #4a2d5a 50%, #2d1b3d 100%);
+  border: 3px solid #8b5cf6;
   box-shadow: 
-    0 0 20px rgba(139, 69, 19, 0.5),
+    0 0 20px rgba(139, 92, 246, 0.5),
     inset 0 0 30px rgba(0, 0, 0, 0.3);
   position: relative;
   overflow: hidden;
@@ -1085,13 +1085,13 @@ body {
   right: 0;
   bottom: 0;
   background-image: 
-    radial-gradient(circle at 20% 20%, rgba(255, 215, 0, 0.1) 2px, transparent 2px),
-    radial-gradient(circle at 80% 80%, rgba(255, 215, 0, 0.1) 2px, transparent 2px),
-    radial-gradient(circle at 50% 50%, rgba(255, 215, 0, 0.05) 1px, transparent 1px),
-    linear-gradient(45deg, transparent 40%, rgba(255, 215, 0, 0.05) 50%, transparent 60%),
-    linear-gradient(-45deg, transparent 40%, rgba(255, 215, 0, 0.05) 50%, transparent 60%),
-    repeating-linear-gradient(90deg, transparent, transparent 15px, rgba(255, 215, 0, 0.02) 15px, rgba(255, 215, 0, 0.02) 16px),
-    repeating-linear-gradient(0deg, transparent, transparent 15px, rgba(255, 215, 0, 0.02) 15px, rgba(255, 215, 0, 0.02) 16px);
+    radial-gradient(circle at 20% 20%, rgba(139, 92, 246, 0.1) 2px, transparent 2px),
+    radial-gradient(circle at 80% 80%, rgba(139, 92, 246, 0.1) 2px, transparent 2px),
+    radial-gradient(circle at 50% 50%, rgba(139, 92, 246, 0.05) 1px, transparent 1px),
+    linear-gradient(45deg, transparent 40%, rgba(139, 92, 246, 0.05) 50%, transparent 60%),
+    linear-gradient(-45deg, transparent 40%, rgba(139, 92, 246, 0.05) 50%, transparent 60%),
+    repeating-linear-gradient(90deg, transparent, transparent 15px, rgba(139, 92, 246, 0.02) 15px, rgba(139, 92, 246, 0.02) 16px),
+    repeating-linear-gradient(0deg, transparent, transparent 15px, rgba(139, 92, 246, 0.02) 15px, rgba(139, 92, 246, 0.02) 16px);
   background-size: 30px 30px, 30px 30px, 20px 20px, 60px 60px, 60px 60px, 32px 32px, 32px 32px;
   background-position: 0 0, 15px 15px, 10px 10px, 0 0, 0 0, 0 0, 0 0;
   animation: antiquePattern 30s linear infinite;
@@ -1104,7 +1104,7 @@ body {
   top: 10px;
   left: 10px;
   font-size: 1.5rem;
-  color: #d4af37;
+  color: #a855f7;
   opacity: 0.6;
   animation: mysticalTwinkle 2s ease-in-out infinite alternate;
 }
@@ -1115,7 +1115,7 @@ body {
   top: -15px;
   right: -15px;
   font-size: 1.2rem;
-  color: #d4af37;
+  color: #a855f7;
   opacity: 0.4;
   animation: mysticalTwinkle 2.5s ease-in-out infinite alternate-reverse;
 }
@@ -1131,11 +1131,11 @@ body {
 }
 
 .tarot-card-back {
-  background: linear-gradient(135deg, #1a0f0a 0%, #2c1810 50%, #1a0f0a 100%);
-  border: 3px solid #d4af37;
+  background: linear-gradient(135deg, #1a0f1a 0%, #2d1b3d 50%, #1a0f1a 100%);
+  border: 3px solid #a855f7;
   box-shadow: 
-    0 0 30px rgba(212, 175, 55, 0.6),
-    inset 0 0 20px rgba(212, 175, 55, 0.1);
+    0 0 30px rgba(168, 85, 247, 0.6),
+    inset 0 0 20px rgba(168, 85, 247, 0.1);
   transform: rotateY(180deg);
   position: relative;
   overflow: hidden;
@@ -1156,19 +1156,19 @@ body {
 @keyframes mysticalGlow {
   0% { 
     opacity: 0.3;
-    text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+    text-shadow: 0 0 10px rgba(168, 85, 247, 0.5);
   }
   100% { 
     opacity: 0.6;
-    text-shadow: 0 0 20px rgba(212, 175, 55, 0.8);
+    text-shadow: 0 0 20px rgba(168, 85, 247, 0.8);
   }
 }
 
 .tarot-card-title {
   font-size: 1.2rem;
   font-weight: bold;
-  color: #d4af37;
-  text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+  color: #a855f7;
+  text-shadow: 0 0 10px rgba(168, 85, 247, 0.5);
   margin-bottom: 10px;
   z-index: 1;
   position: relative;
@@ -1183,12 +1183,12 @@ body {
 }
 
 .tarot-card-front .tarot-card-title {
-  color: #d4af37;
+  color: #a855f7;
   font-size: 1.1rem;
 }
 
 .tarot-card-front .tarot-card-content {
-  color: #cd853f;
+  color: #c084fc;
   font-size: 0.8rem;
 }
 
@@ -1197,8 +1197,8 @@ body {
   position: absolute;
   top: 8px;
   right: 8px;
-  background: linear-gradient(135deg, #d4af37 0%, #ffd700 50%, #d4af37 100%);
-  color: #2c1810;
+  background: linear-gradient(135deg, #a855f7 0%, #c084fc 50%, #a855f7 100%);
+  color: white;
   font-weight: bold;
   font-size: 0.9rem;
   width: 24px;
@@ -1207,7 +1207,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 2px solid #8b4513;
+  border: 2px solid #7c3aed;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
   z-index: 2;
   font-family: 'Arial', sans-serif;
@@ -1220,7 +1220,7 @@ body {
   left: -1px;
   right: -1px;
   bottom: -1px;
-  background: linear-gradient(45deg, #ffd700, #d4af37, #ffd700);
+  background: linear-gradient(45deg, #c084fc, #a855f7, #c084fc);
   border-radius: 50%;
   z-index: -1;
   opacity: 0.8;
@@ -1252,6 +1252,8 @@ body {
   height: 32px;
   font-size: 0.7rem;
 }
+
+
 
 /* Card Unlock Animation */
 .tarot-card.unlocking {
