@@ -716,27 +716,7 @@ body {
   }
 }
 
-.map-note {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 15px;
-  margin-bottom: 20px;
-  background: linear-gradient(135deg, #3a2a1a 0%, #2a1a0a 100%);
-  border: 2px solid var(--primary-orange);
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(255, 165, 0, 0.2);
-}
 
-.note-icon {
-  font-size: 20px;
-  flex-shrink: 0;
-}
-
-.note-text {
-  color: var(--text-light);
-  font-weight: 500;
-}
 
 .map-nodes {
   display: grid;
@@ -774,9 +754,6 @@ body {
 }
 
 .map-node.highlighted {
-  border-color: var(--primary-orange);
-  background: linear-gradient(135deg, #3a2a1a 0%, #2a1a0a 100%);
-  box-shadow: 0 0 15px rgba(255, 165, 0, 0.4);
   position: relative;
 }
 
@@ -789,16 +766,6 @@ body {
   background: var(--bg-dark);
   border-radius: 50%;
   padding: 2px;
-}
-
-.map-node.highlighted.current {
-  border-color: var(--primary-red);
-  box-shadow: 0 0 15px rgba(255, 40, 80, 0.5);
-}
-
-.map-node.highlighted.visited {
-  border-color: var(--primary-orange);
-  box-shadow: 0 0 15px rgba(255, 165, 0, 0.4);
 }
 
 .map-node:hover:not(.locked) {

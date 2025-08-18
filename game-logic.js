@@ -959,12 +959,11 @@ function updateToolsButton() {
   const toolsBtn = document.getElementById('toolsBtn');
   if (toolsBtn) {
     const availableTools = gameState.tools.filter(tool => (tool.count || 1) > 0);
-    const totalAvailableTools = availableTools.reduce((sum, tool) => sum + (tool.count || 1), 0);
     const uniqueAvailableTools = availableTools.length;
     
     let btnText = '道具收藏';
     if (uniqueAvailableTools > 0) {
-      btnText = `道具收藏 (${uniqueAvailableTools}种/${totalAvailableTools}个)`;
+      btnText = `道具收藏 (${uniqueAvailableTools})`;
     }
     
     toolsBtn.innerHTML = `<span class="btn-icon">🔮</span>${btnText}`;
