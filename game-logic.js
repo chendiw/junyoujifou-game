@@ -264,11 +264,12 @@ async function loadCurrentStory() {
     return;
   }
   
-  // Display title without chapter number for regular nodes, add incremental number for endings
+  // Display title without chapter number for regular nodes, show ending number and title for endings
   if (node.isEnding) {
     // Get ending number based on the order of ending nodes
     const endingNumber = getEndingNumber(gameState.currentChapter);
-    storyTitle.textContent = `结局 ${endingNumber}`;
+    // Show both ending number and title
+    storyTitle.textContent = `结局 ${endingNumber}：${node.title}`;
     // Track unlocked endings
     if (!Array.isArray(gameState.unlockedEndings)) {
       gameState.unlockedEndings = [];
