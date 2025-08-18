@@ -7,7 +7,8 @@ let gameState = {
   visitedNodes: ["1"],
   playerChoices: [],
   previousNode: null,
-  gameOver: false
+  gameOver: false,
+  tools: [] // Add tools collection to game state
 };
 
 // DOM Elements
@@ -25,13 +26,19 @@ const lifePointsSpan = document.getElementById('lifePoints');
 const transportCardsSpan = document.getElementById('transportCards');
 const worldRulesBtn = document.getElementById('worldRulesBtn');
 const storyMapBtn = document.getElementById('storyMapBtn');
+const toolsBtn = document.getElementById('toolsBtn');
 const endingsBtn = document.getElementById('endingsBtn');
 const loadingIndicator = document.getElementById('loadingIndicator');
 const toastContainer = document.getElementById('toastContainer');
 
+// Mobile dropdown elements
+const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+const mobileMenu = document.getElementById('mobileMenu');
+
 // Initialize game
 document.addEventListener('DOMContentLoaded', async function() {
   setupEventListeners();
+  setupMobileDetection();
   
   // Set Azure function URL from config
   storageService.setAzureBaseUrl(CONFIG.AZURE_BASE_URL);
@@ -63,6 +70,7 @@ function setupEventListeners() {
   backtrackBtn.addEventListener('click', handleBacktrack);
   worldRulesBtn.addEventListener('click', () => openModal('worldRulesModal'));
   storyMapBtn.addEventListener('click', () => openModal('storyMapModal'));
+  toolsBtn.addEventListener('click', () => openModal('toolsModal'));
   if (endingsBtn) {
     endingsBtn.addEventListener('click', () => openModal('endingsModal'));
   }
@@ -78,6 +86,191 @@ function setupEventListeners() {
   
   // Initialize world rules content
   document.getElementById('worldRulesContent').innerHTML = `<pre>${worldRulesText}</pre>`;
+
+  // Mobile dropdown functionality
+  mobileMenuBtn.addEventListener('click', toggleMobileMenu);
+  
+  // Close mobile menu when clicking outside
+  document.addEventListener('click', function(e) {
+    if (!mobileMenuBtn.contains(e.target) && !mobileMenu.contains(e.target)) {
+      mobileMenu.classList.remove('active');
+    }
+  });
+  
+  // Mobile menu item clicks
+  const mobileMenuItems = document.querySelectorAll('.mobile-menu-item');
+  mobileMenuItems.forEach(item => {
+    item.addEventListener('click', function() {
+      const targetId = this.getAttribute('data-target');
+      const targetBtn = document.getElementById(targetId);
+      if (targetBtn) {
+        targetBtn.click();
+      }
+      mobileMenu.classList.remove('active');
+    });
+  });
+}
+
+function setupMobileDetection() {
+  // Check if device is mobile
+  const isMobile = window.innerWidth <= 768 || /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+  
+  if (isMobile) {
+    // Hide desktop header actions and show mobile dropdown
+    const headerActions = document.querySelector('.header-actions');
+    if (headerActions) {
+      headerActions.style.display = 'none';
+    }
+    
+    const mobileDropdown = document.querySelector('.mobile-dropdown');
+    if (mobileDropdown) {
+      mobileDropdown.style.display = 'block';
+    }
+  }
+  
+  // Add resize listener for responsive behavior
+  window.addEventListener('resize', function() {
+    const isMobileNow = window.innerWidth <= 768;
+    const headerActions = document.querySelector('.header-actions');
+    const mobileDropdown = document.querySelector('.mobile-dropdown');
+    
+    if (isMobileNow) {
+      if (headerActions) headerActions.style.display = 'none';
+      if (mobileDropdown) mobileDropdown.style.display = 'block';
+    } else {
+      if (headerActions) headerActions.style.display = 'flex';
+      if (mobileDropdown) mobileDropdown.style.display = 'none';
+    }
+  });
+}
+
+function toggleMobileMenu() {
+  mobileMenu.classList.toggle('active');
+}
+
+// Tools Collection Functions
+function addTool(tool) {
+  // Check if tool already exists
+  const existingTool = gameState.tools.find(t => t.title === tool.title);
+  if (!existingTool) {
+    // Add count field to new tool
+    tool.count = 1;
+    gameState.tools.push(tool);
+    saveGame();
+    updateToolsButton();
+    showToolUnlockAnimation(tool);
+  } else {
+    // Increment count for existing tool
+    existingTool.count += 1;
+    saveGame();
+    updateToolsButton();
+    showToast('道具获得', `获得 ${tool.title} x1，当前拥有 ${existingTool.count} 个`);
+  }
+}
+
+function showToolUnlockAnimation(tool) {
+  // Create a temporary card element for the unlock animation
+  const tempCard = document.createElement('div');
+  tempCard.className = 'tarot-card unlocking';
+  const toolCount = tool.count || 1;
+  tempCard.innerHTML = `
+    <div class="tarot-card-inner">
+      <div class="tarot-card-front">
+        <div class="tarot-card-title">🔮</div>
+        <div class="tarot-card-content">神秘道具</div>
+        <div class="tool-count" data-count="${toolCount}">${toolCount}</div>
+      </div>
+      <div class="tarot-card-back">
+        <div class="tarot-card-title">${tool.title}</div>
+        <div class="tarot-card-content">${tool.content}</div>
+        <div class="tool-count" data-count="${toolCount}">${toolCount}</div>
+      </div>
+    </div>
+  `;
+  
+  // Position the card in the center of the screen
+  tempCard.style.position = 'fixed';
+  tempCard.style.top = '50%';
+  tempCard.style.left = '50%';
+  tempCard.style.transform = 'translate(-50%, -50%)';
+  tempCard.style.width = '200px';
+  tempCard.style.height = '280px';
+  tempCard.style.zIndex = '9999';
+  
+  document.body.appendChild(tempCard);
+  
+  // Remove the card after animation
+  setTimeout(() => {
+    if (tempCard.parentNode) {
+      tempCard.parentNode.removeChild(tempCard);
+    }
+    showToast('道具解锁', `获得新道具：${tool.title}！`, 'success');
+  }, 1500);
+}
+
+function updateToolsGrid() {
+  const toolsGrid = document.getElementById('toolsGrid');
+  const noToolsMessage = document.getElementById('noToolsMessage');
+  
+  if (!toolsGrid || !noToolsMessage) return;
+  
+  if (gameState.tools.length === 0) {
+    toolsGrid.style.display = 'none';
+    noToolsMessage.style.display = 'block';
+  } else {
+    toolsGrid.style.display = 'grid';
+    noToolsMessage.style.display = 'none';
+    
+          toolsGrid.innerHTML = '';
+      
+      gameState.tools.forEach(tool => {
+        const toolCard = document.createElement('div');
+        toolCard.className = 'tarot-card';
+        const toolCount = tool.count || 1;
+        toolCard.innerHTML = `
+          <div class="tarot-card-inner">
+            <div class="tarot-card-front">
+              <div class="tarot-card-title">🔮</div>
+              <div class="tarot-card-content">神秘道具</div>
+              <div class="tool-count" data-count="${toolCount}">${toolCount}</div>
+            </div>
+            <div class="tarot-card-back">
+              <div class="tarot-card-title">${tool.title}</div>
+              <div class="tarot-card-content">${tool.content}</div>
+              <div class="tool-count" data-count="${toolCount}">${toolCount}</div>
+            </div>
+          </div>
+        `;
+        
+        // Add click handler to show tool details
+        toolCard.addEventListener('click', () => {
+          // Add flip animation
+          toolCard.classList.add('flipped');
+          
+          // Show tool details after a short delay
+          setTimeout(() => {
+            showToolDetail(tool);
+            // Reset flip state after showing details
+            setTimeout(() => {
+              toolCard.classList.remove('flipped');
+            }, 500);
+          }, 400);
+        });
+        
+        toolsGrid.appendChild(toolCard);
+      });
+  }
+}
+
+function showToolDetail(tool) {
+  const toolDetailTitle = document.getElementById('toolDetailTitle');
+  const toolDetailContent = document.getElementById('toolDetailContent');
+  
+  if (toolDetailTitle && toolDetailContent) {
+    toolDetailTitle.textContent = `${tool.title} (x${tool.count || 1})`;
+    toolDetailContent.textContent = tool.content;
+    openModal('toolDetailModal');
+  }
 }
 
 async function checkSavedGame() {
@@ -86,6 +279,17 @@ async function checkSavedGame() {
     const savedGame = storageService.loadFromLocal(CONFIG.STORAGE_KEYS.CURRENT_GAME);
     if (savedGame && savedGame.user) {
       gameState = savedGame;
+      // Ensure tools array exists for backward compatibility
+      if (!Array.isArray(gameState.tools)) {
+        gameState.tools = [];
+      } else {
+        // Ensure each tool has a count field for backward compatibility
+        gameState.tools.forEach(tool => {
+          if (typeof tool.count === 'undefined') {
+            tool.count = 1;
+          }
+        });
+      }
       showGame();
       return;
     }
@@ -104,6 +308,7 @@ async function showGame() {
   loginScreen.classList.remove('active');
   gameScreen.classList.add('active');
   updateGameDisplay();
+  updateToolsButton();
   await loadCurrentStory();
 }
 
@@ -153,6 +358,18 @@ async function handleLogin() {
     gameState = result.gameState;
     gameState.user = result.user;
     
+    // Ensure tools array exists for backward compatibility
+    if (!Array.isArray(gameState.tools)) {
+      gameState.tools = [];
+    } else {
+      // Ensure each tool has a count field for backward compatibility
+      gameState.tools.forEach(tool => {
+        if (typeof tool.count === 'undefined') {
+          tool.count = 1;
+        }
+      });
+    }
+    
     console.log('Game state loaded:', gameState);
     
     // Save to localStorage for immediate access
@@ -181,6 +398,18 @@ async function handleCreateAccount() {
     const result = await storageService.createUser(accountName);
     gameState = result.gameState;
     gameState.user = result.user;
+    
+    // Ensure tools array exists for new accounts
+    if (!Array.isArray(gameState.tools)) {
+      gameState.tools = [];
+    } else {
+      // Ensure each tool has a count field for backward compatibility
+      gameState.tools.forEach(tool => {
+        if (typeof tool.count === 'undefined') {
+          tool.count = 1;
+        }
+      });
+    }
     
     // Save to localStorage for immediate access
     storageService.saveToLocal(CONFIG.STORAGE_KEYS.CURRENT_GAME, gameState);
@@ -399,6 +628,11 @@ async function proceedWithChoice(choice) {
     }
   }
   
+  // Handle tool collection if tool exists
+  if (choice.tool) {
+    addTool(choice.tool);
+  }
+  
   // Update state
   gameState.previousNode = gameState.currentChapter;
   gameState.currentChapter = choice.nextNode;
@@ -463,6 +697,8 @@ function openModal(modalId) {
     updateStoryMap();
   } else if (modalId === 'endingsModal') {
     updateEndingsGrid();
+  } else if (modalId === 'toolsModal') {
+    updateToolsGrid();
   } else if (modalId === 'bonusModal') {
     // Bonus modal doesn't need additional setup
   }
@@ -588,8 +824,10 @@ async function handleRestart() {
   gameState.transportCards = CONFIG.INITIAL_TRANSPORT_CARDS;
   gameState.visitedNodes = ["1"]; // Clear unlocked nodes
   gameState.unlockedEndings = []; // Clear unlocked endings
+  gameState.tools = []; // Clear tools collection
 
   saveGame();
+  updateToolsButton();
   await loadCurrentStory();
   showToast('游戏重启', '游戏已重新开始，所有节点已重置，生命值和传送卡已恢复');
 }
@@ -653,4 +891,14 @@ function updateEndingsGrid() {
     card.innerHTML = `<div class="map-node-title">${title}</div>`;
     container.appendChild(card);
   });
+}
+
+function updateToolsButton() {
+  const toolsBtn = document.getElementById('toolsBtn');
+  if (toolsBtn) {
+    const totalTools = gameState.tools.reduce((sum, tool) => sum + (tool.count || 1), 0);
+    const uniqueTools = gameState.tools.length;
+    const btnText = uniqueTools > 0 ? `道具收藏 (${uniqueTools}种/${totalTools}个)` : '道具收藏';
+    toolsBtn.innerHTML = `<span class="btn-icon">🔮</span>${btnText}`;
+  }
 }

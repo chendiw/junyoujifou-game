@@ -60,11 +60,41 @@
                         <span class="btn-icon">🗺️</span>
                         故事地图
                     </button>
+                    <button id="toolsBtn" class="btn btn-outline">
+                        <span class="btn-icon">🔮</span>
+                        道具收藏
+                    </button>
                     <button id="endingsBtn" class="btn btn-outline">
                         <span class="btn-icon">🏁</span>
                         结局
                     </button>
                     <button id="logoutBtn" class="btn btn-outline">退出登录</button>
+                </div>
+                
+                <!-- Mobile Dropdown Menu -->
+                <div class="mobile-dropdown">
+                    <button id="mobileMenuBtn" class="btn btn-outline mobile-menu-btn">
+                        <span class="btn-icon">☰</span>
+                        菜单
+                    </button>
+                    <div id="mobileMenu" class="mobile-menu">
+                        <button class="mobile-menu-item" data-target="worldRulesBtn">
+                            <span class="btn-icon">📖</span>
+                            世界守则
+                        </button>
+                        <button class="mobile-menu-item" data-target="storyMapBtn">
+                            <span class="btn-icon">🗺️</span>
+                            故事地图
+                        </button>
+                        <button class="mobile-menu-item" data-target="toolsBtn">
+                            <span class="btn-icon">🔮</span>
+                            道具收藏
+                        </button>
+                        <button class="mobile-menu-item" data-target="endingsBtn">
+                            <span class="btn-icon">🏁</span>
+                            结局
+                        </button>
+                    </div>
                 </div>
             </div>
         </header>
@@ -157,6 +187,39 @@
                 <div id="endingsContent" class="story-map-content">
                     <div class="map-nodes" id="endingNodes"></div>
                 </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tools Modal -->
+    <div id="toolsModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>🔮 道具收藏</h2>
+                <button class="modal-close" onclick="closeModal('toolsModal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div id="toolsContent" class="tools-content">
+                    <div class="tools-grid" id="toolsGrid"></div>
+                    <div class="no-tools-message" id="noToolsMessage">
+                        <div class="no-tools-icon">🔮</div>
+                        <p>您还没有收集到任何道具</p>
+                        <p>继续探索故事，解锁神秘道具吧！</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tool Detail Modal -->
+    <div id="toolDetailModal" class="modal">
+        <div class="modal-content tool-detail-content">
+            <div class="modal-header">
+                <h2 id="toolDetailTitle"></h2>
+                <button class="modal-close" onclick="closeModal('toolDetailModal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div id="toolDetailContent" class="tool-detail-body"></div>
             </div>
         </div>
     </div>

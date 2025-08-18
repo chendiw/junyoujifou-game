@@ -70,6 +70,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
             'visitedNodes': req_body.get('visitedNodes', []),
             'playerChoices': req_body.get('playerChoices', []),
             'unlockedEndings': req_body.get('unlockedEndings', []),
+            'tools': req_body.get('tools', []),
             'previousNode': req_body.get('previousNode'),
             'gameOver': req_body.get('gameOver', False),
             'lastSaved': datetime.utcnow().isoformat(),

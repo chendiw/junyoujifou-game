@@ -130,6 +130,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
                 'visitedNodes': [],
                 'playerChoices': [],
                 'unlockedEndings': [],
+                'tools': [],
                 'previousNode': None,
                 'gameOver': False,
                 'lastSaved': datetime.utcnow().isoformat(),

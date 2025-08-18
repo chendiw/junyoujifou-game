@@ -335,6 +335,7 @@ class StorageService {
           visitedNodes: gameState.visitedNodes,
           playerChoices: gameState.playerChoices,
           unlockedEndings: Array.isArray(gameState.unlockedEndings) ? gameState.unlockedEndings : [],
+          tools: Array.isArray(gameState.tools) ? gameState.tools : [],
           previousNode: gameState.previousNode,
           gameOver: gameState.gameOver
         })
@@ -377,6 +378,7 @@ class StorageService {
           visitedNodes: gameState.visitedNodes,
           playerChoices: gameState.playerChoices,
           unlockedEndings: Array.isArray(gameState.unlockedEndings) ? gameState.unlockedEndings : [],
+          tools: Array.isArray(gameState.tools) ? gameState.tools : [],
           previousNode: gameState.previousNode,
           gameOver: gameState.gameOver
         })
@@ -479,6 +481,7 @@ class StorageService {
       visitedNodes: Array.isArray(serverState.visitedNodes) ? serverState.visitedNodes.map(String) : [CONFIG.STARTING_CHAPTER],
       playerChoices: Array.isArray(serverState.playerChoices) ? serverState.playerChoices : [],
       unlockedEndings: Array.isArray(serverState.unlockedEndings) ? serverState.unlockedEndings : [],
+      tools: Array.isArray(serverState.tools) ? serverState.tools : [],
       previousNode: (typeof serverState.previousNode === 'undefined' || serverState.previousNode === null) ? null : String(serverState.previousNode),
       gameOver: !!serverState.gameOver,
       version: serverState.version || '1.0'
