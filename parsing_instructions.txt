@@ -10,3 +10,6 @@ You will get to fill the node when you get there in future batches. If a questio
 You will get to set the nextNode field of that option in a future question from reading its prefix (as instruction 1 suggests).
 4. If an option of a question goes to an ending, create an ending node.
 5. The draft story doesn't assign titles to story nodes and ending nodes, create titles for them when you create the node.
+6. Notice in some questions, we introduced "彩蛋"/bonus。Make an additional field "bonus" in the corresponding option with the 彩蛋 content. 
+If the 彩蛋 includes a 道具(tool)，make another additional field "tool" in the corresponding option with the tools name, which is usually provided from the context.
+When you store the tool, store its title (e.g. 楚明允的欣赏), and content (e.g. 可助您在楚明允手下存活一次)。You should try to deduce the content from the context. 
