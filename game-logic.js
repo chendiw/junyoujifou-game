@@ -334,6 +334,50 @@ async function handleChoice(choice) {
     return;
   }
   
+  // Check if choice has bonus information
+  if (choice.bonus) {
+    await showBonusPopup(choice);
+    return;
+  }
+  
+  // Proceed with normal choice handling
+  await proceedWithChoice(choice);
+}
+
+async function showBonusPopup(choice) {
+  const bonusMessage = document.getElementById('bonusMessage');
+  const bonusIcon = document.querySelector('.bonus-icon');
+  const confirmBtn = document.getElementById('confirmBonusBtn');
+  
+  // Set bonus message
+  bonusMessage.textContent = choice.bonus;
+  
+  // Determine icon based on life point changes
+  const hasLifeDeduction = choice.bonus.includes('减1点生命值');
+  const hasLifeAddition = choice.bonus.includes('加1点生命值');
+  
+  if (hasLifeDeduction) {
+    bonusIcon.textContent = '💣';
+    bonusIcon.style.color = '#ff4444';
+  } else if (hasLifeAddition) {
+    bonusIcon.textContent = '🎁';
+    bonusIcon.style.color = '#44ff44';
+  } else {
+    bonusIcon.textContent = '🎁';
+    bonusIcon.style.color = '#ffaa44';
+  }
+  
+  // Set up confirm button handler
+  confirmBtn.onclick = async () => {
+    closeModal('bonusModal');
+    await proceedWithChoice(choice);
+  };
+  
+  // Show the bonus modal
+  openModal('bonusModal');
+}
+
+async function proceedWithChoice(choice) {
   // Add to visited nodes
   if (!gameState.visitedNodes.includes(choice.nextNode)) {
     gameState.visitedNodes.push(choice.nextNode);
@@ -345,6 +389,15 @@ async function handleChoice(choice) {
     action: choice.action,
     text: choice.text
   });
+  
+  // Handle life point changes if bonus exists
+  if (choice.bonus) {
+    if (choice.bonus.includes('加1点生命值')) {
+      gameState.lifePoints += 1;
+    } else if (choice.bonus.includes('减1点生命值')) {
+      gameState.lifePoints -= 1;
+    }
+  }
   
   // Update state
   gameState.previousNode = gameState.currentChapter;
@@ -410,6 +463,8 @@ function openModal(modalId) {
     updateStoryMap();
   } else if (modalId === 'endingsModal') {
     updateEndingsGrid();
+  } else if (modalId === 'bonusModal') {
+    // Bonus modal doesn't need additional setup
   }
 }
 
