@@ -1190,34 +1190,34 @@ body {
 
 /* Tool Detail Modal Styles */
 .tool-detail-content {
-  background: linear-gradient(135deg, #2c1810 0%, #4a2c1a 50%, #2c1810 100%);
-  border: 3px solid #d4af37;
+  background: linear-gradient(135deg, #1a0033 0%, #330066 50%, #1a0033 100%);
+  border: 3px solid var(--primary-orange);
   box-shadow: 
-    0 0 40px rgba(212, 175, 55, 0.6),
-    inset 0 0 30px rgba(212, 175, 55, 0.1);
+    0 0 40px rgba(255, 165, 0, 0.6),
+    inset 0 0 30px rgba(255, 165, 0, 0.1);
   max-width: 500px;
 }
 
 .tool-detail-content .modal-header {
-  background: linear-gradient(90deg, rgba(212, 175, 55, 0.1) 0%, rgba(212, 175, 55, 0.05) 100%);
-  border-bottom: 2px solid #d4af37;
+  background: linear-gradient(90deg, rgba(255, 165, 0, 0.1) 0%, rgba(255, 165, 0, 0.05) 100%);
+  border-bottom: 2px solid var(--primary-orange);
 }
 
 .tool-detail-content .modal-header h2 {
-  color: #d4af37;
-  text-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
+  color: var(--primary-orange);
+  text-shadow: 0 0 15px var(--primary-orange);
 }
 
 .tool-detail-body {
   padding: 20px;
-  background: rgba(0, 0, 0, 0.2);
+  background: rgba(255, 165, 0, 0.05);
   border-radius: 8px;
   margin: 20px 0;
-  color: #f5deb3;
+  color: var(--text-light);
   line-height: 1.6;
   font-size: 1.1rem;
   text-align: center;
-  border: 1px solid rgba(212, 175, 55, 0.3);
+  border: 1px solid rgba(255, 165, 0, 0.3);
 }
 
 /* Mobile Responsive Styles */
