@@ -479,6 +479,9 @@ function updateStoryMap() {
   
   const chapterNames = getChapterNames();
   
+  // Define important life choice nodes
+  const importantNodes = ['11', '22', '31', '62'];
+  
   // Get all available nodes (excluding endings)
   const allNodes = Object.keys(storyNodes).filter(nodeId => !nodeId.startsWith('ending_'));
   
@@ -489,6 +492,11 @@ function updateStoryMap() {
     
     const mapNode = document.createElement('div');
     mapNode.className = 'map-node';
+    
+    // Add highlighted class for important nodes
+    if (importantNodes.includes(nodeId)) {
+      mapNode.classList.add('highlighted');
+    }
     
     // Determine node state
     if (nodeId === gameState.currentChapter) {
