@@ -31,14 +31,11 @@ const endingsBtn = document.getElementById('endingsBtn');
 const loadingIndicator = document.getElementById('loadingIndicator');
 const toastContainer = document.getElementById('toastContainer');
 
-// Mobile dropdown elements
-const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-const mobileMenu = document.getElementById('mobileMenu');
+
 
 // Initialize game
 document.addEventListener('DOMContentLoaded', async function() {
   setupEventListeners();
-  setupMobileDetection();
   
   // Set Azure function URL from config
   storageService.setAzureBaseUrl(CONFIG.AZURE_BASE_URL);
@@ -87,66 +84,11 @@ function setupEventListeners() {
   // Initialize world rules content
   document.getElementById('worldRulesContent').innerHTML = `<pre>${worldRulesText}</pre>`;
 
-  // Mobile dropdown functionality
-  mobileMenuBtn.addEventListener('click', toggleMobileMenu);
-  
-  // Close mobile menu when clicking outside
-  document.addEventListener('click', function(e) {
-    if (!mobileMenuBtn.contains(e.target) && !mobileMenu.contains(e.target)) {
-      mobileMenu.classList.remove('active');
-    }
-  });
-  
-  // Mobile menu item clicks
-  const mobileMenuItems = document.querySelectorAll('.mobile-menu-item');
-  mobileMenuItems.forEach(item => {
-    item.addEventListener('click', function() {
-      const targetId = this.getAttribute('data-target');
-      const targetBtn = document.getElementById(targetId);
-      if (targetBtn) {
-        targetBtn.click();
-      }
-      mobileMenu.classList.remove('active');
-    });
-  });
+
+
 }
 
-function setupMobileDetection() {
-  // Check if device is mobile
-  const isMobile = window.innerWidth <= 768 || /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-  
-  if (isMobile) {
-    // Hide desktop header actions and show mobile dropdown
-    const headerActions = document.querySelector('.header-actions');
-    if (headerActions) {
-      headerActions.style.display = 'none';
-    }
-    
-    const mobileDropdown = document.querySelector('.mobile-dropdown');
-    if (mobileDropdown) {
-      mobileDropdown.style.display = 'block';
-    }
-  }
-  
-  // Add resize listener for responsive behavior
-  window.addEventListener('resize', function() {
-    const isMobileNow = window.innerWidth <= 768;
-    const headerActions = document.querySelector('.header-actions');
-    const mobileDropdown = document.querySelector('.mobile-dropdown');
-    
-    if (isMobileNow) {
-      if (headerActions) headerActions.style.display = 'none';
-      if (mobileDropdown) mobileDropdown.style.display = 'block';
-    } else {
-      if (headerActions) headerActions.style.display = 'flex';
-      if (mobileDropdown) mobileDropdown.style.display = 'none';
-    }
-  });
-}
 
-function toggleMobileMenu() {
-  mobileMenu.classList.toggle('active');
-}
 
 // Tools Collection Functions
 function addTool(tool) {
