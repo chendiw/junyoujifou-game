@@ -102,7 +102,7 @@
     "title": "后宫昭仪",
     "text": "皇帝封您为昭仪，对您很是恩宠。在祭天大典未央宫宴会时，您想起了自己的任务。您选择：",
     "choices": [
-      { "text": "a. 敌不动，我不动", "action": "wait", "nextNode": "ending_palace_wait" },
+      { "text": "a. 敌不动，我不动", "action": "wait", "nextNode": "188" },
       { "text": "b. 认为此次并不是个好时机，打算下次动手", "action": "postpone", "nextNode": "ending_palace_postpone" }
     ]
   },
@@ -110,14 +110,14 @@
     "title": "千秋节献舞",
     "text": "献舞时突遇山崩，在<span class=\"character-name\">苏大人</span>冷静迅速的调度下，伤亡并不惨重，您也凭借惊艳的舞姿被<span class=\"character-name\">苏大人</span>请赐带回府，这正在您的计划之中，其间唯一的小插曲是<span class=\"character-name\">楚太尉</span>不知何故捏碎了一个玉杯。",
     "choices": [
-      { "text": "继续", "action": "continue_plan", "nextNode": "ending_su_mansion" }
+      { "text": "继续", "action": "continue_plan", "nextNode": "181" }
     ]
   },
   "15": {
     "title": "组织的任务",
     "text": "您这两天听说\"楚明允喜欢苏世誉\"的风言风语，警惕地察觉到楚太尉打算把您处理了，于是您用假身份脱身，后被送回组织待命。您选择：",
     "choices": [
-      { "text": "a. 去青楼红袖招", "action": "go_brothel", "nextNode": "ending_brothel" },
+      { "text": "a. 去青楼红袖招", "action": "go_brothel", "nextNode": "190" },
       { "text": "b. 去地下赌坊永乐坊", "action": "go_casino", "nextNode": "ending_casino" },
       { "text": "c. 哪里也不去", "action": "stay_put", "nextNode": "ending_organization_death" }
     ]
@@ -177,6 +177,153 @@
       { "text": "b. 投身军伍自基层做起，卫国安邦", "action": "join_military", "nextNode": "31" },
       { "text": "c. 步入朝堂于中央任职，志展宏纲", "action": "enter_court", "nextNode": "60" },
       { "text": "d. 涉足商海从零点发轫，财聚盈仓", "action": "enter_business", "nextNode": "62" }
+    ]
+  },
+  "181": {
+    "title": "苏府的任务",
+    "text": "\"玲珑姑娘，公子有事外出了，并不在府内。\"听到此话，已在府中住了一夜的您暗暗放心。趁着守卫不在，您溜进书房，找到了所需要的文书。您过目不忘，将内容全部记下后，溜了出来。你选择：",
+    "choices": [
+      { "text": "a. 尽快与组织联络", "action": "contact_organization", "nextNode": "182" },
+      { "text": "b. 先给妹妹写信，再联系组织", "action": "write_sister_first", "nextNode": "182", "bonus": "你在信中问妹妹身体好些了吗，告诉她要好好吃饭，好好睡觉。你是个好姐姐，加1点生命值" }
+    ]
+  },
+  "182": {
+    "title": "白衣的试探",
+    "text": "您知道苏世誉喜爱白衣，在他回府后，您穿了一身白，端着亲手做的点心，敲响了书房的门。苏世誉关心了您几句，温柔地告诉您不必刻意迎合他的喜好，并亲手为您簪上一支红玉银簪。他说不在书房进食，话到一半又摇头笑笑说早就破例了。能让苏大人破例的人，莫非是苏大人的心上人？",
+    "choices": [
+      { "text": "继续", "action": "continue_conversation", "nextNode": "183" }
+    ]
+  },
+  "183": {
+    "title": "心上人的承认",
+    "text": "\"是。\"苏世誉大方承认。如此毫不掩饰，坦诚到您都不禁一滞。您认为苏大人的心上人必定也是温婉美人，苏大人却笑着说美是极美，温婉倒是沾不上边。一谈及心上人，苏大人便笑得这么好看，这模样一看便是爱极了对方。",
+    "choices": [
+      { "text": "继续", "action": "continue_story", "nextNode": "184" }
+    ]
+  },
+  "184": {
+    "title": "琴音雅乐",
+    "text": "两三日后的夜晚，您拿着琴谱与苏大人共赏琴音雅乐，苏大人弹了一首临安的摇篮曲，您开心得眼睛都亮了。天色渐晚，您邀请苏大人留下，就算有心上人又怎样，他并不在大人身旁，而您只愿侍奉苏大人。苏大人却认真地说：\"不在身旁，却在心上。\"您不甘心，上前抱住了苏大人，苏大人制止了您，并不治罪于您，他离开之前让您早点休息，并称赞您今日这身绯裙很适合您。您心想：",
+    "choices": [
+      { "text": "a. 世上怎么会有这么温柔的人呢", "action": "admire_gentleness", "nextNode": "185" },
+      { "text": "b. 我的刺杀任务可该怎么办", "action": "worry_mission", "nextNode": "185", "bonus": "你想完成任务，但又实在不忍对苏世誉下手，纠结之下你心绪郁结，越来越焦虑，减1点生命值" }
+    ]
+  },
+  "185": {
+    "title": "太尉府的审问",
+    "text": "几日后，一名黑衣人出现在您房中将您掳到了太尉府。您跪在厅中听那位威名远扬的楚太尉说出西陵王的名字，不由慌了。楚太尉让您猜为什么他把您带来，您：",
+    "choices": [
+      { "text": "a. 装傻充愣说苏大人对自己很好，自己不能背弃苏大人", "action": "pretend_loyalty", "nextNode": "186" },
+      { "text": "b. 愿意投入楚太尉的阵营，帮助楚太尉监视苏大人", "action": "betray_su", "nextNode": "187", "bonus": "楚太尉厌恶地看了你一眼，你卖主求荣，减1点生命值" },
+      { "text": "c. 认为楚太尉单纯看自己不顺眼，只因为苏大人护过自己", "action": "assume_dislike", "nextNode": "187" }
+    ]
+  },
+  "186": {
+    "title": "剑指眉心",
+    "text": "话并未说完，楚明允的剑已点上您的眉心，血珠沿着脸颊滚落。您几乎已闭目待毙了，却没想到苏大人的表弟冲进来替您解了围。这小少爷还开楚太尉的玩笑说让他给苏大人当偏房，被楚太尉两句话吓跑了。您脑补了一下和楚太尉在苏府姐妹相称，打了个寒颤。",
+    "choices": [
+      { "text": "继续", "action": "continue_drama", "nextNode": "187" }
+    ]
+  },
+  "187": {
+    "title": "苏大人的到来",
+    "text": "楚太尉不再理会您，出神似的，指尖一下下敲桌子，好像在等什么人。有脚步声自远而近从身后响起，您回身看见是苏大人，惊喜得想要靠近，手伸出的动作却被一把利剑生生截断。楚大人对苏大人直言要杀了您，若是苏大人不舍得就将您剥皮放血、抽筋剔骨。苏大人却说不过是个刺客。",
+    "choices": [
+      { "text": "继续", "action": "final_confrontation", "nextNode": "ending_assassin_revealed" }
+    ]
+  },
+  "188": {
+    "title": "祭天大典的密谋",
+    "text": "一直无人敢上前向楚明允敬酒，您借口透气而离了席，又立即派宫娥将楚明允悄声引出。您对楚明允剖白心意，直言仰慕，即便对方不吃您的招，您还是在他告辞前将香囊塞给了他。您选择：",
+    "choices": [
+      { "text": "a. 迅速回去，免得惹人多疑", "action": "return_quickly", "nextNode": "189" },
+      { "text": "b. 慢慢回去，装出深情模样", "action": "return_slowly", "nextNode": "189", "bonus": "你回头想再看一眼楚明允，确保他收下香囊，却见他目光森冷地捏着香囊，抬眼朝你这儿看来，你明知有树枝掩着他看不见你，却还是忍不住害怕，转身便走，减1点生命值" }
+    ]
+  },
+  "189": {
+    "title": "天禄阁失窃",
+    "text": "回席后没多久，楚明允也回来了，您暗中使了个眼色，片刻后，天禄阁失窃的消息准确传达到席上每一个人的耳朵里。您从袖中拿出一把黄铜钥匙，向陛下丢的钥匙就是长这样，您说这是您出去透气时碰见某位大人后捡到的。您的视线落到右席，那里坐着两个人，苏世誉和硬挤过来的楚明允。您心想：",
+    "choices": [
+      { "text": "a. 楚明允怎么凑到苏大人这了", "action": "wonder_why_together", "nextNode": "201" },
+      { "text": "b. 我暗示得很明显了吧", "action": "think_hint_clear", "nextNode": "202" }
+    ]
+  },
+  "190": {
+    "title": "红袖招的偶遇",
+    "text": "那日您本该去永乐坊对接消息，正准备出门时，却见到一位气质出尘的白衣公子进了红袖招，请见静姝姑娘。您选择：",
+    "choices": [
+      { "text": "a. 借口忘带东西，跟回去看看", "action": "follow_back", "nextNode": "191" },
+      { "text": "b. 不该关心的事少关心", "action": "ignore_matter", "nextNode": "193" },
+      { "text": "c. 在门口纠结一会儿，却见一位眉眼冶丽的男子大步而来", "action": "see_handsome_man", "nextNode": "192" }
+    ]
+  },
+  "191": {
+    "title": "白衣公子的秘密",
+    "text": "那白衣公子似是为静姝姑娘带在身边的少年而来。您正在揣测那公子与这少年什么关系，却见一位眉眼冶丽的男子大步流星地直奔向这里，后头跟着无措的鸨母。鸨母向您使了个眼色，您：",
+    "choices": [
+      { "text": "a. 装作身体突然抱恙，向那男子栽去", "action": "fake_illness", "nextNode": "ending_fake_illness_death" },
+      { "text": "b. 扬声向屋内示警：\"这位公子怎如此急色？\"", "action": "warn_inside", "nextNode": "ending_warn_inside_death" },
+      { "text": "c. 决意试探他与白衣公子的关系", "action": "test_relationship", "nextNode": "192" }
+    ]
+  },
+  "192": {
+    "title": "暗示的试探",
+    "text": "您向面露难色的鸨母问道：\"方才那位白衣公子可曾说过会有同伴？\"那男子闻言倒是正眼看了您一眼，像是听懂了您话中的暗示——静姝姑娘有客。可他这一眼威势极盛，您不敢再多言语，匆匆离去，赶往永乐坊。",
+    "choices": [
+      { "text": "继续", "action": "continue_to_casino", "nextNode": "193" }
+    ]
+  },
+  "193": {
+    "title": "永乐坊的发现",
+    "text": "永乐坊的日常交接方才完毕，您尚未来得及提及今日有两位眼生的客人造访了静姝姑娘，便眼尖地瞧见，红袖招方才遇见的那两位公子，此刻竟已戴了面具，被小厮引至赌桌之前。您选择：",
+    "choices": [
+      { "text": "a. 立刻向少主禀报，此二人着实可疑", "action": "report_suspicious", "nextNode": "194" },
+      { "text": "b. 观察片刻，探查此二人身份", "action": "observe_identity", "nextNode": "194" }
+    ]
+  },
+  "194": {
+    "title": "赌桌前的暧昧",
+    "text": "那墨蓝衣裳的公子随手揽过白衣公子不堪一握的腰，单手捏着他的下颌柔声唤他\"宝贝\"，看得您面红耳赤。您突然顿悟，方才在红袖招所见似乎甚合情理：这白衣公子去青楼潇洒是为了与他夫君赌气，难怪蓝衣公子追来时面色不虞。如今，这蓝衣公子大概是顺着夫人的心意，特地带他来此，让夫人开开眼——也算是赔罪来了吧。您：",
+    "choices": [
+      { "text": "a. 放心了", "action": "feel_relieved", "nextNode": "ending_couple_reconciled" },
+      { "text": "b. 继续观察", "action": "continue_observing", "nextNode": "ending_continue_observing" }
+    ]
+  },
+  "201": {
+    "title": "敌对关系的疑惑",
+    "text": "两人分明是敌对关系，楚明允却定要凑到苏世誉眼前，这必会惹得苏世誉厌恶。这送上门的折损楚明允力量的机会，苏世誉应该不会拒绝吧。",
+    "choices": [
+      { "text": "继续", "action": "continue_plot", "nextNode": "202" }
+    ]
+  },
+  "202": {
+    "title": "皇帝的判断",
+    "text": "可偏偏有人不领情，苏世誉竟然替楚明允作假证为他遮掩。您握住袖中的毒药，听楚明允凉凉说搜身便知。皇帝李延贞却三言两语带过，谁的责任都没有追究。您心想：",
+    "choices": [
+      { "text": "a. 皇帝扮猪吃虎，这任务并不好做", "action": "emperor_smart", "nextNode": "203" },
+      { "text": "b. 皇帝心性柔和，这任务很好做", "action": "emperor_gentle", "nextNode": "204" }
+    ]
+  },
+  "203": {
+    "title": "身份互换",
+    "text": "您与身边的宫娥戴上人皮面具，换上了对方的脸，同时意味着互换了身份，从此您的身份是昭仪娘娘手下的一名宫娥。您成为了组织与姜昭仪联络的耳目。",
+    "choices": [
+      { "text": "继续", "action": "continue_mission", "nextNode": "ending_poison_emperor" }
+    ]
+  },
+  "204": {
+    "title": "皇帝的信任",
+    "text": "经此一事，您与李延贞的关系似乎并没发生变化。您想充当解语花，见李延贞为刑部尚书之女陆清和作画，贤良地表示陛下若喜欢，纳入宫中便好，李延贞却言游侠志在山川，不该拘束。您想挑拨李延贞与苏世誉的关系，告状说苏大人与楚大人走得过近，李延贞却打断您，说相信苏大人的忠心，还用冬至大典天禄阁钥匙失窃的事堵得您不得不闭嘴。李延贞对您很好，而您的任务迟迟无法推进。",
+    "choices": [
+      { "text": "继续", "action": "continue_relationship", "nextNode": "205" }
+    ]
+  },
+  "205": {
+    "title": "最后的抉择",
+    "text": "千秋节后，您再次收到组织的消息。看完纸条后，您慌张地让宫娥跟李延贞说不要过来，又改变主意让宫娥将他请来。目送小宫娥离开后，您：",
+    "choices": [
+      { "text": "a. 为等会儿皇帝亲临而梳妆打扮", "action": "prepare_for_emperor", "nextNode": "ending_poison_emperor_success" },
+      { "text": "b. 思考事情是否还有转圜的余地", "action": "consider_alternatives", "nextNode": "ending_hesitation_death" }
     ]
   },
   "ending_chu_capture": {
@@ -1958,6 +2105,46 @@
   "ending_dance_song": {
     "title": "歌舞人生",
     "text": "您成为了一名歌舞艺人，用优美的舞姿和动听的歌声感动着人们。",
+    "isEnding": true
+  },
+  "ending_assassin_revealed": {
+    "title": "刺客身份暴露",
+    "text": "原来最初献舞，苏大人便猜到了你的目的，留你只为彻查。你拔下红玉簪刺向苏大人，却被楚大人踹得咳血不止。见到楚大人与苏大人十指相扣，你似乎明白了一切。苏大人提及你多病的妹妹已在霜降之后逝世，死不瞑目，而你也中毒已深，命不足三月。真心皆负，即便与苏大人相处之际，短暂的悸动也难辨真假。然是非善恶，实不难断。你笑着，向苏大人流泪叩首，遂撞柱身亡。",
+    "isEnding": true
+  },
+  "ending_fake_illness_death": {
+    "title": "假病投怀的代价",
+    "text": "一柄檀木香扇抵在了您的肩头，那男子艳丽的眼中流露出讥讽：\"姑娘，投怀送抱这种把戏，我可比你熟。\"您悻悻地决定不掺和这事了，正要去执行原本的任务，刚踏出红袖招，却被一从天而降的黑衣人捂住了口鼻。您自知打草惊蛇了，咬碎了后牙槽内的毒药自尽。",
+    "isEnding": true
+  },
+  "ending_warn_inside_death": {
+    "title": "示警的后果",
+    "text": "\"急色？\"男子一声冷哼，反手推开雕花木门，却在见到门内端坐着的人时，掺上了些笑意：\"苏大人你看，满城皆知我对你情深意切、心急如焚，你打算何时才允我？\"屋内白衣男子的目光却越过他落在了你身上：\"这位姑娘可否稍候片刻，待此间事了，还请移步御史台一叙。\"你心里一沉，心知此事恐难善终。",
+    "isEnding": true
+  },
+  "ending_couple_reconciled": {
+    "title": "夫妻和好",
+    "text": "您看到这对夫妻重归于好，心中也感到欣慰。您继续执行自己的任务，但心中对这对恩爱的夫妻留下了深刻的印象。",
+    "isEnding": true
+  },
+  "ending_continue_observing": {
+    "title": "继续观察",
+    "text": "您决定继续观察这对夫妻的互动，希望能从中获得更多有用的信息。",
+    "isEnding": true
+  },
+  "ending_poison_emperor": {
+    "title": "毒杀皇帝",
+    "text": "千秋节后你将组织的信息传给姜昭仪，让她毒杀皇帝，姜昭仪成功完成任务，自己也服了毒。皇帝中毒的事情虽发生得突然，但宫中规矩森严，秩序俨然。你发现自己逃不出去，遂吞下后槽牙里藏着的毒，气绝身亡。",
+    "isEnding": true
+  },
+  "ending_poison_emperor_success": {
+    "title": "毒杀成功",
+    "text": "你将毒下进酒杯，待李延贞过来后让所有人退下，与李延贞说感谢他对自己的恩宠，愿以酒表达心意。李延贞似察觉到什么，但到底喝下了酒。他走后，你吃了剩下的毒，想着先他一步下去，来世投成姐弟，护他一世平安。",
+    "isEnding": true
+  },
+  "ending_hesitation_death": {
+    "title": "犹豫的代价",
+    "text": "\"娘娘，犹犹豫豫是做不成事的。\"给你传信的那个宫娥将毒药喂到你嘴里，又将剩下的毒药放进酒杯中，并戴上了人皮面具，成了你的模样。",
     "isEnding": true
   }
 }
