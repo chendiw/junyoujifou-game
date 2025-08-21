@@ -13,3 +13,4 @@ You will get to set the nextNode field of that option in a future question from 
 6. Notice in some questions, we introduced "彩蛋"/bonus。Make an additional field "bonus" in the corresponding option with the 彩蛋 content. 
 If the 彩蛋 includes a 道具(tool)，make another additional field "tool" in the corresponding option with the tools name, which is usually provided from the context.
 When you store the tool, store its title (e.g. 楚明允的欣赏), and content (e.g. 可助您在楚明允手下存活一次)。You should try to deduce the content from the context. 
+7. If a node already has a title, don't change its title. If a node doesn't have a title, create a title as you see fit.
