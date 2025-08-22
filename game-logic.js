@@ -548,6 +548,14 @@ async function loadCurrentStory() {
       restartBtn.addEventListener('click', () => handleRestart());
       storyActions.appendChild(restartBtn);
     }
+    
+    // Show bonus popup for ending nodes with bonus messages
+    if (node.bonus) {
+      // Wait a reasonable amount of time before showing the bonus popup
+      setTimeout(() => {
+        showEndingBonusPopup(node);
+      }, 1500); // 1.5 seconds delay
+    }
   }
   
   updateGameDisplay();
@@ -599,6 +607,47 @@ async function showBonusPopup(choice) {
   confirmBtn.onclick = async () => {
     closeModal('bonusModal');
     await proceedWithChoice(choice);
+  };
+  
+  // Show the bonus modal
+  openModal('bonusModal');
+}
+
+async function showEndingBonusPopup(node) {
+  const bonusMessage = document.getElementById('bonusMessage');
+  const bonusIcon = document.querySelector('.bonus-icon');
+  const confirmBtn = document.getElementById('confirmBonusBtn');
+  
+  // Set bonus message
+  bonusMessage.textContent = node.bonus;
+  
+  // Determine icon based on bonus content
+  const hasLifeDeduction = node.bonus.includes('减1点生命值');
+  const hasLifeAddition = node.bonus.includes('加1点生命值');
+  const hasTransportCard = node.bonus.includes('传送卡');
+  
+  if (hasLifeDeduction) {
+    bonusIcon.textContent = '💣';
+    bonusIcon.style.color = '#ff4444';
+  } else if (hasLifeAddition || hasTransportCard) {
+    bonusIcon.textContent = '🎁';
+    bonusIcon.style.color = '#44ff44';
+  } else {
+    bonusIcon.textContent = '🎁';
+    bonusIcon.style.color = '#ffaa44';
+  }
+  
+  // Set up confirm button handler for ending bonus
+  confirmBtn.onclick = async () => {
+    closeModal('bonusModal');
+    
+    // Handle special ending rewards when user accepts the bonus
+    if (node.specialEnding) {
+      handleSpecialEndingRewards(node.specialEnding);
+    }
+    
+    // Reload the current ending node (go back to the ending)
+    await loadCurrentStory();
   };
   
   // Show the bonus modal
@@ -909,5 +958,24 @@ function updateToolsButton() {
     }
     
     toolsBtn.innerHTML = `<span class="btn-icon">🔮</span>${btnText}`;
+  }
+}
+
+// Handle special ending rewards
+function handleSpecialEndingRewards(specialEnding) {
+  switch (specialEnding) {
+    case "SR":
+      // SR ending: increment transport card by 1
+      gameState.transportCards += 1;
+      showToast('特殊结局奖励', '获得SR结局！传送卡 +1', 'success');
+      break;
+    case "SSR":
+      // SSR ending: increment transport card by 1 and life points by 2
+      gameState.transportCards += 1;
+      gameState.lifePoints += 2;
+      showToast('特殊结局奖励', '获得SSR结局！传送卡 +1，生命值 +2', 'success');
+      break;
+    default:
+      console.log('Unknown special ending type:', specialEnding);
   }
 }
