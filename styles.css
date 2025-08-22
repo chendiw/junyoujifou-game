@@ -246,6 +246,17 @@ body {
   color: #444;
 }
 
+.btn-use-tool {
+  background: linear-gradient(135deg, #8B5CF6 0%, #A855F7 100%);
+  border: 2px solid #8B5CF6;
+  color: white;
+}
+
+.btn-use-tool:hover:not(:disabled) {
+  transform: scale(1.05);
+  box-shadow: 0 5px 15px rgba(139, 92, 246, 0.4);
+}
+
 .btn-icon {
   font-size: 1rem;
 }
@@ -337,6 +348,8 @@ body {
   margin-top: 20px;
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
 .choice-btn {

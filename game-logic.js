@@ -468,8 +468,16 @@ function updateGameDisplay() {
   const currentNode = storyNodes[gameState.currentChapter];
   const isContinueOnly = currentNode?.choices?.length === 1 && 
                         currentNode.choices[0].text === "继续";
+  const isEndingWithApplicableTool = currentNode?.isEnding && 
+                                    currentNode?.applicableTool && 
+                                    Array.isArray(currentNode.applicableTool);
   
   if (gameState.currentChapter === "1" || !canBacktrack) {
+    backtrackBtn.disabled = true;
+    backtrackBtn.textContent = '返回上一题';
+  } else if (isEndingWithApplicableTool) {
+    // For ending nodes with applicable tools, disable the header backtrack button
+    // since we have dedicated buttons in the story actions
     backtrackBtn.disabled = true;
     backtrackBtn.textContent = '返回上一题';
   } else if (isContinueOnly) {
@@ -568,15 +576,37 @@ async function loadCurrentStory() {
     });
   }
   
-  // Add restart button for endings
+  // Add buttons for endings
   if (node.isEnding) {
     const storyActions = document.querySelector('.story-actions');
     if (storyActions) {
+      // Always add restart button
       const restartBtn = document.createElement('button');
       restartBtn.className = 'btn btn-backtrack';
       restartBtn.textContent = '重新开始';
       restartBtn.addEventListener('click', () => handleRestart());
       storyActions.appendChild(restartBtn);
+      
+      // Check for applicable tools for ending nodes
+      if (node.applicableTool && Array.isArray(node.applicableTool)) {
+        const availableTool = findAvailableApplicableTool(node.applicableTool);
+        if (availableTool) {
+          // Add tool use button
+          const useToolBtn = document.createElement('button');
+          useToolBtn.className = 'btn btn-use-tool';
+          useToolBtn.textContent = `使用道具"${availableTool.title}"回到上一题`;
+          useToolBtn.addEventListener('click', () => handleUseToolToGoBack(availableTool));
+          storyActions.appendChild(useToolBtn);
+        }
+        
+        // Always add regular backtrack button for applicable tool endings
+        // (even if no tool is available, user can still go back with life point deduction)
+        const regularBacktrackBtn = document.createElement('button');
+        regularBacktrackBtn.className = 'btn btn-backtrack';
+        regularBacktrackBtn.textContent = '返回上一题（消耗1生命值）';
+        regularBacktrackBtn.addEventListener('click', () => handleBacktrack());
+        storyActions.appendChild(regularBacktrackBtn);
+      }
     }
     
     // Show bonus popup for ending nodes with bonus messages
@@ -1202,6 +1232,66 @@ function createConfetti(type = 'ssr') {
       }, 5000);
     }, i * 50);
   }
+}
+
+// Find available applicable tool from the list
+function findAvailableApplicableTool(applicableToolNames) {
+  for (const toolName of applicableToolNames) {
+    const tool = gameState.tools.find(t => t.title === toolName && (t.count || 1) > 0);
+    if (tool) {
+      return tool;
+    }
+  }
+  return null;
+}
+
+// Handle using tool to go back to previous node
+async function handleUseToolToGoBack(tool) {
+  if (!tool) {
+    showToast('错误', '无效的道具', 'error');
+    return;
+  }
+  
+  if (!gameState.previousNode) {
+    showToast('无法回溯', '没有可回溯的节点', 'error');
+    return;
+  }
+  
+  // Validate tool availability
+  const toolInInventory = gameState.tools.find(t => t.title === tool.title);
+  if (!toolInInventory || (toolInInventory.count || 1) <= 0) {
+    showToast('道具不足', '该道具已用完或不存在', 'error');
+    return;
+  }
+  
+  // Use the tool (decrement count)
+  toolInInventory.count -= 1;
+  
+  // Remove tool from array if count reaches zero
+  if (toolInInventory.count <= 0) {
+    const toolIndex = gameState.tools.findIndex(t => t.title === tool.title);
+    if (toolIndex !== -1) {
+      gameState.tools.splice(toolIndex, 1);
+    }
+  }
+  
+  // Go back to previous node without consuming life points
+  gameState.currentChapter = gameState.previousNode;
+  
+  // Find the previous previous node
+  const previousChoice = gameState.playerChoices[gameState.playerChoices.length - 2];
+  gameState.previousNode = previousChoice ? previousChoice.chapter : null;
+  
+  // Remove last choice from history
+  gameState.playerChoices.pop();
+  
+  saveGame();
+  updateToolsGrid();
+  updateToolsButton();
+  await loadCurrentStory();
+  
+  const remainingCount = toolInInventory.count > 0 ? toolInInventory.count : 0;
+  showToast('道具使用成功', `使用道具"${tool.title}"回到上一题，剩余数量：${remainingCount}`);
 }
 
 // Highlight SR/SSR text in content
