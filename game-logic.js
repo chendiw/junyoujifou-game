@@ -8,7 +8,8 @@ let gameState = {
   playerChoices: [],
   previousNode: null,
   gameOver: false,
-  tools: [] // Add tools collection to game state
+  tools: [], // Add tools collection to game state
+  claimedBonus: [] // Add claimedBonus array to track claimed bonuses
 };
 
 // DOM Elements
@@ -282,6 +283,10 @@ async function checkSavedGame() {
           }
         });
       }
+      // Ensure claimedBonus array exists for backward compatibility
+      if (!Array.isArray(gameState.claimedBonus)) {
+        gameState.claimedBonus = [];
+      }
       showGame();
       return;
     }
@@ -369,6 +374,11 @@ async function handleLogin() {
       });
     }
     
+    // Ensure claimedBonus array exists for backward compatibility
+    if (!Array.isArray(gameState.claimedBonus)) {
+      gameState.claimedBonus = [];
+    }
+    
     console.log('Game state loaded:', gameState);
     
     // Save to localStorage for immediate access
@@ -408,6 +418,11 @@ async function handleCreateAccount() {
           tool.count = 1;
         }
       });
+    }
+    
+    // Ensure claimedBonus array exists for new accounts
+    if (!Array.isArray(gameState.claimedBonus)) {
+      gameState.claimedBonus = [];
     }
     
     // Save to localStorage for immediate access
@@ -551,10 +566,14 @@ async function loadCurrentStory() {
     
     // Show bonus popup for ending nodes with bonus messages
     if (node.bonus) {
-      // Wait a reasonable amount of time before showing the bonus popup
-      setTimeout(() => {
-        showEndingBonusPopup(node);
-      }, 1500); // 1.5 seconds delay
+      // Check if this ending bonus has already been claimed
+      const endingBonusKey = `ending_${gameState.currentChapter}`;
+      if (!gameState.claimedBonus.includes(endingBonusKey)) {
+        // Wait a reasonable amount of time before showing the bonus popup
+        setTimeout(() => {
+          showEndingBonusPopup(node);
+        }, 1500); // 1.5 seconds delay
+      }
     }
   }
   
@@ -572,6 +591,14 @@ async function handleChoice(choice) {
   
   // Check if choice has bonus information
   if (choice.bonus) {
+    // Check if this bonus has already been claimed
+    const bonusKey = `${gameState.currentChapter}_${choice.text}`;
+    if (gameState.claimedBonus.includes(bonusKey)) {
+      // Bonus already claimed, proceed without showing popup
+      await proceedWithChoice(choice);
+      return;
+    }
+    
     await showBonusPopup(choice);
     return;
   }
@@ -641,6 +668,12 @@ async function showEndingBonusPopup(node) {
   confirmBtn.onclick = async () => {
     closeModal('bonusModal');
     
+    // Add ending bonus to claimedBonus to prevent duplicate claims
+    const endingBonusKey = `ending_${gameState.currentChapter}`;
+    if (!gameState.claimedBonus.includes(endingBonusKey)) {
+      gameState.claimedBonus.push(endingBonusKey);
+    }
+    
     // Handle special ending rewards when user accepts the bonus
     if (node.specialEnding) {
       handleSpecialEndingRewards(node.specialEnding);
@@ -669,6 +702,12 @@ async function proceedWithChoice(choice) {
   
   // Handle life point changes if bonus exists
   if (choice.bonus) {
+    // Add to claimedBonus to prevent duplicate claims
+    const bonusKey = `${gameState.currentChapter}_${choice.text}`;
+    if (!gameState.claimedBonus.includes(bonusKey)) {
+      gameState.claimedBonus.push(bonusKey);
+    }
+    
     if (choice.bonus.includes('加1点生命值')) {
       gameState.lifePoints += 1;
     } else if (choice.bonus.includes('减1点生命值')) {
@@ -878,6 +917,7 @@ async function handleRestart() {
   gameState.visitedNodes = ["1"]; // Clear unlocked nodes
   gameState.unlockedEndings = []; // Clear unlocked endings
   gameState.tools = []; // Clear tools collection
+  gameState.claimedBonus = []; // Clear claimed bonuses
 
   saveGame();
   updateToolsButton();

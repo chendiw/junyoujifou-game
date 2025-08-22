@@ -336,6 +336,7 @@ class StorageService {
           playerChoices: gameState.playerChoices,
           unlockedEndings: Array.isArray(gameState.unlockedEndings) ? gameState.unlockedEndings : [],
           tools: Array.isArray(gameState.tools) ? gameState.tools : [],
+          claimedBonus: Array.isArray(gameState.claimedBonus) ? gameState.claimedBonus : [],
           previousNode: gameState.previousNode,
           gameOver: gameState.gameOver
         })
@@ -379,6 +380,7 @@ class StorageService {
           playerChoices: gameState.playerChoices,
           unlockedEndings: Array.isArray(gameState.unlockedEndings) ? gameState.unlockedEndings : [],
           tools: Array.isArray(gameState.tools) ? gameState.tools : [],
+          claimedBonus: Array.isArray(gameState.claimedBonus) ? gameState.claimedBonus : [],
           previousNode: gameState.previousNode,
           gameOver: gameState.gameOver
         })

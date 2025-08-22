@@ -71,6 +71,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
             'playerChoices': req_body.get('playerChoices', []),
             'unlockedEndings': req_body.get('unlockedEndings', []),
             'tools': req_body.get('tools', []),
+            'claimedBonus': req_body.get('claimedBonus', []),
             'previousNode': req_body.get('previousNode'),
             'gameOver': req_body.get('gameOver', False),
             'lastSaved': datetime.utcnow().isoformat(),

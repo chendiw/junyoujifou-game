@@ -174,6 +174,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
             'playerChoices': [],
             'unlockedEndings': [],
             'tools': [],
+            'claimedBonus': [],
             'previousNode': None,
             'gameOver': False,
             'lastSaved': datetime.utcnow().isoformat(),
