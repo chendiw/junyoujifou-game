@@ -639,14 +639,8 @@ async function loadCurrentStory() {
           useToolBtn.addEventListener('click', () => handleUseToolToGoBack(availableTool));
           storyActions.appendChild(useToolBtn);
         }
-        
-        // Always add regular backtrack button for applicable tool endings
-        // (even if no tool is available, user can still go back with life point deduction)
-        const regularBacktrackBtn = document.createElement('button');
-        regularBacktrackBtn.className = 'btn btn-backtrack';
-        regularBacktrackBtn.textContent = '返回上一题（消耗1生命值）';
-        regularBacktrackBtn.addEventListener('click', () => handleBacktrack());
-        storyActions.appendChild(regularBacktrackBtn);
+        // Note: Regular backtrack functionality is already available via the header backtrack button
+        // No need to add a duplicate button here
       }
     }
     
