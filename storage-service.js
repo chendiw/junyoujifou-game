@@ -484,6 +484,7 @@ class StorageService {
       playerChoices: Array.isArray(serverState.playerChoices) ? serverState.playerChoices : [],
       unlockedEndings: Array.isArray(serverState.unlockedEndings) ? serverState.unlockedEndings : [],
       tools: Array.isArray(serverState.tools) ? serverState.tools : [],
+      claimedBonus: Array.isArray(serverState.claimedBonus) ? serverState.claimedBonus : [],
       previousNode: (typeof serverState.previousNode === 'undefined' || serverState.previousNode === null) ? null : String(serverState.previousNode),
       gameOver: !!serverState.gameOver,
       version: serverState.version || '1.0'
