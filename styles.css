@@ -1502,3 +1502,132 @@ body {
     height: 200px;
   }
 }
+
+/* Bug Report Styles */
+.bug-report-btn {
+  background: linear-gradient(135deg, #ff6b6b 0%, #ee5a52 100%);
+  border: 2px solid #ff6b6b;
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.bug-report-btn:hover {
+  background: linear-gradient(135deg, #ff5252 0%, #d32f2f 100%);
+  border-color: #ff5252;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(255, 107, 107, 0.4);
+}
+
+.bug-report-btn:active {
+  transform: translateY(0);
+}
+
+.bug-report-description {
+  color: var(--text-light);
+  margin-bottom: 20px;
+  line-height: 1.6;
+  text-align: center;
+  font-size: 1rem;
+}
+
+.bug-report-form {
+  padding: 20px 0;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--text-light);
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.form-group textarea {
+  width: 100%;
+  padding: 12px;
+  border: 2px solid rgba(255, 165, 0, 0.3);
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.3);
+  color: var(--text-light);
+  font-family: inherit;
+  font-size: 1rem;
+  line-height: 1.5;
+  resize: vertical;
+  transition: all 0.3s ease;
+}
+
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--primary-orange);
+  box-shadow: 0 0 15px rgba(255, 165, 0, 0.3);
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.form-group textarea::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.char-count {
+  text-align: right;
+  margin-top: 5px;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.char-count.warning {
+  color: #ff9800;
+}
+
+.char-count.error {
+  color: #f44336;
+}
+
+.btn-loading {
+  display: none;
+}
+
+.btn.loading .btn-text {
+  display: none;
+}
+
+.btn.loading .btn-loading {
+  display: inline;
+}
+
+/* Login footer styles */
+.login-footer {
+  margin-top: 20px;
+  text-align: center;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.login-footer .bug-report-btn {
+  font-size: 0.9rem;
+  padding: 8px 16px;
+}
+
+/* Mobile responsive for bug report */
+@media (max-width: 768px) {
+  .bug-report-form {
+    padding: 15px 0;
+  }
+  
+  .form-group textarea {
+    font-size: 0.9rem;
+    padding: 10px;
+  }
+  
+  .bug-report-description {
+    font-size: 0.9rem;
+  }
+  
+  .login-footer {
+    margin-top: 15px;
+    padding-top: 15px;
+  }
+}

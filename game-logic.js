@@ -73,6 +73,42 @@ function setupEventListeners() {
     endingsBtn.addEventListener('click', () => openModal('endingsModal'));
   }
   
+  // Bug report functionality
+  const bugReportBtn = document.getElementById('bugReportBtn');
+  if (bugReportBtn) {
+    bugReportBtn.addEventListener('click', () => openModal('bugReportModal'));
+  }
+  
+  const loginBugReportBtn = document.getElementById('loginBugReportBtn');
+  if (loginBugReportBtn) {
+    loginBugReportBtn.addEventListener('click', () => openModal('bugReportModal'));
+  }
+  
+  // Bug report form functionality
+  const bugReportIssue = document.getElementById('bugReportIssue');
+  const bugReportCharCount = document.getElementById('bugReportCharCount');
+  const submitBugReportBtn = document.getElementById('submitBugReportBtn');
+  
+  if (bugReportIssue) {
+    bugReportIssue.addEventListener('input', function() {
+      const count = this.value.length;
+      bugReportCharCount.textContent = count;
+      
+      // Update character count styling
+      bugReportCharCount.className = 'char-count';
+      if (count > 800) {
+        bugReportCharCount.classList.add('warning');
+      }
+      if (count > 950) {
+        bugReportCharCount.classList.add('error');
+      }
+    });
+  }
+  
+  if (submitBugReportBtn) {
+    submitBugReportBtn.addEventListener('click', handleBugReportSubmit);
+  }
+  
   // Welcome message world rules link
   const worldRulesLink = document.getElementById('worldRulesLink');
   if (worldRulesLink) {
@@ -1307,4 +1343,127 @@ function highlightSpecialEndingText(content, specialEnding) {
   }
   
   return highlightedContent;
+}
+
+// Bug Report Functions
+async function handleBugReportSubmit() {
+  const issueTextarea = document.getElementById('bugReportIssue');
+  const submitBtn = document.getElementById('submitBugReportBtn');
+  
+  if (!issueTextarea || !submitBtn) {
+    console.error('Bug report elements not found');
+    return;
+  }
+  
+  const issue = issueTextarea.value.trim();
+  
+  // Validate input
+  if (!issue) {
+    showToast('错误', '请描述您遇到的问题', 'error');
+    return;
+  }
+  
+  if (issue.length > 1000) {
+    showToast('错误', '问题描述不能超过1000个字符', 'error');
+    return;
+  }
+  
+  // Check if user is logged in
+  if (!gameState.user || !gameState.user.id) {
+    // For non-logged in users, use a temporary ID
+    const tempUserId = 'anonymous_' + Date.now();
+    
+    // Submit bug report without game state
+    const response = await fetch(`${CONFIG.AZURE_BASE_URL}/report-bug`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        userId: tempUserId,
+        issue: issue,
+        gameState: {}
+      })
+    });
+    
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    
+    const result = await response.json();
+    
+    if (result.success) {
+      showToast('提交成功', '问题报告已提交，我们会尽快处理', 'success');
+      
+      // Clear the form
+      issueTextarea.value = '';
+      document.getElementById('bugReportCharCount').textContent = '0';
+      
+      // Close the modal
+      closeModal('bugReportModal');
+    } else {
+      throw new Error(result.error || '提交失败');
+    }
+    
+    return;
+  }
+  
+  // Show loading state
+  submitBtn.classList.add('loading');
+  submitBtn.disabled = true;
+  
+  try {
+    // Prepare game state for bug report
+    const gameStateForReport = {
+      currentChapter: gameState.currentChapter,
+      lifePoints: gameState.lifePoints,
+      transportCards: gameState.transportCards,
+      visitedNodes: gameState.visitedNodes,
+      playerChoices: gameState.playerChoices,
+      tools: gameState.tools,
+      claimedBonus: gameState.claimedBonus,
+      previousNode: gameState.previousNode,
+      gameOver: gameState.gameOver
+    };
+    
+    // Submit bug report to Azure function
+    const response = await fetch(`${CONFIG.AZURE_BASE_URL}/report-bug`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        userId: gameState.user.id,
+        issue: issue,
+        gameState: gameStateForReport
+      })
+    });
+    
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    
+    const result = await response.json();
+    
+    if (result.success) {
+      showToast('提交成功', '问题报告已提交，我们会尽快处理', 'success');
+      
+      // Clear the form
+      issueTextarea.value = '';
+      document.getElementById('bugReportCharCount').textContent = '0';
+      
+      // Close the modal
+      closeModal('bugReportModal');
+    } else {
+      throw new Error(result.error || '提交失败');
+    }
+    
+  } catch (error) {
+    console.error('Error submitting bug report:', error);
+    showToast('提交失败', '网络错误，请稍后重试', 'error');
+  } finally {
+    // Reset button state
+    submitBtn.classList.remove('loading');
+    submitBtn.disabled = false;
+  }
 }
