@@ -713,6 +713,7 @@ async function showBonusPopup(choice) {
   // Set up confirm button handler
   confirmBtn.onclick = async () => {
     closeModal('bonusModal');
+    // Apply bonus changes immediately
     await processBonusAndShowResult(choice);
   };
   
@@ -747,6 +748,7 @@ async function showEndingBonusPopup(node) {
   // Set up confirm button handler for ending bonus
   confirmBtn.onclick = async () => {
     closeModal('bonusModal');
+    // Apply bonus changes immediately
     await processEndingBonusAndShowResult(node);
   };
   
@@ -804,13 +806,13 @@ async function processBonusAndShowResult(choice) {
   // Update the display immediately after applying bonus
   updateGameDisplay();
   
-  // Show result popup if there's a result to show
+  // Show result as toast notification if there's a result to show
   if (resultMessage) {
-    await showResultPopup(resultMessage, resultIcon, resultTitle, choice);
-  } else {
-    // No result to show, proceed directly
-    await proceedWithChoice(choice);
+    showToast(resultTitle, resultMessage, 'success');
   }
+  
+  // Proceed immediately without delay
+  await proceedWithChoice(choice);
 }
 
 async function processEndingBonusAndShowResult(node) {
@@ -875,57 +877,16 @@ async function processEndingBonusAndShowResult(node) {
   // Update the display immediately after applying bonus
   updateGameDisplay();
   
-  // Show result popup if there's a result to show
+  // Show result as toast notification if there's a result to show
   if (resultMessage) {
-    await showEndingResultPopup(resultMessage, resultIcon, resultTitle);
-  } else {
-    // No result to show, reload the current ending node
-    await loadCurrentStory();
+    showToast(resultTitle, resultMessage, 'success');
   }
+  
+  // Reload immediately without delay
+  await loadCurrentStory();
 }
 
-async function showEndingResultPopup(message, icon, title) {
-  const resultMessage = document.getElementById('resultMessage');
-  const resultIcon = document.getElementById('resultIcon');
-  const resultTitle = document.getElementById('resultTitle');
-  const confirmBtn = document.getElementById('confirmResultBtn');
-  
-  // Set result content
-  resultMessage.innerHTML = message; // Use innerHTML to support highlighted text
-  resultIcon.textContent = icon;
-  resultTitle.textContent = title;
-  
-  // Set up confirm button handler
-  confirmBtn.onclick = async () => {
-    closeModal('resultModal');
-    // Reload the current ending node (go back to the ending)
-    await loadCurrentStory();
-  };
-  
-  // Show the result modal
-  openModal('resultModal');
-}
 
-async function showResultPopup(message, icon, title, choice) {
-  const resultMessage = document.getElementById('resultMessage');
-  const resultIcon = document.getElementById('resultIcon');
-  const resultTitle = document.getElementById('resultTitle');
-  const confirmBtn = document.getElementById('confirmResultBtn');
-  
-  // Set result content
-  resultMessage.textContent = message;
-  resultIcon.textContent = icon;
-  resultTitle.textContent = title;
-  
-  // Set up confirm button handler
-  confirmBtn.onclick = async () => {
-    closeModal('resultModal');
-    await proceedWithChoice(choice);
-  };
-  
-  // Show the result modal
-  openModal('resultModal');
-}
 
 async function proceedWithChoice(choice) {
   // Add to visited nodes
@@ -1239,27 +1200,35 @@ function handleSpecialEndingRewards(specialEnding) {
 // Create confetti effect
 function createConfetti(type = 'ssr') {
   const colors = type === 'ssr' 
-    ? ['#ffd700', '#ffed4e', '#ffb347', '#ff8c00', '#ff6347'] // Gold/orange for SSR
-    : ['#c0c0c0', '#e5e5e5', '#d3d3d3', '#a9a9a9', '#808080']; // Silver/gray for SR
+    ? ['#ffd700', '#ffed4e', '#ffb347'] // Golden for SSR
+    : ['#c0c0c0', '#e5e5e5', '#d3d3d3']; // Silver for SR
   
-  const shapes = ['★', '♦', '●', '◆', '♥', '♠', '♣', '✦', '✧', '✩'];
+  const shapes = ['🦋', '🦋', '🦋', '🦋', '🦋', '🦋', '🦋', '🦋', '🦋', '🦋'];
   
-  for (let i = 0; i < 50; i++) {
+  for (let i = 0; i < 80; i++) {
     setTimeout(() => {
       const confetti = document.createElement('div');
       confetti.className = 'confetti-piece';
       confetti.textContent = shapes[Math.floor(Math.random() * shapes.length)];
+      
+      const startX = Math.random() * 100;
+      const fallDuration = Math.random() * 2 + 3; // 3-5 seconds
+      const spinDuration = Math.random() * 1.5 + 0.5; // 0.5-2 seconds
+      const swayDuration = Math.random() * 1 + 1; // 1-2 seconds
+      
       confetti.style.cssText = `
         position: fixed;
-        top: -10px;
-        left: ${Math.random() * 100}vw;
+        top: -20px;
+        left: ${startX}vw;
         color: ${colors[Math.floor(Math.random() * colors.length)]};
-        font-size: ${Math.random() * 20 + 10}px;
+        font-size: ${Math.random() * 24 + 12}px;
         font-weight: bold;
         z-index: 10000;
         pointer-events: none;
-        animation: confetti-fall ${Math.random() * 3 + 2}s linear forwards,
-                   confetti-spin ${Math.random() * 2 + 1}s linear infinite;
+        animation: 
+          confetti-fall ${fallDuration}s ease-in forwards,
+          confetti-spin ${spinDuration}s linear infinite,
+          confetti-sway ${swayDuration}s ease-in-out infinite alternate;
         text-shadow: 0 0 5px currentColor;
       `;
       
@@ -1270,8 +1239,8 @@ function createConfetti(type = 'ssr') {
         if (confetti.parentNode) {
           confetti.parentNode.removeChild(confetti);
         }
-      }, 5000);
-    }, i * 50);
+      }, (fallDuration + 1) * 1000);
+    }, i * 30);
   }
 }
 

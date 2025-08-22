@@ -682,116 +682,28 @@ body {
   text-align: center;
 }
 
-/* RESULT MODAL STYLES */
-.result-modal {
-  animation: resultModalAppear 0.5s ease-out;
-}
 
-.result-content {
-  background: linear-gradient(135deg, var(--bg-dark) 0%, var(--bg-darker) 100%);
-  border: 3px solid var(--primary-blue);
-  box-shadow: 
-    0 0 30px rgba(0, 150, 255, 0.5),
-    0 0 60px rgba(0, 150, 255, 0.3),
-    inset 0 0 20px rgba(0, 150, 255, 0.1);
-  animation: resultContentGlow 2s ease-in-out infinite alternate;
-}
-
-.result-header {
-  padding: 20px;
-  border-bottom: 2px solid var(--primary-blue);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: linear-gradient(90deg, rgba(0, 150, 255, 0.1) 0%, rgba(0, 150, 255, 0.05) 100%);
-}
-
-.result-icon {
-  font-size: 2.5rem;
-  animation: resultIconBounce 1s ease-in-out infinite;
-  filter: drop-shadow(0 0 10px var(--primary-blue));
-}
-
-.result-header h2 {
-  color: var(--primary-blue);
-  text-shadow: 0 0 15px var(--primary-blue);
-  font-weight: bold;
-  margin: 0;
-  flex: 1;
-  text-align: center;
-}
-
-.result-message {
-  background: rgba(0, 0, 0, 0.3);
-  border: 1px solid var(--primary-blue);
-  border-radius: 8px;
-  padding: 20px;
-  margin: 20px 0;
-  text-align: center;
-  font-size: 1.1rem;
-  line-height: 1.6;
-  color: var(--text-light);
-  animation: resultMessagePulse 2s ease-in-out infinite;
-}
-
-/* Result Modal Animations */
-@keyframes resultModalAppear {
-  0% {
-    opacity: 0;
-    transform: scale(0.8) rotate(-5deg);
-  }
-  50% {
-    transform: scale(1.05) rotate(2deg);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1) rotate(0deg);
-  }
-}
-
-@keyframes resultContentGlow {
-  0% {
-    box-shadow: 
-      0 0 30px rgba(0, 150, 255, 0.5),
-      0 0 60px rgba(0, 150, 255, 0.3),
-      inset 0 0 20px rgba(0, 150, 255, 0.1);
-  }
-  100% {
-    box-shadow: 
-      0 0 40px rgba(0, 150, 255, 0.7),
-      0 0 80px rgba(0, 150, 255, 0.4),
-      inset 0 0 30px rgba(0, 150, 255, 0.2);
-  }
-}
-
-@keyframes resultIconBounce {
-  0%, 100% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.1);
-  }
-}
-
-@keyframes resultMessagePulse {
-  0%, 100% {
-    border-color: var(--primary-blue);
-    box-shadow: 0 0 10px rgba(0, 150, 255, 0.3);
-  }
-  50% {
-    border-color: var(--primary-cyan);
-    box-shadow: 0 0 15px rgba(0, 255, 255, 0.4);
-  }
-}
 
 /* CONFETTI ANIMATIONS */
 @keyframes confetti-fall {
   0% {
-    transform: translateY(-100vh) rotate(0deg);
+    transform: translateY(-20px) rotate(0deg) scale(0.8);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+    transform: translateY(10vh) rotate(45deg) scale(1);
+  }
+  50% {
+    transform: translateY(50vh) rotate(180deg) scale(1.1);
     opacity: 1;
   }
+  80% {
+    transform: translateY(80vh) rotate(360deg) scale(1);
+    opacity: 0.8;
+  }
   100% {
-    transform: translateY(100vh) rotate(720deg);
+    transform: translateY(120vh) rotate(720deg) scale(0.9);
     opacity: 0;
   }
 }
@@ -800,8 +712,26 @@ body {
   0% {
     transform: rotate(0deg);
   }
+  25% {
+    transform: rotate(90deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  75% {
+    transform: rotate(270deg);
+  }
   100% {
     transform: rotate(360deg);
+  }
+}
+
+@keyframes confetti-sway {
+  0% {
+    transform: translateX(0px);
+  }
+  100% {
+    transform: translateX(50px);
   }
 }
 
