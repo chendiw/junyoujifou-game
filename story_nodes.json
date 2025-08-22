@@ -1,2343 +1,4216 @@
 {
   "1": {
     "title": "宁静小镇的夜晚",
-    "text": "您在一个宁静小镇的客栈落脚，半夜听到隔壁据说是退休朝廷要员的府邸失火了。您选择：",
+    "text": "　　您在一个宁静小镇的客栈落脚，半夜听到隔壁据说是退休朝廷要员的府邸失火了。您选择：",
     "choices": [
-      { "text": "a. 去救人", "action": "rescue", "nextNode": "11" },
-      { "text": "b. 在客栈观望", "action": "observe", "nextNode": "2" },
-      { "text": "c. 给御史大夫苏世誉写信，称见到了太尉楚明允的人", "action": "letter_to_su", "nextNode": "3" },
-      { "text": "d. 给太尉楚明允写信，称见到了御史大夫苏世誉的人", "action": "letter_to_chu", "nextNode": "ending_chu_capture" }
+      {
+        "text": "a. 去救人",
+        "action": "rescue",
+        "nextNode": "11"
+      },
+      {
+        "text": "b. 在客栈观望",
+        "action": "observe",
+        "nextNode": "2"
+      },
+      {
+        "text": "c. 给御史大夫苏世誉写信，称见到了太尉楚明允的人",
+        "action": "letter_to_su",
+        "nextNode": "3"
+      },
+      {
+        "text": "d. 给太尉楚明允写信，称见到了御史大夫苏世誉的人",
+        "action": "letter_to_chu",
+        "nextNode": "ending_chu_capture"
+      }
     ]
   },
   "2": {
     "title": "入京寻真相",
-    "text": "您察觉到这位朝廷要员死因蹊跷，决定去长安城看看。入城后听闻当今太尉<span class=\"character-name\">楚明允</span>钟情于御史大夫<span class=\"character-name\">苏世誉</span>，您对这二人产生了好奇。适逢新晋状元郎向您发出了宴饮邀请，您寻思着是否应邀赴宴，一窥此二人真容。您选择：",
+    "text": "　　您察觉到这位朝廷要员死因蹊跷，决定去长安城看看。入城后听闻当今太尉<span class=\"character-name\">楚明允</span>钟情于御史大夫<span class=\"character-name\">苏世誉</span>，您对这二人产生了好奇。适逢新晋状元郎向您发出了宴饮邀请，您寻思着是否应邀赴宴，一窥此二人真容。您选择：",
     "choices": [
-      { "text": "a. 赴宴吃瓜", "action": "attend_banquet", "nextNode": "4" },
-      { "text": "b. 不赴宴，远离风暴中心", "action": "avoid_banquet", "nextNode": "5" }
+      {
+        "text": "a. 赴宴吃瓜",
+        "action": "attend_banquet",
+        "nextNode": "4"
+      },
+      {
+        "text": "b. 不赴宴，远离风暴中心",
+        "action": "avoid_banquet",
+        "nextNode": "5"
+      }
     ]
   },
   "3": {
     "title": "御史大夫的召见",
-    "text": "写给<span class=\"character-name\">苏世誉</span>的信在送信途中意外丢失，您许久不见回音，觉得此事非同寻常，于是亲身前往长安想去御史台说明情况。<br><br> 入城后却听闻当今太尉<span class=\"character-name\">楚明允</span>钟情于御史大夫<span class=\"character-name\">苏世誉</span>。您本以为楚苏两党相争，势如水火，因此写信与苏世誉。如今你却拿不准两人的关系了，不敢贸然面见御史大夫。<br><br> 适逢新晋状元郎向您发出了宴饮邀请，您决定应邀赴宴，先观察此二人关系。",
+    "text": "　　写给<span class=\"character-name\">苏世誉</span>的信在送信途中意外丢失，您许久不见回音，觉得此事非同寻常，于是亲身前往长安想去御史台说明情况。<br><br>　　入城后却听闻当今太尉<span class=\"character-name\">楚明允</span>钟情于御史大夫<span class=\"character-name\">苏世誉</span>。您本以为楚苏两党相争，势如水火，因此写信与苏世誉。如今你却拿不准两人的关系了，不敢贸然面见御史大夫。<br><br>　　适逢新晋状元郎向您发出了宴饮邀请，您决定应邀赴宴，先观察此二人关系。",
     "choices": [
-      { "text": "继续", "action": "continue_to_banquet", "nextNode": "4" }
+      {
+        "text": "继续",
+        "action": "continue_to_banquet",
+        "nextNode": "4"
+      }
     ]
   },
   "4": {
     "title": "状元府宴会",
-    "text": "宴会上，您留意着诸人的对话，发现<span class=\"character-name\">苏世誉</span>与<span class=\"character-name\">楚明允</span>未列席，但您发现状元<span class=\"character-name\">宋衡</span>虽招呼着宾客，目光却时不时往假山上方瞟去。那里隐约有座朱虹亭阁，却看不见里面的情境。您选择：",
+    "text": "　　宴会上，您留意着诸人的对话，发现<span class=\"character-name\">苏世誉</span>与<span class=\"character-name\">楚明允</span>未列席，但您发现状元<span class=\"character-name\">宋衡</span>虽招呼着宾客，目光却时不时往假山上方瞟去。那里隐约有座朱虹亭阁，却看不见里面的情境。您选择：",
     "choices": [
-      { "text": "a. 找借口离席，去假山上方探查", "action": "explore_pavilion", "nextNode": "6" },
-      { "text": "b. 找借口回家，这怕是鸿门宴", "action": "leave_banquet", "nextNode": "8" },
-      { "text": "c. 原地不动，谁还没点秘密", "action": "stay_put", "nextNode": "7" }
+      {
+        "text": "a. 找借口离席，去假山上方探查",
+        "action": "explore_pavilion",
+        "nextNode": "6"
+      },
+      {
+        "text": "b. 找借口回家，这怕是鸿门宴",
+        "action": "leave_banquet",
+        "nextNode": "8"
+      },
+      {
+        "text": "c. 原地不动，谁还没点秘密",
+        "action": "stay_put",
+        "nextNode": "7"
+      }
     ]
   },
   "5": {
     "title": "状元宴结束后",
-    "text": "状元宴后次日清晨，您听闻京郊发现了一具尸体，整张面皮都被撕去了。后来查实尸体为状元<span class=\"character-name\">宋衡</span>，凶手也落网了，乃送他宅子的落榜试子。您感叹一句世风日下，没再关注这桩案件。您短时间内不打算生事，想留在京中发展，您选择：",
+    "text": "　　状元宴后次日清晨，您听闻京郊发现了一具尸体，整张面皮都被撕去了。后来查实尸体为状元<span class=\"character-name\">宋衡</span>，凶手也落网了，乃送他宅子的落榜试子。您感叹一句世风日下，没再关注这桩案件。您短时间内不打算生事，想留在京中发展，您选择：",
     "choices": [
-      { "text": "a. 时间还早，先把长安城玩一遍", "action": "explore_changan", "nextNode": "17" },
-      { "text": "b. 在家中睡个昏天暗地", "action": "sleep", "nextNode": "21" },
-      { "text": "c. 探寻各种发展机会，为自己铺路", "action": "seek_opportunities", "nextNode": "22", "bonus": "你勤学笃志，懂得为未来作打算，目光长远，加1点生命值" }
+      {
+        "text": "a. 时间还早，先把长安城玩一遍",
+        "action": "explore_changan",
+        "nextNode": "17"
+      },
+      {
+        "text": "b. 在家中睡个昏天暗地",
+        "action": "sleep",
+        "nextNode": "21"
+      },
+      {
+        "text": "c. 探寻各种发展机会，为自己铺路",
+        "action": "seek_opportunities",
+        "nextNode": "22",
+        "bonus": "你勤学笃志，懂得为未来作打算，目光长远，加1点生命值"
+      }
     ]
   },
   "6": {
     "title": "朱虹亭阁的秘密",
-    "text": "您听到杯盏碎裂的一声脆响。奔入亭中却只见空着的两个席位，而不见一人。炉中有异香，炉边是玉盏的碎片。您选择：",
+    "text": "　　您听到杯盏碎裂的一声脆响。奔入亭中却只见空着的两个席位，而不见一人。炉中有异香，炉边是玉盏的碎片。您选择：",
     "choices": [
-      { "text": "a. 立刻离开这是非之地", "action": "leave_pavilion", "nextNode": "8" },
-      { "text": "b. 探索此地，或许能发现机关", "action": "explore_mechanism", "nextNode": "ending_curiosity_death" }
+      {
+        "text": "a. 立刻离开这是非之地",
+        "action": "leave_pavilion",
+        "nextNode": "8"
+      },
+      {
+        "text": "b. 探索此地，或许能发现机关",
+        "action": "explore_mechanism",
+        "nextNode": "ending_curiosity_death"
+      }
     ]
   },
   "7": {
     "title": "闲逛状元府",
-    "text": "您见工部尚书<span class=\"character-name\">谭敬</span>与<span class=\"character-name\">宋衡</span>说了几句话，宋衡便慌张地赔罪散了筵席。您听见谭尚书得了准许与妻子在院中稍逛，您便也以对京城庭院设计感兴趣为由留下了。您因此瞧见了肩头被大片鲜血浸透的<span class=\"character-name\">楚明允</span>与衣衫齐整的<span class=\"character-name\">苏世誉</span>。<span class=\"character-name\">楚明允</span>的领口处露出了一点包扎的痕迹，是一片白色的布料。",
+    "text": "　　您见工部尚书<span class=\"character-name\">谭敬</span>与<span class=\"character-name\">宋衡</span>说了几句话，宋衡便慌张地赔罪散了筵席。您听见谭尚书得了准许与妻子在院中稍逛，您便也以对京城庭院设计感兴趣为由留下了。您因此瞧见了肩头被大片鲜血浸透的<span class=\"character-name\">楚明允</span>与衣衫齐整的<span class=\"character-name\">苏世誉</span>。<span class=\"character-name\">楚明允</span>的领口处露出了一点包扎的痕迹，是一片白色的布料。",
     "choices": [
-      { "text": "继续", "action": "witness_scene", "nextNode": "5" }
+      {
+        "text": "继续",
+        "action": "witness_scene",
+        "nextNode": "5"
+      }
     ]
   },
   "8": {
     "title": "太尉府的马车",
-    "text": "您在状元府几步外见到了太尉府的马车，脚步稍一迟疑，马车的门帘便掀了起来。一张冰块脸从车内探出，向您一抱拳，礼貌道：\"请问筵席进入尾声了吗？\"您说：",
+    "text": "　　您在状元府几步外见到了太尉府的马车，脚步稍一迟疑，马车的门帘便掀了起来。一张冰块脸从车内探出，向您一抱拳，礼貌道：\"请问筵席进入尾声了吗？\"您说：",
     "choices": [
-      { "text": "a. \"我身子不适，先请辞了。\"", "action": "excuse_illness", "nextNode": "5" },
-      { "text": "b. \"尚未。您是太尉府的人？怎么方才没见到楚大人？\"", "action": "ask_about_chu", "nextNode": "9", "bonus": "你向太尉府的人暗暗提供了信息，秦昭感谢你的恩情，加1点生命值" },
-      { "text": "c. \"快结束了，不过楚大人与苏大人在一起，怕是一时半会儿出不来了。\"有一瞬间，您觉得冰块脸的表情似乎崩坏了。", "action": "reveal_secret", "nextNode": "10" }
+      {
+        "text": "a. \"我身子不适，先请辞了。\"",
+        "action": "excuse_illness",
+        "nextNode": "5"
+      },
+      {
+        "text": "b. \"尚未。您是太尉府的人？怎么方才没见到楚大人？\"",
+        "action": "ask_about_chu",
+        "nextNode": "9",
+        "bonus": "你向太尉府的人暗暗提供了信息，秦昭感谢你的恩情，加1点生命值"
+      },
+      {
+        "text": "c. \"快结束了，不过楚大人与苏大人在一起，怕是一时半会儿出不来了。\"有一瞬间，您觉得冰块脸的表情似乎崩坏了。",
+        "action": "reveal_secret",
+        "nextNode": "10"
+      }
     ]
   },
   "9": {
     "title": "冰块脸的反应",
-    "text": "您见冰块脸的表情瞬间变了，来不及道谢便下了马车奔向状元府门。您自知帮不上更多，便回了住处。",
+    "text": "　　您见冰块脸的表情瞬间变了，来不及道谢便下了马车奔向状元府门。您自知帮不上更多，便回了住处。",
     "choices": [
-      { "text": "继续", "action": "return_home", "nextNode": "5" }
+      {
+        "text": "继续",
+        "action": "return_home",
+        "nextNode": "5"
+      }
     ]
   },
   "10": {
     "title": "暗处的危机",
-    "text": "状元府外另一波人听到你说楚苏两人在一起，疑心你发现了他们计划，见你在京中无甚地位，于是将你拖到暗处。您选择：",
+    "text": "　　状元府外另一波人听到你说楚苏两人在一起，疑心你发现了他们计划，见你在京中无甚地位，于是将你拖到暗处。您选择：",
     "choices": [
-      { "text": "a. 自知没实力硬碰硬，暂且顺从", "action": "submit", "nextNode": "ending_submit_death" },
-      { "text": "b. 觉得自己可以一试，发起反抗", "action": "resist", "nextNode": "16" }
+      {
+        "text": "a. 自知没实力硬碰硬，暂且顺从",
+        "action": "submit",
+        "nextNode": "ending_submit_death"
+      },
+      {
+        "text": "b. 觉得自己可以一试，发起反抗",
+        "action": "resist",
+        "nextNode": "16"
+      }
     ]
   },
   "11": {
     "title": "重生一世",
-    "text": "您救人失败，即将殒命之际，看见一个女人冲进火场将一个少年救了出来，而您因吸入烟尘过多，无法求救，最后葬身于火海。却不料自己重生了，失去前世记忆，这一世，您被一位神秘人带走培养，经常伪装成舞姬伶人出任务。您选择：",
+    "text": "　　您救人失败，即将殒命之际，看见一个女人冲进火场将一个少年救了出来，而您因吸入烟尘过多，无法求救，最后葬身于火海。<br><br>　　谁知您竟然重生了，失去前世记忆，被一位神秘人带走培养，经常伪装成舞姬伶人出任务。您选择：",
     "choices": [
-      { "text": "a. 以冠绝江南的琴技进入太尉府", "action": "enter_chu_mansion", "nextNode": "12" },
-      { "text": "b. 因良好的演技而被安排进后宫", "action": "enter_palace", "nextNode": "13" },
-      { "text": "c. 在千秋节（皇帝寿辰）上献舞", "action": "dance_celebration", "nextNode": "14" }
+      {
+        "text": "a. 以冠绝江南的琴技进入太尉府",
+        "action": "enter_chu_mansion",
+        "nextNode": "12"
+      },
+      {
+        "text": "b. 因良好的演技而被安排进后宫",
+        "action": "enter_palace",
+        "nextNode": "13"
+      },
+      {
+        "text": "c. 在千秋节（皇帝寿辰）上献舞",
+        "action": "dance_celebration",
+        "nextNode": "14"
+      }
     ]
   },
   "12": {
     "title": "为君抚琴",
-    "text": "入府后，您弹过几次琴，但<span class=\"character-name\">楚太尉</span>看上去没什么兴致，甚至听困了，您没有内耗是自己弹得不好，而是在心里暗骂楚太尉没品。可接近不了楚太尉，组织安排的任务无法推进。您选择：",
+    "text": "　　入府后，您弹过几次琴，但<span class=\"character-name\">楚太尉</span>看上去没什么兴致，甚至听困了，您没有内耗是自己弹得不好，而是在心里暗骂楚太尉没品。可接近不了楚太尉，组织安排的任务无法推进。您选择：",
     "choices": [
-      { "text": "a. 先刷刷存在感，总不能把任务搁置了吧", "action": "seek_attention", "nextNode": "ending_chu_mansion_death" },
-      { "text": "b. 摆烂，享受太尉府的伶人待遇，反正楚明允不会让自己饿死", "action": "enjoy_life", "nextNode": "15" }
+      {
+        "text": "a. 先刷刷存在感，总不能把任务搁置了吧",
+        "action": "seek_attention",
+        "nextNode": "ending_chu_mansion_death"
+      },
+      {
+        "text": "b. 摆烂，享受太尉府的伶人待遇，反正楚明允不会让自己饿死",
+        "action": "enjoy_life",
+        "nextNode": "15"
+      }
     ]
   },
   "13": {
     "title": "后宫昭仪",
-    "text": "皇帝封您为昭仪，对您很是恩宠。在祭天大典未央宫宴会时，您想起了自己的任务。您选择：",
+    "text": "　　皇帝封您为昭仪，对您很是恩宠。在祭天大典未央宫宴会时，您想起了自己的任务。您选择：",
     "choices": [
-      { "text": "a. 敌不动，我不动", "action": "wait", "nextNode": "188" },
-      { "text": "b. 认为此次并不是个好时机，打算下次动手", "action": "postpone", "nextNode": "ending_palace_postpone" }
+      {
+        "text": "a. 敌不动，我不动",
+        "action": "wait",
+        "nextNode": "188"
+      },
+      {
+        "text": "b. 认为此次并不是个好时机，打算下次动手",
+        "action": "postpone",
+        "nextNode": "ending_palace_postpone"
+      }
     ]
   },
   "14": {
     "title": "千秋节献舞",
-    "text": "献舞时突遇山崩，在<span class=\"character-name\">苏大人</span>冷静迅速的调度下，伤亡并不惨重，您也凭借惊艳的舞姿被<span class=\"character-name\">苏大人</span>请赐带回府，这正在您的计划之中，其间唯一的小插曲是<span class=\"character-name\">楚太尉</span>不知何故捏碎了一个玉杯。",
+    "text": "　　献舞时突遇山崩，在<span class=\"character-name\">苏大人</span>冷静迅速的调度下，伤亡并不惨重，您也凭借惊艳的舞姿被<span class=\"character-name\">苏大人</span>请赐带回府，这正在您的计划之中，其间唯一的小插曲是<span class=\"character-name\">楚太尉</span>不知何故捏碎了一个玉杯。",
     "choices": [
-      { "text": "继续", "action": "continue_plan", "nextNode": "181" }
+      {
+        "text": "继续",
+        "action": "continue_plan",
+        "nextNode": "181"
+      }
     ]
   },
   "15": {
     "title": "脱离太尉府",
-    "text": "您这两天听说\"楚明允喜欢苏世誉\"的风言风语，警惕地察觉到楚太尉打算把您处理了，于是您用假身份脱身，后被送回组织待命。您选择：",
+    "text": "　　您这两天听说\"楚明允喜欢苏世誉\"的风言风语，警惕地察觉到楚太尉打算把您处理了，于是您用假身份脱身，后被送回组织待命。您选择：",
     "choices": [
-      { "text": "a. 去青楼红袖招", "action": "go_brothel", "nextNode": "159" },
-      { "text": "b. 去地下赌坊永乐坊", "action": "go_casino", "nextNode": "157" },
-      { "text": "c. 哪里也不去", "action": "stay_put", "nextNode": "ending_organization_death" }
+      {
+        "text": "a. 去青楼红袖招",
+        "action": "go_brothel",
+        "nextNode": "159"
+      },
+      {
+        "text": "b. 去地下赌坊永乐坊",
+        "action": "go_casino",
+        "nextNode": "157"
+      },
+      {
+        "text": "c. 哪里也不去",
+        "action": "stay_put",
+        "nextNode": "ending_organization_death"
+      }
     ]
   },
   "16": {
     "title": "反杀成功",
-    "text": "您有武功底子，找准时机趁对方不备之时一个肘击，竟成功实现反杀，惊魂未定中您暗暗发誓要好好学武，回家的路上都在后怕。",
+    "text": "　　您有武功底子，找准时机趁对方不备之时一个肘击，竟成功实现反杀，惊魂未定中您暗暗发誓要好好学武，回家的路上都在后怕。",
     "choices": [
-      { "text": "继续", "action": "return_safe", "nextNode": "5" }
+      {
+        "text": "继续",
+        "action": "return_safe",
+        "nextNode": "5"
+      }
     ]
   },
   "17": {
     "title": "游长安城",
-    "text": "长安城繁华迷人眼，您游玩过各个街市，偶然瞥见一席白衣往某个方向去了。您选择：",
+    "text": "　　长安城繁华迷人眼，您游玩过各个街市，偶然瞥见一席白衣往某个方向去了。您选择：",
     "choices": [
-      { "text": "a. 不管了，还没玩够，继续玩", "action": "continue_playing", "nextNode": "ending_flood_death" },
-      { "text": "b. 悄悄跟上去", "action": "follow_white", "nextNode": "18" }
+      {
+        "text": "a. 不管了，还没玩够，继续玩",
+        "action": "continue_playing",
+        "nextNode": "ending_flood_death"
+      },
+      {
+        "text": "b. 悄悄跟上去",
+        "action": "follow_white",
+        "nextNode": "18"
+      }
     ]
   },
   "18": {
     "title": "西市仓库的秘密",
-    "text": "您跟上后发现<span class=\"character-name\">苏世誉</span>是去往西市边缘的一座仓库，为了不引起怀疑，您混入巡查库房的守卫之中，跟着他们转了一轮，在离开最后一个巡逻点时，您听到铁门后似有动静。您选择：",
+    "text": "　　您跟上后发现<span class=\"character-name\">苏世誉</span>是去往西市边缘的一座仓库，为了不引起怀疑，您混入巡查库房的守卫之中，跟着他们转了一轮，在离开最后一个巡逻点时，您听到铁门后似有动静。您选择：",
     "choices": [
-      { "text": "a. 多一事不如少一事", "action": "ignore", "nextNode": "19" },
-      { "text": "b. 躲在暗处观察", "action": "observe_secret", "nextNode": "ending_chu_kill" },
-      { "text": "c. 招呼排在前面的兄弟", "action": "call_guard", "nextNode": "ending_guard_kill", "bonus": "\"你谁啊？\"前面的人明显不认识你，你意识到事情不对，以最快速度逃走，减1点生命值。", "tool": { "title": "楚明允的欣赏", "content": "可助您在楚明允手下存活一次" } }
+      {
+        "text": "a. 多一事不如少一事",
+        "action": "ignore",
+        "nextNode": "19"
+      },
+      {
+        "text": "b. 躲在暗处观察",
+        "action": "observe_secret",
+        "nextNode": "ending_chu_kill"
+      },
+      {
+        "text": "c. 招呼排在前面的兄弟",
+        "action": "call_guard",
+        "nextNode": "ending_guard_kill",
+        "bonus": "\"你谁啊？\"前面的人明显不认识你，你意识到事情不对，以最快速度逃走，减1点生命值。",
+        "tool": {
+          "title": "楚明允的欣赏",
+          "content": "可助您在楚明允手下存活一次"
+        }
+      }
     ]
   },
   "19": {
     "title": "谭敬的围堵",
-    "text": "您假装没听见，巡逻结束后，工部尚书<span class=\"character-name\">谭敬</span>来了仓库，命守卫跟随。您跟着大部队堵了<span class=\"character-name\">楚明允</span>的路，却见<span class=\"character-name\">楚明允</span>不慌不忙，与<span class=\"character-name\">谭敬</span>说了两三句话，<span class=\"character-name\">谭敬</span>就不再纠结于<span class=\"character-name\">楚明允</span>，而是听他的话转而围向<span class=\"character-name\">苏世誉</span>苏大人。您选择：",
+    "text": "　　您假装没听见，巡逻结束后，工部尚书<span class=\"character-name\">谭敬</span>来了仓库，命守卫跟随。您跟着大部队堵了<span class=\"character-name\">楚明允</span>的路，却见<span class=\"character-name\">楚明允</span>不慌不忙，与<span class=\"character-name\">谭敬</span>说了两三句话，<span class=\"character-name\">谭敬</span>就不再纠结于<span class=\"character-name\">楚明允</span>，而是听他的话转而围向<span class=\"character-name\">苏世誉</span>苏大人。您选择：",
     "choices": [
-      { "text": "a. 硬着头皮上前", "action": "step_forward", "nextNode": "ending_su_kill" },
-      { "text": "b. 趁乱跑走", "action": "escape_chaos", "nextNode": "20" }
+      {
+        "text": "a. 硬着头皮上前",
+        "action": "step_forward",
+        "nextNode": "ending_su_kill"
+      },
+      {
+        "text": "b. 趁乱跑走",
+        "action": "escape_chaos",
+        "nextNode": "20"
+      }
     ]
   },
   "20": {
     "title": "安全回家",
-    "text": "跑回家中后发现还是自己的小窝最为安全，筋疲力竭之下，您睡死过去。",
+    "text": "　　跑回家中后发现还是自己的小窝最为安全，筋疲力竭之下，您睡死过去。",
     "choices": [
-      { "text": "继续", "action": "sleep_safe", "nextNode": "21" }
+      {
+        "text": "继续",
+        "action": "sleep_safe",
+        "nextNode": "21"
+      }
     ]
   },
   "21": {
     "title": "痴傻的阿绣",
-    "text": "这一觉睡得极为舒心，醒来后您腹中饥饿难忍，家中又无食材，您只得上街购买。长街有人犯游街示众，再拉到西市问斩，您得知后刻意避开。回程路过一处府门时，一个痴傻的女子从府中跑了出来，速度之快，后面的仆从没一个跟上的，她看见了您，您认出这是<span class=\"character-name\">谭敬</span>的夫人阿绣，她硬要给你塞吃食。您选择：",
+    "text": "　　这一觉睡得极为舒心，醒来后您腹中饥饿难忍，家中又无食材，您只得上街购买。长街有人犯游街示众，再拉到西市问斩，您得知后刻意避开。<br><br>　　回程路过一处府门时，一个痴傻的女子从府中跑了出来，速度之快，后面的仆从没一个跟上的。她看见了您，您认出这是<span class=\"character-name\">谭敬</span>的夫人阿绣，她硬要给你塞吃食。您选择：",
     "choices": [
-      { "text": "a. 拒绝了她的好意，拔腿就跑回家中", "action": "refuse_food", "nextNode": "22" },
-      { "text": "b. 实在推拒不下，接受了", "action": "accept_food", "nextNode": "ending_addiction_death" }
+      {
+        "text": "a. 拒绝了她的好意，拔腿就跑回家中",
+        "action": "refuse_food",
+        "nextNode": "22"
+      },
+      {
+        "text": "b. 实在推拒不下，接受了",
+        "action": "accept_food",
+        "nextNode": "ending_addiction_death"
+      }
     ]
   },
   "22": {
     "title": "发展道路",
-    "text": "在家中，您潜心修习，以您的机敏才智，很快在长安城站稳脚跟，迎来了许多发展道路。您选择：",
+    "text": "　　在家中，您潜心修习，以您的机敏才智，很快在长安城站稳脚跟，迎来了许多发展道路。您选择：",
     "choices": [
-      { "text": "a. 去往州郡成为地方官，造福一方", "action": "become_local_official", "nextNode": "23" },
-      { "text": "b. 投身军伍自基层做起，卫国安邦", "action": "join_military", "nextNode": "31" },
-      { "text": "c. 步入朝堂于中央任职，志展宏纲", "action": "enter_court", "nextNode": "60" },
-      { "text": "d. 涉足商海从零点发轫，财聚盈仓", "action": "enter_business", "nextNode": "62" }
+      {
+        "text": "a. 去往州郡成为地方官，造福一方",
+        "action": "become_local_official",
+        "nextNode": "23"
+      },
+      {
+        "text": "b. 投身军伍自基层做起，卫国安邦",
+        "action": "join_military",
+        "nextNode": "31"
+      },
+      {
+        "text": "c. 步入朝堂于中央任职，志展宏纲",
+        "action": "enter_court",
+        "nextNode": "60"
+      },
+      {
+        "text": "d. 涉足商海从零点发轫，财聚盈仓",
+        "action": "enter_business",
+        "nextNode": "62"
+      }
     ]
   },
   "181": {
     "title": "苏府书房的文书",
-    "text": "\"玲珑姑娘，公子有事外出了，并不在府内。\"听到此话，已在府中住了一夜的您暗暗放心。趁着守卫不在，您溜进书房，找到了所需要的文书。您过目不忘，将内容全部记下后，溜了出来。你选择：",
+    "text": "　　\"玲珑姑娘，公子有事外出了，并不在府内。\"听到此话，已在府中住了一夜的您暗暗放心。趁着守卫不在，您溜进书房，找到了所需要的文书。您过目不忘，将内容全部记下后，溜了出来。你选择：",
     "choices": [
-      { "text": "a. 尽快与组织联络", "action": "contact_organization", "nextNode": "182" },
-      { "text": "b. 先给妹妹写信，再联系组织", "action": "write_sister_first", "nextNode": "182", "bonus": "你在信中问妹妹身体好些了吗，告诉她要好好吃饭，好好睡觉。你是个好姐姐，加1点生命值。" }
+      {
+        "text": "a. 尽快与组织联络",
+        "action": "contact_organization",
+        "nextNode": "182"
+      },
+      {
+        "text": "b. 先给妹妹写信，再联系组织",
+        "action": "write_sister_first",
+        "nextNode": "182",
+        "bonus": "你在信中问妹妹身体好些了吗，告诉她要好好吃饭，好好睡觉。你是个好姐姐，加1点生命值。"
+      }
     ]
   },
   "182": {
     "title": "为悦己者容",
-    "text": "您知道苏世誉喜爱白衣，在他回府后，您穿了一身白，端着亲手做的点心，敲响了书房的门。苏世誉关心了您几句，温柔地告诉您不必刻意迎合他的喜好，并亲手为您簪上一支红玉银簪。他说不在书房进食，话到一半又摇头笑笑说早就破例了。能让苏大人破例的人，莫非是苏大人的心上人？",
+    "text": "　　您知道苏世誉喜爱白衣，在他回府后，您穿了一身白，端着亲手做的点心，敲响了书房的门。苏世誉关心了您几句，温柔地告诉您不必刻意迎合他的喜好，并亲手为您簪上一支红玉银簪。他说不在书房进食，话到一半又摇头笑笑说早就破例了。能让苏大人破例的人，莫非是苏大人的心上人？",
     "choices": [
-      { "text": "继续", "action": "continue_conversation", "nextNode": "183" }
+      {
+        "text": "继续",
+        "action": "continue_conversation",
+        "nextNode": "183"
+      }
     ]
   },
   "183": {
     "title": "大人心有所属",
-    "text": "\"是。\"苏世誉大方承认。如此毫不掩饰，坦诚到您都不禁一滞。您认为苏大人的心上人必定也是温婉美人，苏大人却笑着说美是极美，温婉倒是沾不上边。一谈及心上人，苏大人便笑得这么好看，这模样一看便是爱极了对方。",
+    "text": "　　\"是。\"苏世誉大方承认。如此毫不掩饰，坦诚到您都不禁一滞。您认为苏大人的心上人必定也是温婉美人，苏大人却笑着说美是极美，温婉倒是沾不上边。一谈及心上人，苏大人便笑得这么好看，这模样一看便是爱极了对方。",
     "choices": [
-      { "text": "继续", "action": "continue_story", "nextNode": "184" }
+      {
+        "text": "继续",
+        "action": "continue_story",
+        "nextNode": "184"
+      }
     ]
   },
   "184": {
     "title": "与大人谈心",
-    "text": "两三日后的夜晚，您拿着琴谱与苏大人共赏琴音雅乐，苏大人弹了一首临安的摇篮曲，您开心得眼睛都亮了。天色渐晚，您邀请苏大人留下，就算有心上人又怎样，他并不在大人身旁，而您只愿侍奉苏大人。苏大人却认真地说：\"不在身旁，却在心上。\"您不甘心，上前抱住了苏大人，苏大人制止了您，并不治罪于您，他离开之前让您早点休息，并称赞您今日这身绯裙很适合您。您心想：",
+    "text": "　　两三日后的夜晚，您拿着琴谱与苏大人共赏琴音雅乐，苏大人弹了一首临安的摇篮曲，您开心得眼睛都亮了。天色渐晚，您邀请苏大人留下，就算有心上人又怎样，他并不在大人身旁，而您只愿侍奉苏大人。<br><br>　　苏大人却认真地说：\"不在身旁，却在心上。\"<br><br>　　您不甘心，上前抱住了苏大人，苏大人制止了您，并不治罪于您，他离开之前让您早点休息，并称赞您今日这身绯裙很适合您。您心想：",
     "choices": [
-      { "text": "a. 世上怎么会有这么温柔的人呢", "action": "admire_gentleness", "nextNode": "185" },
-      { "text": "b. 我的刺杀任务可该怎么办", "action": "worry_mission", "nextNode": "185", "bonus": "你想完成任务，但又实在不忍对苏世誉下手，纠结之下你心绪郁结，越来越焦虑，减1点生命值。" }
+      {
+        "text": "a. 世上怎么会有这么温柔的人呢",
+        "action": "admire_gentleness",
+        "nextNode": "185"
+      },
+      {
+        "text": "b. 我的刺杀任务可该怎么办",
+        "action": "worry_mission",
+        "nextNode": "185",
+        "bonus": "你想完成任务，但又实在不忍对苏世誉下手，纠结之下你心绪郁结，越来越焦虑，减1点生命值。"
+      }
     ]
   },
   "185": {
     "title": "太尉府审问",
-    "text": "几日后，一名黑衣人出现在您房中将您掳到了太尉府。您跪在厅中听那位威名远扬的楚太尉说出西陵王的名字，不由慌了。楚太尉让您猜为什么把您带来，您：",
+    "text": "　　几日后，一名黑衣人出现在您房中将您掳到了太尉府。您跪在厅中听那位威名远扬的楚太尉说出西陵王的名字，不由慌了。楚太尉让您猜为什么把您带来，您：",
     "choices": [
-      { "text": "a. 装傻充愣说苏大人对自己很好，自己不能背弃苏大人", "action": "pretend_loyalty", "nextNode": "186" },
-      { "text": "b. 愿意投入楚太尉的阵营，帮助楚太尉监视苏大人", "action": "betray_su", "nextNode": "187", "bonus": "楚太尉厌恶地看了你一眼，你卖主求荣，减1点生命值" },
-      { "text": "c. 认为楚太尉单纯看自己不顺眼，只因为苏大人护过自己", "action": "assume_dislike", "nextNode": "187" }
+      {
+        "text": "a. 装傻充愣说苏大人对自己很好，自己不能背弃苏大人",
+        "action": "pretend_loyalty",
+        "nextNode": "186"
+      },
+      {
+        "text": "b. 愿意投入楚太尉的阵营，帮助楚太尉监视苏大人",
+        "action": "betray_su",
+        "nextNode": "187",
+        "bonus": "楚太尉厌恶地看了你一眼，你卖主求荣，减1点生命值"
+      },
+      {
+        "text": "c. 认为楚太尉单纯看自己不顺眼，只因为苏大人护过自己",
+        "action": "assume_dislike",
+        "nextNode": "187"
+      }
     ]
   },
   "186": {
     "title": "姐妹相称",
-    "text": "话并未说完，楚明允的剑已点上您的眉心，血珠沿着脸颊滚落。您几乎已闭目待毙了，却没想到苏大人的表弟冲进来替您解了围。这小少爷还开楚太尉的玩笑说让他给苏大人当偏房，被楚太尉两句话吓跑了。您脑补了一下和楚太尉在苏府姐妹相称，打了个寒颤。",
+    "text": "　　话并未说完，楚明允的剑已点上您的眉心，血珠沿着脸颊滚落。您几乎已闭目待毙了，却没想到苏大人的表弟冲进来替您解了围。这小少爷还开楚太尉的玩笑说让他给苏大人当偏房，被楚太尉两句话吓跑了。您脑补了一下和楚太尉在苏府姐妹相称，打了个寒颤。",
     "choices": [
-      { "text": "继续", "action": "continue_drama", "nextNode": "187" }
+      {
+        "text": "继续",
+        "action": "continue_drama",
+        "nextNode": "187"
+      }
     ]
   },
   "187": {
     "title": "苏大人来了",
-    "text": "楚太尉不再理会您，出神似的，指尖一下下敲桌子，好像在等什么人。有脚步声自远而近从身后响起，您回身看见是苏大人，惊喜得想要靠近，伸手的动作却被一把利剑生生截断。楚大人对苏大人直言要杀了您，若是苏大人不舍得就将您剥皮放血、抽筋剔骨。苏大人却说不过是个刺客。",
+    "text": "　　楚太尉不再理会您，出神似的，指尖一下下敲桌子，好像在等什么人。有脚步声自远而近从身后响起，您回身看见是苏大人，惊喜得想要靠近，伸手的动作却被一把利剑生生截断。楚大人对苏大人直言要杀了您，若是苏大人不舍得就将您剥皮放血、抽筋剔骨。苏大人却说不过是个刺客。",
     "choices": [
-      { "text": "继续", "action": "final_confrontation", "nextNode": "ending_assassin_revealed" }
+      {
+        "text": "继续",
+        "action": "final_confrontation",
+        "nextNode": "ending_assassin_revealed"
+      }
     ]
   },
   "188": {
     "title": "强赠香囊",
-    "text": "一直无人敢上前向楚明允敬酒。您借口透气而离了席，又立即派宫娥将楚明允悄声引出。您对楚明允剖白心意，直言仰慕，即便对方不吃您这套，您还是在他告辞前将香囊塞给了他。您选择：",
+    "text": "　　一直无人敢上前向楚明允敬酒。您借口透气而离了席，又立即派宫娥将楚明允悄声引出。您对楚明允剖白心意，直言仰慕，即便对方不吃您这套，您还是在他告辞前将香囊塞给了他。您选择：",
     "choices": [
-      { "text": "a. 迅速回去，免得惹人多疑", "action": "return_quickly", "nextNode": "189" },
-      { "text": "b. 慢慢回去，装出深情模样", "action": "return_slowly", "nextNode": "189", "bonus": "你回头想再看一眼楚明允，确保他收下香囊，却见他目光森冷地捏着香囊，抬眼朝你这儿看来，你明知有树枝掩着他看不见你，却还是忍不住害怕，转身便走，减1点生命值" }
+      {
+        "text": "a. 迅速回去，免得惹人多疑",
+        "action": "return_quickly",
+        "nextNode": "189"
+      },
+      {
+        "text": "b. 慢慢回去，装出深情模样",
+        "action": "return_slowly",
+        "nextNode": "189",
+        "bonus": "你回头想再看一眼楚明允，确保他收下香囊，却见他目光森冷地捏着香囊，抬眼朝你这儿看来，你明知有树枝掩着他看不见你，却还是忍不住害怕，转身便走，减1点生命值"
+      }
     ]
   },
   "189": {
     "title": "天禄阁失窃",
-    "text": "回席后没多久，楚明允也回来了，您暗中使了个眼色，片刻后，天禄阁失窃的消息准确传达到席上每一个人的耳朵里。您从袖中拿出一把黄铜钥匙，向陛下确认丢的钥匙就是长这样，您说这是您出去透气时碰见某位大人后捡到的。您的视线落到右席，那里坐着两个人，苏世誉和硬挤过来的楚明允。您心想：",
+    "text": "　　回席后没多久，楚明允也回来了，您暗中使了个眼色，片刻后，天禄阁失窃的消息准确传达到席上每一个人的耳朵里。您从袖中拿出一把黄铜钥匙，问陛下丢的钥匙可长这样。这是您出去透气时碰见某位大人后捡到的，您补充道。您的视线落到右席，那里坐着两个人，苏世誉和硬挤过来的楚明允。您心想：",
     "choices": [
-      { "text": "a. 楚明允怎么凑到苏大人这了", "action": "wonder_why_together", "nextNode": "201" },
-      { "text": "b. 我暗示得很明显了吧", "action": "think_hint_clear", "nextNode": "202" }
+      {
+        "text": "a. 楚明允怎么凑到苏大人这了",
+        "action": "wonder_why_together",
+        "nextNode": "201"
+      },
+      {
+        "text": "b. 我暗示得很明显了吧",
+        "action": "think_hint_clear",
+        "nextNode": "202"
+      }
     ]
   },
   "190": {
     "title": "红袖招偶遇",
-    "text": "那日您本该去永乐坊对接消息，正准备出门时，却见到一位气质出尘的白衣公子进了红袖招，请见静姝姑娘。您选择：",
+    "text": "　　那日您本该去永乐坊对接消息，正准备出门时，却见到一位气质出尘的白衣公子进了红袖招，请见静姝姑娘。您选择：",
     "choices": [
-      { "text": "a. 借口忘带东西，跟回去看看", "action": "follow_back", "nextNode": "191" },
-      { "text": "b. 不该关心的事少关心", "action": "ignore_matter", "nextNode": "193" },
-      { "text": "c. 在门口纠结一会儿，却见一位眉眼冶丽的男子大步而来", "action": "see_handsome_man", "nextNode": "192" }
+      {
+        "text": "a. 借口忘带东西，跟回去看看",
+        "action": "follow_back",
+        "nextNode": "191"
+      },
+      {
+        "text": "b. 不该关心的事少关心",
+        "action": "ignore_matter",
+        "nextNode": "193"
+      },
+      {
+        "text": "c. 在门口纠结一会儿，却见一位眉眼冶丽的男子大步而来",
+        "action": "see_handsome_man",
+        "nextNode": "192"
+      }
     ]
   },
   "191": {
     "title": "青楼捉奸",
-    "text": "那白衣公子似是为静姝姑娘带在身边的少年而来。您正在揣测那公子与这少年什么关系，却见一位眉眼冶丽的男子大步流星地直奔向这里，后头跟着无措的鸨母。鸨母向您使了个眼色，您：",
+    "text": "　　那白衣公子似是为静姝姑娘带在身边的少年而来。您正在揣测那公子与这少年什么关系，却见一位眉眼冶丽的男子大步流星地直奔向这里，后头跟着无措的鸨母。鸨母向您使了个眼色，您：",
     "choices": [
-      { "text": "a. 装作身体突然抱恙，向那男子栽去", "action": "fake_illness", "nextNode": "ending_fake_illness_death" },
-      { "text": "b. 扬声向屋内示警：\"这位公子怎如此急色？\"", "action": "warn_inside", "nextNode": "ending_warn_inside_death" },
-      { "text": "c. 决意试探他与白衣公子的关系", "action": "test_relationship", "nextNode": "192" }
+      {
+        "text": "a. 装作身体突然抱恙，向那男子栽去",
+        "action": "fake_illness",
+        "nextNode": "ending_fake_illness_death"
+      },
+      {
+        "text": "b. 扬声向屋内示警：\"这位公子怎如此急色？\"",
+        "action": "warn_inside",
+        "nextNode": "ending_warn_inside_death"
+      },
+      {
+        "text": "c. 决意试探他与白衣公子的关系",
+        "action": "test_relationship",
+        "nextNode": "192"
+      }
     ]
   },
   "192": {
     "title": "白衣公子的同伴",
-    "text": "您向面露难色的鸨母问道：\"方才那位白衣公子可曾说过会有同伴？\"那男子闻言倒是正眼看了您一眼，像是听懂了您话中的暗示——静姝姑娘有客。可他这一眼威势极盛，您不敢再多言语，匆匆离去，赶往永乐坊。",
+    "text": "　　您向面露难色的鸨母问道：\"方才那位白衣公子可曾说过会有同伴？\"那男子闻言倒是正眼看了您一眼，像是听懂了您话中的暗示——静姝姑娘有客。可他这一眼威势极盛，您不敢再多言语，匆匆离去，赶往永乐坊。",
     "choices": [
-      { "text": "继续", "action": "continue_to_casino", "nextNode": "193" }
+      {
+        "text": "继续",
+        "action": "continue_to_casino",
+        "nextNode": "193"
+      }
     ]
   },
   "193": {
     "title": "永乐坊来客",
-    "text": "您回到永乐坊，尚未来得及提及今日有两位眼生的客人造访了静姝姑娘，便眼尖地瞧见，红袖招方才遇见的那两位公子，此刻竟已戴了面具，被小厮引至赌桌之前。您选择：",
+    "text": "　　您回到永乐坊，尚未来得及提及今日有两位眼生的客人造访了静姝姑娘，便眼尖地瞧见，红袖招方才遇见的那两位公子，此刻竟已戴了面具，被小厮引至赌桌之前。您选择：",
     "choices": [
-      { "text": "a. 立刻向少主禀报，此二人着实可疑", "action": "report_suspicious", "nextNode": "199" },
-      { "text": "b. 观察片刻，探查此二人身份", "action": "observe_identity", "nextNode": "194" }
+      {
+        "text": "a. 立刻向少主禀报，此二人着实可疑",
+        "action": "report_suspicious",
+        "nextNode": "199"
+      },
+      {
+        "text": "b. 观察片刻，探查此二人身份",
+        "action": "observe_identity",
+        "nextNode": "194"
+      }
     ]
   },
   "194": {
     "title": "赌坊中的暧昧",
-    "text": "那墨蓝衣裳的公子随手揽过白衣公子不堪一握的腰，单手捏着他的下颌柔声唤他\"宝贝\"，看得您面红耳赤。您突然顿悟，方才在红袖招所见似乎甚合情理：这白衣公子去青楼潇洒是为了与他夫君赌气，难怪蓝衣公子追来时面色不虞。如今，这蓝衣公子大概是顺着夫人的心意，特地带他来此，让夫人开开眼——也算是赔罪来了吧。您：",
+    "text": "　　那墨蓝衣裳的公子随手揽过白衣公子不堪一握的腰，单手捏着他的下颌柔声唤他\"宝贝\"，看得您面红耳赤。您突然顿悟，方才在红袖招所见似乎甚合情理：这白衣公子去青楼潇洒是为了与他夫君赌气，难怪蓝衣公子追来时面色不虞。如今，这蓝衣公子大概是顺着夫人的心意，特地带他来此，让夫人开开眼——也算是赔罪来了吧。您：",
     "choices": [
-      { "text": "a. 放心了，这两人真养眼，爱看多看", "action": "feel_relieved", "nextNode": "195" },
-      { "text": "b. 小心谨慎，嘱咐头领想办法引他们上楼，让少主定夺", "action": "continue_observing", "nextNode": "199" }
+      {
+        "text": "a. 放心了，这两人真养眼，爱看多看",
+        "action": "feel_relieved",
+        "nextNode": "195"
+      },
+      {
+        "text": "b. 小心谨慎，嘱咐头领想办法引他们上楼，让少主定夺",
+        "action": "continue_observing",
+        "nextNode": "199"
+      }
     ]
   },
   "201": {
     "title": "苏世誉的机会",
-    "text": "两人分明是敌对关系，楚明允却定要凑到苏世誉眼前，这必会惹得苏世誉厌恶。这送上门的折损楚明允力量的机会，苏世誉应该不会拒绝吧。",
+    "text": "　　两人分明是敌对关系，楚明允却定要凑到苏世誉眼前，这必会惹得苏世誉厌恶。这送上门的折损楚明允力量的机会，苏世誉应该不会拒绝吧。",
     "choices": [
-      { "text": "继续", "action": "continue_plot", "nextNode": "202" }
+      {
+        "text": "继续",
+        "action": "continue_plot",
+        "nextNode": "202"
+      }
     ]
   },
   "202": {
     "title": "无人追究",
-    "text": "可偏偏有人不领情，苏世誉竟然替楚明允作假证为他遮掩。您握住袖中的毒药，听楚明允凉凉地说搜身便知。皇帝李延贞却三言两语带过，谁的责任都没有追究。您心想：",
+    "text": "　　可偏偏有人不领情，苏世誉竟然替楚明允作假证为他遮掩。您握住袖中的毒药，听楚明允凉凉地说搜身便知。皇帝李延贞却三言两语带过，谁的责任都没有追究。您心想：",
     "choices": [
-      { "text": "a. 皇帝扮猪吃虎，这任务并不好做", "action": "emperor_smart", "nextNode": "203" },
-      { "text": "b. 皇帝心性柔和，这任务很好做", "action": "emperor_gentle", "nextNode": "204" }
+      {
+        "text": "a. 皇帝扮猪吃虎，这任务并不好做",
+        "action": "emperor_smart",
+        "nextNode": "203"
+      },
+      {
+        "text": "b. 皇帝心性柔和，这任务很好做",
+        "action": "emperor_gentle",
+        "nextNode": "204"
+      }
     ]
   },
   "203": {
     "title": "身份更迭",
-    "text": "您与身边的宫娥戴上人皮面具，换上了对方的脸，同时意味着互换了身份，从此您的身份是昭仪娘娘手下的一名宫娥。您成为了组织与姜昭仪联络的耳目。",
+    "text": "　　您与身边的宫娥戴上人皮面具，换上了对方的脸，同时意味着互换了身份，从此您的身份是昭仪娘娘手下的一名宫娥。您成为了组织与姜昭仪联络的耳目。",
     "choices": [
-      { "text": "继续", "action": "continue_mission", "nextNode": "ending_poison_emperor" }
+      {
+        "text": "继续",
+        "action": "continue_mission",
+        "nextNode": "ending_poison_emperor"
+      }
     ]
   },
   "204": {
     "title": "皇帝与昭仪",
-    "text": "经此一事，您与李延贞的关系似乎并没发生变化。您想充当解语花，见李延贞为刑部尚书之女陆清和作画，贤良地表示陛下若喜欢，纳入宫中便好，李延贞却言游侠志在山川，不该拘束。您想挑拨李延贞与苏世誉的关系，告状说苏大人与楚大人走得过近，李延贞却打断您，说相信苏大人的忠心，还用冬至大典天禄阁钥匙失窃的事堵得您不得不闭嘴。李延贞对您很好，可您的任务迟迟无法推进。",
+    "text": "　　经此一事，您与李延贞的关系似乎并没发生变化。<br><br>　　您想充当解语花，见李延贞为刑部尚书之女陆清和作画，贤良地表示陛下若喜欢，纳入宫中便好，李延贞却言游侠志在山川，不该拘束。您想挑拨李延贞与苏世誉的关系，告状说苏大人与楚大人走得过近，李延贞却打断您，说相信苏大人的忠心，还用冬至大典天禄阁钥匙失窃的事堵得您不得不闭嘴。<br><br>　　李延贞对您很好，可您的任务迟迟无法推进。",
     "choices": [
-      { "text": "继续", "action": "continue_relationship", "nextNode": "205" }
+      {
+        "text": "继续",
+        "action": "continue_relationship",
+        "nextNode": "205"
+      }
     ]
   },
   "205": {
     "title": "对皇帝的纠结",
-    "text": "千秋节后，您再次收到组织的消息。看完纸条后，您慌张地让李延贞不要过来，又改变主意让宫娥将他请来。目送小宫娥离开后，您：",
+    "text": "　　千秋节后，您再次收到组织的消息。看完纸条后，您慌张地让李延贞不要过来，又改变主意让宫娥将他请来。目送小宫娥离开后，您：",
     "choices": [
-      { "text": "a. 为等会儿皇帝亲临而梳妆打扮", "action": "prepare_for_emperor", "nextNode": "ending_poison_emperor_success" },
-      { "text": "b. 思考事情是否还有转圜的余地", "action": "consider_alternatives", "nextNode": "ending_hesitation_death" }
+      {
+        "text": "a. 为等会儿皇帝亲临而梳妆打扮",
+        "action": "prepare_for_emperor",
+        "nextNode": "ending_poison_emperor_success"
+      },
+      {
+        "text": "b. 思考事情是否还有转圜的余地",
+        "action": "consider_alternatives",
+        "nextNode": "ending_hesitation_death"
+      }
     ]
   },
   "ending_chu_capture": {
     "title": "楚太尉的怀疑",
-    "text": "你的信比<span class=\"character-name\">楚明允</span>暗卫回报的消息迟了几天，楚明允已得知苏世誉的人出现在了失火现场，并放出风声称自己钟情苏世誉。<br><br><span class=\"character-name\">楚明允</span>看了你的信，面无表情地丢到一边，说：\"赶在此人入京前抓住他好生看管，务必问出是何人指使他给我写信。也不必放他离开了，以免破坏我计划。\"",
+    "text": "　　你的信比<span class=\"character-name\">楚明允</span>暗卫回报的消息迟了几天，楚明允已得知苏世誉的人出现在了失火现场，并放出风声称自己钟情苏世誉。<br><br>　　<span class=\"character-name\">楚明允</span>看了你的信，面无表情地丢到一边，说：\"赶在此人入京前抓住他好生看管，务必问出是何人指使他给我写信。也不必放他离开了，以免破坏我计划。\"",
     "isEnding": true,
-    "applicableTool": ["楚明允的欣赏"]
+    "applicableTool": [
+      "楚明允的欣赏"
+    ]
   },
   "ending_curiosity_death": {
     "title": "好奇心害死猫",
-    "text": "\"你在找的东西，不是你该触碰的。\"幽幽的叹息在你身后响起，你背心一痛。<br><br>好奇心害死猫。",
+    "text": "　　\"你在找的东西，不是你该触碰的。\"幽幽的叹息在你身后响起，你背心一痛。<br><br>　　好奇心害死猫。",
     "isEnding": true,
-    "applicableTool": ["楚明允的白眼", "苏世誉的无语", "楚明允的认同"]
+    "applicableTool": [
+      "楚明允的白眼",
+      "苏世誉的无语",
+      "楚明允的认同"
+    ]
   },
   "ending_submit_death": {
     "title": "无所作为",
-    "text": "对方发现你毫无作为，心下一喜，十分痛快地手起刀落。",
+    "text": "　　对方发现你毫无作为，心下一喜，十分痛快地手起刀落。",
     "isEnding": true,
-    "applicableTool": ["楚明允的白眼", "苏世誉的无语", "楚明允的认同"]
+    "applicableTool": [
+      "楚明允的白眼",
+      "苏世誉的无语",
+      "楚明允的认同"
+    ]
   },
   "ending_chu_mansion_death": {
     "title": "处理府中美姬",
-    "text": "你选择给<span class=\"character-name\">楚明允</span>送碗羹汤，去书房送羹汤的时候<span class=\"character-name\">楚明允</span>和<span class=\"character-name\">秦昭</span>在商议事情，你隐约听到\"苏世誉\"\"背后的力量\"等字眼，还未来得及思考，就被<span class=\"character-name\">楚明允</span>扼住咽喉，死亡的恐惧令你呼吸不畅，捡回一条小命后你决定下次另找机会。<br><br>后来听说<span class=\"character-name\">楚明允</span>钟情于御史大夫<span class=\"character-name\">苏世誉</span>，并为苏大人遣散府中美姬。你在这出名为遣散，实则处理细作的戏码中被杀了。",
+    "text": "　　你选择给<span class=\"character-name\">楚明允</span>送碗羹汤，去书房送羹汤的时候<span class=\"character-name\">楚明允</span>和<span class=\"character-name\">秦昭</span>在商议事情，你隐约听到\"苏世誉\"\"背后的力量\"等字眼，还未来得及思考，就被<span class=\"character-name\">楚明允</span>扼住咽喉，死亡的恐惧令你呼吸不畅，捡回一条小命后你决定下次另找机会。<br><br>　　后来听说<span class=\"character-name\">楚明允</span>钟情于御史大夫<span class=\"character-name\">苏世誉</span>，并为苏大人遣散府中美姬。你在这出名为遣散，实则处理细作的戏码中被杀了。",
     "isEnding": true,
-    "applicableTool": ["楚明允的欣赏"]
+    "applicableTool": [
+      "楚明允的欣赏"
+    ]
   },
   "ending_palace_wait": {
     "title": "等待的结局",
-    "text": "你在宫中等待时机，但始终没有找到合适的机会执行任务。",
+    "text": "　　你在宫中等待时机，但始终没有找到合适的机会执行任务。",
     "isEnding": true
   },
   "ending_palace_postpone": {
     "title": "组织换人",
-    "text": "组织发现了你的优柔寡断，你身边的大宫娥拿出一张人皮面具，戴在脸上，你看着眼前面容与你一致的女子，抖着手接过了她倒给你的茶水，视线模糊中，你感受什么东西戴到了你的脸上，你听到声音与你相似的\"昭仪娘娘\"说，接下来的任务由她来完成。",
+    "text": "　　组织发现了你的优柔寡断，你身边的大宫娥拿出一张人皮面具，戴在脸上，你看着眼前面容与你一致的女子，抖着手接过了她倒给你的茶水，视线模糊中，你感受什么东西戴到了你的脸上，你听到声音与你相似的\"昭仪娘娘\"说，接下来的任务由她来完成。",
     "isEnding": true
   },
   "ending_su_mansion": {
     "title": "苏府的结局",
-    "text": "你成功进入苏府，但后续发展超出了你的预期。",
+    "text": "　　你成功进入苏府，但后续发展超出了你的预期。",
     "isEnding": true
   },
   "ending_brothel": {
     "title": "红袖招的结局",
-    "text": "你在红袖招中寻找新的机会。",
+    "text": "　　你在红袖招中寻找新的机会。",
     "isEnding": true
   },
   "ending_casino": {
     "title": "永乐坊的结局",
-    "text": "你在永乐坊中寻找新的机会。",
+    "text": "　　你在永乐坊中寻找新的机会。",
     "isEnding": true
   },
   "ending_organization_death": {
     "title": "守口如瓶",
-    "text": "由于你不愿接受组织的任务，在组织内部除了吃就是睡，被判定为不服从管教且无上进心，组织遂将你放弃，为了保证你守口如瓶，已令你永远开不了口。",
+    "text": "　　由于你不愿接受组织的任务，在组织内部除了吃就是睡，被判定为不服从管教且无上进心，组织遂将你放弃，为了保证你守口如瓶，已令你永远开不了口。",
     "isEnding": true,
-    "applicableTool": ["楚明允的白眼", "苏世誉的无语", "楚明允的认同"]
+    "applicableTool": [
+      "楚明允的白眼",
+      "苏世誉的无语",
+      "楚明允的认同"
+    ]
   },
   "ending_flood_death": {
     "title": "山洪之祸",
-    "text": "你玩到西郊时不小心遇上山洪，逃命时只感觉到山石污泥将自己慢慢淹没。",
+    "text": "　　你玩到西郊时不小心遇上山洪，逃命时只感觉到山石污泥将自己慢慢淹没。",
     "isEnding": true
   },
   "ending_chu_kill": {
     "title": "窥伺小人",
-    "text": "<span class=\"character-name\">楚明允</span>从门后走出，对门内藏着的人情深意切地道：\"虽说我有满腔情意想与你诉说，但也知你在人前害羞。你可否等我片刻，待我先了结了窥伺小人。\"你还没反应过来他这话是什么意思，便感到胸口一凉，低头只见半截铁铸的扇骨。",
+    "text": "　　<span class=\"character-name\">楚明允</span>从门后走出，对门内藏着的人情深意切地道：\"虽说我有满腔情意想与你诉说，但也知你在人前害羞。你可否等我片刻，待我先了结了窥伺小人。\"你还没反应过来他这话是什么意思，便感到胸口一凉，低头只见半截铁铸的扇骨。",
     "isEnding": true,
-    "applicableTool": ["楚明允的欣赏"]
+    "applicableTool": [
+      "楚明允的欣赏"
+    ]
   },
   "ending_guard_kill": {
     "title": "守卫的警惕",
-    "text": "\"你谁啊？\"前面的人明显不认识你，你还没来得及说话，就被谨慎又手快的守卫解决掉了。",
+    "text": "　　\"你谁啊？\"前面的人明显不认识你，你还没来得及说话，就被谨慎又手快的守卫解决掉了。",
     "isEnding": true,
-    "applicableTool": ["楚明允的白眼", "苏世誉的无语", "楚明允的认同"]
+    "applicableTool": [
+      "楚明允的白眼",
+      "苏世誉的无语",
+      "楚明允的认同"
+    ]
   },
   "ending_su_kill": {
     "title": "牡丹花下死",
-    "text": "京中无人知晓<span class=\"character-name\">苏世誉</span>一介文臣竟是会武的，<span class=\"character-name\">谭敬</span>根本奈何不了<span class=\"character-name\">苏世誉</span>。直到<span class=\"character-name\">苏世誉</span>手中的刀刺入你胸口，你怔怔地看着他微笑的面庞，心里只剩了一句：\"牡丹花下死，做鬼也风流。\"",
+    "text": "　　京中无人知晓<span class=\"character-name\">苏世誉</span>一介文臣竟是会武的，<span class=\"character-name\">谭敬</span>根本奈何不了<span class=\"character-name\">苏世誉</span>。直到<span class=\"character-name\">苏世誉</span>手中的刀刺入你胸口，你怔怔地看着他微笑的面庞，心里只剩了一句：\"牡丹花下死，做鬼也风流。\"",
     "isEnding": true,
-    "applicableTool": ["苏世誉的欣赏"]
+    "applicableTool": [
+      "苏世誉的欣赏"
+    ]
   },
   "ending_addiction_death": {
     "title": "药粉成瘾",
-    "text": "回家后你煮饭烧菜，本不想用阿绣给的诡异药粉，但手忙脚乱之下竟无意将药粉洒进锅里。你觉得只一点点应该影响不大，吃起来也意外地美味，之后次次都加上这味佐料，一日比一日上瘾。直到某天你发现药粉用光了，吃不到美食的你开始抓狂，身体剧痛，精神也渐渐失了常。",
+    "text": "　　回家后你煮饭烧菜，本不想用阿绣给的诡异药粉，但手忙脚乱之下竟无意将药粉洒进锅里。你觉得只一点点应该影响不大，吃起来也意外地美味，之后次次都加上这味佐料，一日比一日上瘾。直到某天你发现药粉用光了，吃不到美食的你开始抓狂，身体剧痛，精神也渐渐失了常。",
     "isEnding": true
   },
   "23": {
     "title": "地方官的灾祸",
-    "text": "你是一位难得的纯臣，为民着想，赤胆忠心。虽然有些辛苦，但看到当地百姓和乐，你觉得这都是值得的。某一天你办完公，发现屋中多了一个蒙面黑衣人。他向您投出一枚飞镖，准确击中您左胸。您选择：",
+    "text": "　　你是一位难得的纯臣，为民着想，赤胆忠心。虽然有些辛苦，但看到当地百姓和乐，你觉得这都是值得的。某一天你办完公，发现屋中多了一个蒙面黑衣人。他向您投出一枚飞镖，准确击中您左胸。您选择：",
     "choices": [
-      { "text": "a. 倒地装死，等他离开后报案", "action": "play_dead", "nextNode": "ending_play_dead" },
-      { "text": "b. 拼死反抗，没准能博取生机", "action": "fight_back", "nextNode": "24" }
+      {
+        "text": "a. 倒地装死，等他离开后报案",
+        "action": "play_dead",
+        "nextNode": "ending_play_dead"
+      },
+      {
+        "text": "b. 拼死反抗，没准能博取生机",
+        "action": "fight_back",
+        "nextNode": "24"
+      }
     ]
   },
   "24": {
     "title": "楚字令牌",
-    "text": "您单杀了黑衣人，从他身上搜出一枚印有\"楚\"字的令牌。您立刻想到了那位权倾朝野的太尉，却想不通他为何要你的命。您担心会有更多杀手来索命，便与黑衣人互换了衣服，把他假扮成自己。您带着令牌离开了此地。在长安与扶风郡之间的一家客栈打尖时，您见到<span class=\"character-name\">楚明允</span>与<span class=\"character-name\">苏世誉</span>并肩进来，住了……一间房？您选择：",
+    "text": "　　您单杀了黑衣人，从他身上搜出一枚印有\"楚\"字的令牌。您立刻想到了那位权倾朝野的太尉，却想不通他为何要你的命。您担心会有更多杀手来索命，便与黑衣人互换了衣服，把他假扮成自己。您带着令牌离开了此地。在长安与扶风郡之间的一家客栈打尖时，您见到<span class=\"character-name\">楚明允</span>与<span class=\"character-name\">苏世誉</span>并肩进来，住了……一间房？您选择：",
     "choices": [
-      { "text": "a. 换入他们隔壁客房，打探他们为何来此", "action": "spy_next_door", "nextNode": "25" },
-      { "text": "b. 逃往补任右扶风苏行处。那是苏家人，想必不会与楚太尉狼狈为奸", "action": "escape_to_su", "nextNode": "26" },
-      { "text": "c. 买通客栈伙计将楚明允差开，将令牌交给苏世誉", "action": "give_token_to_su", "nextNode": "ending_chu_disguise" }
+      {
+        "text": "a. 换入他们隔壁客房，打探他们为何来此",
+        "action": "spy_next_door",
+        "nextNode": "25"
+      },
+      {
+        "text": "b. 逃往补任右扶风苏行处。那是苏家人，想必不会与楚太尉狼狈为奸",
+        "action": "escape_to_su",
+        "nextNode": "26"
+      },
+      {
+        "text": "c. 买通客栈伙计将楚明允差开，将令牌交给苏世誉",
+        "action": "give_token_to_su",
+        "nextNode": "ending_chu_disguise"
+      }
     ]
   },
   "25": {
     "title": "隔壁的对话",
-    "text": "您隐约听见那<span class=\"character-name\">楚太尉</span>说：\"……可我以往只跟女人睡过……往我怀里钻，那苏大人你也……？\"您又凝神听了一会儿，苏大人竟然没拒绝，只说让楚太尉睡在他里面。您想：",
+    "text": "　　您隐约听见那<span class=\"character-name\">楚太尉</span>说：\"……可我以往只跟女人睡过……往我怀里钻，那苏大人你也……？\"您又凝神听了一会儿，苏大人竟然没拒绝，只说让楚太尉睡在他里面。您想：",
     "choices": [
-      { "text": "a. 苏大人到底有没有睡在楚大人怀里啊？", "action": "curious_about_sleep", "nextNode": "ending_curious_death" },
-      { "text": "b. 苏大人与楚大人究竟什么关系……看来我不能贸然将令牌交给苏大人了", "action": "doubt_relationship", "nextNode": "26" },
-      { "text": "c. 楚太尉是否会趁机谋害苏大人？", "action": "worry_about_harm", "nextNode": "ending_chu_harm" }
+      {
+        "text": "a. 苏大人到底有没有睡在楚大人怀里啊？",
+        "action": "curious_about_sleep",
+        "nextNode": "ending_curious_death"
+      },
+      {
+        "text": "b. 苏大人与楚大人究竟什么关系……看来我不能贸然将令牌交给苏大人了",
+        "action": "doubt_relationship",
+        "nextNode": "26"
+      },
+      {
+        "text": "c. 楚太尉是否会趁机谋害苏大人？",
+        "action": "worry_about_harm",
+        "nextNode": "ending_chu_harm"
+      }
     ]
   },
   "26": {
     "title": "苏行的府邸",
-    "text": "您连夜赶去了苏行府上，向他说明了来意，并以\"楚\"字令牌为证。他说会为您主持公道，但嘱咐您不要直接告知<span class=\"character-name\">苏世誉</span>。<br><br> 次日，楚苏二人也至，您听到<span class=\"character-name\">楚太尉</span>对苏大人说\"是我昨晚把你折腾得累着了吗\"，愈发庆幸没贸然将令牌交给苏大人。<br><br> 他们抵达不久，便听说捉住了凶手。苏行请您同去。凶手身上搜出了同款令牌，当场指认了<span class=\"character-name\">楚太尉</span>。您意识到了苏行请您同来的原因。您选择：",
+    "text": "　　您连夜赶去了苏行府上，向他说明了来意，并以\"楚\"字令牌为证。他说会为您主持公道，但嘱咐您不要直接告知<span class=\"character-name\">苏世誉</span>。<br><br>　　次日，楚苏二人也至，您听到<span class=\"character-name\">楚太尉</span>对苏大人说\"是我昨晚把你折腾得累着了吗\"，愈发庆幸没贸然将令牌交给苏大人。<br><br>　　他们抵达不久，便听说捉住了凶手。苏行请您同去。凶手身上搜出了同款令牌，当场指认了<span class=\"character-name\">楚太尉</span>。您意识到了苏行请您同来的原因。您选择：",
     "choices": [
-      { "text": "a. 出示令牌，一同指认楚太尉", "action": "accuse_chu", "nextNode": "27" },
-      { "text": "b. 静观其变，此事过于巧合了", "action": "wait_and_see", "nextNode": "28" }
+      {
+        "text": "a. 出示令牌，一同指认楚太尉",
+        "action": "accuse_chu",
+        "nextNode": "27"
+      },
+      {
+        "text": "b. 静观其变，此事过于巧合了",
+        "action": "wait_and_see",
+        "nextNode": "28"
+      }
     ]
   },
   "27": {
     "title": "水牢再审",
-    "text": "谁知，两人都指认了，<span class=\"character-name\">苏世誉</span>仍是不信。夜里，苏行传信邀您去水牢再审凶手。您选择：",
+    "text": "　　谁知，两人都指认了，<span class=\"character-name\">苏世誉</span>仍是不信。夜里，苏行传信邀您去水牢再审凶手。您选择：",
     "choices": [
-      { "text": "a. 去，必须揪出楚太尉的把柄", "action": "go_water_prison", "nextNode": "ending_water_prison_death" },
-      { "text": "b. 不去，爱情使人盲目，苏大人不会听的", "action": "refuse_water_prison", "nextNode": "28" }
+      {
+        "text": "a. 去，必须揪出楚太尉的把柄",
+        "action": "go_water_prison",
+        "nextNode": "ending_water_prison_death"
+      },
+      {
+        "text": "b. 不去，爱情使人盲目，苏大人不会听的",
+        "action": "refuse_water_prison",
+        "nextNode": "28"
+      }
     ]
   },
   "28": {
     "title": "苏行自杀",
-    "text": "您迷迷糊糊睡了，又被别院的响动惊醒，跟着楚苏二人一同赶往水牢。您从暗处悄声靠近伤重的苏行，听他冷笑着问苏大人是从何时开始怀疑，又接着愤慨道：\"……毛头小子……昏庸无能……\"甚至有意激怒苏大人：\"你就该是一辈子的孤身寡绝！\"他抬手拍向岩壁时，您见苏大人脸色大变，意识到自己也站在了机关范围之内。您看到：",
+    "text": "　　您迷迷糊糊睡了，又被别院的响动惊醒，跟着楚苏二人一同赶往水牢。您从暗处悄声靠近伤重的苏行，听他冷笑着问苏大人是从何时开始怀疑，又接着愤慨道：\"……毛头小子……昏庸无能……\"甚至有意激怒苏大人：\"你就该是一辈子的孤身寡绝！\"他抬手拍向岩壁时，您见苏大人脸色大变，意识到自己也站在了机关范围之内。您看到：",
     "choices": [
-      { "text": "a. 楚太尉袖摆微微一动", "action": "chu_moves", "nextNode": "29" },
-      { "text": "b. 苏大人指尖银光一闪", "action": "su_moves", "nextNode": "30" }
+      {
+        "text": "a. 楚太尉袖摆微微一动",
+        "action": "chu_moves",
+        "nextNode": "29"
+      },
+      {
+        "text": "b. 苏大人指尖银光一闪",
+        "action": "su_moves",
+        "nextNode": "30"
+      }
     ]
   },
   "29": {
     "title": "楚太尉救人",
-    "text": "下一秒，血溅了您一脸。一阵染着檀香的风裹住了您，又倏然散去。\"嚓\"地一声，楚大人还剑入鞘，恹恹地拭了拭指尖的血，歪头看向苏大人：\"我救了这人，你心里是不是好受一些？\"\"让楚大人费心了。\"苏大人莞尔一笑。您看他们向酒楼去了，适时地止住了脚步。那里没有您的位置，而您，也要去寻找自己的位置了。",
+    "text": "　　下一秒，血溅了您一脸。一阵染着檀香的风裹住了您，又倏然散去。\"嚓\"地一声，楚大人还剑入鞘，恹恹地拭了拭指尖的血，歪头看向苏大人：\"我救了这人，你心里是不是好受一些？\"\"让楚大人费心了。\"苏大人莞尔一笑。您看他们向酒楼去了，适时地止住了脚步。那里没有您的位置，而您，也要去寻找自己的位置了。",
     "choices": [
-      { "text": "继续", "action": "continue_story", "nextNode": "ending_return_home" }
+      {
+        "text": "继续",
+        "action": "continue_story",
+        "nextNode": "ending_return_home"
+      }
     ]
   },
   "30": {
     "title": "苏大人救人",
-    "text": "下一秒，血溅了您一脸。一阵染着安神香的风裹住了您，您望着苏大人毫无血色的面颊，直到被楚大人一把拉开，才惊觉苏大人似乎神思不属。可您心知，安慰与追问都不属于您。您所能做的，不过是向他们渐远的背影，遥遥一揖。",
+    "text": "　　下一秒，血溅了您一脸。一阵染着安神香的风裹住了您，您望着苏大人毫无血色的面颊，直到被楚大人一把拉开，才惊觉苏大人似乎神思不属。可您心知，安慰与追问都不属于您。您所能做的，不过是向他们渐远的背影，遥遥一揖。",
     "choices": [
-      { "text": "继续", "action": "continue_story", "nextNode": "ending_return_home" }
+      {
+        "text": "继续",
+        "action": "continue_story",
+        "nextNode": "ending_return_home"
+      }
     ]
   },
   "31": {
     "title": "军伍之路",
-    "text": "既然已决定参军，那么入伍的地域选定就尤为关键。您选择：",
+    "text": "　　既然已决定参军，那么入伍的地域选定就尤为关键。您选择：",
     "choices": [
-      { "text": "a. 中央，资源待遇佳", "action": "central_military", "nextNode": "32" },
-      { "text": "b. 地方，立功机会多", "action": "local_military", "nextNode": "44" }
+      {
+        "text": "a. 中央，资源待遇佳",
+        "action": "central_military",
+        "nextNode": "32"
+      },
+      {
+        "text": "b. 地方，立功机会多",
+        "action": "local_military",
+        "nextNode": "44"
+      }
     ]
   },
   "32": {
     "title": "中枢军制",
-    "text": "您继续留在长安。中枢军制森严，各依职司分掌权责。您选择：",
+    "text": "　　您继续留在长安。中枢军制森严，各依职司分掌权责。您选择：",
     "choices": [
-      { "text": "a. 成为皇帝的私人卫队，直属皇帝调遣", "action": "emperor_guard", "nextNode": "33" },
-      { "text": "b. 成为皇城的核心守卫，拱卫京师安危", "action": "capital_guard", "nextNode": "34" },
-      { "text": "c. 成为普通的直属戍卒，听调兵部援防", "action": "regular_soldier", "nextNode": "38" }
+      {
+        "text": "a. 成为皇帝的私人卫队，直属皇帝调遣",
+        "action": "emperor_guard",
+        "nextNode": "33"
+      },
+      {
+        "text": "b. 成为皇城的核心守卫，拱卫京师安危",
+        "action": "capital_guard",
+        "nextNode": "34"
+      },
+      {
+        "text": "c. 成为普通的直属戍卒，听调兵部援防",
+        "action": "regular_soldier",
+        "nextNode": "38"
+      }
     ]
   },
   "ending_play_dead": {
     "title": "黑衣人的预判",
-    "text": "你正庆幸自己心脏长在右边，一出门便撞见了守在门外的黑衣人，对方给了你一个轻蔑的眼神，举刀将你细细砍成臊子。",
+    "text": "　　你正庆幸自己心脏长在右边，一出门便撞见了守在门外的黑衣人，对方给了你一个轻蔑的眼神，举刀将你细细砍成臊子。",
     "isEnding": true,
-    "applicableTool": ["楚明允的白眼", "苏世誉的无语", "楚明允的认同"]
+    "applicableTool": [
+      "楚明允的白眼",
+      "苏世誉的无语",
+      "楚明允的认同"
+    ]
   },
   "ending_chu_disguise": {
     "title": "楚太尉的伪装",
-    "text": "你远远看见一道白衣的背影，正要上前拜见，眼前却银光一闪。竟是那楚太尉身披白衣，似笑非笑：\"对我使调虎离山，班门弄斧。\"你的意识逐渐溃散，在生命的最后感到他搜出了令牌，换上了无辜的语气：\"苏大人……要不是我及时发现，又要被栽赃了。\"",
+    "text": "　　你远远看见一道白衣的背影，正要上前拜见，眼前却银光一闪。竟是那楚太尉身披白衣，似笑非笑：\"对我使调虎离山，班门弄斧。\"你的意识逐渐溃散，在生命的最后感到他搜出了令牌，换上了无辜的语气：\"苏大人……要不是我及时发现，又要被栽赃了。\"",
     "isEnding": true,
-    "applicableTool": ["楚明允的欣赏"]
+    "applicableTool": [
+      "楚明允的欣赏"
+    ]
   },
   "ending_curious_death": {
     "title": "意外的迷香",
-    "text": "当夜，你附耳贴上隔墙，企图探听一些不一般的声响来验证自己的猜测，可奇怪的是你什么也没听到，反而闻到一股香味，你嗅了嗅鼻子，仔细辨认后闻出是一款毒性迷香，之后便失去了知觉……",
+    "text": "　　当夜，你附耳贴上隔墙，企图探听一些不一般的声响来验证自己的猜测，可奇怪的是你什么也没听到，反而闻到一股香味，你嗅了嗅鼻子，仔细辨认后闻出是一款毒性迷香，之后便失去了知觉……",
     "isEnding": true,
-    "applicableTool": ["苏世誉的欣赏"]
+    "applicableTool": [
+      "苏世誉的欣赏"
+    ]
   },
   "ending_chu_harm": {
     "title": "夜晚的鸟叫",
-    "text": "夜深了，你爬上屋外的树，看到楚太尉弯指向苏大人颈间探去。你正准备出声警示，一根玉簪破空而来划开了你的喉咙。你掉下树的时候，依稀见到楚太尉揽着惊醒的苏大人的肩膀，柔声道：\"外面的鸟叫太响了，明儿我给你买支新的玉簪去。\"",
+    "text": "　　夜深了，你爬上屋外的树，看到楚太尉弯指向苏大人颈间探去。你正准备出声警示，一根玉簪破空而来划开了你的喉咙。你掉下树的时候，依稀见到楚太尉揽着惊醒的苏大人的肩膀，柔声道：\"外面的鸟叫太响了，明儿我给你买支新的玉簪去。\"",
     "isEnding": true,
-    "applicableTool": ["楚明允的欣赏"]
+    "applicableTool": [
+      "楚明允的欣赏"
+    ]
   },
   "ending_water_prison_death": {
     "title": "阴谋诡计",
-    "text": "一把剑向您疾刺过来。您没武器，终于不敌倒地。您死不瞑目，不明白苏行为什么对自己下手，将死之际，听到了入口处传来利落的脚步声。\"楚大……\"您气若游丝，却忽地想起：那是威震匈奴的大将军啊，如何会使这些阴谋诡计？",
+    "text": "　　一把剑向您疾刺过来。您没武器，终于不敌倒地。您死不瞑目，不明白苏行为什么对自己下手，将死之际，听到了入口处传来利落的脚步声。\"楚大……\"您气若游丝，却忽地想起：那是威震匈奴的大将军啊，如何会使这些阴谋诡计？",
     "isEnding": true,
-    "applicableTool": ["楚明允的白眼", "苏世誉的无语", "楚明允的认同"]
+    "applicableTool": [
+      "楚明允的白眼",
+      "苏世誉的无语",
+      "楚明允的认同"
+    ]
   },
   "ending_return_home": {
     "title": "重返故地",
-    "text": "您重返旧地，守一方清明。风波未使您却步，反教您看得更清：为官者向光而行，不朝京阙朝苍生。",
+    "text": "　　您重返旧地，守一方清明。风波未使您却步，反教您看得更清：为官者向光而行，不朝京阙朝苍生。",
     "isEnding": true,
     "bonus": "触发SR结局，加1张传送卡。",
     "specialEnding": "SR"
   },
   "33": {
     "title": "羽林军",
-    "text": "您成为了羽林军。日日刻苦训练，绝对服从命令。日子一天天过下去，皆无大事发生，直至某天，您听说西陵王带着匈奴进攻京畿三辅，向长安逼近，这时，御史大夫<span class=\"character-name\">苏世誉</span>拿着兵符来了。您选择：",
+    "text": "　　您成为了羽林军。日日刻苦训练，绝对服从命令。日子一天天过下去，皆无大事发生，直至某天，您听说西陵王带着匈奴进攻京畿三辅，向长安逼近，这时，御史大夫<span class=\"character-name\">苏世誉</span>拿着兵符来了。您选择：",
     "choices": [
-      { "text": "a. 守好自己这条小命", "action": "save_self", "nextNode": "ending_coward_death" },
-      { "text": "b. 保家卫国义不容辞", "action": "defend_country", "nextNode": "ending_heroic_victory" }
+      {
+        "text": "a. 守好自己这条小命",
+        "action": "save_self",
+        "nextNode": "ending_coward_death"
+      },
+      {
+        "text": "b. 保家卫国义不容辞",
+        "action": "defend_country",
+        "nextNode": "ending_heroic_victory"
+      }
     ]
   },
   "34": {
     "title": "禁军",
-    "text": "您成为了禁军。禁军事务忙碌，您过得很充实。只是春猎结束后，您发现禁军统领投靠了<span class=\"character-name\">楚太尉</span>。您选择：",
+    "text": "　　您成为了禁军。禁军事务忙碌，您过得很充实。只是春猎结束后，您发现禁军统领投靠了<span class=\"character-name\">楚太尉</span>。您选择：",
     "choices": [
-      { "text": "a. 关我啥事，跟我有什么关系", "action": "ignore_matter", "nextNode": "35" },
-      { "text": "b. 觉得此事不对劲，暗中调查", "action": "investigate", "nextNode": "ending_investigation_death" },
-      { "text": "c. 楚太尉手握军权，是个不错的主子", "action": "follow_chu", "nextNode": "36" }
+      {
+        "text": "a. 关我啥事，跟我有什么关系",
+        "action": "ignore_matter",
+        "nextNode": "35"
+      },
+      {
+        "text": "b. 觉得此事不对劲，暗中调查",
+        "action": "investigate",
+        "nextNode": "ending_investigation_death"
+      },
+      {
+        "text": "c. 楚太尉手握军权，是个不错的主子",
+        "action": "follow_chu",
+        "nextNode": "36"
+      }
     ]
   },
   "35": {
     "title": "逼宫的选择",
-    "text": "您只是个小小兵卫，无权干涉统领战队，左右当今圣上无能，自己跟谁不是跟。直到那日铅云蔽空，<span class=\"character-name\">楚太尉</span>率三千黑甲影卫逼宫，您不得不做出决定。您选择：",
+    "text": "　　您只是个小小兵卫，无权干涉统领战队，左右当今圣上无能，自己跟谁不是跟。直到那日铅云蔽空，<span class=\"character-name\">楚太尉</span>率三千黑甲影卫逼宫，您不得不做出决定。您选择：",
     "choices": [
-      { "text": "a. 拼死挣扎", "action": "resist_coup", "nextNode": "ending_resist_death" },
-      { "text": "b. 倒戈臣服", "action": "submit_coup", "nextNode": "36" }
+      {
+        "text": "a. 拼死挣扎",
+        "action": "resist_coup",
+        "nextNode": "ending_resist_death"
+      },
+      {
+        "text": "b. 倒戈臣服",
+        "action": "submit_coup",
+        "nextNode": "36"
+      }
     ]
   },
   "36": {
     "title": "新帝的统治",
-    "text": "您的主上<span class=\"character-name\">楚明允</span>成功逼宫，实现称帝。但很多人不服<span class=\"character-name\">楚明允</span>这个君王，抗令不为者有之，聚众反抗者有之，累有罪行者有之。<span class=\"character-name\">楚明允</span>下令直接杀了这些人。您的态度是：",
+    "text": "　　您的主上<span class=\"character-name\">楚明允</span>成功逼宫，实现称帝。但很多人不服<span class=\"character-name\">楚明允</span>这个君王，抗令不为者有之，聚众反抗者有之，累有罪行者有之。<span class=\"character-name\">楚明允</span>下令直接杀了这些人。您的态度是：",
     "choices": [
-      { "text": "a. 于心不忍", "action": "feel_pity", "nextNode": "ending_escape_home" },
-      { "text": "b. 杀人的刀", "action": "kill_sword", "nextNode": "37" }
+      {
+        "text": "a. 于心不忍",
+        "action": "feel_pity",
+        "nextNode": "ending_escape_home"
+      },
+      {
+        "text": "b. 杀人的刀",
+        "action": "kill_sword",
+        "nextNode": "37"
+      }
     ]
   },
   "37": {
     "title": "禁军戍守长安城门",
-    "text": "您干脆利落地杀了宫城之乱涉案者，与此同时，西陵王借兵匈奴奔袭长安，您被派去守长安城门。可禁军不同沙场之兵，哪儿懂打仗啊。您选择：",
+    "text": "　　您干脆利落地杀了宫城之乱涉案者，与此同时，西陵王借兵匈奴奔袭长安，您被派去守长安城门。可禁军不同沙场之兵，哪儿懂打仗啊。您选择：",
     "choices": [
-      { "text": "a. 活命", "action": "save_life", "nextNode": "ending_desertion_death" },
-      { "text": "b. 死战", "action": "fight_to_death", "nextNode": "ending_defend_changan" }
+      {
+        "text": "a. 活命",
+        "action": "save_life",
+        "nextNode": "ending_desertion_death"
+      },
+      {
+        "text": "b. 死战",
+        "action": "fight_to_death",
+        "nextNode": "ending_defend_changan"
+      }
     ]
   },
   "38": {
     "title": "洛辛淮南平叛",
-    "text": "国家颁布推恩令，淮南余孽趁机起事，纠兵叛乱，朝廷派兵支援。此次领兵平叛的主将为<span class=\"character-name\">洛辛</span>，您没有忘记此人是出身淮南，犹有余孽之嫌。您选择：",
+    "text": "　　国家颁布推恩令，淮南余孽趁机起事，纠兵叛乱，朝廷派兵支援。此次领兵平叛的主将为<span class=\"character-name\">洛辛</span>，您没有忘记此人是出身淮南，犹有余孽之嫌。您选择：",
     "choices": [
-      { "text": "a. 英雄不论出处", "action": "hero_origin", "nextNode": "39" },
-      { "text": "b. 向楚太尉告状苏大人任人唯亲", "action": "accuse_su", "nextNode": "43" },
-      { "text": "c. 淮南此地太过诡谲混乱，称病不去", "action": "pretend_sick", "nextNode": "ending_real_sick_death" }
+      {
+        "text": "a. 英雄不论出处",
+        "action": "hero_origin",
+        "nextNode": "39"
+      },
+      {
+        "text": "b. 向楚太尉告状苏大人任人唯亲",
+        "action": "accuse_su",
+        "nextNode": "43"
+      },
+      {
+        "text": "c. 淮南此地太过诡谲混乱，称病不去",
+        "action": "pretend_sick",
+        "nextNode": "ending_real_sick_death"
+      }
     ]
   },
   "39": {
     "title": "洛辛的能力",
-    "text": "<span class=\"character-name\">洛辛</span>在兵部的表现有目共睹，又是苏大人带回来的人，再有<span class=\"character-name\">楚太尉</span>亲自选定，足见其品行与能力，可当大任。",
+    "text": "　　<span class=\"character-name\">洛辛</span>在兵部的表现有目共睹，又是苏大人带回来的人，再有<span class=\"character-name\">楚太尉</span>亲自选定，足见其品行与能力，可当大任。",
     "choices": [
-      { "text": "继续", "action": "continue_story", "nextNode": "40" }
+      {
+        "text": "继续",
+        "action": "continue_story",
+        "nextNode": "40"
+      }
     ]
   },
   "40": {
     "title": "淮南的陷阱",
-    "text": "到了淮南之后，援军对叛党进行了突围，可惜不慎中计，被打得节节败退，就连<span class=\"character-name\">洛辛</span>也被叛党的人俘虏了。您选择：",
+    "text": "　　到了淮南之后，援军对叛党进行了突围，可惜不慎中计，被打得节节败退，就连<span class=\"character-name\">洛辛</span>也被叛党的人俘虏了。您选择：",
     "choices": [
-      { "text": "a. 与主将洛辛共进退，救出洛辛", "action": "save_luoxin", "nextNode": "ending_luoxin_death" },
-      { "text": "b. 作出取舍，与剩下军士退居北面的山上防守", "action": "retreat_mountain", "nextNode": "41" }
+      {
+        "text": "a. 与主将洛辛共进退，救出洛辛",
+        "action": "save_luoxin",
+        "nextNode": "ending_luoxin_death"
+      },
+      {
+        "text": "b. 作出取舍，与剩下军士退居北面的山上防守",
+        "action": "retreat_mountain",
+        "nextNode": "41"
+      }
     ]
   },
   "41": {
     "title": "攻打南境军营",
-    "text": "山下有军队围着，援军队伍逃脱不了，您与弟兄们在山上躲了一个月，也许是两个月，您记不清了。山中无粮，艰难度日，战友病死饿死，战马都不得不杀了来吃，终于熬到兵符重现，受命出战的目标是南境军营。<br><br> 副将<span class=\"character-name\">赵恪靖</span>听命行事，您也不好多说什么。随着与军营的距离慢慢缩短，\"楚\"字旌旗赫然在目，队伍停了下来，手持兵符的都尉爆喝着\"军令如山！\"\"攻下军营！\"。您选择：",
+    "text": "　　山下有军队围着，援军队伍逃脱不了，您与弟兄们在山上躲了一个月，也许是两个月，您记不清了。山中无粮，艰难度日，战友病死饿死，战马都不得不杀了来吃，终于熬到兵符重现，受命出战的目标是南境军营。<br><br>　　副将<span class=\"character-name\">赵恪靖</span>听命行事，您也不好多说什么。随着与军营的距离慢慢缩短，\"楚\"字旌旗赫然在目，队伍停了下来，手持兵符的都尉爆喝着\"军令如山！\"\"攻下军营！\"。您选择：",
     "choices": [
-      { "text": "a. 只听兵符行事", "action": "follow_order", "nextNode": "ending_betray_zhao" },
-      { "text": "b. 按兵不动", "action": "stay_put", "nextNode": "42" }
+      {
+        "text": "a. 只听兵符行事",
+        "action": "follow_order",
+        "nextNode": "ending_betray_zhao"
+      },
+      {
+        "text": "b. 按兵不动",
+        "action": "stay_put",
+        "nextNode": "42"
+      }
     ]
   },
   "42": {
     "title": "反攻寿春",
-    "text": "底下人隐有骚动，都尉见无人听他命令，已然发飙，这时一道黑影飞来穿透他胸口，他喷血栽落马背。一个女子走到军前揭露了<span class=\"character-name\">韩仲文</span>欺骗他们的真相，将士们义愤填膺。<span class=\"character-name\">楚将军</span>下令反攻寿春城。您入城到韩府后看到一家三口的尸体。您认为：",
+    "text": "　　底下人隐有骚动，都尉见无人听他命令，已然发飙，这时一道黑影飞来穿透他胸口，他喷血栽落马背。一个女子走到军前揭露了<span class=\"character-name\">韩仲文</span>欺骗他们的真相，将士们义愤填膺。<span class=\"character-name\">楚将军</span>下令反攻寿春城。您入城到韩府后看到一家三口的尸体。您认为：",
     "choices": [
-      { "text": "a. 韩仲文一家死有余辜", "action": "deserve_death", "nextNode": "ending_harsh_judge" },
-      { "text": "b. 韩仲文的妻儿毕竟无辜", "action": "innocent_family", "nextNode": "ending_soft_heart" },
-      { "text": "c. 人都死了，有再多的想法也没意义了", "action": "meaningless", "nextNode": "ending_monk_life" }
+      {
+        "text": "a. 韩仲文一家死有余辜",
+        "action": "deserve_death",
+        "nextNode": "ending_harsh_judge"
+      },
+      {
+        "text": "b. 韩仲文的妻儿毕竟无辜",
+        "action": "innocent_family",
+        "nextNode": "ending_soft_heart"
+      },
+      {
+        "text": "c. 人都死了，有再多的想法也没意义了",
+        "action": "meaningless",
+        "nextNode": "ending_monk_life"
+      }
     ]
   },
   "ending_coward_death": {
     "title": "畏手畏脚",
-    "text": "<span class=\"character-name\">苏世誉</span>率领羽林军去城外抗敌，你面对凶残的匈奴骑兵还是犯了怵，时刻担忧自己被杀，毫不专心，一个不留神，你的视线歪斜过来，最后只看到匈奴人弯刀反射的亮光。",
+    "text": "　　<span class=\"character-name\">苏世誉</span>率领羽林军去城外抗敌，你面对凶残的匈奴骑兵还是犯了怵，时刻担忧自己被杀，毫不专心，一个不留神，你的视线歪斜过来，最后只看到匈奴人弯刀反射的亮光。",
     "isEnding": true,
-    "applicableTool": ["楚明允的白眼", "苏世誉的无语", "楚明允的认同"]
+    "applicableTool": [
+      "楚明允的白眼",
+      "苏世誉的无语",
+      "楚明允的认同"
+    ]
   },
   "ending_heroic_victory": {
     "title": "英勇胜利",
-    "text": "羽林军自后方冲上前阵，扭转了势弱的局面，士气一时大盛。你英勇奋战，杀了不少外敌。<span class=\"character-name\">苏世誉</span>取下西陵王首级，不远处又有一箭射死匈奴头领，你一口气还没松下来，就看到濒死的匈奴头领拉出一箭对向苏大人，而苏大人不闪不避，闭眼赴死，在最紧要的关头，新帝<span class=\"character-name\">楚明允</span>及时出现，将苏大人安全带出了战局。<br><br>你继续鏖战，匈奴很快被打退了。万幸，长安守住了。",
+    "text": "　　羽林军自后方冲上前阵，扭转了势弱的局面，士气一时大盛。你英勇奋战，杀了不少外敌。<span class=\"character-name\">苏世誉</span>取下西陵王首级，不远处又有一箭射死匈奴头领，你一口气还没松下来，就看到濒死的匈奴头领拉出一箭对向苏大人，而苏大人不闪不避，闭眼赴死，在最紧要的关头，新帝<span class=\"character-name\">楚明允</span>及时出现，将苏大人安全带出了战局。<br><br>　　你继续鏖战，匈奴很快被打退了。万幸，长安守住了。",
     "isEnding": true,
     "bonus": "触发SSR结局，加1张传送卡及2点生命值。",
     "specialEnding": "SSR"
   },
   "ending_investigation_death": {
     "title": "调查出的把柄",
-    "text": "以你出色的收集线索能力，你发现，原来是禁军统领没有按<span class=\"character-name\">楚太尉</span>吩咐加强春猎南麓布防，间接导致了户部尚书<span class=\"character-name\">魏松</span>的死亡，被<span class=\"character-name\">楚太尉</span>捏住了把柄。你嘲讽一笑，背后忽地发凉，手中的证据纷纷扬扬落下，死前听到了禁军统领的叹息声。",
+    "text": "　　以你出色的收集线索能力，你发现，原来是禁军统领没有按<span class=\"character-name\">楚太尉</span>吩咐加强春猎南麓布防，间接导致了户部尚书<span class=\"character-name\">魏松</span>的死亡，被<span class=\"character-name\">楚太尉</span>捏住了把柄。你嘲讽一笑，背后忽地发凉，手中的证据纷纷扬扬落下，死前听到了禁军统领的叹息声。",
     "isEnding": true,
-    "applicableTool": ["楚明允的欣赏"]
+    "applicableTool": [
+      "楚明允的欣赏"
+    ]
   },
   "ending_resist_death": {
     "title": "我就是天命",
-    "text": "<span class=\"character-name\">楚明允</span>长剑穿透侍卫长喉咙，\"我就是天命。\"说完反手抽回剑，路过你时顺手抹了你的脖子。",
+    "text": "　　<span class=\"character-name\">楚明允</span>长剑穿透侍卫长喉咙，\"我就是天命。\"说完反手抽回剑，路过你时顺手抹了你的脖子。",
     "isEnding": true,
-    "applicableTool": ["楚明允的欣赏"]
+    "applicableTool": [
+      "楚明允的欣赏"
+    ]
   },
   "ending_escape_home": {
     "title": "心灰意冷",
-    "text": "被抓的人个个神情激动，大声嚷嚷，\"放开我！我犯了什么罪！\"你听着甚是可怜，觉得陛下可能真的杀了无辜之人，不由得心灰意冷，<span class=\"character-name\">楚明允</span>这个君王并不值得自己为他肝脑涂地，于是连夜收拾细软，逃出了长安，回到故乡过上了与世隔绝的平静生活。",
+    "text": "　　被抓的人个个神情激动，大声嚷嚷，\"放开我！我犯了什么罪！\"你听着甚是可怜，觉得陛下可能真的杀了无辜之人，不由得心灰意冷，<span class=\"character-name\">楚明允</span>这个君王并不值得自己为他肝脑涂地，于是连夜收拾细软，逃出了长安，回到故乡过上了与世隔绝的平静生活。",
     "isEnding": true
   },
   "ending_desertion_death": {
     "title": "逃兵该死",
-    "text": "自己的命大过天，没有什么比自己重要。你环顾着打算逃命，可鬼祟的模样很快被统领发现，\"混账！家国危难只顾自己逃亡！\"说着他便一刀砍了你。",
+    "text": "　　自己的命大过天，没有什么比自己重要。你环顾着打算逃命，可鬼祟的模样很快被统领发现，\"混账！家国危难只顾自己逃亡！\"说着他便一刀砍了你。",
     "isEnding": true,
-    "applicableTool": ["楚明允的白眼", "苏世誉的无语", "楚明允的认同"]
+    "applicableTool": [
+      "楚明允的白眼",
+      "苏世誉的无语",
+      "楚明允的认同"
+    ]
   },
   "ending_defend_changan": {
     "title": "守住长安",
-    "text": "与匈奴兵奋力对抗，拒兵死守，己方死伤大半时，羽林军降临扭转败局，士气高涨。最终守住了长安城。你看着<span class=\"character-name\">楚明允</span>抱着<span class=\"character-name\">苏世誉</span>从战场出来，不禁松了一口气，还好他们没事。……等等，他们什么时候在一起的？",
+    "text": "　　与匈奴兵奋力对抗，拒兵死守，己方死伤大半时，羽林军降临扭转败局，士气高涨。最终守住了长安城。你看着<span class=\"character-name\">楚明允</span>抱着<span class=\"character-name\">苏世誉</span>从战场出来，不禁松了一口气，还好他们没事。……等等，他们什么时候在一起的？",
     "isEnding": true,
     "bonus": "触发SSR结局，加1张传送卡及2点生命值。",
     "specialEnding": "SSR"
   },
   "ending_real_sick_death": {
     "title": "装病的忌讳",
-    "text": "本是装病，没想到犯了忌讳，还真的病了。病痛来势汹汹，即便你身体强健，也只能卧病在床，身体越来越虚弱，因为这场重病，你的生命到此为止。",
+    "text": "　　本是装病，没想到犯了忌讳，还真的病了。病痛来势汹汹，即便你身体强健，也只能卧病在床，身体越来越虚弱，因为这场重病，你的生命到此为止。",
     "isEnding": true
   },
   "ending_luoxin_death": {
     "title": "迁怒害命",
-    "text": "原来根本没有什么淮南余孽，一切都是西陵王<span class=\"character-name\">李承化</span>在暗中操纵权柄。他想要得到援军兵符，竟给<span class=\"character-name\">洛辛</span>喂罂粟毒粉。<span class=\"character-name\">洛辛</span>被折磨得不成人样也没有说出兵符在何处，西陵王气不过，将一同被俘虏的你杀了泄愤。",
+    "text": "　　原来根本没有什么淮南余孽，一切都是西陵王<span class=\"character-name\">李承化</span>在暗中操纵权柄。他想要得到援军兵符，竟给<span class=\"character-name\">洛辛</span>喂罂粟毒粉。<span class=\"character-name\">洛辛</span>被折磨得不成人样也没有说出兵符在何处，西陵王气不过，将一同被俘虏的你杀了泄愤。",
     "isEnding": true,
-    "applicableTool": ["楚明允的白眼", "苏世誉的无语", "楚明允的认同"]
+    "applicableTool": [
+      "楚明允的白眼",
+      "苏世誉的无语",
+      "楚明允的认同"
+    ]
   },
   "ending_betray_zhao": {
     "title": "好大喜功",
-    "text": "你急着立功，见<span class=\"character-name\">赵恪靖</span>一动不动，认为他不听命令，必是起了异心，你打算从背后偷袭他，也为自己挣一份清理叛徒的功名。你的剑刚挨上他后背，就被他生擒杀了。",
+    "text": "　　你急着立功，见<span class=\"character-name\">赵恪靖</span>一动不动，认为他不听命令，必是起了异心，你打算从背后偷袭他，也为自己挣一份清理叛徒的功名。你的剑刚挨上他后背，就被他生擒杀了。",
     "isEnding": true,
-    "applicableTool": ["楚明允的白眼", "苏世誉的无语", "楚明允的认同"]
+    "applicableTool": [
+      "楚明允的白眼",
+      "苏世誉的无语",
+      "楚明允的认同"
+    ]
   },
   "ending_harsh_judge": {
     "title": "卫戍部队长",
-    "text": "你是个果断心狠的人，淮南事宜结束后，你回了京，从小兵小卒慢慢往上爬，直至卫戍部队长的位置。",
+    "text": "　　你是个果断心狠的人，淮南事宜结束后，你回了京，从小兵小卒慢慢往上爬，直至卫戍部队长的位置。",
     "isEnding": true
   },
   "ending_soft_heart": {
     "title": "重铸淮南",
-    "text": "你是个心肠柔软的人，看着断壁残垣的寿春，主动请缨留在淮南，帮助当地重铸家园。此后便一直待在了淮南。",
+    "text": "　　你是个心肠柔软的人，看着断壁残垣的寿春，主动请缨留在淮南，帮助当地重铸家园。此后便一直待在了淮南。",
     "isEnding": true
   },
   "ending_monk_life": {
     "title": "遁入空门",
-    "text": "你是个思想通透的人，被云游的僧人发现了慧根，从此遁入空门。",
+    "text": "　　你是个思想通透的人，被云游的僧人发现了慧根，从此遁入空门。",
     "isEnding": true
   },
   "43": {
     "title": "楚太尉的态度",
-    "text": "<span class=\"character-name\">洛辛</span>明显是苏大人的人，此举无疑是分夺<span class=\"character-name\">楚太尉</span>的军权。您将想法告知<span class=\"character-name\">楚太尉</span>，对方却眼也没抬。不咸不淡地将您推了回去。您选择：",
+    "text": "　　<span class=\"character-name\">洛辛</span>明显是苏大人的人，此举无疑是分夺<span class=\"character-name\">楚太尉</span>的军权。您将想法告知<span class=\"character-name\">楚太尉</span>，对方却眼也没抬。不咸不淡地将您推了回去。您选择：",
     "choices": [
-      { "text": "a. 呵，他都不在意那我在意什么", "action": "ignore_matter", "nextNode": "40" },
-      { "text": "b. 啧，不对，他这是在暗示我", "action": "understand_hint", "nextNode": "ending_building_collapse" }
+      {
+        "text": "a. 呵，他都不在意那我在意什么",
+        "action": "ignore_matter",
+        "nextNode": "40"
+      },
+      {
+        "text": "b. 啧，不对，他这是在暗示我",
+        "action": "understand_hint",
+        "nextNode": "ending_building_collapse"
+      }
     ]
   },
   "44": {
     "title": "淮南军伍",
-    "text": "您被派往淮南，但军中各有派属，具体去向需要谨慎抉择。您选择：",
+    "text": "　　您被派往淮南，但军中各有派属，具体去向需要谨慎抉择。您选择：",
     "choices": [
-      { "text": "a. 入归淮南王麾下听用", "action": "join_huainan_king", "nextNode": "45" },
-      { "text": "b. 加入南境军营", "action": "join_south_camp", "nextNode": "54" },
-      { "text": "c. 驻寿春城防", "action": "guard_shouchun", "nextNode": "55" }
+      {
+        "text": "a. 入归淮南王麾下听用",
+        "action": "join_huainan_king",
+        "nextNode": "45"
+      },
+      {
+        "text": "b. 加入南境军营",
+        "action": "join_south_camp",
+        "nextNode": "54"
+      },
+      {
+        "text": "c. 驻寿春城防",
+        "action": "guard_shouchun",
+        "nextNode": "55"
+      }
     ]
   },
   "45": {
     "title": "淮南的违和感",
-    "text": "您成为了淮南王手下的一员，但奇怪的是您好像从来没见过淮南王的模样，只知道他身边有个无名谋士，在为他出谋划策。周围一切都透着一股违和感，但不等您查清原委，便听说御史大夫<span class=\"character-name\">苏世誉</span>来淮南巡狩，淮南王却紧闭城门拒不相迎。您选择：",
+    "text": "　　您成为了淮南王手下的一员，但奇怪的是您好像从来没见过淮南王的模样，只知道他身边有个无名谋士，在为他出谋划策。周围一切都透着一股违和感，但不等您查清原委，便听说御史大夫<span class=\"character-name\">苏世誉</span>来淮南巡狩，淮南王却紧闭城门拒不相迎。您选择：",
     "choices": [
-      { "text": "a. 苏大人代天子巡狩，拒之门外乃是大罪", "action": "open_gate", "nextNode": "ending_knife_death" },
-      { "text": "b. 既然已在淮南王手下办事，那定是听从王令", "action": "follow_king", "nextNode": "46" }
+      {
+        "text": "a. 苏大人代天子巡狩，拒之门外乃是大罪",
+        "action": "open_gate",
+        "nextNode": "ending_knife_death"
+      },
+      {
+        "text": "b. 既然已在淮南王手下办事，那定是听从王令",
+        "action": "follow_king",
+        "nextNode": "46"
+      }
     ]
   },
   "46": {
     "title": "局势陡转",
-    "text": "一夜过去，局势陡转，无名谋士取下淮南王首级向<span class=\"character-name\">苏世誉</span>献降，并承认是自己助淮南王在京中搅动，用了许多阴毒手段。在苏大人将淮南罂粟花田付诸一炬时，无名谋士再次请求赦免无辜之人，转而跃进火海。苏大人并无反应，只淡笑一声,巡狩完便回了京。",
+    "text": "　　一夜过去，局势陡转，无名谋士取下淮南王首级向<span class=\"character-name\">苏世誉</span>献降，并承认是自己助淮南王在京中搅动，用了许多阴毒手段。在苏大人将淮南罂粟花田付诸一炬时，无名谋士再次请求赦免无辜之人，转而跃进火海。苏大人并无反应，只淡笑一声,巡狩完便回了京。",
     "choices": [
-      { "text": "继续", "action": "continue_story", "nextNode": "47" }
+      {
+        "text": "继续",
+        "action": "continue_story",
+        "nextNode": "47"
+      }
     ]
   },
   "47": {
     "title": "淮南背后之人",
-    "text": "后来您见到了西陵王才知道，原来淮南王只是个噱头，真正掌控淮南之人是西陵王。您大吃一惊。几月后，寿春县丞全家被杀。上边的人开始分配任务。您选择：",
+    "text": "　　后来您见到了西陵王才知道，原来淮南王只是个噱头，真正掌控淮南之人是西陵王。您大吃一惊。几月后，寿春县丞全家被杀。上边的人开始分配任务。您选择：",
     "choices": [
-      { "text": "a. 蹲守县丞府邸", "action": "guard_mansion", "nextNode": "53" },
-      { "text": "b. 假扮寿春百姓", "action": "disguise_citizen", "nextNode": "48" },
-      { "text": "c. 无法接受自己竟是如此恶毒之人的手下", "action": "refuse_evil", "nextNode": "ending_disobedient_death" }
+      {
+        "text": "a. 蹲守县丞府邸",
+        "action": "guard_mansion",
+        "nextNode": "53"
+      },
+      {
+        "text": "b. 假扮寿春百姓",
+        "action": "disguise_citizen",
+        "nextNode": "48"
+      },
+      {
+        "text": "c. 无法接受自己竟是如此恶毒之人的手下",
+        "action": "refuse_evil",
+        "nextNode": "ending_disobedient_death"
+      }
     ]
   },
   "48": {
     "title": "客栈偶遇",
-    "text": "您被安排进寿春假扮成城中百姓。在客栈吃饭时您看见了<span class=\"character-name\">楚明允</span>与<span class=\"character-name\">苏世誉</span>，他们要了一间房，说是打算住些时日，应当是来淮南查案的。夜晚时分，他们二人悄悄出了客栈。您选择：",
+    "text": "　　您被安排进寿春假扮成城中百姓。在客栈吃饭时您看见了<span class=\"character-name\">楚明允</span>与<span class=\"character-name\">苏世誉</span>，他们要了一间房，说是打算住些时日，应当是来淮南查案的。夜晚时分，他们二人悄悄出了客栈。您选择：",
     "choices": [
-      { "text": "a. 跟踪他们", "action": "follow_them", "nextNode": "ending_tracking_death" },
-      { "text": "b. 回去睡觉", "action": "go_sleep", "nextNode": "49" },
-      { "text": "c. 打小报告", "action": "report", "nextNode": "52" }
+      {
+        "text": "a. 跟踪他们",
+        "action": "follow_them",
+        "nextNode": "ending_tracking_death"
+      },
+      {
+        "text": "b. 回去睡觉",
+        "action": "go_sleep",
+        "nextNode": "49"
+      },
+      {
+        "text": "c. 打小报告",
+        "action": "report",
+        "nextNode": "52"
+      }
     ]
   },
   "49": {
     "title": "韩府的鸿门宴",
-    "text": "几日后，您被安插进郡守<span class=\"character-name\">韩仲文</span>的府邸充当府兵，包装成宴会的韩府已化作修罗场，无数弓箭手围追堵截，<span class=\"character-name\">苏世誉</span>为护着<span class=\"character-name\">楚明允</span>而中了毒箭，两人艰难地逃出箭雨。您的态度是：",
+    "text": "　　几日后，您被安插进郡守<span class=\"character-name\">韩仲文</span>的府邸充当府兵，包装成宴会的韩府已化作修罗场，无数弓箭手围追堵截，<span class=\"character-name\">苏世誉</span>为护着<span class=\"character-name\">楚明允</span>而中了毒箭，两人艰难地逃出箭雨。您的态度是：",
     "choices": [
-      { "text": "a. 勇敢", "action": "brave", "nextNode": "ending_brave_death" },
-      { "text": "b. 退却", "action": "retreat", "nextNode": "50" }
+      {
+        "text": "a. 勇敢",
+        "action": "brave",
+        "nextNode": "ending_brave_death"
+      },
+      {
+        "text": "b. 退却",
+        "action": "retreat",
+        "nextNode": "50"
+      }
     ]
   },
   "50": {
     "title": "门口的怪物",
-    "text": "您自知没实力将此二人斩杀，于是借着地形打算跑出韩府，与外面的兄弟们汇合。可是<span class=\"character-name\">韩仲文</span>弄来了个怪物守在门口，那怪物可能是个人，不知疲惫没有痛感。您心想：",
+    "text": "　　您自知没实力将此二人斩杀，于是借着地形打算跑出韩府，与外面的兄弟们汇合。可是<span class=\"character-name\">韩仲文</span>弄来了个怪物守在门口，那怪物可能是个人，不知疲惫没有痛感。您心想：",
     "choices": [
-      { "text": "a. 这怪物是什么？", "action": "what_monster", "nextNode": "ending_monster_death" },
-      { "text": "b. 那我怎么出去？", "action": "how_escape", "nextNode": "51" }
+      {
+        "text": "a. 这怪物是什么？",
+        "action": "what_monster",
+        "nextNode": "ending_monster_death"
+      },
+      {
+        "text": "b. 那我怎么出去？",
+        "action": "how_escape",
+        "nextNode": "51"
+      }
     ]
   },
   "51": {
     "title": "小巷的追杀",
-    "text": "您对怪物不感兴趣，从墙根的一个狗洞里钻了出来，迅速回到居所，穿上黑衣。不一会儿就听到了尖锐啸声，您手持兵器出来集结成队，追杀逃出韩府的楚苏二人。小队四处搜寻，看到一个漆黑的巷口。您看到：",
+    "text": "　　您对怪物不感兴趣，从墙根的一个狗洞里钻了出来，迅速回到居所，穿上黑衣。不一会儿就听到了尖锐啸声，您手持兵器出来集结成队，追杀逃出韩府的楚苏二人。小队四处搜寻，看到一个漆黑的巷口。您看到：",
     "choices": [
-      { "text": "a. 里面没人", "action": "empty_alley", "nextNode": "ending_empty_alley_death" },
-      { "text": "b. 里面有人", "action": "someone_there", "nextNode": "ending_head_crush" }
+      {
+        "text": "a. 里面没人",
+        "action": "empty_alley",
+        "nextNode": "ending_empty_alley_death"
+      },
+      {
+        "text": "b. 里面有人",
+        "action": "someone_there",
+        "nextNode": "ending_head_crush"
+      }
     ]
   },
   "52": {
     "title": "世子身份的铜符",
-    "text": "上边很欣赏您的识趣儿，任命您为戍卫头领，让您守着寿春城门，无令牌任何人不得放行。几日后的一晚，死街复燃，混乱声起。一辆马车疾驰而来，您厉声拦下，马车内却伸出一只手，握着代表西陵王世子身份的铜符。您选择：",
+    "text": "　　上边很欣赏您的识趣儿，任命您为戍卫头领，让您守着寿春城门，无令牌任何人不得放行。几日后的一晚，死街复燃，混乱声起。一辆马车疾驰而来，您厉声拦下，马车内却伸出一只手，握着代表西陵王世子身份的铜符。您选择：",
     "choices": [
-      { "text": "a. 放行", "action": "let_pass", "nextNode": "ending_let_pass_death" },
-      { "text": "b. 存疑", "action": "doubt", "nextNode": "ending_doubt_death" }
+      {
+        "text": "a. 放行",
+        "action": "let_pass",
+        "nextNode": "ending_let_pass_death"
+      },
+      {
+        "text": "b. 存疑",
+        "action": "doubt",
+        "nextNode": "ending_doubt_death"
+      }
     ]
   },
   "53": {
     "title": "蹲守县丞府邸",
-    "text": "您一直蹲守这里，功夫不负有心人，有个晚上，真有两个人到县丞府邸查线索。是<span class=\"character-name\">楚明允</span>和<span class=\"character-name\">苏世誉</span>。终于等到两人没黏在一起，而是分别处于屋内屋外。您选择：",
+    "text": "　　您一直蹲守这里，功夫不负有心人，有个晚上，真有两个人到县丞府邸查线索。是<span class=\"character-name\">楚明允</span>和<span class=\"character-name\">苏世誉</span>。终于等到两人没黏在一起，而是分别处于屋内屋外。您选择：",
     "choices": [
-      { "text": "a. 打屋外的苏世誉，他这斯文模样看着就好打", "action": "attack_su", "nextNode": "ending_su_combat" },
-      { "text": "b. 打屋内的楚明允，他虽然强但是很有挑战性", "action": "attack_chu", "nextNode": "ending_chu_combat" }
+      {
+        "text": "a. 打屋外的苏世誉，他这斯文模样看着就好打",
+        "action": "attack_su",
+        "nextNode": "ending_su_combat"
+      },
+      {
+        "text": "b. 打屋内的楚明允，他虽然强但是很有挑战性",
+        "action": "attack_chu",
+        "nextNode": "ending_chu_combat"
+      }
     ]
   },
   "54": {
     "title": "南境军营的晋升",
-    "text": "您在南境军营中表现出色，职务得以逐步晋升。军中面临关键人事安排，出任将领，职权沉重。您选择：",
+    "text": "　　您在南境军营中表现出色，职务得以逐步晋升。军中面临关键人事安排，出任将领，职权沉重。您选择：",
     "choices": [
-      { "text": "a. 掌控战略决策与全局指挥大权", "action": "strategic_commander", "nextNode": "ending_corruption_death" },
-      { "text": "b. 具体战术执行与局部事务管理", "action": "tactical_commander", "nextNode": "ending_loyal_service" }
+      {
+        "text": "a. 掌控战略决策与全局指挥大权",
+        "action": "strategic_commander",
+        "nextNode": "ending_corruption_death"
+      },
+      {
+        "text": "b. 具体战术执行与局部事务管理",
+        "action": "tactical_commander",
+        "nextNode": "ending_loyal_service"
+      }
     ]
   },
   "55": {
     "title": "寿春城大屠杀",
-    "text": "您是寿春守军中的一个小兵，驻守在城外。半夜时守军都统的夫人云娘跑来说寿春城被关起来封死了，都统立马带你们赶去城门。在与守在城门的人打起来时，城内传来一声比一声凄厉的惨叫。撞开城门，里面血光冲天，竟在屠城！您的心情是：",
+    "text": "　　您是寿春守军中的一个小兵，驻守在城外。半夜时守军都统的夫人云娘跑来说寿春城被关起来封死了，都统立马带你们赶去城门。在与守在城门的人打起来时，城内传来一声比一声凄厉的惨叫。撞开城门，里面血光冲天，竟在屠城！您的心情是：",
     "choices": [
-      { "text": "a. 惊", "action": "shock", "nextNode": "56" },
-      { "text": "b. 惧", "action": "fear", "nextNode": "ending_fear_death" },
-      { "text": "c. 恨", "action": "hate", "nextNode": "ending_hate_death" }
+      {
+        "text": "a. 惊",
+        "action": "shock",
+        "nextNode": "56"
+      },
+      {
+        "text": "b. 惧",
+        "action": "fear",
+        "nextNode": "ending_fear_death"
+      },
+      {
+        "text": "c. 恨",
+        "action": "hate",
+        "nextNode": "ending_hate_death"
+      }
     ]
   },
   "56": {
     "title": "山洞的庇护",
-    "text": "都统知道自己带来的人不够，转眼之间做出抉择，他敲晕了云娘，将自己的长剑给她，拜托您将她带走，并保护那些拼死逃出成的百姓。您带着他们躲在城外深山的一处隐秘山洞里，勉强活了下来。可洞中阴冷，缺衣少食。您选择：",
+    "text": "　　都统知道自己带来的人不够，转眼之间做出抉择，他敲晕了云娘，将自己的长剑给她，拜托您将她带走，并保护那些拼死逃出成的百姓。您带着他们躲在城外深山的一处隐秘山洞里，勉强活了下来。可洞中阴冷，缺衣少食。您选择：",
     "choices": [
-      { "text": "a. 出去找点吃穿", "action": "find_supplies", "nextNode": "57" },
-      { "text": "b. 在这里守着他们", "action": "stay_guard", "nextNode": "59" }
+      {
+        "text": "a. 出去找点吃穿",
+        "action": "find_supplies",
+        "nextNode": "57"
+      },
+      {
+        "text": "b. 在这里守着他们",
+        "action": "stay_guard",
+        "nextNode": "59"
+      }
     ]
   },
   "57": {
     "title": "拦截马车",
-    "text": "云娘组织了一队人出去，您也自告奋勇前往。大家带上柴刀木棍，在人迹寥寥的官道周围蹲伏一会儿，发现了一辆马车缓缓驶来，立即猛冲了上去。车夫被控制住，马车后面跌坐着一位抱着孩子的妇人，您看到孩子挂着一枚纯银的长命锁，扑上欲扯，那妇人连忙将孩子护住，拔下自己的金钗递给您。您仔细打量这妇人，觉得此人眼熟，叫来云娘辨认——果然是那狗贼的夫人。",
+    "text": "　　云娘组织了一队人出去，您也自告奋勇前往。大家带上柴刀木棍，在人迹寥寥的官道周围蹲伏一会儿，发现了一辆马车缓缓驶来，立即猛冲了上去。<br><br>　　车夫被控制住，马车后面跌坐着一位抱着孩子的妇人。您看到孩子挂着一枚纯银的长命锁，扑上欲扯，那妇人连忙将孩子护住，拔下自己的金钗递给您。您仔细打量这妇人，觉得此人眼熟，叫来云娘辨认——果然是那狗贼的夫人。",
     "choices": [
-      { "text": "继续", "action": "continue_story", "nextNode": "58" }
+      {
+        "text": "继续",
+        "action": "continue_story",
+        "nextNode": "58"
+      }
     ]
   },
   "58": {
     "title": "两个青年",
-    "text": "云娘拔剑就要杀了她，却被一截飞来的断枝阻止，远处两个青年长身玉立，一蓝一白，单看气质就极不好惹。云娘拾起长剑，招呼大家快走，即便心有不甘，也只能先回山洞。您选择：",
+    "text": "　　云娘拔剑就要杀了她，却被一截飞来的断枝阻止，远处两个青年长身玉立，一蓝一白，单看气质就极不好惹。云娘拾起长剑，招呼大家快走，即便心有不甘，也只能先回山洞。您选择：",
     "choices": [
-      { "text": "a. 从长计议", "action": "long_term_plan", "nextNode": "59" },
-      { "text": "b. 速战速决", "action": "quick_action", "nextNode": "ending_quick_action_death" }
+      {
+        "text": "a. 从长计议",
+        "action": "long_term_plan",
+        "nextNode": "59"
+      },
+      {
+        "text": "b. 速战速决",
+        "action": "quick_action",
+        "nextNode": "ending_quick_action_death"
+      }
     ]
   },
   "59": {
     "title": "带走云娘",
-    "text": "山洞里大家抱团取暖，没再组织人去截杀。尚有精力的小伙子主动担起外出找食物的担子。找回来的吃食一天比一天少，好些人都支撑不下去了，情绪也愈发消极低落。情况糟糕得不能再糟糕时，一个自称是御史大夫仆从的少年带了一袋酥饼来，要求云娘跟他们走一趟。您的态度是：",
+    "text": "　　山洞里大家抱团取暖，没再组织人去截杀。尚有精力的小伙子主动担起外出找食物的担子。找回来的吃食一天比一天少，好些人都支撑不下去了，情绪也愈发消极低落。情况糟糕得不能再糟糕时，一个自称是御史大夫仆从的少年带了一袋酥饼来，要求云娘跟他们走一趟。您的态度是：",
     "choices": [
-      { "text": "a. 警惕", "action": "vigilant", "nextNode": "ending_vigilant_justice" },
-      { "text": "b. 担忧", "action": "worried", "nextNode": "ending_worried_peace" }
+      {
+        "text": "a. 警惕",
+        "action": "vigilant",
+        "nextNode": "ending_vigilant_justice"
+      },
+      {
+        "text": "b. 担忧",
+        "action": "worried",
+        "nextNode": "ending_worried_peace"
+      }
     ]
   },
   "60": {
     "title": "未央宫宴会的异状",
-    "text": "委您以任，予以官袍。心中壮志如潮，誓要于风云变幻的朝堂之上做出一番功绩。<br><br> 几月后的冬至，参加完祭天大典，皇帝于未央宫大宴群臣。朝廷的两巨头<span class=\"character-name\">楚明允</span><span class=\"character-name\">苏世誉</span>分别坐在左右首。您见苏大人连连被人缠上敬酒，他对面的楚大人因那一贯戾气而无人敢上前叨扰，倒是落了个清净。<br><br> 宴至一半，您打算去给<span class=\"character-name\">楚明允</span>敬杯酒，却看见他被宫娥悄声叫走。您觉得：",
+    "text": "　　委您以任，予以官袍。心中壮志如潮，誓要于风云变幻的朝堂之上做出一番功绩。<br><br>　　几月后的冬至，参加完祭天大典，皇帝于未央宫大宴群臣。朝廷的两巨头<span class=\"character-name\">楚明允</span><span class=\"character-name\">苏世誉</span>分别坐在左右首。您见苏大人连连被人缠上敬酒，他对面的楚大人因那一贯戾气而无人敢上前叨扰，倒是落了个清净。<br><br>　　宴至一半，您打算去给<span class=\"character-name\">楚明允</span>敬杯酒，却看见他被宫娥悄声叫走。您觉得：",
     "choices": [
-      { "text": "a. 真不凑巧", "action": "unlucky_timing", "nextNode": "61" },
-      { "text": "b. 真是稀奇", "action": "curious_exit", "nextNode": "90" },
-      { "text": "c. 真没眼色", "action": "call_chu_back", "nextNode": "ending_palace_interrupt_death" }
+      {
+        "text": "a. 真不凑巧",
+        "action": "unlucky_timing",
+        "nextNode": "61"
+      },
+      {
+        "text": "b. 真是稀奇",
+        "action": "curious_exit",
+        "nextNode": "90"
+      },
+      {
+        "text": "c. 真没眼色",
+        "action": "call_chu_back",
+        "nextNode": "ending_palace_interrupt_death"
+      }
     ]
   },
   "61": {
     "title": "席间抉择",
-    "text": "您重新在座位上坐下，酒又过了几巡，楚大人回到殿中，往苏大人的方向走去。您选择：",
+    "text": "　　您重新在座位上坐下，酒又过了几巡，楚大人回到殿中，往苏大人的方向走去。您选择：",
     "choices": [
-      { "text": "a. 惦记着刚刚没敬上的酒，寻思正好向苏大人也敬上一杯", "action": "toast_su", "nextNode": "91" },
-      { "text": "b. 楚大人看上去想跟苏大人单独待着，自己还是别过去了", "action": "give_space", "nextNode": "92" }
+      {
+        "text": "a. 惦记着刚刚没敬上的酒，寻思正好向苏大人也敬上一杯",
+        "action": "toast_su",
+        "nextNode": "91"
+      },
+      {
+        "text": "b. 楚大人看上去想跟苏大人单独待着，自己还是别过去了",
+        "action": "give_space",
+        "nextNode": "92"
+      }
     ]
   },
   "62": {
     "title": "商海之路",
-    "text": "逐利之途无穷，惟热爱能久行。您从心所向出发，所好为何？",
+    "text": "　　逐利之途无穷，惟热爱能久行。您从心所向出发，所好为何？",
     "choices": [
-      { "text": "a. 寻万里山河", "action": "explore_mountains", "nextNode": "63" },
-      { "text": "b. 迎八方来客", "action": "welcome_guests", "nextNode": "82" },
-      { "text": "c. 守一门技艺", "action": "master_skill", "nextNode": "152" },
-      { "text": "d. 赏人世笙歌", "action": "enjoy_music", "nextNode": "158" }
+      {
+        "text": "a. 寻万里山河",
+        "action": "explore_mountains",
+        "nextNode": "63"
+      },
+      {
+        "text": "b. 迎八方来客",
+        "action": "welcome_guests",
+        "nextNode": "82"
+      },
+      {
+        "text": "c. 守一门技艺",
+        "action": "master_skill",
+        "nextNode": "152"
+      },
+      {
+        "text": "d. 赏人世笙歌",
+        "action": "enjoy_music",
+        "nextNode": "158"
+      }
     ]
   },
   "63": {
     "title": "襄阳的琴师",
-    "text": "您成为了一位行商，将药材经水路运往全国各地。襄阳是一处重要的集运枢纽，您在当地人脉甚广。那日您依例经停襄阳，在乐坊稍歇，凭栏望去，见到您熟识的琴师澜依姑娘正站在柳荫下。您打算去和她叙叙旧，却听她突然冲你身后叫道：\"苏哥哥！\"她提裙跑来，却似一步未踩稳，身形一歪。您：",
+    "text": "　　您成为了一位行商，将药材经水路运往全国各地。襄阳是一处重要的集运枢纽，您在当地人脉甚广。那日您依例经停襄阳，在乐坊稍歇，凭栏望去，见到您熟识的琴师澜依姑娘正站在柳荫下。您打算去和她叙叙旧，却听她突然冲你身后叫道：\"苏哥哥！\"她提裙跑来，却似一步未踩稳，身形一歪。您：",
     "choices": [
-      { "text": "a. 眼疾手快，扶住了她", "action": "help_lanyi", "nextNode": "64" },
-      { "text": "b. 伸手欲扶，却被一袭白衫抢先了", "action": "white_robe_first", "nextNode": "65" },
-      { "text": "c. 伸手去扶，却被人流一冲，反而推着澜依一齐往前栽去", "action": "crowd_push", "nextNode": "66" }
+      {
+        "text": "a. 眼疾手快，扶住了她",
+        "action": "help_lanyi",
+        "nextNode": "64"
+      },
+      {
+        "text": "b. 伸手欲扶，却被一袭白衫抢先了",
+        "action": "white_robe_first",
+        "nextNode": "65"
+      },
+      {
+        "text": "c. 伸手去扶，却被人流一冲，反而推着澜依一齐往前栽去",
+        "action": "crowd_push",
+        "nextNode": "66"
+      }
     ]
   },
   "64": {
     "title": "澜依的不满",
-    "text": "澜依一愣，嘴一撇竟似有不满。您正纳闷，身后传来一道温润的声音：\"多谢这位先生相扶，澜依今日有些毛躁了。\"澜依轻嗔道：\"哪有，苏哥哥整日繁忙不常来找我，我看见苏哥哥兴奋不行吗？\"您自觉有些多余，便告辞离开了。",
+    "text": "　　澜依一愣，嘴一撇竟似有不满。您正纳闷，身后传来一道温润的声音：\"多谢这位先生相扶，澜依今日有些毛躁了。\"澜依轻嗔道：\"哪有，苏哥哥整日繁忙不常来找我，我看见苏哥哥兴奋不行吗？\"您自觉有些多余，便告辞离开了。",
     "choices": [
-      { "text": "继续", "action": "continue_story", "nextNode": "67" }
+      {
+        "text": "继续",
+        "action": "continue_story",
+        "nextNode": "67"
+      }
     ]
   },
   "65": {
     "title": "日后再叙",
-    "text": "您看澜依热切地抓着来人手臂，自觉有些多余，决定之后再叙旧。",
+    "text": "　　您看澜依热切地抓着来人手臂，自觉有些多余，决定之后再叙旧。",
     "choices": [
-      { "text": "继续", "action": "continue_story", "nextNode": "67" }
+      {
+        "text": "继续",
+        "action": "continue_story",
+        "nextNode": "67"
+      }
     ]
   },
   "66": {
     "title": "两位大人物",
-    "text": "您和澜依一同栽向一位白衣人，却也撞得他倒退一步，落入身后一位墨蓝色衣服、面色不善的人怀里。那人长臂一伸，揽住白衣人的肩膀扶他站稳，眉眼间的戾气倒是散去了不少，甚至众人站稳后也没放开。站定后，您终于认出了这两位京中的大人物，选择：",
+    "text": "　　您和澜依一同栽向一位白衣人，却也撞得他倒退一步，落入身后一位墨蓝色衣服、面色不善的人怀里。那人长臂一伸，揽住白衣人的肩膀扶他站稳，眉眼间的戾气倒是散去了不少，甚至众人站稳后也没放开。站定后，您终于认出了这两位京中的大人物，选择：",
     "choices": [
-      { "text": "a. 借机与两位大人攀谈，为日后行商铺路", "action": "talk_with_lords", "nextNode": "68" },
-      { "text": "b. 道歉后赶紧开溜，修罗场不宜久留", "action": "apologize_and_leave", "nextNode": "67" }
+      {
+        "text": "a. 借机与两位大人攀谈，为日后行商铺路",
+        "action": "talk_with_lords",
+        "nextNode": "68"
+      },
+      {
+        "text": "b. 道歉后赶紧开溜，修罗场不宜久留",
+        "action": "apologize_and_leave",
+        "nextNode": "67"
+      }
     ]
   },
   "67": {
     "title": "淮南的商机",
-    "text": "襄阳的同行说起，近日淮南追加了不少药材订单，要得急，给得多。您嗅到了商机，决定将这批货物调往淮南，同时自己先行前往洽谈。次日，您租了一艘画舫，乘着滔滔江水，一日顺流百里。您突然注意到江中另有一艘画舫，您选择：",
+    "text": "　　襄阳的同行说起，近日淮南追加了不少药材订单，要得急，给得多。您嗅到了商机，决定将这批货物调往淮南，同时自己先行前往洽谈。次日，您租了一艘画舫，乘着滔滔江水，一日顺流百里。您突然注意到江中另有一艘画舫，您选择：",
     "choices": [
-      { "text": "a. 驶近看看", "action": "approach_boat", "nextNode": "70" },
-      { "text": "b. 不看，少管闲事", "action": "ignore_boat", "nextNode": "69" }
+      {
+        "text": "a. 驶近看看",
+        "action": "approach_boat",
+        "nextNode": "70"
+      },
+      {
+        "text": "b. 不看，少管闲事",
+        "action": "ignore_boat",
+        "nextNode": "69"
+      }
     ]
   },
   "68": {
     "title": "倾家荡产重谋生计",
-    "text": "苏大人虽客客气气地笑着，您却心底生寒。没谈几句，苏大人提出送崴了脚的澜依回去。您正要自告奋勇代劳，却被苏大人淡淡地瞥了一眼，您不自觉地止住了话头。楚大人也已头也不回地离开。没过几日，各县开始追查官商勾结，您不得不缴纳巨额罚款，因此倾家荡产。为谋生计，您成了：",
+    "text": "　　苏大人虽客客气气地笑着，您却心底生寒。没谈几句，苏大人提出送崴了脚的澜依回去。您正要自告奋勇代劳，却被苏大人淡淡地瞥了一眼，您不自觉地止住了话头。楚大人也已头也不回地离开。没过几日，各县开始追查官商勾结，您不得不缴纳巨额罚款，因此倾家荡产。为谋生计，您成了：",
     "choices": [
-      { "text": "a. 地方官员府中杂役", "action": "government_servant", "nextNode": "71" },
-      { "text": "b. 酒楼小厮", "action": "restaurant_waiter", "nextNode": "151" },
-      { "text": "c. 辗转各地的杂贩", "action": "wandering_vendor", "nextNode": "142" }
+      {
+        "text": "a. 地方官员府中杂役",
+        "action": "government_servant",
+        "nextNode": "71"
+      },
+      {
+        "text": "b. 酒楼小厮",
+        "action": "restaurant_waiter",
+        "nextNode": "151"
+      },
+      {
+        "text": "c. 辗转各地的杂贩",
+        "action": "wandering_vendor",
+        "nextNode": "142"
+      }
     ]
   },
   "69": {
     "title": "妖风的推动",
-    "text": "虽然您不欲管他人闲事，一阵妖风袭来，还是将您的画舫推向了那另一艘画舫。一切仿佛天注定，您不由得向窗外看去。",
+    "text": "　　虽然您不欲管他人闲事，一阵妖风袭来，还是将您的画舫推向了那另一艘画舫。一切仿佛天注定，您不由得向窗外看去。",
     "choices": [
-      { "text": "继续", "action": "continue_story", "nextNode": "70" }
+      {
+        "text": "继续",
+        "action": "continue_story",
+        "nextNode": "70"
+      }
     ]
   },
   "70": {
     "title": "画舫内的景色",
-    "text": "那艘画舫的窗半掩着，船舱内一人按住另一人的肩，贴得极近状若亲吻。您正寻思着看小情侣约会是否会遭雷劈，又见那人径直将未动之人按倒了下去。<br><br> 船舷阻隔了您的视线，须臾间一只素白的手从窗缝里一闪而过，自下而上，一探一落，似是勾住了上方那人的脖颈，或是轻抚他的面颊。您甚至幻觉从潺潺江水声中，听到了某种暧昧的水声。随后您看到一人陡然站起，怀里赫然抱着另一人。您选择：",
+    "text": "　　那艘画舫的窗半掩着，船舱内一人按住另一人的肩，贴得极近状若亲吻。您正寻思着看小情侣约会是否会遭雷劈，又见那人径直将未动之人按倒了下去。<br><br>　　船舷阻隔了您的视线，须臾间一只素白的手从窗缝里一闪而过，自下而上，一探一落，似是勾住了上方那人的脖颈，或是轻抚他的面颊。您甚至幻觉从潺潺江水声中，听到了某种暧昧的水声。<br><br>　　随后您看到一人陡然站起，怀里赫然抱着另一人。您选择：",
     "choices": [
-      { "text": "a. 实在好奇", "action": "very_curious", "nextNode": "ending_curious_water_death" },
-      { "text": "b. 非礼勿视", "action": "proper_behavior", "nextNode": "79" }
+      {
+        "text": "a. 实在好奇",
+        "action": "very_curious",
+        "nextNode": "ending_curious_water_death"
+      },
+      {
+        "text": "b. 非礼勿视",
+        "action": "proper_behavior",
+        "nextNode": "79"
+      }
     ]
   },
   "ending_building_collapse": {
     "title": "房屋倒塌",
-    "text": "你觉得楚太尉定是遭苏大人的掣肘，他意在提醒你要暗中帮助他。你内心的使命感油然而生，却在回去的路上发生意外，路旁的房屋突然倒塌，将你压在了梁柱瓦砾之下。",
+    "text": "　　你觉得楚太尉定是遭苏大人的掣肘，他意在提醒你要暗中帮助他。你内心的使命感油然而生，却在回去的路上发生意外，路旁的房屋突然倒塌，将你压在了梁柱瓦砾之下。",
     "isEnding": true
   },
   "ending_knife_death": {
     "title": "无名谋士灭口",
-    "text": "你自作主张，想打开城门迎接苏大人。手还没碰上城门门闩，一把匕首已插进体内，背后是悄无声息的无名谋士。",
+    "text": "　　你自作主张，想打开城门迎接苏大人。手还没碰上城门门闩，一把匕首已插进体内，背后是悄无声息的无名谋士。",
     "isEnding": true,
-    "applicableTool": ["楚明允的白眼", "苏世誉的无语", "楚明允的认同"]
+    "applicableTool": [
+      "楚明允的白眼",
+      "苏世誉的无语",
+      "楚明允的认同"
+    ]
   },
   "ending_disobedient_death": {
     "title": "不听话的狗",
-    "text": "西陵王不需要不听话的狗，不用他动手，韩仲文就率先将你处死以杀鸡儆猴。",
+    "text": "　　西陵王不需要不听话的狗，不用他动手，韩仲文就率先将你处死以杀鸡儆猴。",
     "isEnding": true,
-    "applicableTool": ["楚明允的白眼", "苏世誉的无语", "楚明允的认同"]
+    "applicableTool": [
+      "楚明允的白眼",
+      "苏世誉的无语",
+      "楚明允的认同"
+    ]
   },
   "ending_tracking_death": {
     "title": "跟踪失败",
-    "text": "经过一个转角后你就将人跟丢了，回过身时听到幽幽一句话，\"就这能力还敢玩跟踪。\"楚明允眼神锐利地审问你，你不知道该栽赃给谁，说自己只是路过。妄想偷袭一旁的苏世誉时脖子一凉，便失去了意识。",
+    "text": "　　经过一个转角后你就将人跟丢了，回过身时听到幽幽一句话，\"就这能力还敢玩跟踪。\"楚明允眼神锐利地审问你，你不知道该栽赃给谁，说自己只是路过。妄想偷袭一旁的苏世誉时脖子一凉，便失去了意识。",
     "isEnding": true,
-    "applicableTool": ["楚明允的欣赏"]
+    "applicableTool": [
+      "楚明允的欣赏"
+    ]
   },
   "ending_brave_death": {
     "title": "厉鬼现世",
-    "text": "你没想到即便带着个拖累，楚明允也能不落下风。眼看着苏世誉失去意识，梁进梁大人趁机偷袭，将剑穿透楚明允腰侧。楚明允毫无惧意，将梁进整个提起来，一刀刀活剐了他！那凄厉惨叫听得所有人头皮发麻，你看着宛若厉鬼的楚明允，惊恐得浑身颤栗。<br><br>楚明允安置好苏世誉后慢慢朝你们走来，而你们也不敢再退了，临死前你最后只想到那满地淋漓血肉。",
+    "text": "　　你没想到即便带着个拖累，楚明允也能不落下风。眼看着苏世誉失去意识，梁进梁大人趁机偷袭，将剑穿透楚明允腰侧。楚明允毫无惧意，将梁进整个提起来，一刀刀活剐了他！那凄厉惨叫听得所有人头皮发麻，你看着宛若厉鬼的楚明允，惊恐得浑身颤栗。<br><br>　　楚明允安置好苏世誉后慢慢朝你们走来，而你们也不敢再退了，临死前你最后只想到那满地淋漓血肉。",
     "isEnding": true,
-    "applicableTool": ["楚明允的欣赏"]
+    "applicableTool": [
+      "楚明允的欣赏"
+    ]
   },
   "ending_monster_death": {
     "title": "怪物的攻击",
-    "text": "怪物挡着门，你实在找不到机会逃跑，只能想办法躲开怪物不分敌我的扫射。你听到楚明允苏世誉靠近，心说他们要完了，结果听到当啷一声，紧接着是皮肉破开的声音，那怪物粗哑开口几个词，\"大人\"\"对不起\"\"没有叛\"\"快走！\"之后冲向迎来的刀剑。你被这怪物拱死了。",
+    "text": "　　怪物挡着门，你实在找不到机会逃跑，只能想办法躲开怪物不分敌我的扫射。你听到楚明允苏世誉靠近，心说他们要完了，结果听到当啷一声，紧接着是皮肉破开的声音，那怪物粗哑开口几个词，\"大人\"\"对不起\"\"没有叛\"\"快走！\"之后冲向迎来的刀剑。你被这怪物拱死了。",
     "isEnding": true,
-    "applicableTool": ["楚明允的白眼", "苏世誉的无语", "楚明允的认同"]
+    "applicableTool": [
+      "楚明允的白眼",
+      "苏世誉的无语",
+      "楚明允的认同"
+    ]
   },
   "ending_empty_alley_death": {
     "title": "身前是空巷",
-    "text": "你的小队拐到别的地方，谁知和疾行而来的楚明允苏世誉迎面撞上 ，楚明允立即搂着苏世誉凌空跃上高楼。你们观察楚明允飞檐走壁的方向往那个可能的巷口堵去，与韩府出来的人汇合。柳夫人从这条巷子里走出来，说小少爷不见了，你们立马散开去寻。而你还是疑心，去了小巷的另一头，刚好碰上出来的楚明允和苏世誉，刚想喊人就被他们灭了口。",
+    "text": "　　你的小队拐到别的地方，谁知和疾行而来的楚明允苏世誉迎面撞上 ，楚明允立即搂着苏世誉凌空跃上高楼。你们观察楚明允飞檐走壁的方向往那个可能的巷口堵去，与韩府出来的人汇合。柳夫人从这条巷子里走出来，说小少爷不见了，你们立马散开去寻。而你还是疑心，去了小巷的另一头，刚好碰上出来的楚明允和苏世誉，刚想喊人就被他们灭了口。",
     "isEnding": true,
-    "applicableTool": ["楚明允的欣赏", "苏世誉的欣赏"]
+    "applicableTool": [
+      "楚明允的欣赏",
+      "苏世誉的欣赏"
+    ]
   },
   "ending_head_crush": {
     "title": "头骨碎裂",
-    "text": "那两人果然藏在里头，你一眼看出苏世誉已无反抗之力，举刀就要劈下。背后一只手忽然按在了你的头顶，五指收缩，你口鼻顿时溢血，手里的刀随之摔在地上。",
+    "text": "　　那两人果然藏在里头，你一眼看出苏世誉已无反抗之力，举刀就要劈下。背后一只手忽然按在了你的头顶，五指收缩，你口鼻顿时溢血，手里的刀随之摔在地上。",
     "isEnding": true,
-    "applicableTool": ["楚明允的欣赏"]
+    "applicableTool": [
+      "楚明允的欣赏"
+    ]
   },
   "ending_let_pass_death": {
     "title": "放行的后果",
-    "text": "你立马下令打开城门，之后被韩仲文责骂才知道正是自己放走了楚明允和苏世誉，此时西陵王又想把自个儿摘出去不管你们。好在你们从洛辛的胃里找到了兵符。可兵符居然调动不了援军，反而被楚明允组织着反攻进寿春。战乱中你看不清眼前的一切。",
+    "text": "　　你立马下令打开城门，之后被韩仲文责骂才知道正是自己放走了楚明允和苏世誉，此时西陵王又想把自个儿摘出去不管你们。好在你们从洛辛的胃里找到了兵符。可兵符居然调动不了援军，反而被楚明允组织着反攻进寿春。战乱中你看不清眼前的一切。",
     "isEnding": true
   },
   "ending_doubt_death": {
     "title": "杀红了眼",
-    "text": "你犹豫着打开城门，之后被韩仲文责骂才知道正是自己放走了楚明允和苏世誉，此时西陵王又想把自个儿摘出去不管你们。好在你们从洛辛的胃里找到了兵符。可兵符居然调动不了援军，反而被楚明允组织着反攻进寿春。你一怒之下杀了韩仲文，下一秒，不知道谁的刀也落到了你身上。",
+    "text": "　　你犹豫着打开城门，之后被韩仲文责骂才知道正是自己放走了楚明允和苏世誉，此时西陵王又想把自个儿摘出去不管你们。好在你们从洛辛的胃里找到了兵符。可兵符居然调动不了援军，反而被楚明允组织着反攻进寿春。你一怒之下杀了韩仲文，下一秒，不知道谁的刀也落到了你身上。",
     "isEnding": true,
-    "applicableTool": ["楚明允的白眼", "苏世誉的无语", "楚明允的认同"]
+    "applicableTool": [
+      "楚明允的白眼",
+      "苏世誉的无语",
+      "楚明允的认同"
+    ]
   },
   "ending_su_combat": {
     "title": "清辉不染",
-    "text": "你没想到温润斯文的御史大夫竟是会武的，无数黑衣人一同提刀猛冲都无法伤他半分。苏世誉出手即毙命，不给任何转圜的余地，不多时庭中就尽是伏尸断刀。满地血污唯他一身清冷，衣角都不曾沾有一丝血腥。",
+    "text": "　　你没想到温润斯文的御史大夫竟是会武的，无数黑衣人一同提刀猛冲都无法伤他半分。苏世誉出手即毙命，不给任何转圜的余地，不多时庭中就尽是伏尸断刀。满地血污唯他一身清冷，衣角都不曾沾有一丝血腥。",
     "isEnding": true,
-    "applicableTool": ["苏世誉的欣赏"]
+    "applicableTool": [
+      "苏世誉的欣赏"
+    ]
   },
   "ending_chu_combat": {
     "title": "环佩泠然",
-    "text": "你们根据刀法阵型对楚明允展开进攻，却被楚明允一一化解。与楚明允擦肩而过的某一瞬间，你的刀蹭过他的衣袖，一声环佩泠然之音响起。你趁楚明允紧张查看袖中东西的间隙扑杀上去。<br><br>大风将房门猛地关上，你的刀狠狠砍入楚明允的肩，下一瞬你反手被楚明允甩在他身后挥来的刀上。",
+    "text": "　　你们根据刀法阵型对楚明允展开进攻，却被楚明允一一化解。与楚明允擦肩而过的某一瞬间，你的刀蹭过他的衣袖，一声环佩泠然之音响起。你趁楚明允紧张查看袖中东西的间隙扑杀上去。<br><br>　　大风将房门猛地关上，你的刀狠狠砍入楚明允的肩，下一瞬你反手被楚明允甩在他身后挥来的刀上。",
     "isEnding": true,
-    "applicableTool": ["楚明允的欣赏"]
+    "applicableTool": [
+      "楚明允的欣赏"
+    ]
   },
   "ending_corruption_death": {
     "title": "受贿收买",
-    "text": "你被升为主将，享受到了权力的好处，在九江郡守韩仲文送来千两黄金时更是得意到了极点，便依他所求对淮南之事不闻不问。却还是被楚将军发现了。你被诓出信件证据，就被处置掉了。",
+    "text": "　　你被升为主将，享受到了权力的好处，在九江郡守韩仲文送来千两黄金时更是得意到了极点，便依他所求对淮南之事不闻不问。却还是被楚将军发现了。你被诓出信件证据，就被处置掉了。",
     "isEnding": true,
-    "applicableTool": ["楚明允的欣赏"]
+    "applicableTool": [
+      "楚明允的欣赏"
+    ]
   },
   "ending_loyal_service": {
     "title": "忠诚无二",
-    "text": "你被升为副将，不骄不躁，统筹兼顾，对一切贿赂视若无睹。楚将军检兵后没几天，寿春城火光冲天，苏大人带着昏迷的楚将军回了军营，衣不解带悉心照料，另一位副将徐慎去劝苏大人休息也没用。<br><br>第二日楚将军醒了，养好伤后两人查清淮南叛党真相，以雷霆手段将动乱平息。他们回京后，你便一直坚守于南境军营。",
+    "text": "　　你被升为副将，不骄不躁，统筹兼顾，对一切贿赂视若无睹。楚将军检兵后没几天，寿春城火光冲天，苏大人带着昏迷的楚将军回了军营，衣不解带悉心照料，另一位副将徐慎去劝苏大人休息也没用。<br><br>　　第二日楚将军醒了，养好伤后两人查清淮南叛党真相，以雷霆手段将动乱平息。他们回京后，你便一直坚守于南境军营。",
     "isEnding": true,
     "bonus": "触发SR结局，加1张传送卡。",
     "specialEnding": "SR"
   },
   "ending_fear_death": {
     "title": "恐惧",
-    "text": "城里的恶鬼已杀红了眼，遇人就杀，视人命如草芥。你被这可怕的一幕吓破了胆，与人厮杀时分了心，死在了城门前。",
+    "text": "　　城里的恶鬼已杀红了眼，遇人就杀，视人命如草芥。你被这可怕的一幕吓破了胆，与人厮杀时分了心，死在了城门前。",
     "isEnding": true,
-    "applicableTool": ["楚明允的白眼", "苏世誉的无语", "楚明允的认同"]
+    "applicableTool": [
+      "楚明允的白眼",
+      "苏世誉的无语",
+      "楚明允的认同"
+    ]
   },
   "ending_hate_death": {
     "title": "仇恨",
-    "text": "寿春城中的人们质朴纯善，与你交好的人不在少数，如今都被歹人残忍杀害。你恨毒了这些人，脑子里只有一个念头——把这些屠城的人杀了，杀了! 你冲进城内，杀了几个黑衣人，救下了几个百姓，让他们跑出城去。而你筋疲力竭，被补上来的黑衣人挡了生路。",
+    "text": "　　寿春城中的人们质朴纯善，与你交好的人不在少数，如今都被歹人残忍杀害。你恨毒了这些人，脑子里只有一个念头——把这些屠城的人杀了，杀了! 你冲进城内，杀了几个黑衣人，救下了几个百姓，让他们跑出城去。而你筋疲力竭，被补上来的黑衣人挡了生路。",
     "isEnding": true,
     "bonus": "触发SR结局，加1张传送卡。",
     "specialEnding": "SR"
   },
   "ending_quick_action_death": {
     "title": "妄动遭诛戮",
-    "text": "你还是气不过，从山洞里跑回来想截杀柳夫人。那两个青年一路与这母子同行，你不敢跟太近，也找不到机会下手。眼看着他们入城后分别，你才确信时机到了。可没想到守城士兵对他们不怎么检查，对你却是十分警惕。你支支吾吾语焉不详，被士兵抓了去。他们审都不审你，直接将你杀了。",
+    "text": "　　你还是气不过，从山洞里跑回来想截杀柳夫人。那两个青年一路与这母子同行，你不敢跟太近，也找不到机会下手。眼看着他们入城后分别，你才确信时机到了。可没想到守城士兵对他们不怎么检查，对你却是十分警惕。你支支吾吾语焉不详，被士兵抓了去。他们审都不审你，直接将你杀了。",
     "isEnding": true,
-    "applicableTool": ["楚明允的白眼", "苏世誉的无语", "楚明允的认同"]
+    "applicableTool": [
+      "楚明允的白眼",
+      "苏世誉的无语",
+      "楚明允的认同"
+    ]
   },
   "ending_vigilant_justice": {
     "title": "申冤有门",
-    "text": "你要求跟他们一起去，被云娘劝下，可你不放心，还是悄悄跟上，在进到南境军营之前就被他们发现了，他们并没有将你抓起来，反而让你听了事情的原委。你才知道楚明允苏世誉真是来为你们申冤的。他们整装军队，而你也回到了寿春守军的队伍中，三军一同攻向寿春，剿灭霸占寿春城的反贼叛党。<br><br>几日后，两位大人回京。你感激地目送他们，转身回到了自己的位置上。",
+    "text": "　　你要求跟他们一起去，被云娘劝下，可你不放心，还是悄悄跟上，在进到南境军营之前就被他们发现了，他们并没有将你抓起来，反而让你听了事情的原委。你才知道楚明允苏世誉真是来为你们申冤的。他们整装军队，而你也回到了寿春守军的队伍中，三军一同攻向寿春，剿灭霸占寿春城的反贼叛党。<br><br>　　几日后，两位大人回京。你感激地目送他们，转身回到了自己的位置上。",
     "isEnding": true
   },
   "ending_worried_peace": {
     "title": "保护众人",
-    "text": "那少年带走了云娘，你虽担忧，但山洞里手无寸铁的百姓需要有人看顾，你只得留下。大家吃完酥饼后，少年留下的人将大家带出山洞，安置下来。你一路绷着，等大家平安住下才松了口气。几日后，有人来将大家接回了寿春城，并将韩仲文等人的阴谋公之于众。战火后的寿春城物是人非，看着或悲或喜人间百态，更加深了你守卫寿春的决心。",
+    "text": "　　那少年带走了云娘，你虽担忧，但山洞里手无寸铁的百姓需要有人看顾，你只得留下。大家吃完酥饼后，少年留下的人将大家带出山洞，安置下来。你一路绷着，等大家平安住下才松了口气。几日后，有人来将大家接回了寿春城，并将韩仲文等人的阴谋公之于众。战火后的寿春城物是人非，看着或悲或喜人间百态，更加深了你守卫寿春的决心。",
     "isEnding": true
   },
-
   "ending_hospitality": {
     "title": "迎客之道",
-    "text": "后来，楚太尉篡位，人心惶惶，许多店铺纷纷歇业。那位面无表情的青年竟专程拜访：\"怎能请您继续营业？这对……很重要。\"你心头一暖，认为若点心能在乱世给予力量，胜过上供皇帝。<br><br>就这么又过了许多年，武帝大败匈奴归来，翌日竟与御史大夫一同光临你的店。你激动难抑，苏大人却拉你至旁，低声嘱咐：\"以后卖给陛下的点心，可否少放些糖？陛下……蛀牙了。\"",
+    "text": "　　后来，楚太尉篡位，人心惶惶，许多店铺纷纷歇业。那位面无表情的青年竟专程拜访：\"怎能请您继续营业？这对……很重要。\"你心头一暖，认为若点心能在乱世给予力量，胜过上供皇帝。<br><br>　　就这么又过了许多年，武帝大败匈奴归来，翌日竟与御史大夫一同光临你的店。你激动难抑，苏大人却拉你至旁，低声嘱咐：\"以后卖给陛下的点心，可否少放些糖？陛下……蛀牙了。\"",
     "isEnding": true
   },
   "ending_curious_water_death": {
     "title": "好奇落水",
-    "text": "你耐不住好奇，半个身子探出船舷去看，突然一个发冠从对面窗内飞出砸到了你的脑门，你眼冒金星，不慎落水。",
+    "text": "　　你耐不住好奇，半个身子探出船舷去看，突然一个发冠从对面窗内飞出砸到了你的脑门，你眼冒金星，不慎落水。",
     "isEnding": true,
-    "applicableTool": ["苏世誉的欣赏"]
+    "applicableTool": [
+      "苏世誉的欣赏"
+    ]
   },
-
   "ending_palace_interrupt_death": {
     "title": "没眼色的人",
-    "text": "您觉得这宫娥好没眼色，于是叫住了起身要走的楚大人。宴上所有人的目光顿时齐刷刷看向你，又齐刷刷看向楚大人。楚大人偏头问宫娥还要自己出去吗，宫娥惶恐地摇摇头便退下了。宴会随即恢复了热闹模样，你给楚大人敬了酒，对方并不拒绝。<br><br>宴会直到结束也不再生出事端。出殿门时，有个宫娥秘密叫住了你，说是陛下有事相商，你示意她带路。第二日，传出了你意外死亡的消息。",
+    "text": "　　您觉得这宫娥好没眼色，于是叫住了起身要走的楚大人。宴上所有人的目光顿时齐刷刷看向你，又齐刷刷看向楚大人。楚大人偏头问宫娥还要自己出去吗，宫娥惶恐地摇摇头便退下了。宴会随即恢复了热闹模样，你给楚大人敬了酒，对方并不拒绝。<br><br>　　宴会直到结束也不再生出事端。出殿门时，有个宫娥秘密叫住了你，说是陛下有事相商，你示意她带路。第二日，传出了你意外死亡的消息。",
     "isEnding": true,
-    "applicableTool": ["楚明允的白眼", "苏世誉的无语", "楚明允的认同"]
+    "applicableTool": [
+      "楚明允的白眼",
+      "苏世誉的无语",
+      "楚明允的认同"
+    ]
   },
   "71": {
     "title": "韩府的征募",
-    "text": "您在寿春韩仲文府中当差，一日韩大人重金征募会武的人，您：",
+    "text": "　　您在寿春韩仲文府中当差，一日韩大人重金征募会武的人，您：",
     "choices": [
-      { "text": "a. 急需资金还债，应召", "action": "answer_recruit", "nextNode": "53" },
-      { "text": "b. 自觉武艺平平，继续当普通杂役/侍女", "action": "stay_servant", "nextNode": "72" },
-      { "text": "c. 重金招会武之人，怕是有大事发生，溜了溜了", "action": "escape_now", "nextNode": "ending_throw_from_wall_death" }
+      {
+        "text": "a. 急需资金还债，应召",
+        "action": "answer_recruit",
+        "nextNode": "53"
+      },
+      {
+        "text": "b. 自觉武艺平平，继续当普通杂役/侍女",
+        "action": "stay_servant",
+        "nextNode": "72"
+      },
+      {
+        "text": "c. 重金招会武之人，怕是有大事发生，溜了溜了",
+        "action": "escape_now",
+        "nextNode": "ending_throw_from_wall_death"
+      }
     ]
   },
   "72": {
     "title": "梁府的邀请",
-    "text": "没过几日，韩大人的同僚梁进大人似要宴请重要人物，在韩府上见您姿色俱佳，人也伶俐，便问您是否愿意去他宴会上侍奉。您选择：",
+    "text": "　　没过几日，韩大人的同僚梁进大人似要宴请重要人物，在韩府上见您姿色俱佳，人也伶俐，便问您是否愿意去他宴会上侍奉。您选择：",
     "choices": [
-      { "text": "a. 婉拒，韩大人在边上看着呢，必须表忠心", "action": "decline_serve", "nextNode": "73" },
-      { "text": "b. 应允，韩大人没制止，便是默许了", "action": "accept_serve", "nextNode": "74" }
+      {
+        "text": "a. 婉拒，韩大人在边上看着呢，必须表忠心",
+        "action": "decline_serve",
+        "nextNode": "73"
+      },
+      {
+        "text": "b. 应允，韩大人没制止，便是默许了",
+        "action": "accept_serve",
+        "nextNode": "74"
+      }
     ]
   },
   "73": {
     "title": "楚太尉的敌意",
-    "text": "韩大人深深地看了您一眼，笑着说：'那也好，今夜苏大人若是回府歇息，便由你来伺候吧。'谁知当晚，您先等来了本该还在军中的楚太尉。他望着您，语气淡淡：'杵在这里做什么？''韩大人吩咐我，伺候苏大人。'您低声回答。他挑眉道：",
+    "text": "　　韩大人深深地看了您一眼，笑着说：'那也好，今夜苏大人若是回府歇息，便由你来伺候吧。'谁知当晚，您先等来了本该还在军中的楚太尉。他望着您，语气淡淡：'杵在这里做什么？''韩大人吩咐我，伺候苏大人。'您低声回答。他挑眉道：",
     "choices": [
-      { "text": "a. 还杵在这里，是想让我请你滚吗？", "action": "taunt_leave", "nextNode": "75" },
-      { "text": "b. 苏大人有我伺候就够了。", "action": "claim_care", "nextNode": "75", "bonus": "楚大人刚刚是说，他来伺候苏大人？那他们两个的关系，岂不是，……天呐。你近距离欣赏两人看向对方时不同寻常的眼神，加1点生命值。" },
-      { "text": "c. 你觉得自己……有我漂亮？", "action": "jealousy_joke", "nextNode": "75", "bonus": "楚大人果真被气到了，竟和你相比。楚大人冰冷的视线落到你身上，减1点生命值。" }
+      {
+        "text": "a. 还杵在这里，是想让我请你滚吗？",
+        "action": "taunt_leave",
+        "nextNode": "75"
+      },
+      {
+        "text": "b. 苏大人有我伺候就够了。",
+        "action": "claim_care",
+        "nextNode": "75",
+        "bonus": "楚大人刚刚是说，他来伺候苏大人？那他们两个的关系，岂不是，……天呐。你近距离欣赏两人看向对方时不同寻常的眼神，加1点生命值。"
+      },
+      {
+        "text": "c. 你觉得自己……有我漂亮？",
+        "action": "jealousy_joke",
+        "nextNode": "75",
+        "bonus": "楚大人果真被气到了，竟和你相比。楚大人冰冷的视线落到你身上，减1点生命值。"
+      }
     ]
   },
   "74": {
     "title": "诱惑御史大人",
-    "text": "梁大人交给您的任务竟是去诱惑御史大夫苏世誉。他说若您助他成事，御史大夫乃世家表率，定不会辜负了您。您亦对苏大人心动不已，宴会当天便与其他姐妹一起，将他团团围住，甚至抬手去搂他的脖颈。苏大人面上霞色晕染开来，一时间竟成了这厅里最惑人的娇客。可他终究靠着一线清明，冲出了梁府。",
+    "text": "　　梁大人交给您的任务竟是去诱惑御史大夫苏世誉。他说若您助他成事，御史大夫乃世家表率，定不会辜负了您。您亦对苏大人心动不已，宴会当天便与其他姐妹一起，将他团团围住，甚至抬手去搂他的脖颈。苏大人面上霞色晕染开来，一时间竟成了这厅里最惑人的娇客。可他终究靠着一线清明，冲出了梁府。",
     "choices": [
-      { "text": "继续", "action": "continue_to_banquet", "nextNode": "78" }
+      {
+        "text": "继续",
+        "action": "continue_to_banquet",
+        "nextNode": "78"
+      }
     ]
   },
   "75": {
     "title": "守候还是离开",
-    "text": "您不敢多言，离开了苏大人卧房，去：",
+    "text": "　　您不敢多言，离开了苏大人卧房，去：",
     "choices": [
-      { "text": "a. 自己卧房歇下了", "action": "rest_room", "nextNode": "76" },
-      { "text": "b. 守在苏大人卧房后窗下", "action": "wait_window", "nextNode": "77" }
+      {
+        "text": "a. 自己卧房歇下了",
+        "action": "rest_room",
+        "nextNode": "76"
+      },
+      {
+        "text": "b. 守在苏大人卧房后窗下",
+        "action": "wait_window",
+        "nextNode": "77"
+      }
     ]
   },
   "76": {
     "title": "次日房内",
-    "text": "次日清晨，楚大人低声差人送了热水进房。而苏大人的房门，直到日上三竿，才从内打开。屋内帷幔半卷，绣被一角垂在地上。您红着脸进去收拾，只见苏大人倚着榻边披衣而坐，衣衫虽整，却显然是别人为他披上的。您低头退下，不敢细想昨夜光景。",
+    "text": "　　次日清晨，楚大人低声差人送了热水进房。而苏大人的房门，直到日上三竿，才从内打开。屋内帷幔半卷，绣被一角垂在地上。您红着脸进去收拾，只见苏大人倚着榻边披衣而坐，衣衫虽整，却显然是别人为他披上的。您低头退下，不敢细想昨夜光景。",
     "choices": [
-      { "text": "继续", "action": "continue_after_rest", "nextNode": "78" }
+      {
+        "text": "继续",
+        "action": "continue_after_rest",
+        "nextNode": "78"
+      }
     ]
   },
   "77": {
     "title": "窗下窃听",
-    "text": "苏大人似乎回来了，您听到了楚太尉咬牙切齿的声音：\"那些姑娘，有我漂亮？\"没有没有，您小心地蜷在窗下，空气中的醋味重得您牙疼。苏大人的下属进来又出去了，您心里一动，楚苏二人怕是要商议要事，凝神细听……\"世誉，你叫我声夫君来听听看？……乖啊……还不打算让我来伺候你吗？\"<br><br>您一动不敢动，又唯恐睡过去发出声响，便在一声声渐重的喘息、呻吟、乃至哭腔中，熬到了天明。",
+    "text": "　　苏大人似乎回来了，您听到了楚太尉咬牙切齿的声音：\"那些姑娘，有我漂亮？\"没有没有，您小心地蜷在窗下，空气中的醋味重得您牙疼。苏大人的下属进来又出去了，您心里一动，楚苏二人怕是要商议要事，凝神细听……\"世誉，你叫我声夫君来听听看？……乖啊……还不打算让我来伺候你吗？\"<br><br>　　您一动不敢动，又唯恐睡过去发出声响，便在一声声渐重的喘息、呻吟、乃至哭腔中，熬到了天明。",
     "choices": [
-      { "text": "继续", "action": "continue_to_morning", "nextNode": "76" }
+      {
+        "text": "继续",
+        "action": "continue_to_morning",
+        "nextNode": "76"
+      }
     ]
   },
   "78": {
     "title": "韩府宴席",
-    "text": "再见到楚苏两位大人，是在韩大人的宴席上。您知此酒不纯，知此局不善，也知自己不过笼中雀，插翅也难飞出这寿春城。首位的韩大人仍说着场面话，您决定：",
+    "text": "　　再见到楚苏两位大人，是在韩大人的宴席上。您知此酒不纯，知此局不善，也知自己不过笼中雀，插翅也难飞出这寿春城。首位的韩大人仍说着场面话，您决定：",
     "choices": [
-      { "text": "a. 服下毒酒，毒发即向他二人示警", "action": "drink_poison", "nextNode": "ending_poison_warning_death" },
-      { "text": "b. 留在厅内观望，或许仍有生机", "action": "stay_watch", "nextNode": "ending_hall_fire_death" },
-      { "text": "c. 穿过树林出城，如今叛党主力都在此，巡逻定有漏洞", "action": "escape_woods", "nextNode": "ending_woods_stab_death" }
+      {
+        "text": "a. 服下毒酒，毒发即向他二人示警",
+        "action": "drink_poison",
+        "nextNode": "ending_poison_warning_death"
+      },
+      {
+        "text": "b. 留在厅内观望，或许仍有生机",
+        "action": "stay_watch",
+        "nextNode": "ending_hall_fire_death"
+      },
+      {
+        "text": "c. 穿过树林出城，如今叛党主力都在此，巡逻定有漏洞",
+        "action": "escape_woods",
+        "nextNode": "ending_woods_stab_death"
+      }
     ]
   },
   "79": {
     "title": "淮南边境的流民",
-    "text": "您没再打扰画舫上干柴烈火的小情侣，加速前进，不日便抵达了淮南边境。您遇见了一群流民。他们衣衫褴褛，眼底闪着饥狼般的光。为首的年轻女人向您走来，您心中一紧：",
+    "text": "　　您没再打扰画舫上干柴烈火的小情侣，加速前进，不日便抵达了淮南边境。您遇见了一群流民。他们衣衫褴褛，眼底闪着饥狼般的光。为首的年轻女人向您走来，您心中一紧：",
     "choices": [
-      { "text": "a. 抱紧行囊，头也不回地往寿春城方向去了", "action": "head_to_city", "nextNode": "ending_gate_intercept_death" },
-      { "text": "b. 但看见流民中几个瘦猴似的孩子，于心不忍，打开行囊主动提出分他们些口粮", "action": "share_food", "nextNode": "80" }
+      {
+        "text": "a. 抱紧行囊，头也不回地往寿春城方向去了",
+        "action": "head_to_city",
+        "nextNode": "ending_gate_intercept_death"
+      },
+      {
+        "text": "b. 但看见流民中几个瘦猴似的孩子，于心不忍，打开行囊主动提出分他们些口粮",
+        "action": "share_food",
+        "nextNode": "80"
+      }
     ]
   },
   "80": {
     "title": "流民的善意",
-    "text": "这群流民虽然落魄，却意外地礼貌守序，纷纷向您道谢。为首的年轻女人看您行色匆匆，便问您来淮南做什么，您回答：",
+    "text": "　　这群流民虽然落魄，却意外地礼貌守序，纷纷向您道谢。为首的年轻女人看您行色匆匆，便问您来淮南做什么，您回答：",
     "choices": [
-      { "text": "a. 在下药商，闻韩大人急需药材，特来求见，愿共谋其事", "action": "claim_business", "nextNode": "ending_refugee_slain_death" },
-      { "text": "b. 行船时于江上遇见惊人之事，故上岸避一避风头", "action": "avoid_trouble", "nextNode": "81" }
+      {
+        "text": "a. 在下药商，闻韩大人急需药材，特来求见，愿共谋其事",
+        "action": "claim_business",
+        "nextNode": "ending_refugee_slain_death"
+      },
+      {
+        "text": "b. 行船时于江上遇见惊人之事，故上岸避一避风头",
+        "action": "avoid_trouble",
+        "nextNode": "81"
+      }
     ]
   },
   "81": {
     "title": "改道的提醒",
-    "text": "话音刚落，您便觉不妙——若被追问，似乎怎么答都不合适？您急忙收拾行囊，与众人匆匆辞别，正欲朝寿春城方向行去，那女子却忽然抬手拦住了您：\"寿春多风雨，天地辽阔，大人不如改道他处，暂避风头。\"您听出她话里有话，意识到寿春城或许不太平，想：",
+    "text": "　　话音刚落，您便觉不妙——若被追问，似乎怎么答都不合适？您急忙收拾行囊，与众人匆匆辞别，正欲朝寿春城方向行去，那女子却忽然抬手拦住了您：\"寿春多风雨，天地辽阔，大人不如改道他处，暂避风头。\"您听出她话里有话，意识到寿春城或许不太平，想：",
     "choices": [
-      { "text": "a. 还是离开此地，留着命慢慢挣钱吧", "action": "leave_now", "nextNode": "89" },
-      { "text": "b. 难怪韩大人急求药材。富贵险中求，干这行就要闯", "action": "risk_it", "nextNode": "ending_gate_intercept_death" }
+      {
+        "text": "a. 还是离开此地，留着命慢慢挣钱吧",
+        "action": "leave_now",
+        "nextNode": "89"
+      },
+      {
+        "text": "b. 难怪韩大人急求药材。富贵险中求，干这行就要闯",
+        "action": "risk_it",
+        "nextNode": "ending_gate_intercept_death"
+      }
     ]
   },
   "82": {
     "title": "迎八方来客",
-    "text": "民以食为天，您深知经营酒楼饭馆不仅是谋生之道，更是结交四方宾客、广结善缘的良机。您打算加入一家：",
+    "text": "　　民以食为天，您深知经营酒楼饭馆不仅是谋生之道，更是结交四方宾客、广结善缘的良机。您打算加入一家：",
     "choices": [
-      { "text": "a. 面馆", "action": "join_noodle_shop", "nextNode": "140" },
-      { "text": "b. 点心铺", "action": "join_pastry_shop", "nextNode": "83" },
-      { "text": "c. 酒楼", "action": "join_restaurant", "nextNode": "84" }
+      {
+        "text": "a. 面馆",
+        "action": "join_noodle_shop",
+        "nextNode": "140"
+      },
+      {
+        "text": "b. 点心铺",
+        "action": "join_pastry_shop",
+        "nextNode": "83"
+      },
+      {
+        "text": "c. 酒楼",
+        "action": "join_restaurant",
+        "nextNode": "84"
+      }
     ]
   },
   "83": {
     "title": "点心铺的名气",
-    "text": "您用独门秘方烘焙的红豆酥、桂花糕早已闻名长安，时常还推陈出新，广受好评。一个面无表情的青年是您店里的常客，您很难想象这样的人竟嗜甜如命——他唯一一次多话，竟是挑剔新品金桔冻过于酸了。不知何时开始，御史苏大人麾下的苏白也频频光顾，您因此倍感振奋，坚信直销天家的梦想已近在咫尺。",
+    "text": "　　您用独门秘方烘焙的红豆酥、桂花糕早已闻名长安，时常还推陈出新，广受好评。一个面无表情的青年是您店里的常客，您很难想象这样的人竟嗜甜如命——他唯一一次多话，竟是挑剔新品金桔冻过于酸了。不知何时开始，御史苏大人麾下的苏白也频频光顾，您因此倍感振奋，坚信直销天家的梦想已近在咫尺。",
     "choices": [
-      { "text": "继续", "action": "pastry_ending", "nextNode": "ending_hospitality" }
+      {
+        "text": "继续",
+        "action": "pastry_ending",
+        "nextNode": "ending_hospitality"
+      }
     ]
   },
   "84": {
     "title": "酒楼的选址",
-    "text": "这酒楼的选址可大有讲究。您选择：",
+    "text": "　　这酒楼的选址可大有讲究。您选择：",
     "choices": [
-      { "text": "a. 开在长安闹市区，客源充足，近水楼台先得月", "action": "choose_downtown", "nextNode": "85" },
-      { "text": "b. 开在偏僻小巷，抵制同行内卷，酒香不怕巷子深", "action": "choose_alley", "nextNode": "135" }
+      {
+        "text": "a. 开在长安闹市区，客源充足，近水楼台先得月",
+        "action": "choose_downtown",
+        "nextNode": "85"
+      },
+      {
+        "text": "b. 开在偏僻小巷，抵制同行内卷，酒香不怕巷子深",
+        "action": "choose_alley",
+        "nextNode": "135"
+      }
     ]
   },
   "85": {
     "title": "上元节",
-    "text": "您最喜上元节。金吾不禁，繁灯如昼，街巷间尽是笑语与喜色。每逢此日，来店里的客人，您总要劝上一碗元宵，讨个团圆吉祥的彩头。只是今年的上元节，来了两位气度不凡的公子，容貌一等一的好，相对而笑时，却仿佛隔着水月镜花。或许是长街灯火太盛，您望着他们，心头一热，决定：",
+    "text": "　　您最喜上元节。金吾不禁，繁灯如昼，街巷间尽是笑语与喜色。每逢此日，来店里的客人，您总要劝上一碗元宵，讨个团圆吉祥的彩头。只是今年的上元节，来了两位气度不凡的公子，容貌一等一的好，相对而笑时，却仿佛隔着水月镜花。或许是长街灯火太盛，您望着他们，心头一热，决定：",
     "choices": [
-      { "text": "a. 将两枚元宵放入同一个碗，称此乃今日特供，寓意双珠并蒂", "action": "double_tangyuan", "nextNode": "86" },
-      { "text": "b. 送一壶上元春酒，笑言：'小店有个规矩，结伴来的客人若同饮一杯，必能好事成双。'", "action": "offer_wine", "nextNode": "87" }
+      {
+        "text": "a. 将两枚元宵放入同一个碗，称此乃今日特供，寓意双珠并蒂",
+        "action": "double_tangyuan",
+        "nextNode": "86"
+      },
+      {
+        "text": "b. 送一壶上元春酒，笑言：'小店有个规矩，结伴来的客人若同饮一杯，必能好事成双。'",
+        "action": "offer_wine",
+        "nextNode": "87"
+      }
     ]
   },
   "86": {
     "title": "并蒂元宵",
-    "text": "见那\"双珠并蒂\"的元宵并排躺在碗底，楚明允眼底泛起几分揶揄，舀起一只送到苏世誉唇边。苏世誉微蹙着眉，欲开口婉拒：\"楚……\"楚明允径自用瓷勺沾了沾苏世誉的唇瓣，笑意微敛，低声唤了一声：\"世誉。\"那颗雪白的元宵，便在苏世誉的默许下滑入唇间，被撕开一个小口，汨汨淌出了迟来的甜蜜。",
+    "text": "　　见那\"双珠并蒂\"的元宵并排躺在碗底，楚明允眼底泛起几分揶揄，舀起一只送到苏世誉唇边。苏世誉微蹙着眉，欲开口婉拒：\"楚……\"楚明允径自用瓷勺沾了沾苏世誉的唇瓣，笑意微敛，低声唤了一声：\"世誉。\"那颗雪白的元宵，便在苏世誉的默许下滑入唇间，被撕开一个小口，汨汨淌出了迟来的甜蜜。",
     "choices": [
-      { "text": "继续", "action": "festival_continue", "nextNode": "88" }
+      {
+        "text": "继续",
+        "action": "festival_continue",
+        "nextNode": "88"
+      }
     ]
   },
   "87": {
     "title": "合卺之酒",
-    "text": "楚明允垂眸瞥见桌上两只杯子，又抬头看向桌对面的人。苏世誉淡然一笑，先抬手取过一只：\"我敬楚大人一杯。\"他正要送至唇边，楚明允却忽地撑着桌案俯身过去，压低身子，隔着他指间就着那杯嘬了一口。苏世誉垂眸笑了笑，举杯饮尽了。",
+    "text": "　　楚明允垂眸瞥见桌上两只杯子，又抬头看向桌对面的人。苏世誉淡然一笑，先抬手取过一只：\"我敬楚大人一杯。\"他正要送至唇边，楚明允却忽地撑着桌案俯身过去，压低身子，隔着他指间就着那杯嘬了一口。苏世誉垂眸笑了笑，举杯饮尽了。",
     "choices": [
-      { "text": "继续", "action": "festival_continue2", "nextNode": "88" }
+      {
+        "text": "继续",
+        "action": "festival_continue2",
+        "nextNode": "88"
+      }
     ]
   },
   "88": {
     "title": "天灯期许",
-    "text": "上元佳节正当时，酒楼外，盏盏天灯飘向夜空，如星河坠落人间，点亮了一双双眼眸中的期许。您似有所感，往 ____ 看去：",
+    "text": "　　上元佳节正当时，酒楼外，盏盏天灯飘向夜空，如星河坠落人间，点亮了一双双眼眸中的期许。您似有所感，往 ____ 看去：",
     "choices": [
-      { "text": "a. 上", "action": "look_up", "nextNode": "ending_festival_wish" },
-      { "text": "b. 下", "action": "look_down", "nextNode": "ending_festival_lake" }
+      {
+        "text": "a. 上",
+        "action": "look_up",
+        "nextNode": "ending_festival_wish"
+      },
+      {
+        "text": "b. 下",
+        "action": "look_down",
+        "nextNode": "ending_festival_lake"
+      }
     ]
   },
   "89": {
     "title": "回到长安",
-    "text": "数月后，您又辗转回到长安。您推门进了那座最爱的酒楼，一品入口，恍如从未离开。",
+    "text": "　　数月后，您又辗转回到长安。您推门进了那座最爱的酒楼，一品入口，恍如从未离开。",
     "choices": [
-      { "text": "继续", "action": "back_to_city", "nextNode": "88" }
+      {
+        "text": "继续",
+        "action": "back_to_city",
+        "nextNode": "88"
+      }
     ]
   },
   "90": {
     "title": "离席时的忠告",
-    "text": "您也不惊动任何人地出了殿，但一出去就看不到楚大人的身影了，守在门口的侍卫对您说：\"大人，宴会中途切勿离席，还请您回去。\"您左右瞧了瞧，说：",
+    "text": "　　您也不惊动任何人地出了殿，但一出去就看不到楚大人的身影了，守在门口的侍卫对您说：\"大人，宴会中途切勿离席，还请您回去。\"您左右瞧了瞧，说：",
     "choices": [
-      { "text": "a. 多谢小兄弟提醒，我这就回去。", "action": "return_hall", "nextNode": "61" },
-      { "text": "b. 未曾听闻参宴不可提前离席一说啊。", "action": "argue_rule", "nextNode": "ending_guard_accident_death" }
+      {
+        "text": "a. 多谢小兄弟提醒，我这就回去。",
+        "action": "return_hall",
+        "nextNode": "61"
+      },
+      {
+        "text": "b. 未曾听闻参宴不可提前离席一说啊。",
+        "action": "argue_rule",
+        "nextNode": "ending_guard_accident_death"
+      }
     ]
   },
   "91": {
     "title": "敬酒的危险",
-    "text": "您还没靠近苏大人的席位，就感觉头顶一凉。楚大人向您投来一个不带温度的眼神，您吓了一跳，脚步一转，跟苏大人邻座的大人敬了酒，就回到了自己的座位上。",
+    "text": "　　您还没靠近苏大人的席位，就感觉头顶一凉。楚大人向您投来一个不带温度的眼神，您吓了一跳，脚步一转，跟苏大人邻座的大人敬了酒，就回到了自己的座位上。",
     "choices": [
-      { "text": "继续", "action": "after_toast", "nextNode": "92" }
+      {
+        "text": "继续",
+        "action": "after_toast",
+        "nextNode": "92"
+      }
     ]
   },
   "92": {
     "title": "苏大人作伪证",
-    "text": "没过一会儿，有侍卫进来跪下说天禄阁失窃。皇帝边上的姜昭仪开口暗示是楚大人干的，好在苏大人出面替楚大人作了证，还了楚大人清白。不多时，宴席结束，群臣告退。",
+    "text": "　　没过一会儿，有侍卫进来跪下说天禄阁失窃。皇帝边上的姜昭仪开口暗示是楚大人干的，好在苏大人出面替楚大人作了证，还了楚大人清白。不多时，宴席结束，群臣告退。",
     "choices": [
-      { "text": "继续", "action": "after_banquet", "nextNode": "98" }
+      {
+        "text": "继续",
+        "action": "after_banquet",
+        "nextNode": "98"
+      }
     ]
   },
   "93": {
     "title": "被带走的囚犯",
-    "text": "年后开春，您前往御史台交接事务，无意中看到一个身负枷锁、头罩黑布的男人被秘密带走。您选择：",
+    "text": "　　年后开春，您前往御史台交接事务，无意中看到一个身负枷锁、头罩黑布的男人被秘密带走。您选择：",
     "choices": [
-      { "text": "a. 拦下他们", "action": "block_them", "nextNode": "101" },
-      { "text": "b. 暗中跟上去一探究竟", "action": "follow_secret", "nextNode": "94" },
-      { "text": "c. 今日天气真好", "action": "ignore_weather", "nextNode": "95" }
+      {
+        "text": "a. 拦下他们",
+        "action": "block_them",
+        "nextNode": "101"
+      },
+      {
+        "text": "b. 暗中跟上去一探究竟",
+        "action": "follow_secret",
+        "nextNode": "94"
+      },
+      {
+        "text": "c. 今日天气真好",
+        "action": "ignore_weather",
+        "nextNode": "95"
+      }
     ]
   },
   "94": {
     "title": "苏大人虐囚",
-    "text": "您一路跟随他们进入了一座偏僻的私宅，布局简单，一眼到头，看上去不像是有人居住的地方。您疑惑地靠近房屋，听见\"嗵\"一声，被带走的男人跪在屋内，惊恐地喊了一声，\"苏世誉？\"之后是只言片语的\"……穆拉和……棋子……凌虐囚犯……私仇……\"以及一道温润声线一锤定音，\"动手吧。\"屋内立时响起了惨绝人寰的惨叫声。苏大人竟允了手下凌虐囚犯。您想：",
+    "text": "　　您一路跟随他们进入了一座偏僻的私宅，布局简单，一眼到头，看上去不像是有人居住的地方。您疑惑地靠近房屋，听见\"嗵\"一声，被带走的男人跪在屋内，惊恐地喊了一声，\"苏世誉？\"之后是只言片语的\"……穆拉和……棋子……凌虐囚犯……私仇……\"以及一道温润声线一锤定音，\"动手吧。\"屋内立时响起了惨绝人寰的惨叫声。苏大人竟允了手下凌虐囚犯。您想：",
     "choices": [
-      { "text": "a. 这可不是我能听见的东西了", "action": "back_off", "nextNode": "95" },
-      { "text": "b. 居然让我抓到御史大夫的把柄了", "action": "use_leverage", "nextNode": "ending_captive_keeper" },
-      { "text": "c. 实在是太可怜了", "action": "pity", "nextNode": "ending_ptsd_death" }
+      {
+        "text": "a. 这可不是我能听见的东西了",
+        "action": "back_off",
+        "nextNode": "95"
+      },
+      {
+        "text": "b. 居然让我抓到御史大夫的把柄了",
+        "action": "use_leverage",
+        "nextNode": "ending_captive_keeper"
+      },
+      {
+        "text": "c. 实在是太可怜了",
+        "action": "pity",
+        "nextNode": "ending_ptsd_death"
+      }
     ]
   },
   "95": {
     "title": "装糊涂",
-    "text": "这哪是您能管的事，还是装糊涂的好。",
+    "text": "　　这哪是您能管的事，还是装糊涂的好。",
     "choices": [
-      { "text": "继续", "action": "proceed", "nextNode": "96" }
+      {
+        "text": "继续",
+        "action": "proceed",
+        "nextNode": "96"
+      }
     ]
   },
   "96": {
     "title": "巡狩送别",
-    "text": "转眼而至三月初，御史大夫代天子巡狩诸侯国土。皇帝携满朝文武相送苏大人至长安城外。楚大人伸手拉住了苏大人的手臂，\"苏大人，可别死在那里啊。\"您心想：\"这么明目张胆吗？这是我能听的吗？\"苏大人果真脾气与定力一样好，这种情况还能笑着和楚大人说放心。楚大人又说让苏大人早些回来，免得自己相思成疾。苏大人一一应了。您心想：",
+    "text": "　　转眼而至三月初，御史大夫代天子巡狩诸侯国土。皇帝携满朝文武相送苏大人至长安城外。楚大人伸手拉住了苏大人的手臂，\"苏大人，可别死在那里啊。\"您心想：\"这么明目张胆吗？这是我能听的吗？\"苏大人果真脾气与定力一样好，这种情况还能笑着和楚大人说放心。楚大人又说让苏大人早些回来，免得自己相思成疾。苏大人一一应了。您心想：",
     "choices": [
-      { "text": "a. 真背着我们偷偷谈了？", "action": "believe_love", "nextNode": "103", "bonus": "你简直是最大的恋爱脑，当官这么久了还如此单纯，获得道具\"楚明允的认同\"，可在您即将亡于他人之手时起威慑作用，救您一命。", "tool": { "title": "楚明允的认同", "content": "可在您即将亡于他人之手时起威慑作用，救您一命" } },
-      { "text": "b. 做戏来的吧？", "action": "suspect_show", "nextNode": "103" }
+      {
+        "text": "a. 真背着我们偷偷谈了？",
+        "action": "believe_love",
+        "nextNode": "103",
+        "bonus": "你简直是最大的恋爱脑，当官这么久了还如此单纯，获得道具\"楚明允的认同\"，可在您即将亡于他人之手时起威慑作用，救您一命。",
+        "tool": {
+          "title": "楚明允的认同",
+          "content": "可在您即将亡于他人之手时起威慑作用，救您一命"
+        }
+      },
+      {
+        "text": "b. 做戏来的吧？",
+        "action": "suspect_show",
+        "nextNode": "103"
+      }
     ]
   },
   "97": {
     "title": "林中风波",
-    "text": "苏大人回来时正好赶上一年一度的春猎，匈奴使团还在京中等待答复，便也邀请了他们同去。<br><br>春猎前一日，宗亲朝臣依例到建章宫焚香祭礼。完毕后，众臣见建章宫春意正浓，风光如绣，不约而同放慢脚步，与三两好友结伴闲谈，悠悠然往外走。您看见楚大人一人站在树下，似是在等人，您顺着他的目光望去，不远处是苏大人和那名他从淮南带回来的小将<span class=\"character-name\">洛辛</span>。<br><br>您转过头，忽闻一声剑啸，循声望去林中只余枝叶婆娑，未及出声疑问，另一道人影就疾掠入林中。您心想：",
+    "text": "　　苏大人回来时正好赶上一年一度的春猎，匈奴使团还在京中等待答复，便也邀请了他们同去。<br><br>　　春猎前一日，宗亲朝臣依例到建章宫焚香祭礼。完毕后，众臣见建章宫春意正浓，风光如绣，不约而同放慢脚步，与三两好友结伴闲谈，悠悠然往外走。您看见楚大人一人站在树下，似是在等人，您顺着他的目光望去，不远处是苏大人和那名他从淮南带回来的小将<span class=\"character-name\">洛辛</span>。<br><br>　　您转过头，忽闻一声剑啸，循声望去林中只余枝叶婆娑，未及出声疑问，另一道人影就疾掠入林中。您心想：",
     "choices": [
-      { "text": "a. 不会出什么事了吧", "action": "worry_trouble", "nextNode": "ending_tree_accident_death" },
-      { "text": "b. 这是怎么了", "action": "confused", "nextNode": "105" },
-      { "text": "c. 刚刚是楚大人和苏大人吗", "action": "trust_them", "nextNode": "109" }
+      {
+        "text": "a. 不会出什么事了吧",
+        "action": "worry_trouble",
+        "nextNode": "ending_tree_accident_death"
+      },
+      {
+        "text": "b. 这是怎么了",
+        "action": "confused",
+        "nextNode": "105"
+      },
+      {
+        "text": "c. 刚刚是楚大人和苏大人吗",
+        "action": "trust_them",
+        "nextNode": "109"
+      }
     ]
   },
   "98": {
     "title": "除夕街头",
-    "text": "回来后您才后知后觉地嗅到京中朝堂那说不出的氛围，警示自己要时刻谨言慎行，度过了一小段安生日子。冬至后很快到了除夕，您饭后在长街上溜达，家家户户欢声笑语，只有苏府一片冷清，等路过太尉府时，您听到府中有热闹爆竹声和三两声嬉笑的声音，其中一道像极了那位素来稳重的御史大人。您心想：",
+    "text": "　　回来后您才后知后觉地嗅到京中朝堂那说不出的氛围，警示自己要时刻谨言慎行，度过了一小段安生日子。冬至后很快到了除夕，您饭后在长街上溜达，家家户户欢声笑语，只有苏府一片冷清，等路过太尉府时，您听到府中有热闹爆竹声和三两声嬉笑的声音，其中一道像极了那位素来稳重的御史大人。您心想：",
     "choices": [
-      { "text": "a. 我都困出幻觉了，居然以为苏大人和楚大人一起守岁", "action": "go_home", "nextNode": "99" },
-      { "text": "b. 这就是苏大人的声音吧，他们关系这么好吗", "action": "accept_rumor", "nextNode": "100" }
+      {
+        "text": "a. 我都困出幻觉了，居然以为苏大人和楚大人一起守岁",
+        "action": "go_home",
+        "nextNode": "99"
+      },
+      {
+        "text": "b. 这就是苏大人的声音吧，他们关系这么好吗",
+        "action": "accept_rumor",
+        "nextNode": "100"
+      }
     ]
   },
   "ending_festival_wish": {
     "title": "三愿长安",
-    "text": "一盏素色天灯摇摇晃晃，升得缓极，似是所承心意极重；又升得稳极，仿佛所愿之事极诚，海枯石烂誓不移。你凝神看去，清隽的字迹力透纸背，似乎写着：\"三愿我所爱无忧无恙，岁岁长安。\"",
+    "text": "　　一盏素色天灯摇摇晃晃，升得缓极，似是所承心意极重；又升得稳极，仿佛所愿之事极诚，海枯石烂誓不移。你凝神看去，清隽的字迹力透纸背，似乎写着：\"三愿我所爱无忧无恙，岁岁长安。\"",
     "isEnding": true,
     "bonus": "触发SR结局，加1张传送卡。",
     "specialEnding": "SR"
   },
   "ending_festival_lake": {
     "title": "树下叠影",
-    "text": "湖畔微风里，树影婆娑，一抹白衣一闪而逝，将一袭墨蓝牵入枝叶深处。透过斑驳的缝隙，你仍瞥见那雪白衣角被抵在粗砺的树干上，微不可察地颤着，又似潮水般回涌相迎。无数天灯自水面升起，流光映落其上，将一袭素白染上了绯色。士人如炬，国运长昭。你饮尽了杯中酒，道来岁安宁。",
+    "text": "　　湖畔微风里，树影婆娑，一抹白衣一闪而逝，将一袭墨蓝牵入枝叶深处。透过斑驳的缝隙，你仍瞥见那雪白衣角被抵在粗砺的树干上，微不可察地颤着，又似潮水般回涌相迎。无数天灯自水面升起，流光映落其上，将一袭素白染上了绯色。士人如炬，国运长昭。你饮尽了杯中酒，道来岁安宁。",
     "isEnding": true,
     "bonus": "触发SR结局，加1张传送卡。",
     "specialEnding": "SR"
   },
   "ending_guard_accident_death": {
     "title": "刀锋之误",
-    "text": "侍卫见你神情坚持，没强硬让你回殿，而是问你打算去哪，他会随身跟着你，若你在宫内出事，他会被问责。你表示理解，随便指了个方向。一路上侍卫紧跟在你身后，你没发现楚大人，于是决定回去。回身时，你的脖子不小心撞到了侍卫的刀刃上。",
+    "text": "　　侍卫见你神情坚持，没强硬让你回殿，而是问你打算去哪，他会随身跟着你，若你在宫内出事，他会被问责。你表示理解，随便指了个方向。一路上侍卫紧跟在你身后，你没发现楚大人，于是决定回去。回身时，你的脖子不小心撞到了侍卫的刀刃上。",
     "isEnding": true,
-    "applicableTool": ["楚明允的白眼", "苏世誉的无语", "楚明允的认同"]
+    "applicableTool": [
+      "楚明允的白眼",
+      "苏世誉的无语",
+      "楚明允的认同"
+    ]
   },
   "ending_captive_keeper": {
     "title": "自囚私宅",
-    "text": "你早就有心站队楚太尉，欲将此事作为你的投名状。可你的武功并没有好到能不惊动苏大人。你跪在苏大人面前，不敢看身后奄奄一息浑身恶臭的人一眼。苏大人淡淡开了口，\"你想去找楚明允。\"你惊疑地抬头——苏大人莫不是会读心术。看到苏大人眼里一闪而过的了然，才反应过来自己这是被诈了。你冷汗涔涔而下，叩首道：\"此地荒废已久，无人为苏大人打理，下官愿为大人看顾此地。\"你此生再没有踏出这座宅子。",
+    "text": "　　你早就有心站队楚太尉，欲将此事作为你的投名状。可你的武功并没有好到能不惊动苏大人。你跪在苏大人面前，不敢看身后奄奄一息浑身恶臭的人一眼。苏大人淡淡开了口，\"你想去找楚明允。\"你惊疑地抬头——苏大人莫不是会读心术。看到苏大人眼里一闪而过的了然，才反应过来自己这是被诈了。你冷汗涔涔而下，叩首道：\"此地荒废已久，无人为苏大人打理，下官愿为大人看顾此地。\"你此生再没有踏出这座宅子。",
     "isEnding": true,
-    "applicableTool": ["苏世誉的欣赏"]
+    "applicableTool": [
+      "苏世誉的欣赏"
+    ]
   },
   "ending_ptsd_death": {
     "title": "梦魇不醒",
-    "text": "你听不得如此恐怖的东西，刚抬步要溜走，一把刀横在了你肩头。你僵硬地扭过头，苏大人从屋中缓缓走出，看了一眼持刀的侍卫：\"我们不动无辜的人。\"你忘记自己是怎么回去的了，每当阖眼，脑子里就想起白日里不绝于耳的惨叫。你再没有睡过一个好觉，直到一日睡好了，却再没有醒来。",
+    "text": "　　你听不得如此恐怖的东西，刚抬步要溜走，一把刀横在了你肩头。你僵硬地扭过头，苏大人从屋中缓缓走出，看了一眼持刀的侍卫：\"我们不动无辜的人。\"你忘记自己是怎么回去的了，每当阖眼，脑子里就想起白日里不绝于耳的惨叫。你再没有睡过一个好觉，直到一日睡好了，却再没有醒来。",
     "isEnding": true
   },
   "ending_tree_accident_death": {
     "title": "故意制造的意外",
-    "text": "你担忧而入林，却误撞上逃窜的宇文隼随从，被一把猛推，头颅重撞尖刺，当场身亡。",
+    "text": "　　你担忧而入林，却误撞上逃窜的宇文隼随从，被一把猛推，头颅重撞尖刺，当场身亡。",
     "isEnding": true,
-    "applicableTool": ["楚明允的白眼", "苏世誉的无语", "楚明允的认同"]
+    "applicableTool": [
+      "楚明允的白眼",
+      "苏世誉的无语",
+      "楚明允的认同"
+    ]
   },
   "ending_throw_from_wall_death": {
     "title": "叛逃者的下场",
-    "text": "\"抓住一个叛逃的。\"你被蒙着眼睛，破布似地丢到城墙上。'韩大人下令，连一只鸟都不许放出城。你觉得你逃得出去？不过，你倒是可以试试，飞不飞得出去。'你被猛地拎起，风声呼啸而至，直坠而下。",
+    "text": "　　\"抓住一个叛逃的。\"你被蒙着眼睛，破布似地丢到城墙上。'韩大人下令，连一只鸟都不许放出城。你觉得你逃得出去？不过，你倒是可以试试，飞不飞得出去。'你被猛地拎起，风声呼啸而至，直坠而下。",
     "isEnding": true,
-    "applicableTool": ["楚明允的白眼", "苏世誉的无语", "楚明允的认同"]
+    "applicableTool": [
+      "楚明允的白眼",
+      "苏世誉的无语",
+      "楚明允的认同"
+    ]
   },
   "ending_poison_warning_death": {
     "title": "毒发示警",
-    "text": "你渐感呼吸困难，脸上泛起青紫。你喷出第一口鲜血，接着便如决堤之水，汩汩从唇边涌出。你看见楚太尉已挡在苏大人身前，护卫抽刃，剑拔弩张。苏大人的目光却落在了你身上，那一瞬，他似是认出了你，眉间掠过一丝诧异。\"大人……\"你的声音轻得像风中飘絮，还未落地，便被杀伐声吞没了。",
+    "text": "　　你渐感呼吸困难，脸上泛起青紫。你喷出第一口鲜血，接着便如决堤之水，汩汩从唇边涌出。你看见楚太尉已挡在苏大人身前，护卫抽刃，剑拔弩张。苏大人的目光却落在了你身上，那一瞬，他似是认出了你，眉间掠过一丝诧异。\"大人……\"你的声音轻得像风中飘絮，还未落地，便被杀伐声吞没了。",
     "isEnding": true
   },
   "ending_hall_fire_death": {
     "title": "葬身火海≠",
-    "text": "双方动手，你见苏大人招式狠绝，心中一喜，觉着尚有转圜。可一支毒箭猝不及防地钉入他手臂，鲜血瞬息浸透衣衫，他的面色肉眼可见地惨白下去。可你已无暇他顾，楚太尉一箭射落檐灯，烈焰卷起，厅内已是一片汪洋火海。",
+    "text": "　　双方动手，你见苏大人招式狠绝，心中一喜，觉着尚有转圜。可一支毒箭猝不及防地钉入他手臂，鲜血瞬息浸透衣衫，他的面色肉眼可见地惨白下去。可你已无暇他顾，楚太尉一箭射落檐灯，烈焰卷起，厅内已是一片汪洋火海。",
     "isEnding": true
   },
   "ending_woods_stab_death": {
     "title": "杀神现世",
-    "text": "你在林中撞见楚太尉将苏大人抱在怀里，苏大人唇瓣微颤，楚太尉却听得面色狰狞。粱进出现了，一剑刺入楚太尉腰侧，却转瞬间被楚太尉剐成了满地血肉。你怔怔地望着一身赤染的楚太尉，震撼于这世间独有的杀伐之美。可如此杀神，拨开苏大人面前碎发的手，却颤抖得无法自已。你看得出了神，直到一柄冰冷的长剑，从你背后穿胸而入，将你钉在原地。",
+    "text": "　　你在林中撞见楚太尉将苏大人抱在怀里，苏大人唇瓣微颤，楚太尉却听得面色狰狞。粱进出现了，一剑刺入楚太尉腰侧，却转瞬间被楚太尉剐成了满地血肉。你怔怔地望着一身赤染的楚太尉，震撼于这世间独有的杀伐之美。可如此杀神，拨开苏大人面前碎发的手，却颤抖得无法自已。你看得出了神，直到一柄冰冷的长剑，从你背后穿胸而入，将你钉在原地。",
     "isEnding": true,
-    "applicableTool": ["楚明允的欣赏"]
+    "applicableTool": [
+      "楚明允的欣赏"
+    ]
   },
   "ending_gate_intercept_death": {
     "title": "城门药商的截留",
-    "text": "寿春城门紧闭，城楼上的守卫垂首俯望，嗓音带着回音：\"寿春战事方歇，不便接客，您回罢。\"您仰头答道：\"闻韩大人急求药材，所需颇多，在下药商，特来献上。\"寂静片刻，城门缓缓开启，两名守卫迎出。您正欲开口，后颈一痛，耳边传来低语：\"韩大人早已奏报一切安好……是谁在放出淮南求药的风声？留他口气，把话问清。\"",
+    "text": "　　寿春城门紧闭，城楼上的守卫垂首俯望，嗓音带着回音：\"寿春战事方歇，不便接客，您回罢。\"您仰头答道：\"闻韩大人急求药材，所需颇多，在下药商，特来献上。\"寂静片刻，城门缓缓开启，两名守卫迎出。您正欲开口，后颈一痛，耳边传来低语：\"韩大人早已奏报一切安好……是谁在放出淮南求药的风声？留他口气，把话问清。\"",
     "isEnding": true,
-    "applicableTool": ["楚明允的白眼", "苏世誉的无语", "楚明允的认同"]
+    "applicableTool": [
+      "楚明允的白眼",
+      "苏世誉的无语",
+      "楚明允的认同"
+    ]
   },
   "ending_refugee_slain_death": {
     "title": "错投匪窝",
-    "text": "那女子脸色大变，将手里的干粮往地上一掷，喝道：\"你与那狗官狼狈为奸，那休怪我无情了。\"你还没反应过来，喉中热血已喷出了三尺外。",
+    "text": "　　那女子脸色大变，将手里的干粮往地上一掷，喝道：\"你与那狗官狼狈为奸，那休怪我无情了。\"你还没反应过来，喉中热血已喷出了三尺外。",
     "isEnding": true,
-    "applicableTool": ["楚明允的白眼", "苏世誉的无语", "楚明允的认同"]
+    "applicableTool": [
+      "楚明允的白眼",
+      "苏世誉的无语",
+      "楚明允的认同"
+    ]
   },
   "99": {
     "title": "回府歇息",
-    "text": "看来得回府了，脑子已经开始不清醒了。您一边如此想着一边结束了行程。",
+    "text": "　　看来得回府了，脑子已经开始不清醒了。您一边如此想着一边结束了行程。",
     "choices": [
-      { "text": "继续", "action": "continue_rest", "nextNode": "93" }
+      {
+        "text": "继续",
+        "action": "continue_rest",
+        "nextNode": "93"
+      }
     ]
   },
   "100": {
     "title": "传言成真？",
-    "text": "莫非京中传言是真的，楚大人果真心悦苏大人，而苏大人对楚大人也不是没意思。寒风吹过，您的脑袋隐隐作痛，怀疑刚刚听闻是否为幻觉。您摇摇头，认为自己是多想了。又走了一会儿，便也回去了。",
+    "text": "　　莫非京中传言是真的，楚大人果真心悦苏大人，而苏大人对楚大人也不是没意思。寒风吹过，您的脑袋隐隐作痛，怀疑刚刚听闻是否为幻觉。您摇摇头，认为自己是多想了。又走了一会儿，便也回去了。",
     "choices": [
-      { "text": "继续", "action": "continue_return", "nextNode": "93" }
+      {
+        "text": "继续",
+        "action": "continue_return",
+        "nextNode": "93"
+      }
     ]
   },
   "101": {
     "title": "山麓沉河",
-    "text": "对方似乎也没料到会有这么一个变数，将您打晕带走。等您醒来时，您发现自己竟在水里，头发里是泥土枯枝和荼蘼花瓣，大约是从山坡上滚了下来。好在今年雨水不多，河流缓滞，您才没有被冲走。您从河里将自己拔出，往陡峭的山坡上爬。您也不确定要爬多久。爬着爬着，遇见了一位同样在爬山的人。您选择：",
+    "text": "　　对方似乎也没料到会有这么一个变数，将您打晕带走。等您醒来时，您发现自己竟在水里，头发里是泥土枯枝和荼蘼花瓣，大约是从山坡上滚了下来。好在今年雨水不多，河流缓滞，您才没有被冲走。您从河里将自己拔出，往陡峭的山坡上爬。您也不确定要爬多久。爬着爬着，遇见了一位同样在爬山的人。您选择：",
     "choices": [
-      { "text": "a. 相逢即是缘，和他打招呼", "action": "greet", "nextNode": "ending_neck_twist_death" },
-      { "text": "b. 龟龟缩缩起来，怕他是坏人", "action": "hide", "nextNode": "102" }
+      {
+        "text": "a. 相逢即是缘，和他打招呼",
+        "action": "greet",
+        "nextNode": "ending_neck_twist_death"
+      },
+      {
+        "text": "b. 龟龟缩缩起来，怕他是坏人",
+        "action": "hide",
+        "nextNode": "102"
+      }
     ]
   },
   "102": {
     "title": "随至猎宫",
-    "text": "对方似乎在认真爬山，没有注意到您。他脚程快，必是有目标与方向，您便跟着他爬。可他爬得好快，等您好不容易爬出来时，早不知道他在哪了。你环顾周围，意识到这里是杞山猎宫。陛下一群人也已在这里了。……时间过去这么久了吗？您选择：",
+    "text": "　　对方似乎在认真爬山，没有注意到您。他脚程快，必是有目标与方向，您便跟着他爬。可他爬得好快，等您好不容易爬出来时，早不知道他在哪了。你环顾周围，意识到这里是杞山猎宫。陛下一群人也已在这里了。……时间过去这么久了吗？您选择：",
     "choices": [
-      { "text": "a. 速速找到大部队", "action": "find_group", "nextNode": "ending_rock_pillar_death" },
-      { "text": "b. 先去找那个形迹可疑的人", "action": "find_suspect", "nextNode": "ending_fake_su_kill" },
-      { "text": "c. 走一步看一步吧", "action": "wander_yard", "nextNode": "ending_branch_throat_death" }
+      {
+        "text": "a. 速速找到大部队",
+        "action": "find_group",
+        "nextNode": "ending_rock_pillar_death"
+      },
+      {
+        "text": "b. 先去找那个形迹可疑的人",
+        "action": "find_suspect",
+        "nextNode": "ending_fake_su_kill"
+      },
+      {
+        "text": "c. 走一步看一步吧",
+        "action": "wander_yard",
+        "nextNode": "ending_branch_throat_death"
+      }
     ]
   },
   "103": {
     "title": "宇文隼议和",
-    "text": "不管怎么说，苏大人走的这一个月来，楚大人异常安分，楚党也没有任何动作。只是楚大人看上去很烦躁就是了，没人敢去触他的霉头。几日后，触他霉头的人来了。匈奴九皇子宇文隼要求大夏割让西北五座城池给匈奴，并保证如此之后便再不来犯。说得天花乱坠，简直舌灿莲花。朝中有主战和主和两种声音。您选择：",
+    "text": "　　不管怎么说，苏大人走的这一个月来，楚大人异常安分，楚党也没有任何动作。只是楚大人看上去很烦躁就是了，没人敢去触他的霉头。几日后，触他霉头的人来了。匈奴九皇子宇文隼要求大夏割让西北五座城池给匈奴，并保证如此之后便再不来犯。说得天花乱坠，简直舌灿莲花。朝中有主战和主和两种声音。您选择：",
     "choices": [
-      { "text": "a. 战，匈奴说话难道很可信吗", "action": "war", "nextNode": "104" },
-      { "text": "b. 和，能少一些战乱总是好的", "action": "peace", "nextNode": "104" },
-      { "text": "c. 都有道理", "action": "neutral", "nextNode": "104", "bonus": "您毫无立场，被认为是朝廷闲人，减1点生命值" }
+      {
+        "text": "a. 战，匈奴说话难道很可信吗",
+        "action": "war",
+        "nextNode": "104"
+      },
+      {
+        "text": "b. 和，能少一些战乱总是好的",
+        "action": "peace",
+        "nextNode": "104"
+      },
+      {
+        "text": "c. 都有道理",
+        "action": "neutral",
+        "nextNode": "104",
+        "bonus": "您毫无立场，被认为是朝廷闲人，减1点生命值"
+      }
     ]
   },
   "104": {
     "title": "待苏大人定夺",
-    "text": "朝中商议不下，皇帝也是个窝囊的，根本拿不准事，说等苏大人回来再做定夺。……这样也好，苏大人总归是个看事清明的。",
+    "text": "　　朝中商议不下，皇帝也是个窝囊的，根本拿不准事，说等苏大人回来再做定夺。……这样也好，苏大人总归是个看事清明的。",
     "choices": [
-      { "text": "继续", "action": "to_hunt", "nextNode": "97" }
+      {
+        "text": "继续",
+        "action": "to_hunt",
+        "nextNode": "97"
+      }
     ]
   },
   "105": {
     "title": "不清不白",
-    "text": "您不敢贸然行动，遂驻足观察，不多时，苏大人与楚大人一前一后从林中出来。苏大人虽然看上去衣着无甚大疵，但很明显是衣物凌乱过后复又规整之态，且他领口有团显眼血迹，实在不禁令人多想。苏大人说是楚大人拔剑挡了下倾倒的树，自己不慎被利枝划伤，可他的脸和耳根晕了抹淡红，这就极有可能是……您与同伴窃窃私语，讨论道：",
+    "text": "　　您不敢贸然行动，遂驻足观察，不多时，苏大人与楚大人一前一后从林中出来。苏大人虽然看上去衣着无甚大疵，但很明显是衣物凌乱过后复又规整之态，且他领口有团显眼血迹，实在不禁令人多想。苏大人说是楚大人拔剑挡了下倾倒的树，自己不慎被利枝划伤，可他的脸和耳根晕了抹淡红，这就极有可能是……您与同伴窃窃私语，讨论道：",
     "choices": [
-      { "text": "a. 楚大人这是要把苏大人杀了？", "action": "suspect_kill", "nextNode": "106" },
-      { "text": "b. 光天化日他们在林里干嘛了？", "action": "gossip", "nextNode": "107" }
+      {
+        "text": "a. 楚大人这是要把苏大人杀了？",
+        "action": "suspect_kill",
+        "nextNode": "106"
+      },
+      {
+        "text": "b. 光天化日他们在林里干嘛了？",
+        "action": "gossip",
+        "nextNode": "107"
+      }
     ]
   },
   "106": {
     "title": "权衡震慑",
-    "text": "朝廷现在由这两人管控，其中一方出事，另一方就会独大，平衡必会被破坏，因此楚大人绝不可能在这个节骨眼杀苏大人。您不由得猜测楚大人此举用意，许是用以震慑，让朝臣好好想想对于匈奴要求割地的态度。您尚未想得更多，索性不再为难自己，安生准备明日的春猎。",
+    "text": "　　朝廷现在由这两人管控，其中一方出事，另一方就会独大，平衡必会被破坏，因此楚大人绝不可能在这个节骨眼杀苏大人。您不由得猜测楚大人此举用意，许是用以震慑，让朝臣好好想想对于匈奴要求割地的态度。您尚未想得更多，索性不再为难自己，安生准备明日的春猎。",
     "choices": [
-      { "text": "继续", "action": "go_hunt", "nextNode": "108" }
+      {
+        "text": "继续",
+        "action": "go_hunt",
+        "nextNode": "108"
+      }
     ]
   },
   "107": {
     "title": "回府准备",
-    "text": "苏大人已给出说辞，再去妄加揣测只会引来祸端，不如不管，有苏大人在，楚大人想必只会对他乱来，还是各自回府准备春猎用物为好。",
+    "text": "　　苏大人已给出说辞，再去妄加揣测只会引来祸端，不如不管，有苏大人在，楚大人想必只会对他乱来，还是各自回府准备春猎用物为好。",
     "choices": [
-      { "text": "继续", "action": "go_hunt2", "nextNode": "108" }
+      {
+        "text": "继续",
+        "action": "go_hunt2",
+        "nextNode": "108"
+      }
     ]
   },
   "108": {
     "title": "杞山春猎",
-    "text": "经过一日车马劳顿，众人总算抵达杞山猎宫。在这儿的这些时间里，您总能频频看到楚大人与苏大人同行一处，有说有笑，看起来关系极好，您甚至偶然瞧见苏大人与楚大人在山亭里密谋什么要事。到了露天宴会，匈奴皇子提出切磋比武，与苏大人单比射箭。苏大人说让楚大人来教自己使弓，楚大人竟直接把苏大人环抱在怀里，手把手教他。见此情景，您心想：",
+    "text": "　　经过一日车马劳顿，众人总算抵达杞山猎宫。在这儿的这些时间里，您总能频频看到楚大人与苏大人同行一处，有说有笑，看起来关系极好，您甚至偶然瞧见苏大人与楚大人在山亭里密谋什么要事。到了露天宴会，匈奴皇子提出切磋比武，与苏大人单比射箭。苏大人说让楚大人来教自己使弓，楚大人竟直接把苏大人环抱在怀里，手把手教他。见此情景，您心想：",
     "choices": [
-      { "text": "a. 苏大人不会武，等会儿的比试要如何是好", "action": "worry_skill", "nextNode": "110" },
-      { "text": "b. 楚大人这么用心教导，应该不会有什么问题", "action": "trust_teach", "nextNode": "111" },
-      { "text": "c. 他们又凑在一起密谋什么", "action": "wonder_plot", "nextNode": "112" }
+      {
+        "text": "a. 苏大人不会武，等会儿的比试要如何是好",
+        "action": "worry_skill",
+        "nextNode": "110"
+      },
+      {
+        "text": "b. 楚大人这么用心教导，应该不会有什么问题",
+        "action": "trust_teach",
+        "nextNode": "111"
+      },
+      {
+        "text": "c. 他们又凑在一起密谋什么",
+        "action": "wonder_plot",
+        "nextNode": "112"
+      }
     ]
   },
   "109": {
     "title": "心大如斗",
-    "text": "既然是他们两个，那就不需要自己操心了，他们肯定会处理好一切的。您信任地离开回府了。",
+    "text": "　　既然是他们两个，那就不需要自己操心了，他们肯定会处理好一切的。您信任地离开回府了。",
     "choices": [
-      { "text": "继续", "action": "leave_confident", "nextNode": "108" }
+      {
+        "text": "继续",
+        "action": "leave_confident",
+        "nextNode": "108"
+      }
     ]
   },
   "110": {
     "title": "赛前担忧",
-    "text": "苏大人的手被楚大人握着上上下下地动，似乎怎么也寻不到正确的位置。您更担忧苏大人的状况。匈奴那边已经一箭正中靶心，皇帝也面露忧色，苏大人稍抬手，走向场中。",
+    "text": "　　苏大人的手被楚大人握着上上下下地动，似乎怎么也寻不到正确的位置。您更担忧苏大人的状况。匈奴那边已经一箭正中靶心，皇帝也面露忧色，苏大人稍抬手，走向场中。",
     "choices": [
-      { "text": "继续", "action": "to_113", "nextNode": "113" }
+      {
+        "text": "继续",
+        "action": "to_113",
+        "nextNode": "113"
+      }
     ]
   },
   "111": {
     "title": "把手执弓",
-    "text": "楚大人牵着苏大人的手握正长弓，然后松开退到一旁。苏大人侧头看楚大人，楚大人对他鼓励一笑，见苏世誉不因宇文隼射中靶心而紧张，反而自信走入场中，眼里满是对这个临时\"徒弟\"的欣赏。您便知道，这把稳了。",
+    "text": "　　楚大人牵着苏大人的手握正长弓，然后松开退到一旁。苏大人侧头看楚大人，楚大人对他鼓励一笑，见苏世誉不因宇文隼射中靶心而紧张，反而自信走入场中，眼里满是对这个临时\"徒弟\"的欣赏。您便知道，这把稳了。",
     "choices": [
-      { "text": "继续", "action": "to_113b", "nextNode": "113" }
+      {
+        "text": "继续",
+        "action": "to_113b",
+        "nextNode": "113"
+      }
     ]
   },
   "112": {
     "title": "密谋之语",
-    "text": "两位大人凑近对方，咬耳朵一般说着话，楚大人下巴都枕到了苏大人肩上，生怕密谋的东西讲大声了让旁人听到。两人分开后楚大人还对苏大人点自己的嘴唇，定是商量了什么。您看着他们打哑谜，觉得自己这么干着急也没用，不如静观其变。宇文隼射箭已中靶心，算是拿下一局，您也好奇苏大人会如何逆风翻盘。",
+    "text": "　　两位大人凑近对方，咬耳朵一般说着话，楚大人下巴都枕到了苏大人肩上，生怕密谋的东西讲大声了让旁人听到。两人分开后楚大人还对苏大人点自己的嘴唇，定是商量了什么。您看着他们打哑谜，觉得自己这么干着急也没用，不如静观其变。宇文隼射箭已中靶心，算是拿下一局，您也好奇苏大人会如何逆风翻盘。",
     "choices": [
-      { "text": "继续", "action": "to_113c", "nextNode": "113" }
+      {
+        "text": "继续",
+        "action": "to_113c",
+        "nextNode": "113"
+      }
     ]
   },
   "113": {
     "title": "破箭入心",
-    "text": "只见苏大人引弓搭箭，肩臂绷紧，眼神是不加掩饰的锐利，指尖一错，利箭便以破云穿空般的气势呼啸而出，擦过宇文隼的箭矢，稳稳扎进靶心。正当众人遗憾此箭比前一箭偏差些许时，一声裂响乍然而起！匈奴的那支箭断了。苏大人云淡风轻地笑说比自己预料容易许多。您心中唯余敬佩。",
+    "text": "　　只见苏大人引弓搭箭，肩臂绷紧，眼神是不加掩饰的锐利，指尖一错，利箭便以破云穿空般的气势呼啸而出，擦过宇文隼的箭矢，稳稳扎进靶心。正当众人遗憾此箭比前一箭偏差些许时，一声裂响乍然而起！匈奴的那支箭断了。苏大人云淡风轻地笑说比自己预料容易许多。您心中唯余敬佩。",
     "choices": [
-      { "text": "继续", "action": "after_show", "nextNode": "114" }
+      {
+        "text": "继续",
+        "action": "after_show",
+        "nextNode": "114"
+      }
     ]
   },
   "114": {
     "title": "桃林美景",
-    "text": "宴会结束后，您到处走走以平复激动的心情。想着在匈奴面前扬眉吐气一回，大大削减了他们的傲气，您走路都虎虎生风了起来。周围的桃花不知道何时愈发多了，只待将人簇拥包围。您选择：",
+    "text": "　　宴会结束后，您到处走走以平复激动的心情。想着在匈奴面前扬眉吐气一回，大大削减了他们的傲气，您走路都虎虎生风了起来。周围的桃花不知道何时愈发多了，只待将人簇拥包围。您选择：",
     "choices": [
-      { "text": "a. 好景当需赏", "action": "admire", "nextNode": "116" },
-      { "text": "b. 这里不好玩", "action": "boring", "nextNode": "115" },
-      { "text": "c. 前面那是谁", "action": "approach_youth", "nextNode": "ending_pollen_suffocation_death" }
+      {
+        "text": "a. 好景当需赏",
+        "action": "admire",
+        "nextNode": "116"
+      },
+      {
+        "text": "b. 这里不好玩",
+        "action": "boring",
+        "nextNode": "115"
+      },
+      {
+        "text": "c. 前面那是谁",
+        "action": "approach_youth",
+        "nextNode": "ending_pollen_suffocation_death"
+      }
     ]
   },
   "115": {
     "title": "魏松之案",
-    "text": "您回屋院休憩，夜晚时传来消息说户部尚书魏松出事了，陛下召所有人过去。猎宫大殿上，诸臣分列两侧，魏松独自跪在殿中。您认真听完事件原委，原来是魏大人通敌叛国，与匈奴九皇子通信结盟，愿助其得到大夏五座城池。工部尚书岳宇轩跳出来说怪不得当时魏大人执意割地结盟，竟然只是为匈奴献礼。您认为：",
+    "text": "　　您回屋院休憩，夜晚时传来消息说户部尚书魏松出事了，陛下召所有人过去。猎宫大殿上，诸臣分列两侧，魏松独自跪在殿中。您认真听完事件原委，原来是魏大人通敌叛国，与匈奴九皇子通信结盟，愿助其得到大夏五座城池。工部尚书岳宇轩跳出来说怪不得当时魏大人执意割地结盟，竟然只是为匈奴献礼。您认为：",
     "choices": [
-      { "text": "a. 单凭一封书信无法做出判断", "action": "doubt_letter", "nextNode": "117" },
-      { "text": "b. 魏大人的死是板上钉钉", "action": "convict", "nextNode": "118" }
+      {
+        "text": "a. 单凭一封书信无法做出判断",
+        "action": "doubt_letter",
+        "nextNode": "117"
+      },
+      {
+        "text": "b. 魏大人的死是板上钉钉",
+        "action": "convict",
+        "nextNode": "118"
+      }
     ]
   },
   "116": {
     "title": "雨前当归",
-    "text": "满林桃花虽美，但天际已是堆满灰蒙重云。有雨将至，您匆匆回了住所。",
+    "text": "　　满林桃花虽美，但天际已是堆满灰蒙重云。有雨将至，您匆匆回了住所。",
     "choices": [
-      { "text": "继续", "action": "back_to_115", "nextNode": "115" }
+      {
+        "text": "继续",
+        "action": "back_to_115",
+        "nextNode": "115"
+      }
     ]
   },
   "117": {
     "title": "魏松的辩解",
-    "text": "您继续往下听，情况发生了变化，魏大人说这信件是苏大人让他送过去的，具体内容他并不知情。您心想：",
+    "text": "　　您继续往下听，情况发生了变化，魏大人说这信件是苏大人让他送过去的，具体内容他并不知情。您心想：",
     "choices": [
-      { "text": "a. 竟然将脏水泼到苏大人身上了", "action": "blame_su", "nextNode": "118" },
-      { "text": "b. 凡是要求证据", "action": "demand_evidence", "nextNode": "119" }
+      {
+        "text": "a. 竟然将脏水泼到苏大人身上了",
+        "action": "blame_su",
+        "nextNode": "118"
+      },
+      {
+        "text": "b. 凡是要求证据",
+        "action": "demand_evidence",
+        "nextNode": "119"
+      }
     ]
   },
   "118": {
     "title": "无谓之争",
-    "text": "您敏锐地察觉到一切并不那么简单，陛下不管信与不信，背后都有人不想让魏大人活下去，既然如此，再多争辩又有什么意义。您暗自哂笑一声，开始睁着眼睡觉。",
+    "text": "　　您敏锐地察觉到一切并不那么简单，陛下不管信与不信，背后都有人不想让魏大人活下去，既然如此，再多争辩又有什么意义。您暗自哂笑一声，开始睁着眼睡觉。",
     "choices": [
-      { "text": "继续", "action": "eyes_open_sleep", "nextNode": "121" }
+      {
+        "text": "继续",
+        "action": "eyes_open_sleep",
+        "nextNode": "121"
+      }
     ]
   },
   "119": {
     "title": "陆尚书的证词",
-    "text": "苏大人还没开口，刑部尚书陆仕就向魏大人问是什么时候与苏大人见面的。魏大人报了个时间，陆大人顿时脸色难看，说那时的苏大人正在房中，自己正送去了奏结，在场很多人都可以作证。您认为：",
+    "text": "　　苏大人还没开口，刑部尚书陆仕就向魏大人问是什么时候与苏大人见面的。魏大人报了个时间，陆大人顿时脸色难看，说那时的苏大人正在房中，自己正送去了奏结，在场很多人都可以作证。您认为：",
     "choices": [
-      { "text": "a. 不会还有反转吧", "action": "expect_twist", "nextNode": "120" },
-      { "text": "b. 魏大人此举甚不明智", "action": "unwise_move", "nextNode": "118" }
+      {
+        "text": "a. 不会还有反转吧",
+        "action": "expect_twist",
+        "nextNode": "120"
+      },
+      {
+        "text": "b. 魏大人此举甚不明智",
+        "action": "unwise_move",
+        "nextNode": "118"
+      }
     ]
   },
   "120": {
     "title": "魏松的绝望",
-    "text": "魏大人不可置信，嘴里念叨着苏大人，仿佛在祈求苏大人能救他。皇帝忍无可忍，直言相信苏大人。魏大人便听懂了皇帝的言外之意。他凄声陈情为国之志，猛然俯身叩头。",
+    "text": "　　魏大人不可置信，嘴里念叨着苏大人，仿佛在祈求苏大人能救他。皇帝忍无可忍，直言相信苏大人。魏大人便听懂了皇帝的言外之意。他凄声陈情为国之志，猛然俯身叩头。",
     "choices": [
-      { "text": "继续", "action": "desperate_plea", "nextNode": "121" }
+      {
+        "text": "继续",
+        "action": "desperate_plea",
+        "nextNode": "121"
+      }
     ]
   },
   "ending_neck_twist_death": {
     "title": "短颈荒山",
-    "text": "他面露疑惑，但还是和你打了招呼，你正要感叹一句，脖子突然一疼，原来是他把你的脖子扭断了。你的尸体骨碌骨碌滚下去，又滚到了河水里。",
+    "text": "　　他面露疑惑，但还是和你打了招呼，你正要感叹一句，脖子突然一疼，原来是他把你的脖子扭断了。你的尸体骨碌骨碌滚下去，又滚到了河水里。",
     "isEnding": true,
-    "applicableTool": ["楚明允的白眼", "苏世誉的无语", "楚明允的认同"]
+    "applicableTool": [
+      "楚明允的白眼",
+      "苏世誉的无语",
+      "楚明允的认同"
+    ]
   },
   "121": {
     "title": "魏松之死",
-    "text": "\"还望陛下明鉴！\"魏大人的头沉重地磕撞在玉阶上。殷红血液漫延于白发之下，魏大人以死明己志。您心想：",
+    "text": "　　\"还望陛下明鉴！\"魏大人的头沉重地磕撞在玉阶上。殷红血液漫延于白发之下，魏大人以死明己志。您心想：",
     "choices": [
-      { "text": "a. 到底是可惜了一位好官", "action": "pity_good_official", "nextNode": "122" },
-      { "text": "b. 我本来可以阻止他自杀的", "action": "could_prevent", "nextNode": "ending_self_sacrifice" },
-      { "text": "c. 楚大人和苏大人是不是发现了什么", "action": "suspect_discovery", "nextNode": "123" }
+      {
+        "text": "a. 到底是可惜了一位好官",
+        "action": "pity_good_official",
+        "nextNode": "122"
+      },
+      {
+        "text": "b. 我本来可以阻止他自杀的",
+        "action": "could_prevent",
+        "nextNode": "ending_self_sacrifice"
+      },
+      {
+        "text": "c. 楚大人和苏大人是不是发现了什么",
+        "action": "suspect_discovery",
+        "nextNode": "123"
+      }
     ]
   },
   "ending_self_sacrifice": {
     "title": "自证清白",
-    "text": "你能听出来魏大人是被人算计了，遂出列行礼，请陛下允许好生料理魏大人的后事。岳宇轩冷哼一声，说你行事莫名，很有可能就是魏松的同党，看着道貌岸然，心里却是往匈奴倒戈。你被岳宇轩怼得无力辩驳，最终竟不得不用自杀来自证清白。",
+    "text": "　　你能听出来魏大人是被人算计了，遂出列行礼，请陛下允许好生料理魏大人的后事。岳宇轩冷哼一声，说你行事莫名，很有可能就是魏松的同党，看着道貌岸然，心里却是往匈奴倒戈。你被岳宇轩怼得无力辩驳，最终竟不得不用自杀来自证清白。",
     "isEnding": true
   },
   "ending_rock_pillar_death": {
     "title": "巨石迎面",
-    "text": "你东找西找，可算是找到了，正想进去，头猛地撞上了身前突然出现的柱子，你撞得太用力，血都撞出来了。眼睛闭上后再睁开，自己哪里是在杞山，分明还在山麓的水里，方才撞的也不是柱子，而是一块棱角分明的巨石。所谓自救不过是临死前的幻觉。",
+    "text": "　　你东找西找，可算是找到了，正想进去，头猛地撞上了身前突然出现的柱子，你撞得太用力，血都撞出来了。眼睛闭上后再睁开，自己哪里是在杞山，分明还在山麓的水里，方才撞的也不是柱子，而是一块棱角分明的巨石。所谓自救不过是临死前的幻觉。",
     "isEnding": true
   },
   "122": {
     "title": "春猎结束",
-    "text": "浩大春猎仓促结束，原本对各地盟约还各执一词的朝臣纷纷转了同一风向，再无人敢认同盟约。御史大人淡淡一句以地事匈奴犹如抱薪救火决定了大夏的态度。匈奴使臣悻悻然离去。您选择：",
+    "text": "　　浩大春猎仓促结束，原本对各地盟约还各执一词的朝臣纷纷转了同一风向，再无人敢认同盟约。御史大人淡淡一句以地事匈奴犹如抱薪救火决定了大夏的态度。匈奴使臣悻悻然离去。您选择：",
     "choices": [
-      { "text": "a. 相送一程", "action": "see_off", "nextNode": "ending_hun_retaliation" },
-      { "text": "b. 远远嘲笑", "action": "mock_from_afar", "nextNode": "124" }
+      {
+        "text": "a. 相送一程",
+        "action": "see_off",
+        "nextNode": "ending_hun_retaliation"
+      },
+      {
+        "text": "b. 远远嘲笑",
+        "action": "mock_from_afar",
+        "nextNode": "124"
+      }
     ]
   },
   "123": {
     "title": "两位大人沉默",
-    "text": "可楚大人和苏大人都未说些什么。您选择：",
+    "text": "　　可楚大人和苏大人都未说些什么。您选择：",
     "choices": [
-      { "text": "a. 还是不当出头鸟了", "action": "stay_quiet", "nextNode": "122" },
-      { "text": "b. 我不入地狱谁入地狱", "action": "speak_up", "nextNode": "ending_speak_up" }
+      {
+        "text": "a. 还是不当出头鸟了",
+        "action": "stay_quiet",
+        "nextNode": "122"
+      },
+      {
+        "text": "b. 我不入地狱谁入地狱",
+        "action": "speak_up",
+        "nextNode": "ending_speak_up"
+      }
     ]
   },
   "ending_hun_retaliation": {
     "title": "匈奴的报复",
-    "text": "你跟过去想近距离嘲笑他们一番，可匈奴毕竟不是软柿子，忍不了被这样侮辱。他们偷偷派人跟你回城，在路上制造了一些意外，你荒诞而合理地死去了。",
+    "text": "　　你跟过去想近距离嘲笑他们一番，可匈奴毕竟不是软柿子，忍不了被这样侮辱。他们偷偷派人跟你回城，在路上制造了一些意外，你荒诞而合理地死去了。",
     "isEnding": true,
-    "applicableTool": ["楚明允的白眼", "苏世誉的无语", "楚明允的认同"]
+    "applicableTool": [
+      "楚明允的白眼",
+      "苏世誉的无语",
+      "楚明允的认同"
+    ]
   },
   "ending_speak_up": {
     "title": "多嘴之祸",
-    "text": "\"两位大人没什么要说的吗？\"你话刚说出口就意识到事情不对劲了，这样疑问似乎方才刚发生过，正是魏大人向苏大人说的话。你辩解无效，被押入大牢待审。这期间发生了太多事，你再出来时外面已经换了天。你无法适应，辞官回乡，过完了平淡的一生。",
+    "text": "　　\"两位大人没什么要说的吗？\"你话刚说出口就意识到事情不对劲了，这样疑问似乎方才刚发生过，正是魏大人向苏大人说的话。你辩解无效，被押入大牢待审。这期间发生了太多事，你再出来时外面已经换了天。你无法适应，辞官回乡，过完了平淡的一生。",
     "isEnding": true
   },
   "ending_fake_su_kill": {
     "title": "假冒之人",
-    "text": "根据直觉，你真的找到了那个人，与他距离越近，你越觉得他很眼熟，虽然只有背影，可这衣服与身形，是苏大人！你还没从震惊中缓过神来，对方就发现了你。你在死前看到了他的眼睛……小心，他要假冒苏大人。",
+    "text": "　　根据直觉，你真的找到了那个人，与他距离越近，你越觉得他很眼熟，虽然只有背影，可这衣服与身形，是苏大人！你还没从震惊中缓过神来，对方就发现了你。你在死前看到了他的眼睛……小心，他要假冒苏大人。",
     "isEnding": true,
-    "applicableTool": ["楚明允的白眼", "苏世誉的无语", "楚明允的认同"]
+    "applicableTool": [
+      "楚明允的白眼",
+      "苏世誉的无语",
+      "楚明允的认同"
+    ]
   },
   "124": {
     "title": "回禀事务的时间",
-    "text": "匈奴使团离去后，朝廷下令为魏松定谥号书诔文，您心道魏尚书果然是遭人构陷而死，不禁感到悲戚。但您无力更改什么，便不再投心于此，想着还是关心一下自己吧。每月述职的日子到了，对于去向陛下回禀事务的时间，您选择：",
+    "text": "　　匈奴使团离去后，朝廷下令为魏松定谥号书诔文，您心道魏尚书果然是遭人构陷而死，不禁感到悲戚。但您无力更改什么，便不再投心于此，想着还是关心一下自己吧。每月述职的日子到了，对于去向陛下回禀事务的时间，您选择：",
     "choices": [
-      { "text": "a. 一日之计在于晨", "action": "early_morning", "nextNode": "125" },
-      { "text": "b. 夏日困倦人之常情", "action": "summer_drowsiness", "nextNode": "127" }
+      {
+        "text": "a. 一日之计在于晨",
+        "action": "early_morning",
+        "nextNode": "125"
+      },
+      {
+        "text": "b. 夏日困倦人之常情",
+        "action": "summer_drowsiness",
+        "nextNode": "127"
+      }
     ]
   },
   "125": {
     "title": "宫中相遇",
-    "text": "您早早就进了宫，没想到还有人比自己更早。您望着那芝兰玉树的身影被一声张扬至极的\"苏大人——\"叫停了脚步，回身看去，楚大人笑着走到他身边与他并肩同行。您选择：",
+    "text": "　　您早早就进了宫，没想到还有人比自己更早。您望着那芝兰玉树的身影被一声张扬至极的\"苏大人——\"叫停了脚步，回身看去，楚大人笑着走到他身边与他并肩同行。您选择：",
     "choices": [
-      { "text": "a. 上前与他们问好", "action": "greet_them", "nextNode": "126" },
-      { "text": "b. 比他们更快到御书房回禀事务", "action": "report_first", "nextNode": "127" },
-      { "text": "c. 保持原速", "action": "maintain_pace", "nextNode": "128" }
+      {
+        "text": "a. 上前与他们问好",
+        "action": "greet_them",
+        "nextNode": "126"
+      },
+      {
+        "text": "b. 比他们更快到御书房回禀事务",
+        "action": "report_first",
+        "nextNode": "127"
+      },
+      {
+        "text": "c. 保持原速",
+        "action": "maintain_pace",
+        "nextNode": "128"
+      }
     ]
   },
   "126": {
     "title": "如芒在背",
-    "text": "\"楚大人、苏大人早。\"您有理地与他们寒暄，他们同样客气地与你打招呼，只是你总有种如芒在背的感觉，好像被什么东西盯上了似的。您对上楚大人的眼神，知道了这股寒凉感从何而来。您很识趣儿地先行离开，前往御书房回禀。",
+    "text": "　　\"楚大人、苏大人早。\"您有理地与他们寒暄，他们同样客气地与你打招呼，只是你总有种如芒在背的感觉，好像被什么东西盯上了似的。您对上楚大人的眼神，知道了这股寒凉感从何而来。您很识趣儿地先行离开，前往御书房回禀。",
     "choices": [
-      { "text": "继续", "action": "report_to_emperor", "nextNode": "127" }
+      {
+        "text": "继续",
+        "action": "report_to_emperor",
+        "nextNode": "127"
+      }
     ]
   },
   "127": {
     "title": "御书房回禀",
-    "text": "您向皇帝中规中矩地回禀了本月事务，皇帝看上去并不上心，只专注于那等人高的木雕女子。您总觉得那木雕有点熟悉，但又无法究其缘由。您将文书放到了桌上，得了皇帝准许后便退下了。",
+    "text": "　　您向皇帝中规中矩地回禀了本月事务，皇帝看上去并不上心，只专注于那等人高的木雕女子。您总觉得那木雕有点熟悉，但又无法究其缘由。您将文书放到了桌上，得了皇帝准许后便退下了。",
     "choices": [
-      { "text": "继续", "action": "leave_palace", "nextNode": "129" }
+      {
+        "text": "继续",
+        "action": "leave_palace",
+        "nextNode": "129"
+      }
     ]
   },
   "128": {
     "title": "西陵王的问候",
-    "text": "楚大人与苏大人有说有笑，一同向迎面走来的西陵王李承化行礼寒暄。西陵王走后，您听见楚大人问苏大人何时把自己收到府里，心中升起诡异的感觉，走得原来更慢了些，生怕听到什么不该听的。",
+    "text": "　　楚大人与苏大人有说有笑，一同向迎面走来的西陵王李承化行礼寒暄。西陵王走后，您听见楚大人问苏大人何时把自己收到府里，心中升起诡异的感觉，走得原来更慢了些，生怕听到什么不该听的。",
     "choices": [
-      { "text": "继续", "action": "avoid_eavesdropping", "nextNode": "127" }
+      {
+        "text": "继续",
+        "action": "avoid_eavesdropping",
+        "nextNode": "127"
+      }
     ]
   },
   "129": {
     "title": "洛辛是叛徒？",
-    "text": "雍和九年仲夏，上用御史大夫谋，行推恩令，西陵王力挺而得淮南。然淮南余孽聚众叛乱。朝遣<span class=\"character-name\">洛辛</span>前往平定，援至淮南而失，众臣疑<span class=\"character-name\">洛辛</span>叛变矣。您选择：",
+    "text": "　　雍和九年仲夏，上用御史大夫谋，行推恩令，西陵王力挺而得淮南。然淮南余孽聚众叛乱。朝遣<span class=\"character-name\">洛辛</span>前往平定，援至淮南而失，众臣疑<span class=\"character-name\">洛辛</span>叛变矣。您选择：",
     "choices": [
-      { "text": "a. 仅朝中空谈而未实地勘察，焉能得事之真貌", "action": "need_investigation", "nextNode": "130" },
-      { "text": "b. 洛辛是苏大人带回来的人，难道说……？", "action": "suspect_luo", "nextNode": "132" }
+      {
+        "text": "a. 仅朝中空谈而未实地勘察，焉能得事之真貌",
+        "action": "need_investigation",
+        "nextNode": "130"
+      },
+      {
+        "text": "b. 洛辛是苏大人带回来的人，难道说……？",
+        "action": "suspect_luo",
+        "nextNode": "132"
+      }
     ]
   },
   "130": {
     "title": "两位大人请愿",
-    "text": "苏大人走到殿中跪下，自请亲往淮南查明事由。楚明允同样出列，挨着苏大人跪下，请愿同往淮南整顿南境兵事。您选择：",
+    "text": "　　苏大人走到殿中跪下，自请亲往淮南查明事由。楚明允同样出列，挨着苏大人跪下，请愿同往淮南整顿南境兵事。您选择：",
     "choices": [
-      { "text": "a. 有两位大人躬亲查案，想必很快就能解决", "action": "trust_them", "nextNode": "160" },
-      { "text": "b. 机会难得，朝会结束后向两位大人申请随行同去", "action": "request_join", "nextNode": "131" }
+      {
+        "text": "a. 有两位大人躬亲查案，想必很快就能解决",
+        "action": "trust_them",
+        "nextNode": "160"
+      },
+      {
+        "text": "b. 机会难得，朝会结束后向两位大人申请随行同去",
+        "action": "request_join",
+        "nextNode": "131"
+      }
     ]
   },
   "ending_branch_throat_death": {
     "title": "树枝穿喉",
-    "text": "你误打误撞来到了一处院落，正要进去，就看到苏大人从里面出来了。他没有发现您，径直离开，你发现他走过的地方掉了什么东西，你过去捡起，是一片荼蘼花瓣。你低头一看，自己的鞋底果然也粘有荼蘼花。你瞬间想通了其中关窍——有人要冒充苏大人。\"跟了我一路了，还要继续跟？\"那白衣人在你背后说道。一根树枝穿进你的脖颈，你再说不出这个秘密了。",
+    "text": "　　你误打误撞来到了一处院落，正要进去，就看到苏大人从里面出来了。他没有发现您，径直离开，你发现他走过的地方掉了什么东西，你过去捡起，是一片荼蘼花瓣。你低头一看，自己的鞋底果然也粘有荼蘼花。你瞬间想通了其中关窍——有人要冒充苏大人。\"跟了我一路了，还要继续跟？\"那白衣人在你背后说道。一根树枝穿进你的脖颈，你再说不出这个秘密了。",
     "isEnding": true,
-    "applicableTool": ["楚明允的白眼", "苏世誉的无语", "楚明允的认同"]
+    "applicableTool": [
+      "楚明允的白眼",
+      "苏世誉的无语",
+      "楚明允的认同"
+    ]
   },
   "131": {
     "title": "随行淮南",
-    "text": "两位大人知晓您的品行，同意将您的名字加进随行官员的名册。几日后，您随车队上路。车队休息时，您走到楚大人和苏大人的马车处，与苏大人的侍从苏白说明自己的用意，苏白歉然道：\"公子与楚大人正在休息，不便打扰。\"您：",
+    "text": "　　两位大人知晓您的品行，同意将您的名字加进随行官员的名册。几日后，您随车队上路。车队休息时，您走到楚大人和苏大人的马车处，与苏大人的侍从苏白说明自己的用意，苏白歉然道：\"公子与楚大人正在休息，不便打扰。\"您：",
     "choices": [
-      { "text": "a. 过了一会儿觉得他俩不管午睡在做什么都该醒了，又去问候却遭拒", "action": "insist_visit", "nextNode": "133", "bonus": "您读不懂空气，被认为是显眼包，减1点生命值。若您拥有道具\"楚明允的认同\"或\"苏世誉的欣赏\"，则自动使用道具，不减生命值。" },
-      { "text": "b. 劳烦苏白小兄弟代自己表达谢意，回到自己的马车", "action": "polite_return", "nextNode": "133" }
+      {
+        "text": "a. 过了一会儿觉得他俩不管午睡在做什么都该醒了，又去问候却遭拒",
+        "action": "insist_visit",
+        "nextNode": "133",
+        "bonus": "您读不懂空气，被认为是显眼包，减1点生命值。若您拥有道具\"楚明允的认同\"或\"苏世誉的欣赏\"，则自动使用道具，不减生命值。"
+      },
+      {
+        "text": "b. 劳烦苏白小兄弟代自己表达谢意，回到自己的马车",
+        "action": "polite_return",
+        "nextNode": "133"
+      }
     ]
   },
   "132": {
     "title": "补任户部尚书",
-    "text": "您对苏大人的信任产生动摇，反观楚大人作为领导者更有前途，您有心投诚，成为了楚党的一员。后楚大人与苏大人前往淮南查案，您被安排留在京中，被推举补任户部尚书。",
+    "text": "　　您对苏大人的信任产生动摇，反观楚大人作为领导者更有前途，您有心投诚，成为了楚党的一员。后楚大人与苏大人前往淮南查案，您被安排留在京中，被推举补任户部尚书。",
     "choices": [
-      { "text": "继续", "action": "continue_story", "nextNode": "161" }
+      {
+        "text": "继续",
+        "action": "continue_story",
+        "nextNode": "161"
+      }
     ]
   },
   "133": {
     "title": "韩府宴会",
-    "text": "马车行了些时日总算抵达淮南，一行人被安排在韩府暂住，接连几天都查不到叛党相关线索，后来韩仲文设宴相邀，众人陆续而至。宴会开始前，衡山郡守沈大人向您敬酒，您选择：",
+    "text": "　　马车行了些时日总算抵达淮南，一行人被安排在韩府暂住，接连几天都查不到叛党相关线索，后来韩仲文设宴相邀，众人陆续而至。宴会开始前，衡山郡守沈大人向您敬酒，您选择：",
     "choices": [
-      { "text": "a. 喝，不破坏宴会融洽氛围", "action": "drink_wine", "nextNode": "ending_poison_banquet_death" },
-      { "text": "b. 不喝，万一他下毒了咋办", "action": "refuse_wine", "nextNode": "134" }
+      {
+        "text": "a. 喝，不破坏宴会融洽氛围",
+        "action": "drink_wine",
+        "nextNode": "ending_poison_banquet_death"
+      },
+      {
+        "text": "b. 不喝，万一他下毒了咋办",
+        "action": "refuse_wine",
+        "nextNode": "134"
+      }
     ]
   },
   "134": {
     "title": "从淮南幸存",
-    "text": "宴会刚开始，就立马变成了修罗场。好在您处变不惊又反应迅速，好悬活了下来。楚大人与苏大人揭穿淮南叛乱一案的阴谋，同时拘捕涉案大小官员，带领人马回了长安。",
+    "text": "　　宴会刚开始，就立马变成了修罗场。好在您处变不惊又反应迅速，好悬活了下来。楚大人与苏大人揭穿淮南叛乱一案的阴谋，同时拘捕涉案大小官员，带领人马回了长安。",
     "choices": [
-      { "text": "继续", "action": "continue_story", "nextNode": "160" }
+      {
+        "text": "继续",
+        "action": "continue_story",
+        "nextNode": "160"
+      }
     ]
   },
   "140": {
     "title": "面馆奇遇",
-    "text": "某天，面馆迎来了三位奇怪的客人。两位俊秀的公子沉默饮着茶，对面的碧眸异域少女刚点了她的第四碗面。您在一边悄悄观察，暗自琢磨这是修罗场还是合家欢：",
+    "text": "　　某天，面馆迎来了三位奇怪的客人。两位俊秀的公子沉默饮着茶，对面的碧眸异域少女刚点了她的第四碗面。您在一边悄悄观察，暗自琢磨这是修罗场还是合家欢：",
     "choices": [
-      { "text": "a. 修罗场", "action": "battlefield", "nextNode": "ending_noodle_shop_battlefield" },
-      { "text": "b. 合家欢", "action": "family_harmony", "nextNode": "148" }
+      {
+        "text": "a. 修罗场",
+        "action": "battlefield",
+        "nextNode": "ending_noodle_shop_battlefield"
+      },
+      {
+        "text": "b. 合家欢",
+        "action": "family_harmony",
+        "nextNode": "148"
+      }
     ]
   },
   "ending_poison_banquet_death": {
     "title": "酒中有毒",
-    "text": "你笑着喝了酒，宴会开始后突然有人喷出口血，直挺挺地栽在桌上，你惊惧地正要站起，忽地口中一阵腥甜，一股鲜血从你口中涌出，你倒下去时只记得满目猩红。",
+    "text": "　　你笑着喝了酒，宴会开始后突然有人喷出口血，直挺挺地栽在桌上，你惊惧地正要站起，忽地口中一阵腥甜，一股鲜血从你口中涌出，你倒下去时只记得满目猩红。",
     "isEnding": true
   },
-
-
   "ending_noodle_shop_battlefield": {
     "title": "面馆修罗场",
-    "text": "蓝衣公子来结账时，您笑道：\"公子慷慨，必能博得佳人欢心。\"谁知他目光一冷，深深看了您一眼。夜里，您被黑衣人掳走质问：\"你如何认出主上的？\"您连连喊冤：\"我认出谁了？\"黑衣人冷笑：\"否则你怎会断言一男子是在讨另一男子欢心？\"您欲哭无泪——究竟是谁先把\"佳人\"限定了？",
+    "text": "　　蓝衣公子来结账时，您笑道：\"公子慷慨，必能博得佳人欢心。\"谁知他目光一冷，深深看了您一眼。夜里，您被黑衣人掳走质问：\"你如何认出主上的？\"您连连喊冤：\"我认出谁了？\"黑衣人冷笑：\"否则你怎会断言一男子是在讨另一男子欢心？\"您欲哭无泪——究竟是谁先把\"佳人\"限定了？",
     "isEnding": true
   },
-
-
-
   "ending_pollen_suffocation_death": {
     "title": "花粉过敏窒息",
-    "text": "几树后隐约是位青年，只看得到他的背影，他面前是位固定姿势的红衣女子，青年执笔为她作画。你正想上前几步看看对方究竟是谁，突然胸口发闷，呼吸几近停滞。数不清的花粉飘入你的口鼻之中，你再也通不上气，靠着树倒下了。",
+    "text": "　　几树后隐约是位青年，只看得到他的背影，他面前是位固定姿势的红衣女子，青年执笔为她作画。你正想上前几步看看对方究竟是谁，突然胸口发闷，呼吸几近停滞。数不清的花粉飘入你的口鼻之中，你再也通不上气，靠着树倒下了。",
     "isEnding": true
   },
   "135": {
     "title": "贵客来访",
-    "text": "那日满城飞霜，青砖黛瓦衬着白雪纷扬。有贵客提前打了招呼，欲借您楼上雅室一用，店里不用留人伺候。您选择：",
+    "text": "　　那日满城飞霜，青砖黛瓦衬着白雪纷扬。有贵客提前打了招呼，欲借您楼上雅室一用，店里不用留人伺候。您选择：",
     "choices": [
-      { "text": "a. 藏在隔间中，若他们在此生事，事后您可提出指控", "action": "hide_spy", "nextNode": "ending_hide_spy_death" },
-      { "text": "b. 在酒楼底层自己的居室闭门不出", "action": "stay_downstairs", "nextNode": "141" },
-      { "text": "c. 去找对面酒楼老板唠嗑", "action": "chat_neighbor", "nextNode": "137" }
+      {
+        "text": "a. 藏在隔间中，若他们在此生事，事后您可提出指控",
+        "action": "hide_spy",
+        "nextNode": "ending_hide_spy_death"
+      },
+      {
+        "text": "b. 在酒楼底层自己的居室闭门不出",
+        "action": "stay_downstairs",
+        "nextNode": "141"
+      },
+      {
+        "text": "c. 去找对面酒楼老板唠嗑",
+        "action": "chat_neighbor",
+        "nextNode": "137"
+      }
     ]
   },
   "136": {
     "title": "雅间异响",
-    "text": "突然，您听闻二楼雅间木门轻响，随即是杯盏碎裂的爆声，木地板\"吱呀\"作响，仿佛有人疾行了两步。您正担心雅间从此不雅，那公子却打横抱了贵客下楼。两张雪白的脸上唇色微红，如雪地并开的双梅。两日后，贵客又至，询问那日他醉酒后发生了什么。您回答：",
+    "text": "　　突然，您听闻二楼雅间木门轻响，随即是杯盏碎裂的爆声，木地板\"吱呀\"作响，仿佛有人疾行了两步。您正担心雅间从此不雅，那公子却打横抱了贵客下楼。两张雪白的脸上唇色微红，如雪地并开的双梅。两日后，贵客又至，询问那日他醉酒后发生了什么。您回答：",
     "choices": [
-      { "text": "a. 护卫大人将您扶上了车", "action": "guard_helped", "nextNode": "ending_guard_help" },
-      { "text": "b. 一位白衣公子将您抱上了车", "action": "white_robe_helped", "nextNode": "ending_white_robe_help" }
+      {
+        "text": "a. 护卫大人将您扶上了车",
+        "action": "guard_helped",
+        "nextNode": "ending_guard_help"
+      },
+      {
+        "text": "b. 一位白衣公子将您抱上了车",
+        "action": "white_robe_helped",
+        "nextNode": "ending_white_robe_help"
+      }
     ]
   },
   "137": {
     "title": "对面酒楼",
-    "text": "对面酒楼老板今日也有贵客，却更通情达理，准他留在大堂。您才与他闲谈两句，便见一位白衣公子步入大堂，身形如芝兰玉树。少时，又有两位富贵大人携一娇俏少女上了二楼雅间，您的好友凑近，低声问：\"赌吗？那位白衣公子怕是好事将近。\"您赌：",
+    "text": "　　对面酒楼老板今日也有贵客，却更通情达理，准他留在大堂。您才与他闲谈两句，便见一位白衣公子步入大堂，身形如芝兰玉树。少时，又有两位富贵大人携一娇俏少女上了二楼雅间，您的好友凑近，低声问：\"赌吗？那位白衣公子怕是好事将近。\"您赌：",
     "choices": [
-      { "text": "a. 是，那少女看着活泼，适合那位公子", "action": "bet_yes_girl", "nextNode": "138" },
-      { "text": "b. 是，您掐指一算，算出这公子红鸾星动，纵使不是这少女，也是好事将近", "action": "bet_yes_fortune", "nextNode": "138", "bonus": "您神机妙算，获得道具\"楚明允的欣赏\"，可助您在楚明允手下存活一次。", "tool": { "title": "楚明允的欣赏", "content": "可助您在楚明允手下存活一次" } },
-      { "text": "c. 否，那位公子看着不像会喜欢任何人", "action": "bet_no", "nextNode": "139" }
+      {
+        "text": "a. 是，那少女看着活泼，适合那位公子",
+        "action": "bet_yes_girl",
+        "nextNode": "138"
+      },
+      {
+        "text": "b. 是，您掐指一算，算出这公子红鸾星动，纵使不是这少女，也是好事将近",
+        "action": "bet_yes_fortune",
+        "nextNode": "138",
+        "bonus": "您神机妙算，获得道具\"楚明允的欣赏\"，可助您在楚明允手下存活一次。",
+        "tool": {
+          "title": "楚明允的欣赏",
+          "content": "可助您在楚明允手下存活一次"
+        }
+      },
+      {
+        "text": "c. 否，那位公子看着不像会喜欢任何人",
+        "action": "bet_no",
+        "nextNode": "139"
+      }
     ]
   },
   "138": {
     "title": "输了一坛酒",
-    "text": "您和好友刚下注，白衣公子便匆匆下楼离开了。看来是没看对眼，您因此输了一坛佳酿给好友。您也无从得知他是否另有好事将近，为自己的选择悔得捶胸顿足，遂回自家酒楼客房自闭去了。回到自家酒楼，您却看到守楼梯的侍卫面色诡异。",
+    "text": "　　您和好友刚下注，白衣公子便匆匆下楼离开了。看来是没看对眼，您因此输了一坛佳酿给好友。您也无从得知他是否另有好事将近，为自己的选择悔得捶胸顿足，遂回自家酒楼客房自闭去了。回到自家酒楼，您却看到守楼梯的侍卫面色诡异。",
     "choices": [
-      { "text": "继续", "action": "continue_story", "nextNode": "136" }
+      {
+        "text": "继续",
+        "action": "continue_story",
+        "nextNode": "136"
+      }
     ]
   },
   "139": {
     "title": "赢了一坛酒",
-    "text": "您和好友刚下注，白衣公子便匆匆下楼离开了。您喜滋滋地赢了好友一坛佳酿，抱回了自家酒窖中。回到自家酒楼，您却看到守楼梯的侍卫面色诡异。",
+    "text": "　　您和好友刚下注，白衣公子便匆匆下楼离开了。您喜滋滋地赢了好友一坛佳酿，抱回了自家酒窖中。回到自家酒楼，您却看到守楼梯的侍卫面色诡异。",
     "choices": [
-      { "text": "继续", "action": "continue_story", "nextNode": "136" }
+      {
+        "text": "继续",
+        "action": "continue_story",
+        "nextNode": "136"
+      }
     ]
   },
   "141": {
     "title": "公子上楼",
-    "text": "您从房内望见，一位白衣公子竟毫无阻拦地上了贵客所处二楼。",
+    "text": "　　您从房内望见，一位白衣公子竟毫无阻拦地上了贵客所处二楼。",
     "choices": [
-      { "text": "继续", "action": "continue_story", "nextNode": "136" }
+      {
+        "text": "继续",
+        "action": "continue_story",
+        "nextNode": "136"
+      }
     ]
   },
   "142": {
     "title": "天灯工艺",
-    "text": "您最喜上元节。万家灯火怀良愿，汇作九天星河明。您所制天灯工艺精妙，又常依客意绘上寓意深远的图纹，故深得长安人喜爱。是日，您接到一桩大单，主顾重金相托，欲制两盏天青色天灯，以水墨绘尽山川河海。您选择：",
+    "text": "　　您最喜上元节。万家灯火怀良愿，汇作九天星河明。您所制天灯工艺精妙，又常依客意绘上寓意深远的图纹，故深得长安人喜爱。是日，您接到一桩大单，主顾重金相托，欲制两盏天青色天灯，以水墨绘尽山川河海。您选择：",
     "choices": [
-      { "text": "a. 接，机会难得，若是做得漂亮，贵人心情好会给很多赏银", "action": "accept_order", "nextNode": "143" },
-      { "text": "b. 不接，做贵人一盏灯的时间，您可为十人做灯", "action": "decline_order", "nextNode": "144" }
+      {
+        "text": "a. 接，机会难得，若是做得漂亮，贵人心情好会给很多赏银",
+        "action": "accept_order",
+        "nextNode": "143"
+      },
+      {
+        "text": "b. 不接，做贵人一盏灯的时间，您可为十人做灯",
+        "action": "decline_order",
+        "nextNode": "144"
+      }
     ]
   },
   "143": {
     "title": "上元夜相遇",
-    "text": "上元夜，您在人潮中一眼认出了着墨蓝的主顾，而他身侧那位谪仙般的白衣公子——您不由得感叹，当真值得为之一掷千金。公子捧灯细赏，睫羽低垂，轻声赞您\"手艺精妙\"。倒是主顾，见他神思尽在灯上，不满地哼了一声。于是公子一双含笑的眼睛转笑了他：\"你喜欢放灯？\"您下意识回道：",
+    "text": "　　上元夜，您在人潮中一眼认出了着墨蓝的主顾，而他身侧那位谪仙般的白衣公子——您不由得感叹，当真值得为之一掷千金。公子捧灯细赏，睫羽低垂，轻声赞您\"手艺精妙\"。倒是主顾，见他神思尽在灯上，不满地哼了一声。于是公子一双含笑的眼睛转笑了他：\"你喜欢放灯？\"您下意识回道：",
     "choices": [
-      { "text": "a. 谁不喜欢放灯呢", "action": "everyone_likes", "nextNode": "145", "bonus": "您读不懂空气还抢答，被认为是显眼包，减1点生命值。若您拥有道具\"楚明允的欣赏\"，则自动使用道具，不减生命值。" },
-      { "text": "b. 他喜欢你", "action": "he_likes_you", "nextNode": "145", "bonus": "您与楚明允异口同声，虽说中了他的心思，却依旧碍眼。您因此获得道具\"楚明允的白眼\"，可在您即将亡于他人之手时起威慑作用，救您一命。", "tool": { "title": "楚明允的白眼", "content": "可在您即将亡于他人之手时起威慑作用，救您一命" } }
+      {
+        "text": "a. 谁不喜欢放灯呢",
+        "action": "everyone_likes",
+        "nextNode": "145",
+        "bonus": "您读不懂空气还抢答，被认为是显眼包，减1点生命值。若您拥有道具\"楚明允的欣赏\"，则自动使用道具，不减生命值。"
+      },
+      {
+        "text": "b. 他喜欢你",
+        "action": "he_likes_you",
+        "nextNode": "145",
+        "bonus": "您与楚明允异口同声，虽说中了他的心思，却依旧碍眼。您因此获得道具\"楚明允的白眼\"，可在您即将亡于他人之手时起威慑作用，救您一命。",
+        "tool": {
+          "title": "楚明允的白眼",
+          "content": "可在您即将亡于他人之手时起威慑作用，救您一命"
+        }
+      }
     ]
   },
   "144": {
     "title": "素色天灯",
-    "text": "上元夜，一位白衣公子欲向您买一盏最朴素的天灯。您选择：",
+    "text": "　　上元夜，一位白衣公子欲向您买一盏最朴素的天灯。您选择：",
     "choices": [
-      { "text": "a. 卖，有生意就做", "action": "sell_lamp", "nextNode": "146" },
-      { "text": "b. 没得选，卖光了", "action": "sold_out", "nextNode": "147" }
+      {
+        "text": "a. 卖，有生意就做",
+        "action": "sell_lamp",
+        "nextNode": "146"
+      },
+      {
+        "text": "b. 没得选，卖光了",
+        "action": "sold_out",
+        "nextNode": "147"
+      }
     ]
   },
   "145": {
     "title": "再买一盏",
-    "text": "您被主顾冷冷瞥了一眼，识趣地退开了。片刻后，两人先后放飞天灯，却不见您想象中的你侬我侬——只是并肩而立，仿佛那漫天灯火化作的银河，是他们无法渡过的鸿沟。很快，主顾匆匆离去，将白衣公子独留灯海之中。谁料，那公子却向您招手示意，欲再买一盏素色天灯。您选择：",
+    "text": "　　您被主顾冷冷瞥了一眼，识趣地退开了。片刻后，两人先后放飞天灯，却不见您想象中的你侬我侬——只是并肩而立，仿佛那漫天灯火化作的银河，是他们无法渡过的鸿沟。很快，主顾匆匆离去，将白衣公子独留灯海之中。谁料，那公子却向您招手示意，欲再买一盏素色天灯。您选择：",
     "choices": [
-      { "text": "a. 卖，也是笔生意", "action": "sell_another", "nextNode": "146" },
-      { "text": "b. 卖不了，卖光了", "action": "cant_sell", "nextNode": "147" }
+      {
+        "text": "a. 卖，也是笔生意",
+        "action": "sell_another",
+        "nextNode": "146"
+      },
+      {
+        "text": "b. 卖不了，卖光了",
+        "action": "cant_sell",
+        "nextNode": "147"
+      }
     ]
   },
   "146": {
     "title": "三愿天灯",
-    "text": "您替他扶着灯，看他蘸墨落笔，神情专注而虔诚。墨香氤氲间，您隐约瞥见：\"三愿我所爱……\"火光映红了他白玉般的面庞，他转灯掩去余字，向您点头致谢，您才注意到那点红晕也染上了他的耳根。目送他背影渐远，您忽觉如此良夜，当佐以美酒，遂转身登上街边最负盛名的酒楼。",
+    "text": "　　您替他扶着灯，看他蘸墨落笔，神情专注而虔诚。墨香氤氲间，您隐约瞥见：\"三愿我所爱……\"火光映红了他白玉般的面庞，他转灯掩去余字，向您点头致谢，您才注意到那点红晕也染上了他的耳根。目送他背影渐远，您忽觉如此良夜，当佐以美酒，遂转身登上街边最负盛名的酒楼。",
     "choices": [
-      { "text": "继续", "action": "continue_story", "nextNode": "88" }
+      {
+        "text": "继续",
+        "action": "continue_story",
+        "nextNode": "88"
+      }
     ]
   },
   "147": {
     "title": "同行互助",
-    "text": "您将这桩生意介绍给了一位同行，心中一宽，遂决定今日歇业，转身登上街边最负盛名的酒楼。",
+    "text": "　　您将这桩生意介绍给了一位同行，心中一宽，遂决定今日歇业，转身登上街边最负盛名的酒楼。",
     "choices": [
-      { "text": "继续", "action": "continue_story", "nextNode": "88" }
+      {
+        "text": "继续",
+        "action": "continue_story",
+        "nextNode": "88"
+      }
     ]
   },
   "ending_hide_spy_death": {
     "title": "隔间窥探",
-    "text": "你没料到，贵客武艺高强，一进屋便察觉了隔间后的异样。一名黑衣人将你按跪在贵客面前，贵客斟酒时睨了你一眼：\"我们信得过老板，可老板未必信得过我们。\"你满头冷汗，只觉命悬一线。屋内极静，只有吞咽声和酒杯轻磕窗沿的响声。贵客忽然笑道：\"别紧张，你挑的酒不错，我以后常来。你安心管好酒楼，你家人我替你照看。\"",
+    "text": "　　你没料到，贵客武艺高强，一进屋便察觉了隔间后的异样。一名黑衣人将你按跪在贵客面前，贵客斟酒时睨了你一眼：\"我们信得过老板，可老板未必信得过我们。\"你满头冷汗，只觉命悬一线。屋内极静，只有吞咽声和酒杯轻磕窗沿的响声。贵客忽然笑道：\"别紧张，你挑的酒不错，我以后常来。你安心管好酒楼，你家人我替你照看。\"",
     "isEnding": true,
-    "applicableTool": ["楚明允的欣赏"]
+    "applicableTool": [
+      "楚明允的欣赏"
+    ]
   },
   "ending_guard_help": {
     "title": "旧事重提",
-    "text": "贵客追问道：\"您这酒楼可点过安神香？\"您茫然摇头。贵客心不在焉地点了点头，您眼前突然多了一锭金子。\"去买些点上吧。\"他拂袖而去。数年后，贵客竟又与那白衣公子一齐光临了您的酒楼。他揽着那白衣公子的腰，向您一挑眉：\"再给你一次机会，当时我是怎么上的车？\"",
+    "text": "　　贵客追问道：\"您这酒楼可点过安神香？\"您茫然摇头。贵客心不在焉地点了点头，您眼前突然多了一锭金子。\"去买些点上吧。\"他拂袖而去。数年后，贵客竟又与那白衣公子一齐光临了您的酒楼。他揽着那白衣公子的腰，向您一挑眉：\"再给你一次机会，当时我是怎么上的车？\"",
     "isEnding": true
   },
   "ending_white_robe_help": {
     "title": "雅间可雅",
-    "text": "\"看来不是做梦。\"他喃喃，冶艳的眼转向你：\"那你说，为何我醒着，他仍避我如蛇蝎？\"你寒毛直竖，结巴道：\"小的孤身一人，哪懂哄夫人……\"不知怎的，这话入了他耳，他扬手赏了你一锭金。数年后，他与白衣公子同至，点了一桌酒菜让你送上雅间。上楼前，你见他熟练地抱起那公子，后者耳根泛红，却乖顺地搂上他的脖颈。你又开始担心雅间不雅了。",
+    "text": "　　\"看来不是做梦。\"他喃喃，冶艳的眼转向你：\"那你说，为何我醒着，他仍避我如蛇蝎？\"你寒毛直竖，结巴道：\"小的孤身一人，哪懂哄夫人……\"不知怎的，这话入了他耳，他扬手赏了你一锭金。数年后，他与白衣公子同至，点了一桌酒菜让你送上雅间。上楼前，你见他熟练地抱起那公子，后者耳根泛红，却乖顺地搂上他的脖颈。你又开始担心雅间不雅了。",
     "isEnding": true,
     "bonus": "触发SR结局，加1张传送卡。",
     "specialEnding": "SR"
   },
   "148": {
     "title": "市集推荐",
-    "text": "蓝衣公子来结账时，您热心地推荐：\"出门往左就是市集，热闹得很，年轻人都喜欢得很。\"蓝衣公子捏了捏瘪掉的钱袋，目光却落在少女亲昵挽着白衣公子袖子的背影上，心不在焉地问：\"都有些什么？\"您回答：",
+    "text": "　　蓝衣公子来结账时，您热心地推荐：\"出门往左就是市集，热闹得很，年轻人都喜欢得很。\"蓝衣公子捏了捏瘪掉的钱袋，目光却落在少女亲昵挽着白衣公子袖子的背影上，心不在焉地问：\"都有些什么？\"您回答：",
     "choices": [
-      { "text": "a. 糖糕", "action": "sugar_cake", "nextNode": "ending_sugar_cake_success", "bonus": "您对美食品味上乘，获得道具\"楚明允的欣赏\"，可助您在楚明允手下存活一次。", "tool": { "title": "楚明允的欣赏", "content": "可助您在楚明允手下存活一次" } },
-      { "text": "b. 首饰", "action": "jewelry", "nextNode": "149" },
-      { "text": "c. 特色咸元宵", "action": "salty_tangyuan", "nextNode": "ending_salty_tangyuan_disaster" }
+      {
+        "text": "a. 糖糕",
+        "action": "sugar_cake",
+        "nextNode": "ending_sugar_cake_success",
+        "bonus": "您对美食品味上乘，获得道具\"楚明允的欣赏\"，可助您在楚明允手下存活一次。",
+        "tool": {
+          "title": "楚明允的欣赏",
+          "content": "可助您在楚明允手下存活一次"
+        }
+      },
+      {
+        "text": "b. 首饰",
+        "action": "jewelry",
+        "nextNode": "149"
+      },
+      {
+        "text": "c. 特色咸元宵",
+        "action": "salty_tangyuan",
+        "nextNode": "ending_salty_tangyuan_disaster"
+      }
     ]
   },
   "149": {
     "title": "谁从了谁",
-    "text": "市集上卖首饰的摊主姑娘是您闺密，午饭时她眉飞色舞地比划着，说起那两位气度不凡的公子如何各执一支女式玉簪，硬要塞到对方手中。正说得兴起，她忽然瞥向了门口：\"哎，不就是那两位？\"您抬眼望去，果然见到那两位眼熟的客人走进了客栈。闺蜜忙凑过来压低声音：\"你猜，今早最后是谁从了？\"您答道：",
+    "text": "　　市集上卖首饰的摊主姑娘是您闺密，午饭时她眉飞色舞地比划着，说起那两位气度不凡的公子如何各执一支女式玉簪，硬要塞到对方手中。正说得兴起，她忽然瞥向了门口：\"哎，不就是那两位？\"您抬眼望去，果然见到那两位眼熟的客人走进了客栈。闺蜜忙凑过来压低声音：\"你猜，今早最后是谁从了？\"您答道：",
     "choices": [
-      { "text": "a. \"蓝衣服的吧，那位白衣公子看起来一身凛然正气……\"", "action": "blue_robe_yielded", "nextNode": "150", "bonus": "您慧眼识人，获得道具\"苏世誉的欣赏\"，可助您在苏世誉手下存活一次。", "tool": { "title": "苏世誉的欣赏", "content": "可助您在苏世誉手下存活一次" } },
-      { "text": "b. \"白衣服受了，你没瞧见，他只有看着那蓝衣公子的时候，笑意才真真儿到了眼底。想来那蓝衣公子提什么要求，他都是不会拒绝的。\"", "action": "white_robe_yielded", "nextNode": "150" }
+      {
+        "text": "a. \"蓝衣服的吧，那位白衣公子看起来一身凛然正气……\"",
+        "action": "blue_robe_yielded",
+        "nextNode": "150",
+        "bonus": "您慧眼识人，获得道具\"苏世誉的欣赏\"，可助您在苏世誉手下存活一次。",
+        "tool": {
+          "title": "苏世誉的欣赏",
+          "content": "可助您在苏世誉手下存活一次"
+        }
+      },
+      {
+        "text": "b. \"白衣服受了，你没瞧见，他只有看着那蓝衣公子的时候，笑意才真真儿到了眼底。想来那蓝衣公子提什么要求，他都是不会拒绝的。\"",
+        "action": "white_robe_yielded",
+        "nextNode": "150"
+      }
     ]
   },
   "150": {
     "title": "真相如何",
-    "text": "正用饭间，后几桌却喧哗起来。您隐约听得几句：\"借机除去苏行\"\"两厢得利\"\"下手真狠\"——是在议论楚太尉与御史苏大人。您选择：",
+    "text": "　　正用饭间，后几桌却喧哗起来。您隐约听得几句：\"借机除去苏行\"\"两厢得利\"\"下手真狠\"——是在议论楚太尉与御史苏大人。您选择：",
     "choices": [
-      { "text": "a. 打抱不平。两位大人虽是政敌，然所行皆为国计民生，岂可揣度他们为一己私利苟且？", "action": "defend_them", "nextNode": "ending_defend_them_success" },
-      { "text": "b. 附和。传闻苏大人冷心冷情，对血亲下手想必对他而言也不算什么。", "action": "agree_gossip", "nextNode": "ending_agree_gossip_death" },
-      { "text": "c. 有自己的判断。楚苏两党敌对多年突然一起跑去查案，这中间发生了什么？是楚大人表白了啊！这哪是查案，这是度蜜月啊。", "action": "romance_theory", "nextNode": "ending_romance_book_death" }
+      {
+        "text": "a. 打抱不平。两位大人虽是政敌，然所行皆为国计民生，岂可揣度他们为一己私利苟且？",
+        "action": "defend_them",
+        "nextNode": "ending_defend_them_success"
+      },
+      {
+        "text": "b. 附和。传闻苏大人冷心冷情，对血亲下手想必对他而言也不算什么。",
+        "action": "agree_gossip",
+        "nextNode": "ending_agree_gossip_death"
+      },
+      {
+        "text": "c. 有自己的判断。楚苏两党敌对多年突然一起跑去查案，这中间发生了什么？是楚大人表白了啊！这哪是查案，这是度蜜月啊。",
+        "action": "romance_theory",
+        "nextNode": "ending_romance_book_death"
+      }
     ]
   },
   "151": {
     "title": "食肆选择",
-    "text": "民以食为天，您深知经营酒楼饭馆不仅是谋生之道，更是结交四方宾客、广结善缘的良机。您打算加入一家：",
+    "text": "　　民以食为天，您深知经营酒楼饭馆不仅是谋生之道，更是结交四方宾客、广结善缘的良机。您打算加入一家：",
     "choices": [
-      { "text": "a. 点心铺", "action": "join_pastry_shop", "nextNode": "83" },
-      { "text": "b. 酒楼", "action": "join_restaurant", "nextNode": "84" }
+      {
+        "text": "a. 点心铺",
+        "action": "join_pastry_shop",
+        "nextNode": "83"
+      },
+      {
+        "text": "b. 酒楼",
+        "action": "join_restaurant",
+        "nextNode": "84"
+      }
     ]
   },
   "152": {
     "title": "技艺选择",
-    "text": "执一艺而为匠，薪火相传，岁月不改。您擅长：",
+    "text": "　　执一艺而为匠，薪火相传，岁月不改。您擅长：",
     "choices": [
-      { "text": "a. 巧艺（手工）", "action": "handicraft", "nextNode": "153" },
-      { "text": "b. 丹青", "action": "painting", "nextNode": "142" },
-      { "text": "c. 侍弄花草", "action": "gardening", "nextNode": "154" }
+      {
+        "text": "a. 巧艺（手工）",
+        "action": "handicraft",
+        "nextNode": "153"
+      },
+      {
+        "text": "b. 丹青",
+        "action": "painting",
+        "nextNode": "142"
+      },
+      {
+        "text": "c. 侍弄花草",
+        "action": "gardening",
+        "nextNode": "154"
+      }
     ]
   },
   "153": {
     "title": "玉簪赠公子",
-    "text": "您在长安的市集上卖首饰，谁料某天摊上来了两位气度不凡的公子，各执一支女式玉簪，硬要塞到对方手中。午时，您跟闺蜜在一家客栈用餐时，又见到了这两位公子，您忍不住跟闺蜜私语：\"猜猜最后哪位公子从了对方？\"闺蜜回答：",
+    "text": "　　您在长安的市集上卖首饰，谁料某天摊上来了两位气度不凡的公子，各执一支女式玉簪，硬要塞到对方手中。午时，您跟闺蜜在一家客栈用餐时，又见到了这两位公子，您忍不住跟闺蜜私语：\"猜猜最后哪位公子从了对方？\"闺蜜回答：",
     "choices": [
-      { "text": "a. \"蓝衣服的吧，那位白衣公子看起来一身凛然正气……\"", "action": "blue_robe_yielded", "nextNode": "150", "bonus": "您慧眼识人，获得道具\"苏世誉的欣赏\"，可助您在苏世誉手下存活一次。", "tool": { "title": "苏世誉的欣赏", "content": "可助您在苏世誉手下存活一次" } },
-      { "text": "b. \"白衣服，你没瞧见，他只有看着那蓝衣公子的时候，笑意才真真儿到了眼底。想来那蓝衣公子提什么要求，他都是不会拒绝的。\"", "action": "white_robe_yielded", "nextNode": "150" }
+      {
+        "text": "a. \"蓝衣服的吧，那位白衣公子看起来一身凛然正气……\"",
+        "action": "blue_robe_yielded",
+        "nextNode": "150",
+        "bonus": "您慧眼识人，获得道具\"苏世誉的欣赏\"，可助您在苏世誉手下存活一次。",
+        "tool": {
+          "title": "苏世誉的欣赏",
+          "content": "可助您在苏世誉手下存活一次"
+        }
+      },
+      {
+        "text": "b. \"白衣服，你没瞧见，他只有看着那蓝衣公子的时候，笑意才真真儿到了眼底。想来那蓝衣公子提什么要求，他都是不会拒绝的。\"",
+        "action": "white_robe_yielded",
+        "nextNode": "150"
+      }
     ]
   },
   "154": {
     "title": "养护植物",
-    "text": "那日您受邀去一位大人府上养护植物，您选择：",
+    "text": "　　那日您受邀去一位大人府上养护植物，您选择：",
     "choices": [
-      { "text": "a. 去", "action": "go", "nextNode": "155" },
-      { "text": "b. 不去", "action": "refuse", "nextNode": "ending_opium_death" }
+      {
+        "text": "a. 去",
+        "action": "go",
+        "nextNode": "155"
+      },
+      {
+        "text": "b. 不去",
+        "action": "refuse",
+        "nextNode": "ending_opium_death"
+      }
     ]
   },
   "155": {
     "title": "红莲之愿",
-    "text": "您听闻府上的枯塘往昔种满珍奇花木，皆是苏诀将军夫人亲手打理。如今家主、御史苏大人却骤然兴念，欲改植红莲。那日您正准备埋下藕种时，苏大人恰巧从旁经过。您:",
+    "text": "　　您听闻府上的枯塘往昔种满珍奇花木，皆是苏诀将军夫人亲手打理。如今家主、御史苏大人却骤然兴念，欲改植红莲。那日您正准备埋下藕种时，苏大人恰巧从旁经过。您:",
     "choices": [
-      { "text": "a. 不敢言语，只低头行礼，静静目送他背影离开", "action": "silent_bow", "nextNode": "156" },
-      { "text": "b. 斗胆一问：\"大人可是钟情红莲？若肯亲手栽下一株，他年花开，必更添雅趣。\"", "action": "bold_suggestion", "nextNode": "156", "bonus": "从未有人对苏世誉作如此提议，他一愣之后欣然应允。获得道具\"苏世誉的威望\"，可助您在叛党手下存活一次。", "tool": { "title": "苏世誉的青睐", "content": "可助您在叛党手下存活一次" } }
+      {
+        "text": "a. 不敢言语，只低头行礼，静静目送他背影离开",
+        "action": "silent_bow",
+        "nextNode": "156"
+      },
+      {
+        "text": "b. 斗胆一问：\"大人可是钟情红莲？若肯亲手栽下一株，他年花开，必更添雅趣。\"",
+        "action": "bold_suggestion",
+        "nextNode": "156",
+        "bonus": "从未有人对苏世誉作如此提议，他一愣之后欣然应允。获得道具\"苏世誉的威望\"，可助您在叛党手下存活一次。",
+        "tool": {
+          "title": "苏世誉的青睐",
+          "content": "可助您在叛党手下存活一次"
+        }
+      }
     ]
   },
   "156": {
     "title": "无莲之塘",
-    "text": "谁知许是往昔珍奇花草改了水土脉理，红莲终未能出芽。您竭尽心力，仍无以回天，遂心怀愧疚，上门请罪。见苏大人神色黯然，您躬身轻声道：",
+    "text": "　　谁知许是往昔珍奇花草改了水土脉理，红莲终未能出芽。您竭尽心力，仍无以回天，遂心怀愧疚，上门请罪。见苏大人神色黯然，您躬身轻声道：",
     "choices": [
-      { "text": "a. \"今年气候偏寒，红莲未得其机。大人若实在喜欢，不妨再静候些时日。\"", "action": "wait_longer", "nextNode": "ending_wait_forever" },
-      { "text": "b. \"苏府风水虽养不得红莲，然天下芳华无数，总会有能合大人心意的。\"", "action": "other_flowers", "nextNode": "ending_other_flowers" }
+      {
+        "text": "a. \"今年气候偏寒，红莲未得其机。大人若实在喜欢，不妨再静候些时日。\"",
+        "action": "wait_longer",
+        "nextNode": "ending_wait_forever"
+      },
+      {
+        "text": "b. \"苏府风水虽养不得红莲，然天下芳华无数，总会有能合大人心意的。\"",
+        "action": "other_flowers",
+        "nextNode": "ending_other_flowers"
+      }
     ]
   },
   "157": {
     "title": "永乐坊少主",
-    "text": "您成了永乐坊慕老板手下，却与众人一并称他为少主。少主似与红袖招的静姝姑娘有情，您常在两处之间传递情思与消息。静姝姑娘身份特殊，不接待客人。一日透过门缝，您却见屋内有蓝白两位气度非凡的公子。鸨母暗示她暂时无暇，您便先行离开。难得有空，路过市集时，您难免多逗留了片刻。",
+    "text": "　　您成了永乐坊慕老板手下，却与众人一并称他为少主。少主似与红袖招的静姝姑娘有情，您常在两处之间传递情思与消息。静姝姑娘身份特殊，不接待客人。一日透过门缝，您却见屋内有蓝白两位气度非凡的公子。鸨母暗示她暂时无暇，您便先行离开。难得有空，路过市集时，您难免多逗留了片刻。",
     "choices": [
-      { "text": "继续", "action": "continue_story", "nextNode": "193" }
+      {
+        "text": "继续",
+        "action": "continue_story",
+        "nextNode": "193"
+      }
     ]
   },
   "158": {
     "title": "古琴之声",
-    "text": "您自幼素心好丝竹，钟情器乐。那日您跟随商队在回城古道附近歇息，三更半夜荒郊野岭，却忽有极细弱的琴声传来，缥缈空寂，哀思若泣。您：",
+    "text": "　　您自幼素心好丝竹，钟情器乐。那日您跟随商队在回城古道附近歇息，三更半夜荒郊野岭，却忽有极细弱的琴声传来，缥缈空寂，哀思若泣。您：",
     "choices": [
-      { "text": "a. 不由自主地循声而去", "action": "follow_sound", "nextNode": "ending_music_legend" },
-      { "text": "b. 疑声有异，塞住耳朵，唯恐是那山野精怪害人性命", "action": "fear_spirits", "nextNode": "ending_ordinary_life" }
+      {
+        "text": "a. 不由自主地循声而去",
+        "action": "follow_sound",
+        "nextNode": "ending_music_legend"
+      },
+      {
+        "text": "b. 疑声有异，塞住耳朵，唯恐是那山野精怪害人性命",
+        "action": "fear_spirits",
+        "nextNode": "ending_ordinary_life"
+      }
     ]
   },
   "159": {
     "title": "静姝姑娘的手下",
-    "text": "您成为了静姝姑娘的手下，负责在红袖招与地下赌坊永乐坊之间传递消息。静姝姑娘整日带着一个十五六岁的小男孩，您第一眼见到他时竟觉得似曾相识。",
+    "text": "　　您成为了静姝姑娘的手下，负责在红袖招与地下赌坊永乐坊之间传递消息。静姝姑娘整日带着一个十五六岁的小男孩，您第一眼见到他时竟觉得似曾相识。",
     "choices": [
-      { "text": "继续", "action": "continue_story", "nextNode": "190" }
+      {
+        "text": "继续",
+        "action": "continue_story",
+        "nextNode": "190"
+      }
     ]
   },
   "ending_opium_death": {
     "title": "罂粟难活",
-    "text": "您在家中歇息之际，忽被人擒走，押出长安，带到不知名的穷乡僻壤。带走您的人给了您几株枯槁了的罂粟，命您为某位权贵大量栽种。可此地水土不宜，罂粟难以成活，您完成不了这个任务，因此丢了性命。",
+    "text": "　　您在家中歇息之际，忽被人擒走，押出长安，带到不知名的穷乡僻壤。带走您的人给了您几株枯槁了的罂粟，命您为某位权贵大量栽种。可此地水土不宜，罂粟难以成活，您完成不了这个任务，因此丢了性命。",
     "isEnding": true,
-    "applicableTool": ["苏世誉的威望"]
+    "applicableTool": [
+      "苏世誉的威望"
+    ]
   },
   "ending_wait_forever": {
     "title": "红莲绽放",
-    "text": "您未言需候几时，苏大人亦未曾追问。好像左右没有更喜欢的，便不妨一直候下去。\n直到那一天，在天地间晦冷光影中，一点如心头血般的红，几乎灼烫了目光。",
+    "text": "　　您未言需候几时，苏大人亦未曾追问。好像左右没有更喜欢的，便不妨一直候下去。\n直到那一天，在天地间晦冷光影中，一点如心头血般的红，几乎灼烫了目光。",
     "isEnding": true
   },
   "ending_other_flowers": {
     "title": "红莲盈塘",
-    "text": "\"不会了。\"风里的声音淡淡的，池水都未起涟漪。\n然次年再至，红莲盈塘，已亭亭如玉矣。",
+    "text": "　　\"不会了。\"风里的声音淡淡的，池水都未起涟漪。\n然次年再至，红莲盈塘，已亭亭如玉矣。",
     "isEnding": true
   },
   "ending_music_legend": {
     "title": "亭中仙乐",
-    "text": "\"一曲起弦风雅，音似玉盘珠落泠泠，声转战鼓擂响震震，渐入金戈激鸣铮铮，铁马冰河至此滚滚而来。嗟乎！笔者循声欲前，终为乐音所摄，心潮澎湃，寸步难移。此曲只应天上有，彼朱台绛阙，疑天上宫阙，凡骨岂可及！\"——出自《大周·乐志》",
+    "text": "　　\"一曲起弦风雅，音似玉盘珠落泠泠，声转战鼓擂响震震，渐入金戈激鸣铮铮，铁马冰河至此滚滚而来。嗟乎！笔者循声欲前，终为乐音所摄，心潮澎湃，寸步难移。此曲只应天上有，彼朱台绛阙，疑天上宫阙，凡骨岂可及！\"——出自《大周·乐志》",
     "isEnding": true
   },
   "ending_ordinary_life": {
     "title": "平凡人生",
-    "text": "您虽好丝竹，遇绝技佳缘却瑟缩不前，碌碌一生。",
+    "text": "　　您虽好丝竹，遇绝技佳缘却瑟缩不前，碌碌一生。",
     "isEnding": true
   },
   "160": {
     "title": "党派抉择",
-    "text": "楚苏两位大人从淮南回来长安后，原本便势同水火的关系现在看上去更差了，而您在朝中待了这么久，自然不是单纯天真之人，这朝堂尽由两人把控，您心想：是时候作出抉择了。您选择：",
+    "text": "　　楚苏两位大人从淮南回来长安后，原本便势同水火的关系现在看上去更差了，而您在朝中待了这么久，自然不是单纯天真之人，这朝堂尽由两人把控，您心想：是时候作出抉择了。您选择：",
     "choices": [
-      { "text": "a. 楚明允，更有雄心与抱负", "action": "choose_chu", "nextNode": "161" },
-      { "text": "b. 苏世誉，更有底蕴与才谋", "action": "choose_su", "nextNode": "167" }
+      {
+        "text": "a. 楚明允，更有雄心与抱负",
+        "action": "choose_chu",
+        "nextNode": "161"
+      },
+      {
+        "text": "b. 苏世誉，更有底蕴与才谋",
+        "action": "choose_su",
+        "nextNode": "167"
+      }
     ]
   },
   "161": {
     "title": "千秋节山崩",
-    "text": "千秋节时突遇山崩，众人奔逃时您好像看见楚大人走向倾塌的山崖。您选择：",
+    "text": "　　千秋节时突遇山崩，众人奔逃时您好像看见楚大人走向倾塌的山崖。您选择：",
     "choices": [
-      { "text": "a. 把楚大人拉回来", "action": "save_chu", "nextNode": "ending_save_chu_death" },
-      { "text": "b. 顾全自己更重要", "action": "save_self", "nextNode": "162" }
+      {
+        "text": "a. 把楚大人拉回来",
+        "action": "save_chu",
+        "nextNode": "ending_save_chu_death"
+      },
+      {
+        "text": "b. 顾全自己更重要",
+        "action": "save_self",
+        "nextNode": "162"
+      }
     ]
   },
   "162": {
     "title": "白玉盏碎裂",
-    "text": "楚大人神通广大，不会有事，混乱的宴席也因镇定从容的苏大人而重新有序，众人在这殿中继续宴饮作乐。好不容易熬到结束，苏大人上前向陛下请赐宴上在水中跳舞的舞姬。本以为无人在意此等小事，却没想到旋即一声爆裂破响，原是楚大人捏碎了白玉盏。您心想：",
+    "text": "　　楚大人神通广大，不会有事，混乱的宴席也因镇定从容的苏大人而重新有序，众人在这殿中继续宴饮作乐。<br><br>　　好不容易熬到结束，苏大人上前向陛下请赐宴上在水中跳舞的舞姬。本以为无人在意此等小事，却没想到旋即一声爆裂破响，原是楚大人捏碎了白玉盏。您心想：",
     "choices": [
-      { "text": "a. 楚大人手劲蛮大的，是不是也能表演胸口碎大石？", "action": "strong_hand", "nextNode": "163" },
-      { "text": "b. 楚大人不会是听苏大人请赐佳人而吃醋吧", "action": "jealous_chu", "nextNode": "163", "bonus": "你直觉敏锐洞若观火，获得道具\"楚明允的认同\"，可在您即将亡于他人之手时起威慑作用，救您一命。", "tool": { "title": "楚明允的认同", "content": "可在您即将亡于他人之手时起威慑作用，救您一命" } }
+      {
+        "text": "a. 楚大人手劲蛮大的，是不是也能表演胸口碎大石？",
+        "action": "strong_hand",
+        "nextNode": "163"
+      },
+      {
+        "text": "b. 楚大人不会是听苏大人请赐佳人而吃醋吧",
+        "action": "jealous_chu",
+        "nextNode": "163",
+        "bonus": "你直觉敏锐洞若观火，获得道具\"楚明允的认同\"，可在您即将亡于他人之手时起威慑作用，救您一命。",
+        "tool": {
+          "title": "楚明允的认同",
+          "content": "可在您即将亡于他人之手时起威慑作用，救您一命"
+        }
+      }
     ]
   },
   "163": {
     "title": "山雨欲来",
-    "text": "千秋宴上没发生的大事，在宴会散去的后一天发生了——姜昭仪给皇帝下毒，皇帝陷入了昏迷，朝廷诸事以廷议为准。楚太尉抽调五万精兵驻扎长安城外。您觉山雨欲来风满楼。",
+    "text": "　　千秋宴上没发生的大事，在宴会散去的后一天发生了——姜昭仪给皇帝下毒，皇帝陷入了昏迷，朝廷诸事以廷议为准。楚太尉抽调五万精兵驻扎长安城外。您觉山雨欲来风满楼。",
     "choices": [
-      { "text": "继续", "action": "continue_story", "nextNode": "164" }
+      {
+        "text": "继续",
+        "action": "continue_story",
+        "nextNode": "164"
+      }
     ]
   },
   "164": {
     "title": "建章宫敛财案",
-    "text": "在医生唯一弟子杜药师的救治下，皇帝醒来了。同期，一桩往事因一场大雨而被爆了出来，建章宫的玉堂殿倒塌，牵扯到当年建造宫殿的相关臣子结党营私且是为他人敛财。皇帝命苏大人彻查处置。您选择：",
+    "text": "　　在医生唯一弟子杜药师的救治下，皇帝醒来了。同期，一桩往事因一场大雨而被爆了出来，建章宫的玉堂殿倒塌，牵扯到当年建造宫殿的相关臣子结党营私且是为他人敛财。皇帝命苏大人彻查处置。您选择：",
     "choices": [
-      { "text": "a. 这件事怕是与楚大人有关，恐怕很快就会查到他头上", "action": "suspect_chu", "nextNode": "ending_corruption_exposed" },
-      { "text": "b. 我一向行止端正且慎微守矩，未曾犯下过错，此事应与我并无关联", "action": "innocent_self", "nextNode": "165" }
+      {
+        "text": "a. 这件事怕是与楚大人有关，恐怕很快就会查到他头上",
+        "action": "suspect_chu",
+        "nextNode": "ending_corruption_exposed"
+      },
+      {
+        "text": "b. 我一向行止端正且慎微守矩，未曾犯下过错，此事应与我并无关联",
+        "action": "innocent_self",
+        "nextNode": "165"
+      }
     ]
   },
   "165": {
     "title": "苏大人请罪",
-    "text": "苏大人办事效率高，很快便结了案，可他又说自己办事不力，未能查出此案主谋，于心有愧，自请责罚。有人猜测这是苏家衰颓的征兆，楚苏两党分庭抗礼的局面可能要变了。",
+    "text": "　　苏大人办事效率高，很快便结了案，可他又说自己办事不力，未能查出此案主谋，于心有愧，自请责罚。有人猜测这是苏家衰颓的征兆，楚苏两党分庭抗礼的局面可能要变了。",
     "choices": [
-      { "text": "继续", "action": "continue_story", "nextNode": "166" }
+      {
+        "text": "继续",
+        "action": "continue_story",
+        "nextNode": "166"
+      }
     ]
   },
   "166": {
     "title": "楚明允称帝",
-    "text": "但是您万万没想到，这变化竟如此巨大。只是过了个年的功夫，春二月时，皇帝李延贞就再次遭人下毒昏迷，御史大人不知所踪，楚太尉逼宫称帝。新帝楚明允次日上朝，颁布了第一条宪令，是封分田诏令。整改分划田地，革除旧弊，是实打实照顾民生的好政令，只是过于激进了。您认为：",
+    "text": "　　但是您万万没想到，这变化竟如此巨大。只是过了个年的功夫，春二月时，皇帝李延贞就再次遭人下毒昏迷，御史大人不知所踪，楚太尉逼宫称帝。新帝楚明允次日上朝，颁布了第一条宪令，是封分田诏令。整改分划田地，革除旧弊，是实打实照顾民生的好政令，只是过于激进了。您认为：",
     "choices": [
-      { "text": "a. 改革就是要强硬一些，改革就是会流血的", "action": "support_reform", "nextNode": "ending_successful_reform" },
-      { "text": "b. 此举触及多方利益，不利于实施，不如暂且收回", "action": "oppose_reform", "nextNode": "ending_reform_opposition" },
-      { "text": "c. 贸然改变早已习以为常的国策，无异于虎口夺食", "action": "fear_change", "nextNode": "ending_corruption_punishment" }
+      {
+        "text": "a. 改革就是要强硬一些，改革就是会流血的",
+        "action": "support_reform",
+        "nextNode": "ending_successful_reform"
+      },
+      {
+        "text": "b. 此举触及多方利益，不利于实施，不如暂且收回",
+        "action": "oppose_reform",
+        "nextNode": "ending_reform_opposition"
+      },
+      {
+        "text": "c. 贸然改变早已习以为常的国策，无异于虎口夺食",
+        "action": "fear_change",
+        "nextNode": "ending_corruption_punishment"
+      }
     ]
   },
   "ending_save_chu_death": {
     "title": "不治而亡",
-    "text": "你没成功靠近楚大人，反而将自己置于危险之境，丘峦崩摧，林木山石轰然滚下，你被救出时看着只是受了点皮外伤，于是在宴会结束后回了府。但你其实被重伤到了心肺，方才不过回光返照。府中奴仆大喊呼救，你却没能被救回来。",
+    "text": "　　你没成功靠近楚大人，反而将自己置于危险之境，丘峦崩摧，林木山石轰然滚下，你被救出时看着只是受了点皮外伤，于是在宴会结束后回了府。但你其实被重伤到了心肺，方才不过回光返照。府中奴仆大喊呼救，你却没能被救回来。",
     "isEnding": true
   },
   "ending_corruption_exposed": {
     "title": "贪污敛财",
-    "text": "查案过程中，你贪污敛财的相关证据被一并搜查到了，你的所有资产充公，本人也锒铛入狱。你觉得楚大人既然没事，应该会设法将你救出。可是你显然忘记了，你贪污敛财是为了自己的利益，又不是为了楚大人，他怎么会来救你呢？",
+    "text": "　　查案过程中，你贪污敛财的相关证据被一并搜查到了，你的所有资产充公，本人也锒铛入狱。你觉得楚大人既然没事，应该会设法将你救出。可是你显然忘记了，你贪污敛财是为了自己的利益，又不是为了楚大人，他怎么会来救你呢？",
     "isEnding": true
   },
   "ending_successful_reform": {
     "title": "百废待兴",
-    "text": "楚明允手段实在狠厉，以最强硬的态度的方式处理了大半朝廷蛀虫，贪官污吏，地方豪强。不明真相的百姓却怨声载道，西陵王更是以\"诛逆贼\"之名攻打长安。<br><br>千钧一发之际，苏世誉出面力挽狂澜，不但为楚明允打退了外敌，将那些被处决之人的罪行公示街巷，警告了豪强权贵，并明确表示臣服新君，还拿出了李延贞的禅位赵书，楚明允的帝位来之正当。<br><br>世家权贵豪强息事顺从，百废待兴，新的朝代正在缓缓开启。",
+    "text": "　　楚明允手段实在狠厉，以最强硬的态度的方式处理了大半朝廷蛀虫，贪官污吏，地方豪强。不明真相的百姓却怨声载道，西陵王更是以\"诛逆贼\"之名攻打长安。<br><br>　　千钧一发之际，苏世誉出面力挽狂澜，不但为楚明允打退了外敌，将那些被处决之人的罪行公示街巷，警告了豪强权贵，并明确表示臣服新君，还拿出了李延贞的禅位赵书，楚明允的帝位来之正当。<br><br>　　世家权贵豪强息事顺从，百废待兴，新的朝代正在缓缓开启。",
     "isEnding": true,
     "bonus": "触发SSR结局，加1张传送卡及2点生命值。",
     "specialEnding": "SSR"
   },
   "ending_reform_opposition": {
     "title": "自焚",
-    "text": "你作为原土地法的既得利益者，自然是不想有所变动。楚明允命异议声最大的兵部侍郎许寅上前，众人未察之际，一剑将他捅穿，朝中顿时死寂，无人再敢试图摆布新帝。许寅的独子许桐拉着你煽动在京中待着的应试考生闹事，你们在身上泼满火油往城中冲去，烧伤了不少禁卫，你们自认为这样能掀起风浪，最后自焚而亡。",
+    "text": "　　你作为原土地法的既得利益者，自然是不想有所变动。楚明允命异议声最大的兵部侍郎许寅上前，众人未察之际，一剑将他捅穿，朝中顿时死寂，无人再敢试图摆布新帝。许寅的独子许桐拉着你煽动在京中待着的应试考生闹事，你们在身上泼满火油往城中冲去，烧伤了不少禁卫，你们自认为这样能掀起风浪，最后自焚而亡。",
     "isEnding": true
   },
   "ending_corruption_punishment": {
     "title": "初心尽失",
-    "text": "你被查出与地方豪强勾结，官商相护，恃强凌弱，为非作歹，侵渔百姓。成功贿赂过你的几个豪强因不满楚明允的分田诏令而公然反抗，甚至撕毁诏令，与禁军起了冲突。楚明允将其全部押回，顺藤摸瓜查出了你及其他涉案官员。你们包括这批豪强全部被楚明允处斩。气息断绝之时你短暂地想到，自己是何时走上歪路的，初入朝廷的你分明是立志要成为一个为民为国的好官的。",
+    "text": "　　你被查出与地方豪强勾结，官商相护，恃强凌弱，为非作歹，侵渔百姓。成功贿赂过你的几个豪强因不满楚明允的分田诏令而公然反抗，甚至撕毁诏令，与禁军起了冲突。楚明允将其全部押回，顺藤摸瓜查出了你及其他涉案官员。你们包括这批豪强全部被楚明允处斩。气息断绝之时你短暂地想到，自己是何时走上歪路的，初入朝廷的你分明是立志要成为一个为民为国的好官的。",
     "isEnding": true,
-    "applicableTool": ["楚明允的欣赏"]
+    "applicableTool": [
+      "楚明允的欣赏"
+    ]
   },
   "167": {
     "title": "调兵争论",
-    "text": "千秋节后，皇帝因姜昭仪下药而中毒昏迷，苏大人提议朝中决议以廷议为准，楚大人趁机要求调五万精兵入京，楚苏两人亲自下场，争论不休。您认为：",
+    "text": "　　千秋节后，皇帝因姜昭仪下药而中毒昏迷，苏大人提议朝中决议以廷议为准，楚大人趁机要求调五万精兵入京，楚苏两人亲自下场，争论不休。您认为：",
     "choices": [
-      { "text": "a. 调兵入城目标太大，岂非给人递靶子", "action": "oppose_troops", "nextNode": "168" },
-      { "text": "b. 动乱一触即发，调兵以备不时之需", "action": "support_troops", "nextNode": "168", "bonus": "你身为苏党人，却曲意逢迎楚明允的话，可见是左右逢源两面三刀之人，减1点生命值。" },
-      { "text": "c. 他们吵架还蛮好看的", "action": "enjoy_quarrel", "nextNode": "168", "bonus": "在如此紧急的情况下你还有心思欣赏，有一双会发现美的眼睛，你被认定为笨笨的，获得道具\"苏世誉的无语\"，可在您即将亡于他人之手时起缓释作用，救您一命。", "tool": { "title": "苏世誉的无语", "content": "可在您即将亡于他人之手时起缓释作用，救您一命" } }
+      {
+        "text": "a. 调兵入城目标太大，岂非给人递靶子",
+        "action": "oppose_troops",
+        "nextNode": "168"
+      },
+      {
+        "text": "b. 动乱一触即发，调兵以备不时之需",
+        "action": "support_troops",
+        "nextNode": "168",
+        "bonus": "你身为苏党人，却曲意逢迎楚明允的话，可见是左右逢源两面三刀之人，减1点生命值。"
+      },
+      {
+        "text": "c. 他们吵架还蛮好看的",
+        "action": "enjoy_quarrel",
+        "nextNode": "168",
+        "bonus": "在如此紧急的情况下你还有心思欣赏，有一双会发现美的眼睛，你被认定为笨笨的，获得道具\"苏世誉的无语\"，可在您即将亡于他人之手时起缓释作用，救您一命。",
+        "tool": {
+          "title": "苏世誉的无语",
+          "content": "可在您即将亡于他人之手时起缓释作用，救您一命"
+        }
+      }
     ]
   },
   "168": {
     "title": "谁请瘟神",
-    "text": "楚明允走到苏世誉身前与他耳语了什么，说完就直接离开了。廷议最后商量的结果是同意楚太尉调五万精兵，但不得入驻长安城内，且楚太尉需得对皇上昏迷一事保密。众人对于谁去与楚太尉交谈犯了难。您选择：",
+    "text": "　　楚明允走到苏世誉身前与他耳语了什么，说完就直接离开了。廷议最后商量的结果是同意楚太尉调五万精兵，但不得入驻长安城内，且楚太尉需得对皇上昏迷一事保密。众人对于谁去与楚太尉交谈犯了难。您选择：",
     "choices": [
-      { "text": "a. 去，可以锻炼人际沟通能力", "action": "go_talk", "nextNode": "169" },
-      { "text": "b. 不去，可能遭遇性命安危危机", "action": "avoid_talk", "nextNode": "170" }
+      {
+        "text": "a. 去，可以锻炼人际沟通能力",
+        "action": "go_talk",
+        "nextNode": "169"
+      },
+      {
+        "text": "b. 不去，可能遭遇性命安危危机",
+        "action": "avoid_talk",
+        "nextNode": "170"
+      }
     ]
   },
   "169": {
     "title": "好说话的瘟神",
-    "text": "苏大人命御史中丞前往，您在御史中丞手底下办事，自然是要与他同去的。楚大人面无表情地听完御史中丞讲述条件，无所谓地答应了。倒是出乎意料的爽快。您选择：",
+    "text": "　　苏大人命御史中丞前往，您在御史中丞手底下办事，自然是要与他同去的。楚大人面无表情地听完御史中丞讲述条件，无所谓地答应了。倒是出乎意料的爽快。您选择：",
     "choices": [
-      { "text": "a. 莫非有诈", "action": "suspect_trick", "nextNode": "170", "bonus": "\"我信任你们，怎么看御史台的大人不信任我啊。\"楚明允幽幽叹气，你被吓得胆战心惊，减1点生命值。若您拥有道具\"苏世誉的无语\"，则自动使用道具，不减生命值。" },
-      { "text": "b. 愉快收工", "action": "happy_work", "nextNode": "170" }
+      {
+        "text": "a. 莫非有诈",
+        "action": "suspect_trick",
+        "nextNode": "170",
+        "bonus": "\"我信任你们，怎么看御史台的大人不信任我啊。\"楚明允幽幽叹气，你被吓得胆战心惊，减1点生命值。若您拥有道具\"苏世誉的无语\"，则自动使用道具，不减生命值。"
+      },
+      {
+        "text": "b. 愉快收工",
+        "action": "happy_work",
+        "nextNode": "170"
+      }
     ]
   },
   "170": {
     "title": "搜查楚明允",
-    "text": "此事过后，皇帝得杜药师救治而醒来，建章宫敛财一案随之爆发，苏大人被任命彻查。御史台审问了很多人，迅速锁定了目标楚太尉。御史中丞调遣兵马打算拘捕搜查楚大人。您选择：",
+    "text": "　　此事过后，皇帝得杜药师救治而醒来，建章宫敛财一案随之爆发，苏大人被任命彻查。御史台审问了很多人，迅速锁定了目标楚太尉。御史中丞调遣兵马打算拘捕搜查楚大人。您选择：",
     "choices": [
-      { "text": "a. 这实在是打击楚太尉的一大好时机", "action": "strike_chu", "nextNode": "171" },
-      { "text": "b. 如此擅自行事定然会被苏大人责罚", "action": "fear_punishment", "nextNode": "171", "bonus": "御史中丞冷声，\"本官行事，轮得到你指手画脚？\"你的多嘴惹来了御史中丞的愤怒，减1点生命值。若您拥有道具\"苏世誉的无语\"，则自动使用道具，不减生命值。" }
+      {
+        "text": "a. 这实在是打击楚太尉的一大好时机",
+        "action": "strike_chu",
+        "nextNode": "171"
+      },
+      {
+        "text": "b. 如此擅自行事定然会被苏大人责罚",
+        "action": "fear_punishment",
+        "nextNode": "171",
+        "bonus": "御史中丞冷声，\"本官行事，轮得到你指手画脚？\"你的多嘴惹来了御史中丞的愤怒，减1点生命值。若您拥有道具\"苏世誉的无语\"，则自动使用道具，不减生命值。"
+      }
     ]
   },
   "171": {
     "title": "楚太尉的要求",
-    "text": "\"苏世誉呢？\"相较于被御史台的人围困的事实，楚明允显然更关心来的人是谁。苏大人自然不可能来，于是楚明允就不乐意了，直言让御史大夫亲自来查。御史中丞只得吩咐您去请苏大人。",
+    "text": "　　\"苏世誉呢？\"相较于被御史台的人围困的事实，楚明允显然更关心来的人是谁。苏大人自然不可能来，于是楚明允就不乐意了，直言让御史大夫亲自来查。御史中丞只得吩咐您去请苏大人。",
     "choices": [
-      { "text": "继续", "action": "continue_story", "nextNode": "172" }
+      {
+        "text": "继续",
+        "action": "continue_story",
+        "nextNode": "172"
+      }
     ]
   },
   "172": {
     "title": "苏大人的命令",
-    "text": "您将苏大人的命令带回告知御史中丞，御史中丞虽窝火，却也不得不难看着脸命从属撤回。建章宫敛财明显与楚明允脱不开关系，可苏大人不让查，御史中丞也就没办法。最终结案，苏大人请罪未查出主谋，皇帝都没说什么，苏大人偏要找罪受。您选择：",
+    "text": "　　您将苏大人的命令带回告知御史中丞，御史中丞虽窝火，却也不得不难看着脸命从属撤回。建章宫敛财明显与楚明允脱不开关系，可苏大人不让查，御史中丞也就没办法。最终结案，苏大人请罪未查出主谋，皇帝都没说什么，苏大人偏要找罪受。您选择：",
     "choices": [
-      { "text": "a. 苏大人对自己也如此严格，真是吾辈楷模", "action": "admire_su", "nextNode": "173" },
-      { "text": "b. 楚太尉称病，托人问候一下他的病情", "action": "visit_chu", "nextNode": "173", "bonus": "你怀疑苏党衰颓，急着向楚明允献殷勤，你被认定为两面三刀，减1点生命值。" }
+      {
+        "text": "a. 苏大人对自己也如此严格，真是吾辈楷模",
+        "action": "admire_su",
+        "nextNode": "173"
+      },
+      {
+        "text": "b. 楚太尉称病，托人问候一下他的病情",
+        "action": "visit_chu",
+        "nextNode": "173",
+        "bonus": "你怀疑苏党衰颓，急着向楚明允献殷勤，你被认定为两面三刀，减1点生命值。"
+      }
     ]
   },
   "173": {
     "title": "苏大人失踪了",
-    "text": "苏大人被罚禁足，整整七日才重新出现在朝堂上。楚大人盯着苏大人瞧，似乎是想把这七日的空缺补上。您被您的想法激起一层鸡皮疙瘩，但总觉得殿上的压抑氛围挥之不去，这层压抑一直延续到过年，延续到上元节后，二月时，再次爆发。皇帝李延贞再度遭人下毒，昏迷过去，楚太尉逼宫称帝，御史大夫不知所踪。您：",
+    "text": "　　苏大人被罚禁足，整整七日才重新出现在朝堂上。楚大人盯着苏大人瞧，似乎是想把这七日的空缺补上。您被您的想法激起一层鸡皮疙瘩，但总觉得殿上的压抑氛围挥之不去，这层压抑一直延续到过年，延续到上元节后，二月时，再次爆发。皇帝李延贞再度遭人下毒，昏迷过去，楚太尉逼宫称帝，御史大夫不知所踪。您：",
     "choices": [
-      { "text": "a. 怀疑楚太尉将苏大人囚禁了", "action": "suspect_imprisonment", "nextNode": "ending_imprisonment_death" },
-      { "text": "b. 与刑部尚书陆仕陆大人商量办法", "action": "consult_lu", "nextNode": "174" },
-      { "text": "c. 心想：概率这么小的事让我碰上了？", "action": "unlikely_event", "nextNode": "177" }
+      {
+        "text": "a. 怀疑楚太尉将苏大人囚禁了",
+        "action": "suspect_imprisonment",
+        "nextNode": "ending_imprisonment_death"
+      },
+      {
+        "text": "b. 与刑部尚书陆仕陆大人商量办法",
+        "action": "consult_lu",
+        "nextNode": "174"
+      },
+      {
+        "text": "c. 心想：概率这么小的事让我碰上了？",
+        "action": "unlikely_event",
+        "nextNode": "177"
+      }
     ]
   },
   "174": {
     "title": "祠堂自省",
-    "text": "陆大人得到消息，苏大人把自己关在祠堂里不吃不喝也不肯出来。可楚明允已谋逆篡位，还将大批苏党及不服他的官员都软禁了，时局紧迫！您选择：",
+    "text": "　　陆大人得到消息，苏大人把自己关在祠堂里不吃不喝也不肯出来。可楚明允已谋逆篡位，还将大批苏党及不服他的官员都软禁了，时局紧迫！您选择：",
     "choices": [
-      { "text": "a. 协助陆大人逃出府", "action": "help_escape", "nextNode": "175" },
-      { "text": "b. 留守府内静候音讯", "action": "wait_news", "nextNode": "176" },
-      { "text": "c. 设法离府保全性命", "action": "escape_self", "nextNode": "ending_fire_death" }
+      {
+        "text": "a. 协助陆大人逃出府",
+        "action": "help_escape",
+        "nextNode": "175"
+      },
+      {
+        "text": "b. 留守府内静候音讯",
+        "action": "wait_news",
+        "nextNode": "176"
+      },
+      {
+        "text": "c. 设法离府保全性命",
+        "action": "escape_self",
+        "nextNode": "ending_fire_death"
+      }
     ]
   },
   "175": {
     "title": "苏府受阻",
-    "text": "您扮作侍从，好不容易与陆大人来到苏府，却遭到了管家的阻拦，说苏大人在想通之前是不会出面的。此刻，您慌张地跑上去与陆大人说快回府吧，不能被监视的人发现。您说：\"宫城外面死人了！\"",
+    "text": "　　您扮作侍从，好不容易与陆大人来到苏府，却遭到了管家的阻拦，说苏大人在想通之前是不会出面的。此刻，您慌张地跑上去与陆大人说快回府吧，不能被监视的人发现。您说：\"宫城外面死人了！\"",
     "choices": [
-      { "text": "继续", "action": "continue_story", "nextNode": "176" }
+      {
+        "text": "继续",
+        "action": "continue_story",
+        "nextNode": "176"
+      }
     ]
   },
   "176": {
     "title": "监禁生活",
-    "text": "府邸被楚明允派人监禁，可以传进来的消息寥寥无几，只知道楚明允杀了很多人，臣子、考生、商户、百姓，不顺他者皆被斩杀，大小动乱不断，人心惶惶。西陵王起义，借匈奴之兵攻袭长安。新帝楚明允派兵死守。",
+    "text": "　　府邸被楚明允派人监禁，可以传进来的消息寥寥无几，只知道楚明允杀了很多人，臣子、考生、商户、百姓，不顺他者皆被斩杀，大小动乱不断，人心惶惶。西陵王起义，借匈奴之兵攻袭长安。新帝楚明允派兵死守。",
     "choices": [
-      { "text": "继续", "action": "continue_story", "nextNode": "178" }
+      {
+        "text": "继续",
+        "action": "continue_story",
+        "nextNode": "178"
+      }
     ]
   },
   "177": {
     "title": "被楚太尉软禁",
-    "text": "您没更多时间疑惑，就已经被楚明允软禁在了自己府中。您看着府外手持利刃的兵卫，不由得起了惧意。您选择：",
+    "text": "　　您没更多时间疑惑，就已经被楚明允软禁在了自己府中。您看着府外手持利刃的兵卫，不由得起了惧意。您选择：",
     "choices": [
-      { "text": "a. 老实本分待在府里", "action": "stay_quiet", "nextNode": "176" },
-      { "text": "b. 无自由，毋宁死", "action": "freedom_or_death", "nextNode": "ending_hostage_death" }
+      {
+        "text": "a. 老实本分待在府里",
+        "action": "stay_quiet",
+        "nextNode": "176"
+      },
+      {
+        "text": "b. 无自由，毋宁死",
+        "action": "freedom_or_death",
+        "nextNode": "ending_hostage_death"
+      }
     ]
   },
   "178": {
     "title": "苏大人出关",
-    "text": "唯一的好消息是，苏大人出来了，他给各个府中传递了消息。苏大人详析时局，明辨利害，言明楚明允前举皆为除蠹虫、正朝序。苏家察时势之变，知天命之归，愿臣服新君。您选择：",
+    "text": "　　唯一的好消息是，苏大人出来了，他给各个府中传递了消息。苏大人详析时局，明辨利害，言明楚明允前举皆为除蠹虫、正朝序。苏家察时势之变，知天命之归，愿臣服新君。您选择：",
     "choices": [
-      { "text": "a. 改变态度", "action": "change_attitude", "nextNode": "179" },
-      { "text": "b. 态度不变", "action": "keep_attitude", "nextNode": "ending_retire_home" },
-      { "text": "c. 啊？", "action": "confused", "nextNode": "ending_confused_death" }
+      {
+        "text": "a. 改变态度",
+        "action": "change_attitude",
+        "nextNode": "179"
+      },
+      {
+        "text": "b. 态度不变",
+        "action": "keep_attitude",
+        "nextNode": "ending_retire_home"
+      },
+      {
+        "text": "c. 啊？",
+        "action": "confused",
+        "nextNode": "ending_confused_death"
+      }
     ]
   },
   "179": {
     "title": "万象欣荣",
-    "text": "苏大人带兵抵御外敌，长安城有惊无险地守住了。禅位诏书下，楚明允的皇位因禅位诏书而名正言顺。阳春三月，颁罪己诏，时有大批俊逸之士入朝补阙，万状皆呈欣荣之象。",
+    "text": "　　苏大人带兵抵御外敌，长安城有惊无险地守住了。禅位诏书下，楚明允的皇位因禅位诏书而名正言顺。阳春三月，颁罪己诏，时有大批俊逸之士入朝补阙，万状皆呈欣荣之象。",
     "choices": [
-      { "text": "继续", "action": "continue_story", "nextNode": "180" }
+      {
+        "text": "继续",
+        "action": "continue_story",
+        "nextNode": "180"
+      }
     ]
   },
   "180": {
     "title": "封王诏令",
-    "text": "某日朝会后，楚明允下诏令封御史大夫苏世誉为王爵，加九锡，赐千里地，邑三万户，位在诸侯王上，奏事不称臣，受诏不拜，以天子礼遇祭祀天地。您心想：",
+    "text": "　　某日朝会后，楚明允下诏令封御史大夫苏世誉为王爵，加九锡，赐千里地，邑三万户，位在诸侯王上，奏事不称臣，受诏不拜，以天子礼遇祭祀天地。您心想：",
     "choices": [
-      { "text": "a. 直接把皇位都给苏大人得了", "action": "give_throne", "nextNode": "ending_give_throne" },
-      { "text": "b. 苏大人的贡献有目共睹，当得起这恩典", "action": "deserve_honor", "nextNode": "ending_deserve_honor" }
+      {
+        "text": "a. 直接把皇位都给苏大人得了",
+        "action": "give_throne",
+        "nextNode": "ending_give_throne"
+      },
+      {
+        "text": "b. 苏大人的贡献有目共睹，当得起这恩典",
+        "action": "deserve_honor",
+        "nextNode": "ending_deserve_honor"
+      }
     ]
   },
   "ending_imprisonment_death": {
     "title": "劫人失败",
-    "text": "你推测苏大人是被楚明允囚禁在了太尉府，楚明允既已登基，近日来都在皇宫，太尉府的把守定然不强。为了不让目标过大，你独自前去劫人。你刚翻上太尉府的院墙，鬼影一般的影卫就将你抓了下来。你死前听到那鬼影说：\"哪儿来的贼人。\"",
+    "text": "　　你推测苏大人是被楚明允囚禁在了太尉府，楚明允既已登基，近日来都在皇宫，太尉府的把守定然不强。为了不让目标过大，你独自前去劫人。你刚翻上太尉府的院墙，鬼影一般的影卫就将你抓了下来。你死前听到那鬼影说：\"哪儿来的贼人。\"",
     "isEnding": true,
-    "applicableTool": ["楚明允的白眼", "苏世誉的无语", "楚明允的认同"]
+    "applicableTool": [
+      "楚明允的白眼",
+      "苏世誉的无语",
+      "楚明允的认同"
+    ]
   },
   "ending_fire_death": {
     "title": "进击的火人",
-    "text": "你趁守卫松懈时逃离了楚明允的监视，往外奔逃时，不知道哪里窜出来几个火人，他们痛苦冲撞，你被无端殃及，死于火烧。",
+    "text": "　　你趁守卫松懈时逃离了楚明允的监视，往外奔逃时，不知道哪里窜出来几个火人，他们痛苦冲撞，你被无端殃及，死于火烧。",
     "isEnding": true
   },
   "ending_hostage_death": {
     "title": "人质的死亡",
-    "text": "你不管兵卫阻拦，非要往外冲。街上一片混乱，你被几个走投无路的恶徒随手抢过当了人质，锈钝的刀刃抵在你的脖子上。恶徒没能靠你逃出城，断气之前将你也带了下去。",
+    "text": "　　你不管兵卫阻拦，非要往外冲。街上一片混乱，你被几个走投无路的恶徒随手抢过当了人质，锈钝的刀刃抵在你的脖子上。恶徒没能靠你逃出城，断气之前将你也带了下去。",
     "isEnding": true,
-    "applicableTool": ["楚明允的白眼", "苏世誉的无语", "楚明允的认同"]
+    "applicableTool": [
+      "楚明允的白眼",
+      "苏世誉的无语",
+      "楚明允的认同"
+    ]
   },
   "ending_retire_home": {
     "title": "辞官归里",
-    "text": "虽然最后守住了长安城，楚明允的皇位也因禅位诏书而名正言顺，但你做官做累了，向新帝与御史大人呈辞章，冀能解官归里，以终余年。此后，你再没有回过长安。",
+    "text": "　　虽然最后守住了长安城，楚明允的皇位也因禅位诏书而名正言顺，但你做官做累了，向新帝与御史大人呈辞章，冀能解官归里，以终余年。此后，你再没有回过长安。",
     "isEnding": true
   },
   "ending_confused_death": {
     "title": "飞来横祸",
-    "text": "苏世誉竟然与楚明允同流合污了，你不想信服其中任何一个，甚至想两个一起骂。在与匈奴战争动乱中，你小心地逃跑，但被飞来的横刀误伤，遗憾离世。",
+    "text": "　　苏世誉竟然与楚明允同流合污了，你不想信服其中任何一个，甚至想两个一起骂。在与匈奴战争动乱中，你小心地逃跑，但被飞来的横刀误伤，遗憾离世。",
     "isEnding": true
   },
   "ending_give_throne": {
     "title": "心口之地",
-    "text": "你差点把心里话当众说出来，不禁擦了擦汗。但你绝没有\"苏大人承不起这封赏\"的意思，刚要附和，前列的苏大人开口婉拒了，并请楚明允收回诏命。楚明允不理会，转手将自己心口之地封给了苏大人，苏大人居然当着朝臣的面笑着答应了。你心想：这两人……真的是，噫！",
+    "text": "　　你差点把心里话当众说出来，不禁擦了擦汗。但你绝没有\"苏大人承不起这封赏\"的意思，刚要附和，前列的苏大人开口婉拒了，并请楚明允收回诏命。楚明允不理会，转手将自己心口之地封给了苏大人，苏大人居然当着朝臣的面笑着答应了。你心想：这两人……真的是，噫！",
     "isEnding": true
   },
   "ending_deserve_honor": {
     "title": "朝堂封心",
-    "text": "朝臣寂静一瞬，刚要附和，苏大人自己开口婉拒了。楚明允不理会苏大人收回诏命的请求，抬手点上自己心口，\"那将此地封与你，你要不要？\"众臣呆愣，苏大人却不禁笑了，\"臣幸甚。\"你与四周同僚面面相觑，竟也都无奈地笑了。",
+    "text": "　　朝臣寂静一瞬，刚要附和，苏大人自己开口婉拒了。楚明允不理会苏大人收回诏命的请求，抬手点上自己心口，\"那将此地封与你，你要不要？\"众臣呆愣，苏大人却不禁笑了，\"臣幸甚。\"你与四周同僚面面相觑，竟也都无奈地笑了。",
     "isEnding": true,
     "bonus": "触发SSR结局，加1张传送卡及2点生命值。",
     "specialEnding": "SSR"
   },
-
   "ending_sugar_cake_success": {
     "title": "糖糕大成功",
-    "text": "蓝衣公子眼眸一亮，留下一句\"多谢\"，便转身回到二人身边，亲昵地扯住白衣公子另一侧袖子，笑道：\"店家说前面有个集市，咱们去看看，你看中什么我买来送你。\"数年后，您听闻糖糕铺老板被重金延入御膳房，以为再难尝到旧日滋味。谁料陛下竟授意将这门手艺推而广之，糖糕的香甜从此遍及五湖四海。",
+    "text": "　　蓝衣公子眼眸一亮，留下一句\"多谢\"，便转身回到二人身边，亲昵地扯住白衣公子另一侧袖子，笑道：\"店家说前面有个集市，咱们去看看，你看中什么我买来送你。\"数年后，您听闻糖糕铺老板被重金延入御膳房，以为再难尝到旧日滋味。谁料陛下竟授意将这门手艺推而广之，糖糕的香甜从此遍及五湖四海。",
     "isEnding": true
   },
   "ending_salty_tangyuan_disaster": {
     "title": "咸元宵梦魇",
-    "text": "咸元宵是什么，楚明允本来没概念，但因着对食物极强的探索欲，他尝试了。他后悔了。您因无意间成了楚明允两大梦魇之一的始作俑者，自此缘薄如烟，再未与他相逢。",
+    "text": "　　咸元宵是什么，楚明允本来没概念，但因着对食物极强的探索欲，他尝试了。他后悔了。您因无意间成了楚明允两大梦魇之一的始作俑者，自此缘薄如烟，再未与他相逢。",
     "isEnding": true
   },
   "ending_defend_them_success": {
     "title": "求爱高手楚明允",
-    "text": "蓝衣公子轻笑：\"没想到吃顿饭也能听到如此见识。\"他暧昧地看向白衣公子：\"说不定楚太尉真是幕后之人，好趁机安慰苏大人。\"白衣公子只往他碟里夹了块笋，含笑道：\"分析得真好，连我都几乎要信了。\"您一呆，想到近期关于那两人的传言……楚太尉这追求的方式当真……别具一格。",
+    "text": "　　蓝衣公子轻笑：\"没想到吃顿饭也能听到如此见识。\"他暧昧地看向白衣公子：\"说不定楚太尉真是幕后之人，好趁机安慰苏大人。\"白衣公子只往他碟里夹了块笋，含笑道：\"分析得真好，连我都几乎要信了。\"您一呆，想到近期关于那两人的传言……楚太尉这追求的方式当真……别具一格。",
     "isEnding": true
   },
   "ending_agree_gossip_death": {
     "title": "人云亦云的后果",
-    "text": "你话音未落，那三人中的少女猛然回首，怒目而视，鞭影呼啸而来。你惊慌失措，跌得人仰马翻，当场折了尾椎，自此在邻里抬不起头来。数周后，你灰溜溜收拾行囊，离开长安，再未踏足这片伤心地。",
+    "text": "　　你话音未落，那三人中的少女猛然回首，怒目而视，鞭影呼啸而来。你惊慌失措，跌得人仰马翻，当场折了尾椎，自此在邻里抬不起头来。数周后，你灰溜溜收拾行囊，离开长安，再未踏足这片伤心地。",
     "isEnding": true
   },
   "ending_romance_book_death": {
     "title": "文坛新星",
-    "text": "次日，您便收拾行囊赴扶风郡，欲以实证佐己所思。多年后果然著成一册，详记众人所见所闻：楚太尉为苏大人挡掌流血，心疼其夜间受累；又录酒楼掌柜亲口所述——破案之后，苏大人愁坐饮闷酒，楚太尉陪之，终至醉倒，被抱入内室，隔帘发出异响……此书一时洛阳纸贵，您也随之名声大噪。不久，武帝下旨抄没，您倾家荡产。",
+    "text": "　　次日，您便收拾行囊赴扶风郡，欲以实证佐己所思。多年后果然著成一册，详记众人所见所闻：楚太尉为苏大人挡掌流血，心疼其夜间受累；又录酒楼掌柜亲口所述——破案之后，苏大人愁坐饮闷酒，楚太尉陪之，终至醉倒，被抱入内室，隔帘发出异响……此书一时洛阳纸贵，您也随之名声大噪。不久，武帝下旨抄没，您倾家荡产。",
     "isEnding": true
   },
   "ending_assassin_revealed": {
     "title": "玲珑身死",
-    "text": "原来最初献舞，苏大人便猜到了你的目的，留你只为彻查。你拔下红玉簪刺向苏大人，却被楚大人踹得咳血不止。见到楚大人与苏大人十指相扣，你似乎明白了一切。苏大人提及你多病的妹妹已在霜降之后逝世，死不瞑目，而你也中毒已深，命不足三月。真心皆负，即便与苏大人相处之际，短暂的悸动也难辨真假。然是非善恶，实不难断。你笑着，向苏大人流泪叩首，遂撞柱身亡。",
+    "text": "　　原来最初献舞，苏大人便猜到了你的目的，留你只为彻查。你拔下红玉簪刺向苏大人，却被楚大人踹得咳血不止。见到楚大人与苏大人十指相扣，你似乎明白了一切。<br><br>　　苏大人提及你多病的妹妹已在霜降之后逝世，死不瞑目，而你也中毒已深，命不足三月。真心皆负，即便与苏大人相处之际，短暂的悸动也难辨真假。然是非善恶，实不难断。<br><br>　　你笑着，向苏大人流泪叩首，遂撞柱身亡。",
     "isEnding": true
   },
   "ending_fake_illness_death": {
     "title": "投怀送抱",
-    "text": "一柄檀木香扇抵在了您的肩头，那男子艳丽的眼中流露出讥讽：\"姑娘，投怀送抱这种把戏，我可比你熟。\"您悻悻地决定不掺和这事了，正要去执行原本的任务，刚踏出红袖招，却被一从天而降的黑衣人捂住了口鼻。您自知打草惊蛇了，咬碎了后牙槽内的毒药自尽。",
+    "text": "　　一柄檀木香扇抵在了您的肩头，那男子艳丽的眼中流露出讥讽：\"姑娘，投怀送抱这种把戏，我可比你熟。\"您悻悻地决定不掺和这事了，正要去执行原本的任务，刚踏出红袖招，却被一从天而降的黑衣人捂住了口鼻。您自知打草惊蛇了，咬碎了后牙槽内的毒药自尽。",
     "isEnding": true,
-    "applicableTool": ["楚明允的白眼", "苏世誉的无语", "楚明允的认同"]
+    "applicableTool": [
+      "楚明允的白眼",
+      "苏世誉的无语",
+      "楚明允的认同"
+    ]
   },
   "ending_warn_inside_death": {
     "title": "示警的后果",
-    "text": "\"急色？\"男子一声冷哼，反手推开雕花木门，却在见到门内端坐着的人时，掺上了些笑意：\"苏大人你看，满城皆知我对你情深意切、心急如焚，你打算何时才允我？\"屋内白衣男子的目光却越过他落在了你身上：\"这位姑娘可否稍候片刻，待此间事了，还请移步御史台一叙。\"你心里一沉，心知此事恐难善终。",
+    "text": "　　\"急色？\"男子一声冷哼，反手推开雕花木门，却在见到门内端坐着的人时，掺上了些笑意：\"苏大人你看，满城皆知我对你情深意切、心急如焚，你打算何时才允我？\"屋内白衣男子的目光却越过他落在了你身上：\"这位姑娘可否稍候片刻，待此间事了，还请移步御史台一叙。\"你心里一沉，心知此事恐难善终。",
     "isEnding": true
   },
-
   "ending_poison_emperor": {
     "title": "毒杀皇帝",
-    "text": "千秋节后你将组织的信息传给姜昭仪，让她毒杀皇帝，姜昭仪成功完成任务，自己也服了毒。皇帝中毒的事情虽发生得突然，但宫中规矩森严，秩序俨然。你发现自己逃不出去，遂吞下后槽牙里藏着的毒，气绝身亡。",
+    "text": "　　千秋节后你将组织的信息传给姜昭仪，让她毒杀皇帝，姜昭仪成功完成任务，自己也服了毒。皇帝中毒的事情虽发生得突然，但宫中规矩森严，秩序俨然。你发现自己逃不出去，遂吞下后槽牙里藏着的毒，气绝身亡。",
     "isEnding": true
   },
   "ending_poison_emperor_success": {
     "title": "毒杀成功",
-    "text": "你将毒下进酒杯，待李延贞过来后让所有人退下，与李延贞说感谢他对自己的恩宠，愿以酒表达心意。李延贞似察觉到什么，但到底喝下了酒。他走后，你吃了剩下的毒，想着先他一步下去，来世投成姐弟，护他一世平安。",
+    "text": "　　你将毒下进酒杯，待李延贞过来后让所有人退下，与李延贞说感谢他对自己的恩宠，愿以酒表达心意。李延贞似察觉到什么，但到底喝下了酒。他走后，你吃了剩下的毒，想着先他一步下去，来世投成姐弟，护他一世平安。",
     "isEnding": true
   },
   "ending_hesitation_death": {
     "title": "犹豫",
-    "text": "\"娘娘，犹犹豫豫是做不成事的。\"给你传信的那个宫娥将毒药喂到你嘴里，又将剩下的毒药放进酒杯中，并戴上了人皮面具，成了你的模样。",
+    "text": "　　\"娘娘，犹犹豫豫是做不成事的。\"给你传信的那个宫娥将毒药喂到你嘴里，又将剩下的毒药放进酒杯中，并戴上了人皮面具，成了你的模样。",
     "isEnding": true,
-    "applicableTool": ["楚明允的白眼", "苏世誉的无语", "楚明允的认同"]
+    "applicableTool": [
+      "楚明允的白眼",
+      "苏世誉的无语",
+      "楚明允的认同"
+    ]
   },
   "195": {
     "title": "定情信物",
-    "text": "白衣公子掏出了一枚价值不菲的玉佩就要往赌桌上押。那蓝衣公子又是按着手阻拦，又是将玉佩压回他手心里，这又急又宝贝的样子，让您不由得猜测：这玉佩是他们的定情信物吧？那白衣公子这态度……看来是还没哄好。此时却听那蓝衣公子又说：\"我若是想跟那御史大夫苏世誉睡一宿呢？\"您想：",
+    "text": "　　白衣公子掏出了一枚价值不菲的玉佩就要往赌桌上押。那蓝衣公子又是按着手阻拦，又是将玉佩压回他手心里，这又急又宝贝的样子，让您不由得猜测：这玉佩是他们的定情信物吧？那白衣公子这态度……看来是还没哄好。此时却听那蓝衣公子又说：\"我若是想跟那御史大夫苏世誉睡一宿呢？\"您想：",
     "choices": [
-      { "text": "a. 完了完了，这下你别想哄好了", "action": "ruined_chance", "nextNode": "196" },
-      { "text": "b. 白衣公子这都不转身就走，还是太爱了", "action": "still_loves", "nextNode": "197" }
+      {
+        "text": "a. 完了完了，这下你别想哄好了",
+        "action": "ruined_chance",
+        "nextNode": "196"
+      },
+      {
+        "text": "b. 白衣公子这都不转身就走，还是太爱了",
+        "action": "still_loves",
+        "nextNode": "197"
+      }
     ]
   },
   "196": {
     "title": "提名楚太尉",
-    "text": "那永乐坊常客许桐是个没眼力见的，还给那蓝衣公子出歪主意：\"太尉楚明允喜欢男人……滋味必然销魂得多。\"您对这两位提名对象脑补了一番，认为：",
+    "text": "　　那永乐坊常客许桐是个没眼力见的，还给那蓝衣公子出歪主意：\"太尉楚明允喜欢男人……滋味必然销魂得多。\"您对这两位提名对象脑补了一番，认为：",
     "choices": [
-      { "text": "a. 苏大人高雅温柔如灼灼月华，和这白衣公子气质相仿，更合这位公子胃口", "action": "su_better_match", "nextNode": "198" },
-      { "text": "b. 传闻楚大人喜欢苏大人，这白衣公子又肖似苏大人……若这公子选了楚大人，怕是给自己选了顶绿帽吧？", "action": "chu_green_hat", "nextNode": "198", "bonus": "您激发了本副本无限的可能性，获得道具\"楚明允的白眼\"，可在您即将亡于他人之手时起威慑作用，救您一命。", "tool": { "title": "楚明允的白眼", "content": "可在您即将亡于他人之手时起威慑作用，救您一命" } }
+      {
+        "text": "a. 苏大人高雅温柔如灼灼月华，和这白衣公子气质相仿，更合这位公子胃口",
+        "action": "su_better_match",
+        "nextNode": "198"
+      },
+      {
+        "text": "b. 传闻楚大人喜欢苏大人，这白衣公子又肖似苏大人……若这公子选了楚大人，怕是给自己选了顶绿帽吧？",
+        "action": "chu_green_hat",
+        "nextNode": "198",
+        "bonus": "您激发了本副本无限的可能性，获得道具\"楚明允的白眼\"，可在您即将亡于他人之手时起威慑作用，救您一命。",
+        "tool": {
+          "title": "楚明允的白眼",
+          "content": "可在您即将亡于他人之手时起威慑作用，救您一命"
+        }
+      }
     ]
   },
   "197": {
     "title": "劝分不劝合",
-    "text": "您决定加把火，帮白衣公子下定决心离开这花心公子。您心知永乐坊二楼有不少知情知趣的美人，这蓝衣公子定然把持不住，心生一计——您告知头领方才在红袖招见过这两位公子，少主会对他们有兴趣，得想个办法请他们上楼。",
+    "text": "　　您决定加把火，帮白衣公子下定决心离开这花心公子。您心知永乐坊二楼有不少知情知趣的美人，这蓝衣公子定然把持不住，心生一计——您告知头领方才在红袖招见过这两位公子，少主会对他们有兴趣，得想个办法请他们上楼。",
     "choices": [
-      { "text": "继续", "action": "continue_story", "nextNode": "199" }
+      {
+        "text": "继续",
+        "action": "continue_story",
+        "nextNode": "199"
+      }
     ]
   },
   "198": {
     "title": "运气是实力",
-    "text": "那蓝衣公子虽然花心，手气倒是极好。头领为他开出了最大的对牌，将他们请上了二楼。您连忙跟了上去。",
+    "text": "　　那蓝衣公子虽然花心，手气倒是极好。头领为他开出了最大的对牌，将他们请上了二楼。您连忙跟了上去。",
     "choices": [
-      { "text": "继续", "action": "continue_story", "nextNode": "199" }
+      {
+        "text": "继续",
+        "action": "continue_story",
+        "nextNode": "199"
+      }
     ]
   },
   "199": {
     "title": "少主接见",
-    "text": "二位公子被请上了楼。少主依例接见了他们，却在他们摘下面具后，借着安排新赌法的由头，出屋询问是谁将这二人请来的。您：",
+    "text": "　　二位公子被请上了楼。少主依例接见了他们，却在他们摘下面具后，借着安排新赌法的由头，出屋询问是谁将这二人请来的。您：",
     "choices": [
-      { "text": "a. 应声上前，称在红袖招见过二人，觉得可疑", "action": "report_suspicious", "nextNode": "ending_stupid_hand_death" },
-      { "text": "b. 发觉少主面色阴沉，率先将责任推给头领", "action": "blame_leader", "nextNode": "200", "bonus": "您损人不利己，又敢做不敢当，减1点生命值" },
-      { "text": "c. 不说话，企图以冷暴力少主的方式来蒙混过关", "action": "stay_silent", "nextNode": "200" }
+      {
+        "text": "a. 应声上前，称在红袖招见过二人，觉得可疑",
+        "action": "report_suspicious",
+        "nextNode": "ending_stupid_hand_death"
+      },
+      {
+        "text": "b. 发觉少主面色阴沉，率先将责任推给头领",
+        "action": "blame_leader",
+        "nextNode": "200",
+        "bonus": "您损人不利己，又敢做不敢当，减1点生命值"
+      },
+      {
+        "text": "c. 不说话，企图以冷暴力少主的方式来蒙混过关",
+        "action": "stay_silent",
+        "nextNode": "200"
+      }
     ]
   },
   "200": {
     "title": "去留两难",
-    "text": "少主要人去红袖招通知静姝赶紧离开，您：",
+    "text": "　　少主要人去红袖招通知静姝赶紧离开，您：",
     "choices": [
-      { "text": "a. 自告奋勇，义不容辞", "action": "volunteer", "nextNode": "208" },
-      { "text": "b. 胆小怕事，想留在人多势众的永乐坊", "action": "stay_safe", "nextNode": "206" }
+      {
+        "text": "a. 自告奋勇，义不容辞",
+        "action": "volunteer",
+        "nextNode": "208"
+      },
+      {
+        "text": "b. 胆小怕事，想留在人多势众的永乐坊",
+        "action": "stay_safe",
+        "nextNode": "206"
+      }
     ]
   },
   "206": {
     "title": "盘丝赌局",
-    "text": "您才知道那两尊大神是楚明允与苏世誉。而您也被安插入永乐坊的舞女中，成了少主与楚明允赌局中的一环——要绕他起舞，一击而中。您立在舞女中，只见楚明允揽着苏世誉，口中笑道：\"恐怕要害得我几日不能上床了。\"苏世誉不但毫不推拒，还亲手替楚明允系上丝带，举止缱绻，情真意切。您：",
+    "text": "　　您才知道那两尊大神是楚明允与苏世誉。而您也被安插入永乐坊的舞女中，成了少主与楚明允赌局中的一环——要绕他起舞，一击而中。您立在舞女中，只见楚明允揽着苏世誉，口中笑道：\"恐怕要害得我几日不能上床了。\"苏世誉不但毫不推拒，还亲手替楚明允系上丝带，举止缱绻，情真意切。您：",
     "choices": [
-      { "text": "a. 决定先不动手，若真杀了楚明允，岂能被苏世誉放过？", "action": "hold_back", "nextNode": "207" },
-      { "text": "b. 坚定了动手的决心，只需杀了楚明允，苏世誉关心则乱，能一并拿下", "action": "determined_attack", "nextNode": "ending_fan_death" }
+      {
+        "text": "a. 决定先不动手，若真杀了楚明允，岂能被苏世誉放过？",
+        "action": "hold_back",
+        "nextNode": "207"
+      },
+      {
+        "text": "b. 坚定了动手的决心，只需杀了楚明允，苏世誉关心则乱，能一并拿下",
+        "action": "determined_attack",
+        "nextNode": "ending_fan_death"
+      }
     ]
   },
   "207": {
     "title": "还是动手了",
-    "text": "终究还是有姐妹出手了。她此刻已倒在不远处的血泊里，死不瞑目。少主与楚、苏二人彻底撕破了脸，黑衣人破门而入，诸位姐妹也纷纷抽出软剑。您目光一转，只见楚明允执剑在手，苏世誉却空手而立。您选择：",
+    "text": "　　终究还是有姐妹出手了。她此刻已倒在不远处的血泊里，死不瞑目。少主与楚、苏二人彻底撕破了脸，黑衣人破门而入，诸位姐妹也纷纷抽出软剑。您目光一转，只见楚明允执剑在手，苏世誉却空手而立。您选择：",
     "choices": [
-      { "text": "a. 与众人一同围攻楚明允", "action": "attack_chu", "nextNode": "ending_chu_combat_death" },
-      { "text": "b. 先拿下苏世誉让楚明允痛不欲生", "action": "attack_su", "nextNode": "ending_su_push_death" },
-      { "text": "c. 被他们的爱情折服", "action": "moved_by_love", "nextNode": "ending_love_guardian", "bonus": "你不是组织称职的保镖，却实在是个优秀的爱情保镖。你值得看到更多，加1张传送卡" }
+      {
+        "text": "a. 与众人一同围攻楚明允",
+        "action": "attack_chu",
+        "nextNode": "ending_chu_combat_death"
+      },
+      {
+        "text": "b. 先拿下苏世誉让楚明允痛不欲生",
+        "action": "attack_su",
+        "nextNode": "ending_su_push_death"
+      },
+      {
+        "text": "c. 被他们的爱情折服",
+        "action": "moved_by_love",
+        "nextNode": "ending_love_guardian",
+        "bonus": "你不是组织称职的保镖，却实在是个优秀的爱情保镖。你值得看到更多，加1张传送卡"
+      }
     ]
   },
   "208": {
     "title": "通知静姝",
-    "text": "您赶回红袖招通知静姝姑娘撤离，扯谎安慰她少主安好，不一会儿便与她在城外林中碰头。您陪着她与那少年陈思恒上了马车，才进林中不久，便生变故。您一眼认出了不远处下马的两人，选择：",
+    "text": "　　您赶回红袖招通知静姝姑娘撤离，扯谎安慰她少主安好，不一会儿便与她在城外林中碰头。您陪着她与那少年陈思恒上了马车，才进林中不久，便生变故。您一眼认出了不远处下马的两人，选择：",
     "choices": [
-      { "text": "a. 转身逃入林中", "action": "escape_woods", "nextNode": "ending_escape_death" },
-      { "text": "b. 拔剑护住静姝", "action": "protect_jingshu", "nextNode": "209" }
+      {
+        "text": "a. 转身逃入林中",
+        "action": "escape_woods",
+        "nextNode": "ending_escape_death"
+      },
+      {
+        "text": "b. 拔剑护住静姝",
+        "action": "protect_jingshu",
+        "nextNode": "209"
+      }
     ]
   },
   "209": {
     "title": "静姝的决绝",
-    "text": "您本以为可以掩护他们逃跑的，谁知楚明允摸出了少主的铜符，直言少主已死。静姝姑娘突然便什么也不顾了，只想拼死与楚明允同归于尽。可她的挣扎撼动不了楚明允分毫，怨怼的目光死死锁在他身上，忽而猛地抬手——您明白她要做什么。您选择：",
+    "text": "　　您本以为可以掩护他们逃跑的，谁知楚明允摸出了少主的铜符，直言少主已死。静姝姑娘突然便什么也不顾了，只想拼死与楚明允同归于尽。可她的挣扎撼动不了楚明允分毫，怨怼的目光死死锁在他身上，忽而猛地抬手——您明白她要做什么。您选择：",
     "choices": [
-      { "text": "a. 成全她，抢上前去握住正要制止她的苏世誉的手臂", "action": "help_jingshu", "nextNode": "ending_help_jingshu_death" },
-      { "text": "b. 拼死一搏，只求伤到苏世誉", "action": "attack_su_desperate", "nextNode": "ending_attack_su_death" },
-      { "text": "c. 与她一样服毒自尽", "action": "suicide_together", "nextNode": "ending_sacrifice_meaning" }
+      {
+        "text": "a. 成全她，抢上前去握住正要制止她的苏世誉的手臂",
+        "action": "help_jingshu",
+        "nextNode": "ending_help_jingshu_death"
+      },
+      {
+        "text": "b. 拼死一搏，只求伤到苏世誉",
+        "action": "attack_su_desperate",
+        "nextNode": "ending_attack_su_death"
+      },
+      {
+        "text": "c. 与她一样服毒自尽",
+        "action": "suicide_together",
+        "nextNode": "ending_sacrifice_meaning"
+      }
     ]
   },
   "ending_stupid_hand_death": {
     "title": "愚蠢的手下",
-    "text": "\"觉得可疑还让我暴露身份？我怎么会有如此愚蠢的手下？\"少主怒极反笑，扬手让人把你拖下去处理了。",
+    "text": "　　\"觉得可疑还让我暴露身份？我怎么会有如此愚蠢的手下？\"少主怒极反笑，扬手让人把你拖下去处理了。",
     "isEnding": true,
-    "applicableTool": ["楚明允的白眼", "苏世誉的无语", "楚明允的认同"]
+    "applicableTool": [
+      "楚明允的白眼",
+      "苏世誉的无语",
+      "楚明允的认同"
+    ]
   },
   "ending_fan_death": {
     "title": "扇下亡魂",
-    "text": "一柄檀香扇插入了你的腹中，才一张口就有血喷出，你手上的短刀当啷一声摔在了地上。",
+    "text": "　　一柄檀香扇插入了你的腹中，才一张口就有血喷出，你手上的短刀当啷一声摔在了地上。",
     "isEnding": true,
-    "applicableTool": ["楚明允的欣赏"]
+    "applicableTool": [
+      "楚明允的欣赏"
+    ]
   },
   "ending_chu_combat_death": {
     "title": "围攻楚明允",
-    "text": "可楚明允何曾将你们放在眼里？他随手几招便将你们震退，又将少主死死压制。你余光一闪，似觉苏世誉望向此处。你跟着回头，正见楚明允从一人胸口淡然抽剑，眉目华艳，却被血气与戾意浸染，美得惊心动魄。没过几招，少主重伤坠楼，你们群龙无首，终被刑部一网打尽。",
+    "text": "　　可楚明允何曾将你们放在眼里？他随手几招便将你们震退，又将少主死死压制。你余光一闪，似觉苏世誉望向此处。你跟着回头，正见楚明允从一人胸口淡然抽剑，眉目华艳，却被血气与戾意浸染，美得惊心动魄。没过几招，少主重伤坠楼，你们群龙无首，终被刑部一网打尽。",
     "isEnding": true,
-    "applicableTool": ["楚明允的欣赏"]
+    "applicableTool": [
+      "楚明允的欣赏"
+    ]
   },
   "ending_su_push_death": {
     "title": "苏世誉的反击",
-    "text": "苏世誉灵活地避开了交织在周身的刀锋，看到你向他冲来，直接将你向楚明允推去。你同伴手中的白刃从你背后透胸而过。",
+    "text": "　　苏世誉灵活地避开了交织在周身的刀锋，看到你向他冲来，直接将你向楚明允推去。你同伴手中的白刃从你背后透胸而过。",
     "isEnding": true,
-    "applicableTool": ["苏世誉的欣赏"]
+    "applicableTool": [
+      "苏世誉的欣赏"
+    ]
   },
   "ending_love_guardian": {
     "title": "爱情保镖",
-    "text": "你无法对他们动手又心知不会被组织放过，遂自尽。",
+    "text": "　　你无法对他们动手又心知不会被组织放过，遂自尽。",
     "isEnding": true,
     "bonus": "你不是组织称职的保镖，却实在是个优秀的爱情保镖。你值得看到更多。触发SR结局，加1张传送卡。",
     "specialEnding": "SR"
   },
   "ending_escape_death": {
     "title": "舍主求生",
-    "text": "您才奔出几步，便被自天而降的黑衣人制住，封住了口鼻。意识将散之际，只听那影卫装扮的人冷啐一声：\"舍主求生，没种。\"",
+    "text": "　　您才奔出几步，便被自天而降的黑衣人制住，封住了口鼻。意识将散之际，只听那影卫装扮的人冷啐一声：\"舍主求生，没种。\"",
     "isEnding": true,
-    "applicableTool": ["楚明允的欣赏", "苏世誉的欣赏"]
+    "applicableTool": [
+      "楚明允的欣赏",
+      "苏世誉的欣赏"
+    ]
   },
   "ending_help_jingshu_death": {
     "title": "成全静姝",
-    "text": "银光一闪，你先被喷涌而出的鲜血蒙了眼，才后知后觉地感到手腕剧痛。你迅速失血倒地，见楚明允甩掉了剑上的血珠，跨过你握住了苏世誉被你的血浸透的手。\"我以为她要对你不利。\"他言之凿凿，\"不过她碰了你哪里？\"苏世誉未答，只凝望着已服毒倒下的静姝姑娘，轻轻叹息。",
+    "text": "　　银光一闪，你先被喷涌而出的鲜血蒙了眼，才后知后觉地感到手腕剧痛。你迅速失血倒地，见楚明允甩掉了剑上的血珠，跨过你握住了苏世誉被你的血浸透的手。\"我以为她要对你不利。\"他言之凿凿，\"不过她碰了你哪里？\"苏世誉未答，只凝望着已服毒倒下的静姝姑娘，轻轻叹息。",
     "isEnding": true,
-    "applicableTool": ["楚明允的欣赏"]
+    "applicableTool": [
+      "楚明允的欣赏"
+    ]
   },
   "ending_attack_su_death": {
     "title": "拼死一搏",
-    "text": "一柄长剑从你背后穿胸而过，身后传来楚明允疑惑的声音：\"我一个大活人杵在这里，感情你是一点都不记得啊？\"",
+    "text": "　　一柄长剑从你背后穿胸而过，身后传来楚明允疑惑的声音：\"我一个大活人杵在这里，感情你是一点都不记得啊？\"",
     "isEnding": true,
-    "applicableTool": ["楚明允的欣赏"]
+    "applicableTool": [
+      "楚明允的欣赏"
+    ]
   },
   "ending_sacrifice_meaning": {
     "title": "舍生取何",
-    "text": "舍生而取义者，所取者何？",
+    "text": "　　舍生而取义者，所取者何？",
     "isEnding": true
   }
 }
