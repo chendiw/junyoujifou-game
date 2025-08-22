@@ -380,8 +380,7 @@ if (typeof window !== 'undefined') {
     console.log('Extracted tool names:', toolNames);
     return toolNames;
   };
-  // Expose confetti function for testing
-  window.createConfetti = createConfetti;
+  // Confetti function removed
 }
 
 async function handleLogin() {
@@ -569,10 +568,7 @@ async function loadCurrentStory() {
       storyTitle.innerHTML = highlightSpecialEndingText(storyTitle.textContent, node.specialEnding);
       storyText.innerHTML = highlightSpecialEndingText(node.text, node.specialEnding);
       
-      // Trigger confetti effect for special endings
-      setTimeout(() => {
-        createConfetti(node.specialEnding.toLowerCase());
-      }, 500);
+      // Confetti effect removed
     } else {
       storyText.innerHTML = node.text;
     }
@@ -634,8 +630,8 @@ async function loadCurrentStory() {
         if (availableTool) {
           // Add tool use button
           const useToolBtn = document.createElement('button');
-          useToolBtn.className = 'btn btn-use-tool';
-          useToolBtn.textContent = `使用道具"${availableTool.title}"回到上一题`;
+          useToolBtn.className = 'btn btn-backtrack';
+          useToolBtn.textContent = `使用道具"${availableTool.title}"返回上一题`;
           useToolBtn.addEventListener('click', () => handleUseToolToGoBack(availableTool));
           storyActions.appendChild(useToolBtn);
         }
@@ -796,10 +792,10 @@ async function processBonusAndShowResult(choice) {
   // Handle tool collection if tool exists
   if (choice.tool) {
     addTool(choice.tool);
+    // Don't show duplicate toast for tool acquisition since addTool already handles it
     if (!resultMessage) {
-      resultMessage = `获得道具：${choice.tool.title}！`;
-      resultIcon = '🔮';
-      resultTitle = '道具获得';
+      // Only set result message for new tools (addTool will show animation for new tools)
+      // For existing tools, addTool already shows the toast notification
     }
   }
   
@@ -867,10 +863,7 @@ async function processEndingBonusAndShowResult(node) {
       // Apply text highlighting to the result message
       resultMessage = highlightSpecialEndingText(resultMessage, node.specialEnding);
       
-      // Trigger confetti for special ending rewards
-      setTimeout(() => {
-        createConfetti(node.specialEnding.toLowerCase());
-      }, 1000);
+      // Confetti effect removed
     }
   }
   
@@ -1170,9 +1163,9 @@ function updateToolsButton() {
     const availableTools = gameState.tools.filter(tool => (tool.count || 1) > 0);
     const uniqueAvailableTools = availableTools.length;
     
-    let btnText = '道具收藏';
+    let btnText = '道具';
     if (uniqueAvailableTools > 0) {
-      btnText = `道具收藏 (${uniqueAvailableTools})`;
+      btnText = `道具 (${uniqueAvailableTools})`;
     }
     
     toolsBtn.innerHTML = `<span class="btn-icon">🔮</span>${btnText}`;
@@ -1197,52 +1190,7 @@ function handleSpecialEndingRewards(specialEnding) {
   }
 }
 
-// Create confetti effect
-function createConfetti(type = 'ssr') {
-  const colors = type === 'ssr' 
-    ? ['#ffd700', '#ffed4e', '#ffb347'] // Golden for SSR
-    : ['#c0c0c0', '#e5e5e5', '#d3d3d3']; // Silver for SR
-  
-  const shapes = ['🦋', '🦋', '🦋', '🦋', '🦋', '🦋', '🦋', '🦋', '🦋', '🦋'];
-  
-  for (let i = 0; i < 80; i++) {
-    setTimeout(() => {
-      const confetti = document.createElement('div');
-      confetti.className = 'confetti-piece';
-      confetti.textContent = shapes[Math.floor(Math.random() * shapes.length)];
-      
-      const startX = Math.random() * 100;
-      const fallDuration = Math.random() * 2 + 3; // 3-5 seconds
-      const spinDuration = Math.random() * 1.5 + 0.5; // 0.5-2 seconds
-      const swayDuration = Math.random() * 1 + 1; // 1-2 seconds
-      
-      confetti.style.cssText = `
-        position: fixed;
-        top: -20px;
-        left: ${startX}vw;
-        color: ${colors[Math.floor(Math.random() * colors.length)]};
-        font-size: ${Math.random() * 24 + 12}px;
-        font-weight: bold;
-        z-index: 10000;
-        pointer-events: none;
-        animation: 
-          confetti-fall ${fallDuration}s ease-in forwards,
-          confetti-spin ${spinDuration}s linear infinite,
-          confetti-sway ${swayDuration}s ease-in-out infinite alternate;
-        text-shadow: 0 0 5px currentColor;
-      `;
-      
-      document.body.appendChild(confetti);
-      
-      // Remove confetti after animation
-      setTimeout(() => {
-        if (confetti.parentNode) {
-          confetti.parentNode.removeChild(confetti);
-        }
-      }, (fallDuration + 1) * 1000);
-    }, i * 30);
-  }
-}
+// Confetti function removed
 
 // Find available applicable tool from the list
 function findAvailableApplicableTool(applicableToolNames) {
@@ -1301,7 +1249,7 @@ async function handleUseToolToGoBack(tool) {
   await loadCurrentStory();
   
   const remainingCount = toolInInventory.count > 0 ? toolInInventory.count : 0;
-  showToast('道具使用成功', `使用道具"${tool.title}"回到上一题，剩余数量：${remainingCount}`);
+  showToast('道具使用成功', `使用道具"${tool.title}"返回上一题，剩余数量：${remainingCount}`);
 }
 
 // Highlight SR/SSR text in content
