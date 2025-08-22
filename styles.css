@@ -84,6 +84,7 @@ body {
   width: 100%;
   box-shadow: 0 0 30px rgba(255, 40, 80, 0.3);
   animation: fadeIn 0.8s ease-out;
+  position: relative;
 }
 
 .login-header {
@@ -1458,6 +1459,16 @@ body {
 
 .btn.loading .btn-loading {
   display: inline;
+}
+
+/* Login bug report button positioned in upper right corner */
+.login-bug-report-btn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-size: 0.9rem;
+  padding: 8px 12px;
+  z-index: 10;
 }
 
 /* Login footer styles */
