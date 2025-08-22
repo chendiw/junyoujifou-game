@@ -802,6 +802,9 @@ async function processBonusAndShowResult(choice) {
     }
   }
   
+  // Update the display immediately after applying bonus
+  updateGameDisplay();
+  
   // Show result popup if there's a result to show
   if (resultMessage) {
     await showResultPopup(resultMessage, resultIcon, resultTitle, choice);
@@ -869,6 +872,9 @@ async function processEndingBonusAndShowResult(node) {
       }, 1000);
     }
   }
+  
+  // Update the display immediately after applying bonus
+  updateGameDisplay();
   
   // Show result popup if there's a result to show
   if (resultMessage) {
