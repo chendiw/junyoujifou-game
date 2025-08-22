@@ -772,6 +772,112 @@ body {
   }
 }
 
+/* CONFETTI ANIMATIONS */
+@keyframes confetti-fall {
+  0% {
+    transform: translateY(-100vh) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) rotate(720deg);
+    opacity: 0;
+  }
+}
+
+@keyframes confetti-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes confetti-bounce {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-20px) scale(1.1);
+  }
+}
+
+/* Confetti piece styles */
+.confetti-piece {
+  position: fixed;
+  z-index: 10000;
+  pointer-events: none;
+  user-select: none;
+  will-change: transform;
+}
+
+/* Special ending text highlighting */
+.special-ending-highlight {
+  background: linear-gradient(45deg, #ffd700, #ffed4e, #ffd700);
+  background-size: 200% 200%;
+  animation: specialEndingGlow 2s ease-in-out infinite;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-weight: bold;
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.8);
+  color: #000;
+}
+
+@keyframes specialEndingGlow {
+  0%, 100% {
+    background-position: 0% 50%;
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.6);
+  }
+  50% {
+    background-position: 100% 50%;
+    box-shadow: 0 0 30px rgba(255, 215, 0, 0.8);
+  }
+}
+
+.sr-highlight {
+  background: linear-gradient(45deg, #c0c0c0, #e5e5e5, #c0c0c0);
+  background-size: 200% 200%;
+  animation: srGlow 2s ease-in-out infinite;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-weight: bold;
+  text-shadow: 0 0 10px rgba(192, 192, 192, 0.8);
+  color: #333;
+}
+
+@keyframes srGlow {
+  0%, 100% {
+    background-position: 0% 50%;
+    box-shadow: 0 0 20px rgba(192, 192, 192, 0.6);
+  }
+  50% {
+    background-position: 100% 50%;
+    box-shadow: 0 0 30px rgba(192, 192, 192, 0.8);
+  }
+}
+
+.ssr-highlight {
+  background: linear-gradient(45deg, #ffd700, #ffed4e, #ffd700);
+  background-size: 200% 200%;
+  animation: ssrGlow 2s ease-in-out infinite;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-weight: bold;
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.8);
+  color: #000;
+}
+
+@keyframes ssrGlow {
+  0%, 100% {
+    background-position: 0% 50%;
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.6);
+  }
+  50% {
+    background-position: 100% 50%;
+    box-shadow: 0 0 30px rgba(255, 215, 0, 0.8);
+  }
+}
+
 .bonus-message {
   background: rgba(255, 165, 0, 0.05);
   border: 1px solid rgba(255, 165, 0, 0.3);

@@ -344,6 +344,8 @@ if (typeof window !== 'undefined') {
     console.log('Extracted tool names:', toolNames);
     return toolNames;
   };
+  // Expose confetti function for testing
+  window.createConfetti = createConfetti;
 }
 
 async function handleLogin() {
@@ -512,6 +514,20 @@ async function loadCurrentStory() {
     const endingNumber = getEndingNumber(gameState.currentChapter);
     // Show both ending number and title
     storyTitle.textContent = `结局 ${endingNumber}：${node.title}`;
+    
+    // Apply text highlighting for special endings
+    if (node.specialEnding) {
+      storyTitle.innerHTML = highlightSpecialEndingText(storyTitle.textContent, node.specialEnding);
+      storyText.innerHTML = highlightSpecialEndingText(node.text, node.specialEnding);
+      
+      // Trigger confetti effect for special endings
+      setTimeout(() => {
+        createConfetti(node.specialEnding.toLowerCase());
+      }, 500);
+    } else {
+      storyText.innerHTML = node.text;
+    }
+    
     // Track unlocked endings
     if (!Array.isArray(gameState.unlockedEndings)) {
       gameState.unlockedEndings = [];
@@ -524,8 +540,8 @@ async function loadCurrentStory() {
   } else {
     // Remove "第x章" prefix and just show the title
     storyTitle.textContent = node.title;
+    storyText.innerHTML = node.text;
   }
-  storyText.innerHTML = node.text;
   
   // Clear previous choices
   choicesContainer.innerHTML = '';
@@ -777,6 +793,14 @@ async function processEndingBonusAndShowResult(node) {
       resultMessage = specialReward;
       resultIcon = '🏆';
       resultTitle = '特殊结局奖励';
+      
+      // Apply text highlighting to the result message
+      resultMessage = highlightSpecialEndingText(resultMessage, node.specialEnding);
+      
+      // Trigger confetti for special ending rewards
+      setTimeout(() => {
+        createConfetti(node.specialEnding.toLowerCase());
+      }, 1000);
     }
   }
   
@@ -796,7 +820,7 @@ async function showEndingResultPopup(message, icon, title) {
   const confirmBtn = document.getElementById('confirmResultBtn');
   
   // Set result content
-  resultMessage.textContent = message;
+  resultMessage.innerHTML = message; // Use innerHTML to support highlighted text
   resultIcon.textContent = icon;
   resultTitle.textContent = title;
   
@@ -1139,4 +1163,58 @@ function handleSpecialEndingRewards(specialEnding) {
       console.log('Unknown special ending type:', specialEnding);
       return null;
   }
+}
+
+// Create confetti effect
+function createConfetti(type = 'ssr') {
+  const colors = type === 'ssr' 
+    ? ['#ffd700', '#ffed4e', '#ffb347', '#ff8c00', '#ff6347'] // Gold/orange for SSR
+    : ['#c0c0c0', '#e5e5e5', '#d3d3d3', '#a9a9a9', '#808080']; // Silver/gray for SR
+  
+  const shapes = ['★', '♦', '●', '◆', '♥', '♠', '♣', '✦', '✧', '✩'];
+  
+  for (let i = 0; i < 50; i++) {
+    setTimeout(() => {
+      const confetti = document.createElement('div');
+      confetti.className = 'confetti-piece';
+      confetti.textContent = shapes[Math.floor(Math.random() * shapes.length)];
+      confetti.style.cssText = `
+        position: fixed;
+        top: -10px;
+        left: ${Math.random() * 100}vw;
+        color: ${colors[Math.floor(Math.random() * colors.length)]};
+        font-size: ${Math.random() * 20 + 10}px;
+        font-weight: bold;
+        z-index: 10000;
+        pointer-events: none;
+        animation: confetti-fall ${Math.random() * 3 + 2}s linear forwards,
+                   confetti-spin ${Math.random() * 2 + 1}s linear infinite;
+        text-shadow: 0 0 5px currentColor;
+      `;
+      
+      document.body.appendChild(confetti);
+      
+      // Remove confetti after animation
+      setTimeout(() => {
+        if (confetti.parentNode) {
+          confetti.parentNode.removeChild(confetti);
+        }
+      }, 5000);
+    }, i * 50);
+  }
+}
+
+// Highlight SR/SSR text in content
+function highlightSpecialEndingText(content, specialEnding) {
+  if (!specialEnding) return content;
+  
+  let highlightedContent = content;
+  
+  if (specialEnding === 'SR') {
+    highlightedContent = content.replace(/\bSR\b/g, '<span class="sr-highlight">SR</span>');
+  } else if (specialEnding === 'SSR') {
+    highlightedContent = content.replace(/\bSSR\b/g, '<span class="ssr-highlight">SSR</span>');
+  }
+  
+  return highlightedContent;
 }
