@@ -512,10 +512,15 @@ function updateGameDisplay() {
     backtrackBtn.disabled = true;
     backtrackBtn.textContent = '返回上一题';
   } else if (isEndingWithApplicableTool) {
-    // For ending nodes with applicable tools, disable the header backtrack button
-    // since we have dedicated buttons in the story actions
-    backtrackBtn.disabled = true;
-    backtrackBtn.textContent = '返回上一题';
+    // For ending nodes with applicable tools, keep the header backtrack button enabled
+    // since users can choose between tool usage and regular backtrack
+    if (gameState.lifePoints <= 0) {
+      backtrackBtn.disabled = true;
+      backtrackBtn.textContent = '生命值不足';
+    } else {
+      backtrackBtn.disabled = false;
+      backtrackBtn.textContent = '返回上一题（消耗1生命值）';
+    }
   } else if (isContinueOnly) {
     // Continue-only nodes can always go back without consuming life points
     backtrackBtn.disabled = false;
