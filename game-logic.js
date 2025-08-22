@@ -148,8 +148,7 @@ function useToolsToAvoidLifeDeduction(bonusMessage) {
     saveGame();
     updateToolsGrid();
     updateToolsButton();
-    showToast('道具使用', `自动使用 ${usedTool.title} 避免生命值损失！`);
-    return true; // Tool was used successfully
+    return usedTool.title; // Return the name of the used tool
   }
   
   console.log('No available tools found to use');
@@ -633,7 +632,7 @@ async function showBonusPopup(choice) {
   // Set up confirm button handler
   confirmBtn.onclick = async () => {
     closeModal('bonusModal');
-    await proceedWithChoice(choice);
+    await processBonusAndShowResult(choice);
   };
   
   // Show the bonus modal
@@ -667,24 +666,170 @@ async function showEndingBonusPopup(node) {
   // Set up confirm button handler for ending bonus
   confirmBtn.onclick = async () => {
     closeModal('bonusModal');
-    
-    // Add ending bonus to claimedBonus to prevent duplicate claims
-    const endingBonusKey = `ending_${gameState.currentChapter}`;
-    if (!gameState.claimedBonus.includes(endingBonusKey)) {
-      gameState.claimedBonus.push(endingBonusKey);
-    }
-    
-    // Handle special ending rewards when user accepts the bonus
-    if (node.specialEnding) {
-      handleSpecialEndingRewards(node.specialEnding);
-    }
-    
-    // Reload the current ending node (go back to the ending)
-    await loadCurrentStory();
+    await processEndingBonusAndShowResult(node);
   };
   
   // Show the bonus modal
   openModal('bonusModal');
+}
+
+async function processBonusAndShowResult(choice) {
+  let resultMessage = '';
+  let resultIcon = '🎁';
+  let resultTitle = '结果';
+  let usedTool = null;
+  
+  // Handle life point changes if bonus exists
+  if (choice.bonus) {
+    // Add to claimedBonus to prevent duplicate claims
+    const bonusKey = `${gameState.currentChapter}_${choice.text}`;
+    if (!gameState.claimedBonus.includes(bonusKey)) {
+      gameState.claimedBonus.push(bonusKey);
+    }
+    
+    if (choice.bonus.includes('加1点生命值')) {
+      gameState.lifePoints += 1;
+      resultMessage = '生命值 +1！';
+      resultIcon = '❤️';
+      resultTitle = '生命值增加';
+    } else if (choice.bonus.includes('减1点生命值')) {
+      // Check if tools can be used to avoid life point deduction
+      const usedToolName = useToolsToAvoidLifeDeduction(choice.bonus);
+      if (usedToolName) {
+        // Tool was used to avoid life point deduction
+        resultMessage = `使用道具"${usedToolName}"避免了生命值损失！`;
+        resultIcon = '🔮';
+        resultTitle = '道具使用';
+      } else {
+        // No tool was used, so deduct life point
+        gameState.lifePoints -= 1;
+        resultMessage = '生命值 -1！';
+        resultIcon = '💔';
+        resultTitle = '生命值减少';
+      }
+    }
+  }
+  
+  // Handle tool collection if tool exists
+  if (choice.tool) {
+    addTool(choice.tool);
+    if (!resultMessage) {
+      resultMessage = `获得道具：${choice.tool.title}！`;
+      resultIcon = '🔮';
+      resultTitle = '道具获得';
+    }
+  }
+  
+  // Show result popup if there's a result to show
+  if (resultMessage) {
+    await showResultPopup(resultMessage, resultIcon, resultTitle, choice);
+  } else {
+    // No result to show, proceed directly
+    await proceedWithChoice(choice);
+  }
+}
+
+async function processEndingBonusAndShowResult(node) {
+  let resultMessage = '';
+  let resultIcon = '🎁';
+  let resultTitle = '结局奖励';
+  
+  // Add ending bonus to claimedBonus to prevent duplicate claims
+  const endingBonusKey = `ending_${gameState.currentChapter}`;
+  if (!gameState.claimedBonus.includes(endingBonusKey)) {
+    gameState.claimedBonus.push(endingBonusKey);
+  }
+  
+  // Handle life point changes if bonus exists
+  if (node.bonus) {
+    if (node.bonus.includes('加1点生命值')) {
+      gameState.lifePoints += 1;
+      resultMessage = '生命值 +1！';
+      resultIcon = '❤️';
+      resultTitle = '生命值增加';
+    } else if (node.bonus.includes('减1点生命值')) {
+      // Check if tools can be used to avoid life point deduction
+      const usedToolName = useToolsToAvoidLifeDeduction(node.bonus);
+      if (usedToolName) {
+        // Tool was used to avoid life point deduction
+        resultMessage = `使用道具"${usedToolName}"避免了生命值损失！`;
+        resultIcon = '🔮';
+        resultTitle = '道具使用';
+      } else {
+        // No tool was used, so deduct life point
+        gameState.lifePoints -= 1;
+        resultMessage = '生命值 -1！';
+        resultIcon = '💔';
+        resultTitle = '生命值减少';
+      }
+    } else if (node.bonus.includes('传送卡')) {
+      gameState.transportCards += 1;
+      resultMessage = '传送卡 +1！';
+      resultIcon = '↻';
+      resultTitle = '传送卡增加';
+    }
+  }
+  
+  // Handle special ending rewards
+  if (node.specialEnding) {
+    const specialReward = handleSpecialEndingRewards(node.specialEnding);
+    if (specialReward) {
+      resultMessage = specialReward;
+      resultIcon = '🏆';
+      resultTitle = '特殊结局奖励';
+    }
+  }
+  
+  // Show result popup if there's a result to show
+  if (resultMessage) {
+    await showEndingResultPopup(resultMessage, resultIcon, resultTitle);
+  } else {
+    // No result to show, reload the current ending node
+    await loadCurrentStory();
+  }
+}
+
+async function showEndingResultPopup(message, icon, title) {
+  const resultMessage = document.getElementById('resultMessage');
+  const resultIcon = document.getElementById('resultIcon');
+  const resultTitle = document.getElementById('resultTitle');
+  const confirmBtn = document.getElementById('confirmResultBtn');
+  
+  // Set result content
+  resultMessage.textContent = message;
+  resultIcon.textContent = icon;
+  resultTitle.textContent = title;
+  
+  // Set up confirm button handler
+  confirmBtn.onclick = async () => {
+    closeModal('resultModal');
+    // Reload the current ending node (go back to the ending)
+    await loadCurrentStory();
+  };
+  
+  // Show the result modal
+  openModal('resultModal');
+}
+
+async function showResultPopup(message, icon, title, choice) {
+  const resultMessage = document.getElementById('resultMessage');
+  const resultIcon = document.getElementById('resultIcon');
+  const resultTitle = document.getElementById('resultTitle');
+  const confirmBtn = document.getElementById('confirmResultBtn');
+  
+  // Set result content
+  resultMessage.textContent = message;
+  resultIcon.textContent = icon;
+  resultTitle.textContent = title;
+  
+  // Set up confirm button handler
+  confirmBtn.onclick = async () => {
+    closeModal('resultModal');
+    await proceedWithChoice(choice);
+  };
+  
+  // Show the result modal
+  openModal('resultModal');
 }
 
 async function proceedWithChoice(choice) {
@@ -699,31 +844,6 @@ async function proceedWithChoice(choice) {
     action: choice.action,
     text: choice.text
   });
-  
-  // Handle life point changes if bonus exists
-  if (choice.bonus) {
-    // Add to claimedBonus to prevent duplicate claims
-    const bonusKey = `${gameState.currentChapter}_${choice.text}`;
-    if (!gameState.claimedBonus.includes(bonusKey)) {
-      gameState.claimedBonus.push(bonusKey);
-    }
-    
-    if (choice.bonus.includes('加1点生命值')) {
-      gameState.lifePoints += 1;
-    } else if (choice.bonus.includes('减1点生命值')) {
-      // Check if tools can be used to avoid life point deduction
-      const toolUsed = useToolsToAvoidLifeDeduction(choice.bonus);
-      if (!toolUsed) {
-        // No tool was used, so deduct life point
-        gameState.lifePoints -= 1;
-      }
-    }
-  }
-  
-  // Handle tool collection if tool exists
-  if (choice.tool) {
-    addTool(choice.tool);
-  }
   
   // Update state
   gameState.previousNode = gameState.currentChapter;
@@ -793,6 +913,8 @@ function openModal(modalId) {
     updateToolsGrid();
   } else if (modalId === 'bonusModal') {
     // Bonus modal doesn't need additional setup
+  } else if (modalId === 'resultModal') {
+    // Result modal doesn't need additional setup
   }
 }
 
@@ -1007,15 +1129,14 @@ function handleSpecialEndingRewards(specialEnding) {
     case "SR":
       // SR ending: increment transport card by 1
       gameState.transportCards += 1;
-      showToast('特殊结局奖励', '获得SR结局！传送卡 +1', 'success');
-      break;
+      return '获得SR结局！传送卡 +1';
     case "SSR":
       // SSR ending: increment transport card by 1 and life points by 2
       gameState.transportCards += 1;
       gameState.lifePoints += 2;
-      showToast('特殊结局奖励', '获得SSR结局！传送卡 +1，生命值 +2', 'success');
-      break;
+      return '获得SSR结局！传送卡 +1，生命值 +2';
     default:
       console.log('Unknown special ending type:', specialEnding);
+      return null;
   }
 }
