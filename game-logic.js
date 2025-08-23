@@ -368,7 +368,18 @@ async function showGame() {
   gameScreen.classList.add('active');
   updateGameDisplay();
   updateToolsButton();
+  
+  // Ensure game state is fully loaded before loading story
+  console.log('Game state before loading story:', gameState);
+  console.log('ClaimedBonus array before loading story:', gameState.claimedBonus);
+  
   await loadCurrentStory();
+  
+  // Add a small delay to ensure everything is loaded before checking bonuses
+  setTimeout(() => {
+    console.log('Final game state check:', gameState);
+    console.log('Final claimedBonus check:', gameState.claimedBonus);
+  }, 200);
 }
 
 function showLoading(show = true) {
@@ -443,6 +454,7 @@ async function handleLogin() {
     }
     
     console.log('Game state loaded:', gameState);
+    console.log('ClaimedBonus array after login:', gameState.claimedBonus);
     
     // Save to localStorage for immediate access
     storageService.saveToLocal(CONFIG.STORAGE_KEYS.CURRENT_GAME, gameState);
@@ -669,14 +681,36 @@ async function loadCurrentStory() {
     
     // Show bonus popup for ending nodes with bonus messages
     if (node.bonus) {
-      // Check if this ending bonus has already been claimed
-      const endingBonusKey = `ending_${gameState.currentChapter}`;
-      if (!gameState.claimedBonus.includes(endingBonusKey)) {
-        // Wait a reasonable amount of time before showing the bonus popup
-        setTimeout(() => {
-          showEndingBonusPopup(node);
-        }, 1500); // 1.5 seconds delay
-      }
+      // Add a small delay to ensure game state is fully loaded
+      setTimeout(() => {
+        // Check if this ending bonus has already been claimed
+        const endingBonusKey = `ending_${gameState.currentChapter}`;
+        console.log('Checking ending bonus:', endingBonusKey);
+        console.log('Current claimedBonus array:', gameState.claimedBonus);
+        console.log('ClaimedBonus array type:', typeof gameState.claimedBonus);
+        console.log('ClaimedBonus array length:', gameState.claimedBonus ? gameState.claimedBonus.length : 'undefined');
+        console.log('Is bonus already claimed?', gameState.claimedBonus.includes(endingBonusKey));
+        
+        // Additional debugging: check each item in the array
+        if (Array.isArray(gameState.claimedBonus)) {
+          console.log('ClaimedBonus items:', gameState.claimedBonus.map((item, index) => 
+            `[${index}]: "${item}" (${typeof item})`
+          ));
+        }
+        
+        // More robust check for claimed bonus
+        const isAlreadyClaimed = Array.isArray(gameState.claimedBonus) && 
+          gameState.claimedBonus.some(item => String(item) === String(endingBonusKey));
+        
+        if (!isAlreadyClaimed) {
+          // Wait a reasonable amount of time before showing the bonus popup
+          setTimeout(() => {
+            showEndingBonusPopup(node);
+          }, 1500); // 1.5 seconds delay
+        } else {
+          console.log('Bonus already claimed, skipping popup');
+        }
+      }, 100); // Small delay to ensure game state is fully loaded
     }
   }
   

@@ -237,18 +237,21 @@ class StorageService {
         return { user, gameState };
       }
 
-      // Load game state from localStorage
-      let gameState = this.loadFromLocal(`${CONFIG.STORAGE_KEYS.GAME_STATE_PREFIX}${user.id}`);
-
-      // If local game state missing, attempt to load from Azure as fallback
+      // Always try to load the latest game state from Azure to ensure we have the most up-to-date data
+      let gameState = await this.loadGameStateFromAzure(user.id);
+      console.log('Loaded game state from Azure:', gameState);
+      
+      // If Azure load fails, fall back to localStorage
       if (!gameState) {
-        const azureGameState = await this.loadGameStateFromAzure(user.id);
-        if (azureGameState) {
-          gameState = azureGameState;
-          this.saveToLocal(`${CONFIG.STORAGE_KEYS.GAME_STATE_PREFIX}${user.id}`, gameState);
-        } else {
+        gameState = this.loadFromLocal(`${CONFIG.STORAGE_KEYS.GAME_STATE_PREFIX}${user.id}`);
+        console.log('Loaded game state from localStorage:', gameState);
+        if (!gameState) {
           throw new Error('Game state not found');
         }
+      } else {
+        // Update localStorage with the latest server state
+        this.saveToLocal(`${CONFIG.STORAGE_KEYS.GAME_STATE_PREFIX}${user.id}`, gameState);
+        console.log('Updated localStorage with server state');
       }
       
       this.currentUser = user;
@@ -476,7 +479,8 @@ class StorageService {
   // NEW: normalize server-side game state to client-side shape
   _normalizeServerGameState(serverState) {
     if (!serverState || typeof serverState !== 'object') return null;
-    return {
+    
+    const normalizedState = {
       currentChapter: String(serverState.currentChapter ?? CONFIG.STARTING_CHAPTER),
       lifePoints: Number.isFinite(serverState.lifePoints) ? serverState.lifePoints : CONFIG.INITIAL_LIFE_POINTS,
       transportCards: Number.isFinite(serverState.backtrackPoints) ? serverState.backtrackPoints : CONFIG.INITIAL_TRANSPORT_CARDS,
@@ -489,6 +493,12 @@ class StorageService {
       gameOver: !!serverState.gameOver,
       version: serverState.version || '1.0'
     };
+    
+    console.log('Normalized server state:', normalizedState);
+    console.log('Original claimedBonus:', serverState.claimedBonus);
+    console.log('Normalized claimedBonus:', normalizedState.claimedBonus);
+    
+    return normalizedState;
   }
 
   // NEW: helper to fetch canonical user id (and server game state) via backend login
