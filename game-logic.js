@@ -905,11 +905,6 @@ async function processEndingBonusAndShowResult(node) {
         resultIcon = '💔';
         resultTitle = '生命值减少';
       }
-    } else if (node.bonus.includes('传送卡')) {
-      gameState.transportCards += 1;
-      resultMessage = '传送卡 +1！';
-      resultIcon = '↻';
-      resultTitle = '传送卡增加';
     }
   }
   
