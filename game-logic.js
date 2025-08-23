@@ -1150,9 +1150,22 @@ function updateEndingsGrid() {
     } else {
       card.classList.add('locked');
     }
+    
     // Always show title per request
     const title = node?.title ? `结局 ${n}：${node.title}` : `结局 ${n}`;
-    card.innerHTML = `<div class="map-node-title">${title}</div>`;
+    
+    // Add SR/SSR icon if the ending is unlocked and has special ending type
+    let specialEndingIcon = '';
+    if (unlocked.has(id) && node?.specialEnding) {
+      const iconClass = node.specialEnding === 'SR' ? 'sr-icon' : 'ssr-icon';
+      const iconText = node.specialEnding === 'SR' ? 'SR' : 'SSR';
+      specialEndingIcon = `<div class="${iconClass}">${iconText}</div>`;
+    }
+    
+    card.innerHTML = `
+      <div class="map-node-title">${title}</div>
+      ${specialEndingIcon}
+    `;
     container.appendChild(card);
   });
 }
