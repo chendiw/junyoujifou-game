@@ -875,8 +875,11 @@ async function processEndingBonusAndShowResult(node) {
     showToast(resultTitle, resultMessage, 'success');
   }
   
-  // Reload immediately without delay
-  await loadCurrentStory();
+  // Save game state to persist the claimed bonus
+  saveGame();
+  
+  // Don't reload the story since we're already on the ending page
+  // The bonus has been processed and the display updated
 }
 
 
