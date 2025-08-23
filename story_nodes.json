@@ -4095,8 +4095,7 @@
       {
         "text": "c. 被他们的爱情折服",
         "action": "moved_by_love",
-        "nextNode": "ending_love_guardian",
-        "bonus": "你不是组织称职的保镖，却实在是个优秀的爱情保镖。你值得看到更多，加1张传送卡"
+        "nextNode": "ending_love_guardian"
       }
     ]
   },
