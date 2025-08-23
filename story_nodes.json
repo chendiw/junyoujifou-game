@@ -300,12 +300,7 @@
       {
         "text": "c. 招呼排在前面的兄弟",
         "action": "call_guard",
-        "nextNode": "ending_guard_kill",
-        "bonus": "\"你谁啊？\"前面的人明显不认识你，你意识到事情不对，以最快速度逃走，减1点生命值。",
-        "tool": {
-          "title": "楚明允的欣赏",
-          "content": "可助您在楚明允手下存活一次"
-        }
+        "nextNode": "ending_guard_kill"
       }
     ]
   },
