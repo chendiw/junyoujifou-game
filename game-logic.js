@@ -12,6 +12,9 @@ let gameState = {
   claimedBonus: [] // Add claimedBonus array to track claimed bonuses
 };
 
+// Global flag to prevent multiple bonus popups from being scheduled
+let bonusPopupScheduled = false;
+
 // DOM Elements
 const loginScreen = document.getElementById('loginScreen');
 const gameScreen = document.getElementById('gameScreen');
@@ -702,13 +705,21 @@ async function loadCurrentStory() {
         const isAlreadyClaimed = Array.isArray(gameState.claimedBonus) && 
           gameState.claimedBonus.some(item => String(item) === String(endingBonusKey));
         
-        if (!isAlreadyClaimed) {
+        // Check if popup is already scheduled to prevent multiple popups
+        if (!isAlreadyClaimed && !bonusPopupScheduled) {
+          // Mark that a popup is scheduled to prevent duplicates
+          bonusPopupScheduled = true;
+          
           // Wait a reasonable amount of time before showing the bonus popup
           setTimeout(() => {
             showEndingBonusPopup(node);
+            // Reset the flag after showing the popup
+            bonusPopupScheduled = false;
           }, 1500); // 1.5 seconds delay
-        } else {
+        } else if (isAlreadyClaimed) {
           console.log('Bonus already claimed, skipping popup');
+        } else if (bonusPopupScheduled) {
+          console.log('Bonus popup already scheduled, skipping duplicate');
         }
       }, 100); // Small delay to ensure game state is fully loaded
     }
@@ -877,6 +888,9 @@ async function processEndingBonusAndShowResult(node) {
   let resultIcon = '🎁';
   let resultTitle = '结局奖励';
   
+  // Reset the popup scheduled flag since the bonus is being processed
+  bonusPopupScheduled = false;
+  
   // Add ending bonus to claimedBonus to prevent duplicate claims
   const endingBonusKey = `ending_${gameState.currentChapter}`;
   if (!gameState.claimedBonus.includes(endingBonusKey)) {
@@ -1029,6 +1043,11 @@ function openModal(modalId) {
 function closeModal(modalId) {
   const modal = document.getElementById(modalId);
   modal.classList.remove('active');
+  
+  // Reset bonus popup flag if bonus modal is closed without confirmation
+  if (modalId === 'bonusModal') {
+    bonusPopupScheduled = false;
+  }
 }
 
 function updateStoryMap() {
@@ -1148,6 +1167,9 @@ async function handleRestart() {
   gameState.unlockedEndings = []; // Clear unlocked endings
   gameState.tools = []; // Clear tools collection
   gameState.claimedBonus = []; // Clear claimed bonuses
+  
+  // Reset bonus popup flag
+  bonusPopupScheduled = false;
 
   saveGame();
   updateToolsButton();
