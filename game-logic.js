@@ -151,32 +151,59 @@ function addTool(tool) {
 function extractToolNamesFromBonus(bonusMessage) {
   const toolNames = [];
   // Look for patterns like "道具\"楚明允的欣赏\"" or "道具\"苏世誉的欣赏\""
-  const toolPattern = /道具["""]([^"""]+)["""]/g;
+  // Updated pattern to handle escaped quotes properly
+  const toolPattern = /道具\\"([^\\"]+)\\"/g;
   let match;
   
+  console.log('Extracting tools from bonus message:', bonusMessage);
+  
   while ((match = toolPattern.exec(bonusMessage)) !== null) {
+    console.log('Found tool match:', match[1]);
     toolNames.push(match[1]);
   }
   
+  console.log('Extracted tool names:', toolNames);
   return toolNames;
 }
+
+// Test function for debugging tool extraction
+window.testToolExtraction = function(bonusMessage) {
+  console.log('Testing tool extraction with:', bonusMessage);
+  const toolNames = extractToolNamesFromBonus(bonusMessage);
+  console.log('Result:', toolNames);
+  return toolNames;
+};
 
 // Function to automatically use tools to avoid life point deduction
 function useToolsToAvoidLifeDeduction(bonusMessage) {
   const toolNames = extractToolNamesFromBonus(bonusMessage);
   console.log('Extracted tool names from bonus:', toolNames);
+  console.log('Available tools in inventory:', gameState.tools.map(t => `${t.title} (count: ${t.count})`));
   
   let usedTool = null;
   
   // Check if any of the mentioned tools are available
   for (const toolName of toolNames) {
+    console.log(`Looking for tool: "${toolName}"`);
     const tool = gameState.tools.find(t => t.title === toolName && t.count > 0);
     if (tool) {
+      console.log(`Found tool: ${tool.title} with count ${tool.count}`);
       // Use the first available tool
       tool.count -= 1;
       usedTool = tool;
       console.log(`Using tool: ${tool.title}, remaining count: ${tool.count}`);
+      
+      // Remove tool from array if count reaches 0
+      if (tool.count <= 0) {
+        const toolIndex = gameState.tools.indexOf(tool);
+        if (toolIndex > -1) {
+          gameState.tools.splice(toolIndex, 1);
+          console.log(`Removed tool: ${tool.title} from inventory`);
+        }
+      }
       break;
+    } else {
+      console.log(`Tool "${toolName}" not found or count is 0`);
     }
   }
   
