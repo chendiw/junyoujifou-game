@@ -1308,6 +1308,14 @@ function updateEndingsGrid() {
     .sort();
 
   const unlocked = new Set(Array.isArray(gameState.unlockedEndings) ? gameState.unlockedEndings : []);
+  
+  // Update progress note
+  const progressNote = document.getElementById('endingsProgressNote');
+  if (progressNote) {
+    const unlockedCount = unlocked.size;
+    const totalEndings = endingIds.length;
+    progressNote.textContent = `已解锁：${unlockedCount}/${totalEndings}`;
+  }
 
   endingIds.forEach(id => {
     const node = storyNodes[id];
@@ -1321,8 +1329,15 @@ function updateEndingsGrid() {
       card.classList.add('locked');
     }
     
-    // Always show title per request
-    const title = node?.title ? `结局 ${n}：${node.title}` : `结局 ${n}`;
+    // Show different titles based on unlock status
+    let title;
+    if (unlocked.has(id)) {
+      // Unlocked endings show full title
+      title = node?.title ? `结局 ${n}：${node.title}` : `结局 ${n}`;
+    } else {
+      // Locked endings show only number
+      title = `结局 ${n}`;
+    }
     
     // Add SR/SSR icon if the ending is unlocked and has special ending type
     let specialEndingIcon = '';

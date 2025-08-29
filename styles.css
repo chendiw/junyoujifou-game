@@ -988,6 +988,12 @@ body {
   cursor: not-allowed;
 }
 
+.map-node.locked .map-node-title {
+  filter: blur(4px);
+  color: var(--text-gray);
+  transition: filter 0.3s ease, color 0.3s ease;
+}
+
 .map-node.highlighted {
   position: relative;
 }
