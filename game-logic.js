@@ -1090,6 +1090,7 @@ function updateStoryMap() {
     
     const mapNode = document.createElement('div');
     mapNode.className = 'map-node';
+    mapNode.setAttribute('data-node-id', nodeId);
     
     // Add highlighted class for important nodes
     if (importantNodes.includes(nodeId)) {
@@ -1140,13 +1141,23 @@ function updateStoryMap() {
   
   // Auto-scroll to current node after map is rendered
   setTimeout(() => {
-    const currentMapNode = mapNodes.querySelector('.map-node.current');
-    if (currentMapNode) {
-      currentMapNode.scrollIntoView({
-        behavior: 'smooth',
-        block: 'center',
-        inline: 'center'
-      });
+    let targetNodeId = gameState.currentChapter;
+    
+    // If current node is an ending node, scroll to the previous node instead
+    if (targetNodeId.startsWith('ending_')) {
+      targetNodeId = gameState.previousNode;
+    }
+    
+    // Only scroll if we have a valid target node
+    if (targetNodeId) {
+      const targetMapNode = mapNodes.querySelector(`[data-node-id="${targetNodeId}"]`);
+      if (targetMapNode) {
+        targetMapNode.scrollIntoView({
+          behavior: 'smooth',
+          block: 'center',
+          inline: 'center'
+        });
+      }
     }
   }, 100); // Small delay to ensure DOM is fully rendered
 }
@@ -1303,6 +1314,7 @@ function updateEndingsGrid() {
     const n = getEndingNumber(id);
     const card = document.createElement('div');
     card.className = 'map-node';
+    card.setAttribute('data-ending-id', id);
     if (unlocked.has(id)) {
       card.classList.add('visited');
     } else {
@@ -1332,6 +1344,20 @@ function updateEndingsGrid() {
     
     container.appendChild(card);
   });
+  
+  // Auto-scroll to current ending node if user is on an ending node
+  setTimeout(() => {
+    if (gameState.currentChapter.startsWith('ending_')) {
+      const currentEndingNode = container.querySelector(`[data-ending-id="${gameState.currentChapter}"]`);
+      if (currentEndingNode) {
+        currentEndingNode.scrollIntoView({
+          behavior: 'smooth',
+          block: 'center',
+          inline: 'center'
+        });
+      }
+    }
+  }, 100); // Small delay to ensure DOM is fully rendered
 }
 
 function updateToolsButton() {
