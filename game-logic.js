@@ -1124,12 +1124,52 @@ function openTransportModal(nodeId) {
   
   document.getElementById('transportTarget').textContent = nodeName;
   
+  // Populate node preview section
+  populateNodePreview(nodeId);
+  
   const confirmBtn = document.getElementById('confirmTransportBtn');
   confirmBtn.onclick = () => {
     confirmTransport(nodeId);
   };
   
   openModal('transportModal');
+}
+
+function populateNodePreview(nodeId) {
+  const node = storyNodes[nodeId];
+  const previewContent = document.getElementById('nodePreviewContent');
+  
+  if (!node) {
+    previewContent.innerHTML = '<div class="no-choice-data">无法加载节点信息</div>';
+    return;
+  }
+  
+  // Find the player's choice for this node
+  const playerChoice = gameState.playerChoices.find(choice => choice.chapter === nodeId);
+  
+  let html = `
+    <div class="node-title">${node.title}</div>
+    <div class="node-text">${node.text}</div>
+    <div class="node-choices">
+  `;
+  
+  if (node.choices && node.choices.length > 0) {
+    node.choices.forEach(choice => {
+      const isPlayerChoice = playerChoice && playerChoice.action === choice.action;
+      const choiceClass = isPlayerChoice ? 'choice-item player-choice' : 'choice-item';
+      
+      html += `
+        <div class="${choiceClass}">
+          <div class="choice-text">${choice.text}</div>
+        </div>
+      `;
+    });
+  } else {
+    html += '<div class="no-choice-data">该节点没有选项</div>';
+  }
+  
+  html += '</div>';
+  previewContent.innerHTML = html;
 }
 
 async function confirmTransport(nodeId) {

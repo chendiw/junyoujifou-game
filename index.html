@@ -229,6 +229,15 @@
             <div class="modal-body">
                 <p>确定要使用传送卡跳转到 <span id="transportTarget"></span> 吗？</p>
                 <p class="warning">这将消耗1张传送卡</p>
+                
+                <!-- Node Preview Section -->
+                <div id="nodePreviewSection" class="node-preview-section">
+                    <h3>节点预览</h3>
+                    <div id="nodePreviewContent" class="node-preview-content">
+                        <!-- Node content and choices will be populated here -->
+                    </div>
+                </div>
+                
                 <div class="modal-actions">
                     <button id="confirmTransportBtn" class="btn btn-primary">确认使用</button>
                     <button onclick="closeModal('transportModal')" class="btn btn-secondary">取消</button>

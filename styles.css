@@ -630,8 +630,96 @@ body {
   }
   50% {
     border-color: var(--primary-orange);
-    box-shadow: 0 0 15px rgba(255, 165, 0, 0.4);
+    box-shadow: 0 0 15px rgba(255, 170, 68, 0.5);
   }
+}
+
+/* NODE PREVIEW STYLES */
+.node-preview-section {
+  margin: 20px 0;
+  border: 2px solid var(--border-glow);
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+}
+
+.node-preview-section h3 {
+  background: linear-gradient(90deg, rgba(255, 40, 80, 0.1) 0%, rgba(255, 40, 80, 0.05) 100%);
+  color: var(--primary-red);
+  text-shadow: 0 0 10px var(--primary-red);
+  padding: 12px 20px;
+  margin: 0;
+  border-bottom: 1px solid var(--border-glow);
+  font-size: 1.1rem;
+}
+
+.node-preview-content {
+  padding: 20px;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.node-preview-content .node-title {
+  color: var(--primary-blue);
+  text-shadow: 0 0 8px var(--primary-blue);
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 15px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.node-preview-content .node-text {
+  color: var(--text-light);
+  line-height: 1.6;
+  margin-bottom: 20px;
+  font-size: 0.95rem;
+}
+
+.node-preview-content .node-choices {
+  margin-top: 15px;
+}
+
+.node-preview-content .choice-item {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  padding: 12px 15px;
+  margin-bottom: 8px;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.node-preview-content .choice-item.player-choice {
+  background: linear-gradient(90deg, rgba(255, 40, 80, 0.2) 0%, rgba(255, 40, 80, 0.1) 100%);
+  border: 2px solid var(--primary-red);
+  box-shadow: 0 0 15px rgba(255, 40, 80, 0.3);
+}
+
+.node-preview-content .choice-item.player-choice::before {
+  content: "✓";
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--primary-red);
+  font-weight: bold;
+  font-size: 1.2rem;
+  text-shadow: 0 0 8px var(--primary-red);
+}
+
+.node-preview-content .choice-text {
+  color: var(--text-light);
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.node-preview-content .no-choice-data {
+  color: var(--text-gray);
+  font-style: italic;
+  text-align: center;
+  padding: 20px;
+  font-size: 0.9rem;
 }
 
 @keyframes bombShake {
