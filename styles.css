@@ -988,10 +988,17 @@ body {
   cursor: not-allowed;
 }
 
-.map-node.locked .map-node-title {
+/* Only apply blur effect to ending nodes that are locked */
+.map-node[data-ending-id].locked .map-node-title {
   filter: blur(4px);
   color: var(--text-gray);
   transition: filter 0.3s ease, color 0.3s ease;
+}
+
+/* Regular story map nodes should not have blur effect when locked */
+.map-node:not([data-ending-id]).locked .map-node-title {
+  color: var(--text-gray);
+  transition: color 0.3s ease;
 }
 
 .map-node.highlighted {
