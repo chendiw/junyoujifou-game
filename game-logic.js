@@ -1144,8 +1144,8 @@ function populateNodePreview(nodeId) {
     return;
   }
   
-  // Find the player's choice for this node
-  const playerChoice = gameState.playerChoices.find(choice => choice.chapter === nodeId);
+  // Find all player choices for this node
+  const playerChoices = gameState.playerChoices.filter(choice => choice.chapter === nodeId);
   
   let html = `
     <div class="node-title">${node.title}</div>
@@ -1155,7 +1155,8 @@ function populateNodePreview(nodeId) {
   
   if (node.choices && node.choices.length > 0) {
     node.choices.forEach(choice => {
-      const isPlayerChoice = playerChoice && playerChoice.action === choice.action;
+      // Check if this choice has been made by the player (could be multiple times)
+      const isPlayerChoice = playerChoices.some(playerChoice => playerChoice.action === choice.action);
       const choiceClass = isPlayerChoice ? 'choice-item player-choice' : 'choice-item';
       
       html += `
