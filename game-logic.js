@@ -613,6 +613,26 @@ async function loadCurrentStory() {
     return;
   }
   
+  // Track unlocked endings for ending nodes (needed for bonus popup logic)
+  let wasAlreadyUnlocked = false;
+  if (node.isEnding) {
+    if (!Array.isArray(gameState.unlockedEndings)) {
+      gameState.unlockedEndings = [];
+    }
+    const endingId = gameState.currentChapter;
+    wasAlreadyUnlocked = gameState.unlockedEndings.includes(endingId);
+    if (!wasAlreadyUnlocked) {
+      gameState.unlockedEndings.push(endingId);
+      saveGame();
+    }
+    
+    // Also add ending to visited nodes if not already there
+    if (!gameState.visitedNodes.includes(endingId)) {
+      gameState.visitedNodes.push(endingId);
+      saveGame();
+    }
+  }
+  
   // Display title without chapter number for regular nodes, show ending number and title for endings
   if (node.isEnding) {
     // Get ending number based on the order of ending nodes
@@ -628,22 +648,6 @@ async function loadCurrentStory() {
       // Confetti effect removed
     } else {
       storyText.innerHTML = node.text;
-    }
-    
-    // Track unlocked endings and add to visited nodes
-    if (!Array.isArray(gameState.unlockedEndings)) {
-      gameState.unlockedEndings = [];
-    }
-    const endingId = gameState.currentChapter;
-    if (!gameState.unlockedEndings.includes(endingId)) {
-      gameState.unlockedEndings.push(endingId);
-      saveGame();
-    }
-    
-    // Also add ending to visited nodes if not already there
-    if (!gameState.visitedNodes.includes(endingId)) {
-      gameState.visitedNodes.push(endingId);
-      saveGame();
     }
   } else {
     // Remove "第x章" prefix and just show the title
@@ -726,8 +730,12 @@ async function loadCurrentStory() {
         const isAlreadyClaimed = Array.isArray(gameState.claimedBonus) && 
           gameState.claimedBonus.some(item => String(item) === String(endingBonusKey));
         
+        // Check if ending was already unlocked before this visit (to prevent bonus popup after restart)
+        const isAlreadyUnlocked = wasAlreadyUnlocked;
+        console.log('Ending was already unlocked before this visit:', wasAlreadyUnlocked);
+        
         // Check if popup is already scheduled to prevent multiple popups
-        if (!isAlreadyClaimed && !bonusPopupScheduled) {
+        if (!isAlreadyClaimed && !isAlreadyUnlocked && !bonusPopupScheduled) {
           // Mark that a popup is scheduled to prevent duplicates
           bonusPopupScheduled = true;
           
@@ -739,6 +747,8 @@ async function loadCurrentStory() {
           }, 1500); // 1.5 seconds delay
         } else if (isAlreadyClaimed) {
           console.log('Bonus already claimed, skipping popup');
+        } else if (isAlreadyUnlocked) {
+          console.log('Ending already unlocked, skipping popup');
         } else if (bonusPopupScheduled) {
           console.log('Bonus popup already scheduled, skipping duplicate');
         }
