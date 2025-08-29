@@ -1116,6 +1116,18 @@ function updateStoryMap() {
     
     mapNodes.appendChild(mapNode);
   });
+  
+  // Auto-scroll to current node after map is rendered
+  setTimeout(() => {
+    const currentMapNode = mapNodes.querySelector('.map-node.current');
+    if (currentMapNode) {
+      currentMapNode.scrollIntoView({
+        behavior: 'smooth',
+        block: 'center',
+        inline: 'center'
+      });
+    }
+  }, 100); // Small delay to ensure DOM is fully rendered
 }
 
 function openTransportModal(nodeId) {
