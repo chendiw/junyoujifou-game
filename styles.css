@@ -696,17 +696,7 @@ body {
   box-shadow: 0 0 15px rgba(255, 40, 80, 0.3);
 }
 
-.node-preview-content .choice-item.player-choice::before {
-  content: "✓";
-  position: absolute;
-  right: 15px;
-  top: 50%;
-  transform: translateY(-50%);
-  color: var(--primary-red);
-  font-weight: bold;
-  font-size: 1.2rem;
-  text-shadow: 0 0 8px var(--primary-red);
-}
+
 
 .node-preview-content .choice-text {
   color: var(--text-light);
