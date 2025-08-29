@@ -9,7 +9,8 @@ let gameState = {
   previousNode: null,
   gameOver: false,
   tools: [], // Add tools collection to game state
-  claimedBonus: [] // Add claimedBonus array to track claimed bonuses
+  claimedBonus: [], // Add claimedBonus array to track claimed bonuses
+  unlockedEndings: [] // Add unlockedEndings array to track unlocked endings
 };
 
 // Global flag to prevent multiple bonus popups from being scheduled
@@ -352,6 +353,10 @@ async function checkSavedGame() {
       if (!Array.isArray(gameState.claimedBonus)) {
         gameState.claimedBonus = [];
       }
+      // Ensure unlockedEndings array exists for backward compatibility
+      if (!Array.isArray(gameState.unlockedEndings)) {
+        gameState.unlockedEndings = [];
+      }
       showGame();
       return;
     }
@@ -456,6 +461,11 @@ async function handleLogin() {
       gameState.claimedBonus = [];
     }
     
+    // Ensure unlockedEndings array exists for backward compatibility
+    if (!Array.isArray(gameState.unlockedEndings)) {
+      gameState.unlockedEndings = [];
+    }
+    
     console.log('Game state loaded:', gameState);
     console.log('ClaimedBonus array after login:', gameState.claimedBonus);
     
@@ -501,6 +511,11 @@ async function handleCreateAccount() {
     // Ensure claimedBonus array exists for new accounts
     if (!Array.isArray(gameState.claimedBonus)) {
       gameState.claimedBonus = [];
+    }
+    
+    // Ensure unlockedEndings array exists for new accounts
+    if (!Array.isArray(gameState.unlockedEndings)) {
+      gameState.unlockedEndings = [];
     }
     
     // Save to localStorage for immediate access
@@ -615,13 +630,19 @@ async function loadCurrentStory() {
       storyText.innerHTML = node.text;
     }
     
-    // Track unlocked endings
+    // Track unlocked endings and add to visited nodes
     if (!Array.isArray(gameState.unlockedEndings)) {
       gameState.unlockedEndings = [];
     }
     const endingId = gameState.currentChapter;
     if (!gameState.unlockedEndings.includes(endingId)) {
       gameState.unlockedEndings.push(endingId);
+      saveGame();
+    }
+    
+    // Also add ending to visited nodes if not already there
+    if (!gameState.visitedNodes.includes(endingId)) {
+      gameState.visitedNodes.push(endingId);
       saveGame();
     }
   } else {
@@ -1211,13 +1232,16 @@ async function confirmTransport(nodeId) {
 
 async function handleRestart() {
   // Always force a fresh start when user selects restart
+  // But preserve unlocked endings for persistent access
+  const preservedUnlockedEndings = [...(gameState.unlockedEndings || [])];
+  
   gameState.currentChapter = "1";
   gameState.playerChoices = [];
   gameState.previousNode = null;
   gameState.lifePoints = CONFIG.INITIAL_LIFE_POINTS;
   gameState.transportCards = CONFIG.INITIAL_TRANSPORT_CARDS;
   gameState.visitedNodes = ["1"]; // Clear unlocked nodes
-  gameState.unlockedEndings = []; // Clear unlocked endings
+  gameState.unlockedEndings = preservedUnlockedEndings; // Preserve unlocked endings
   gameState.tools = []; // Clear tools collection
   gameState.claimedBonus = []; // Clear claimed bonuses
   
@@ -1227,7 +1251,7 @@ async function handleRestart() {
   saveGame();
   updateToolsButton();
   await loadCurrentStory();
-  showToast('游戏重启', '游戏已重新开始，所有节点已重置，生命值和传送卡已恢复');
+  showToast('游戏重启', '游戏已重新开始，所有节点已重置，生命值和传送卡已恢复，已解锁的结局已保留');
 }
 
 // Close modals when clicking outside
@@ -1300,6 +1324,12 @@ function updateEndingsGrid() {
       <div class="map-node-title">${title}</div>
       ${specialEndingIcon}
     `;
+    
+    // Add click handler for ending preview
+    card.addEventListener('click', () => {
+      openEndingPreviewModal(id);
+    });
+    
     container.appendChild(card);
   });
 }
@@ -1412,6 +1442,33 @@ function highlightSpecialEndingText(content, specialEnding) {
   }
   
   return highlightedContent;
+}
+
+// Open ending preview modal
+function openEndingPreviewModal(endingId) {
+  const node = storyNodes[endingId];
+  if (!node) {
+    showToast('错误', '无法加载结局信息', 'error');
+    return;
+  }
+  
+  const endingNumber = getEndingNumber(endingId);
+  const endingTitle = document.getElementById('endingPreviewTitle');
+  const endingContent = document.getElementById('endingPreviewContent');
+  
+  if (endingTitle && endingContent) {
+    // Set title with ending number
+    endingTitle.textContent = `结局 ${endingNumber}：${node.title}`;
+    
+    // Set content with special ending highlighting if applicable
+    if (node.specialEnding) {
+      endingContent.innerHTML = highlightSpecialEndingText(node.text, node.specialEnding);
+    } else {
+      endingContent.innerHTML = node.text;
+    }
+    
+    openModal('endingPreviewModal');
+  }
 }
 
 // Bug Report Functions

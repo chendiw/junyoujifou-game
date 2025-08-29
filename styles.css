@@ -729,6 +729,15 @@ body {
   font-size: 0.9rem;
 }
 
+.ending-preview-content {
+  padding: 20px;
+  max-height: 400px;
+  overflow-y: auto;
+  color: var(--text-light);
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
 @keyframes bombShake {
   0%, 100% {
     transform: scale(1) rotate(0deg);
