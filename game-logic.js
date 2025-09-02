@@ -1362,10 +1362,15 @@ function updateEndingsGrid() {
       ${specialEndingIcon}
     `;
     
-    // Add click handler for ending preview
-    card.addEventListener('click', () => {
-      openEndingPreviewModal(id);
-    });
+    // Add click handler for ending preview (only for unlocked endings)
+    if (unlocked.has(id)) {
+      card.addEventListener('click', () => {
+        openEndingPreviewModal(id);
+      });
+    } else {
+      // Locked endings are not clickable
+      card.style.cursor = 'not-allowed';
+    }
     
     container.appendChild(card);
   });
