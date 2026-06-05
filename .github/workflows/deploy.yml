@@ -1,103 +1,36 @@
-name: Deploy to Azure Storage
+name: Deploy to GitHub Pages
 
 on:
   push:
     branches: [ main ]
-  pull_request:
-    branches: [ main ]
 
-env:
-  STORAGE_ACCOUNT_NAME: junyoujifou20250804
-  RESOURCE_GROUP: junyoujifou-game-rg
-  CDN_PROFILE: junyoujifou-cdn
-  CDN_ENDPOINT: junyoujifou-game
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
 
 jobs:
   deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
-    
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v4
-      
-    - name: Set up Azure CLI
-      uses: azure/login@v1
-      with:
-        creds: ${{ secrets.AZURE_CREDENTIALS }}
-        
-    - name: Deploy to Azure Storage
-      run: |
-        # Upload main HTML file
-        az storage blob upload \
-          --file index.html \
-          --container-name '$web' \
-          --name index.html \
-          --account-name $STORAGE_ACCOUNT_NAME \
-          --content-type "text/html" \
-          --overwrite
-          
-        # Upload CSS file
-        az storage blob upload \
-          --file styles.css \
-          --container-name '$web' \
-          --name styles.css \
-          --account-name $STORAGE_ACCOUNT_NAME \
-          --content-type "text/css" \
-          --overwrite
-          
-        # Upload essential JavaScript files
-        az storage blob upload \
-          --file game-logic.js \
-          --container-name '$web' \
-          --name game-logic.js \
-          --account-name $STORAGE_ACCOUNT_NAME \
-          --content-type "application/javascript" \
-          --overwrite
-          
-        az storage blob upload \
-          --file storage-service.js \
-          --container-name '$web' \
-          --name storage-service.js \
-          --account-name $STORAGE_ACCOUNT_NAME \
-          --content-type "application/javascript" \
-          --overwrite
-          
-        az storage blob upload \
-          --file game-data.js \
-          --container-name '$web' \
-          --name game-data.js \
-          --account-name $STORAGE_ACCOUNT_NAME \
-          --content-type "application/javascript" \
-          --overwrite
-          
-        az storage blob upload \
-          --file config.js \
-          --container-name '$web' \
-          --name config.js \
-          --account-name $STORAGE_ACCOUNT_NAME \
-          --content-type "application/javascript" \
-          --overwrite
-          
-        # Upload JSON file
-        az storage blob upload \
-          --file story_nodes.json \
-          --container-name '$web' \
-          --name story_nodes.json \
-          --account-name $STORAGE_ACCOUNT_NAME \
-          --content-type "application/json" \
-          --overwrite
-          
-    - name: Purge CDN cache
-      run: |
-        # Purge CDN cache to ensure latest content is served
-        az cdn endpoint purge \
-          --profile-name $CDN_PROFILE \
-          --name $CDN_ENDPOINT \
-          --resource-group $RESOURCE_GROUP \
-          --content-paths "/*"
-          
-    - name: Verify deployment
-      run: |
-        echo "Deployment completed successfully!"
-        echo "CDN URL: https://junyoujifou-game.azureedge.net/"
-        echo "Custom Domain: https://www.junyoujifou-game.live/ (when SSL is ready)" 
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v4
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: '.'
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
