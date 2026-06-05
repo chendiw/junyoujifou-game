@@ -1,7 +1,7 @@
 // Configuration for the game
 const CONFIG = {
   // Azure Function App URL - Update this with your actual Azure function URL
-  AZURE_BASE_URL: 'https://junyoujifou-game-functions.azurewebsites.net/api',
+  AZURE_BASE_URL: 'https://junyoujifou-functions.azurewebsites.net/api',
   
   // Sync interval in milliseconds (5 minutes)
   SYNC_INTERVAL: 2 * 60 * 1000,
